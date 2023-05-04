@@ -1,0 +1,1538 @@
+---
+title: 'Taking uncertainty in word embedding bias estimation seriously: a  bayesian
+  approach'
+author: "Alicja Dobrzeniecka and Rafal Urbaniak"
+output:
+  pdf_document:
+    number_sections: yes
+    df_print: kable
+    keep_tex: yes
+    includes:
+      in_header: Rafal_latex7.sty
+  html_document:
+    df_print: paged
+classoption: dvipsnames,enabledeprecatedfontcommands
+fontsize: 10pt
+documentclass: scrartcl
+urlcolor: blue
+bibliography: ../references/cosineReferences1.bib
+csl: ../references/transactions-on-computational-logic.csl
+---
+
+
+
+
+
+```{r, setup, include=FALSE}
+knitr::opts_knit$set(root.dir = '../')
+
+library(ggplot2)
+library(ggthemes)
+library(gridExtra)
+library(dplyr)
+library(kableExtra)
+library(tidyverse)
+library(magrittr)
+library(ggpubr)
+library(ggExtra)
+library(ggthemes)
+library(ggforce)
+library(latex2exp)
+library(Hmisc)
+library(grid)
+
+```
+
+
+
+
+
+
+# Introduction
+
+
+
+Natural language processing (NLP) models are used to perform various language-related tasks such as providing email filters, intelligent assistants, search results,  translations, text analysis and so on. Such tools require input words to be represented by numbers. This can be done with word embeddings, which represent words as vectors of real numbers.  A common way to construct an embedding is to use  a large natural language corpus to train  a  neural network to assign vectors to words that optimize for co-occurrence prediction accuracy. The vectors can then be compared in terms of their similarity -- the usual measure is cosine similarity -- and the results of such comparisons can be used in downstream tasks. Roughly speaking, cosine similarity is an imperfect mathematical proxy for semantic similarity [@Mikolov2013efficient].
+
+
+
+It has been suggested [@Bolukbasi2016man; @Caliskan2017semanticsBiases; @Gonen2019lipstick; @Lauscher2019multidimensional; @Garg2018years; @Manzini2019blackToCriminal]  that  such models can learn implicit biases that reflect harmful stereotypical thinking---for example,  the (vector corresponding to the) word \textit{she} might be  much closer in the vector space to  the word \textit{cooking} than  the word \textit{he}. Such phenomena may be undesirable at least  in some  downstream tasks, such as web search, recommendations, and so on. To investigate such issues, several measures of bias in word embeddings have been formulated and applied. Our goal is to use two prominent examples of such measures to argue that this approach oversimplifies the situation and to develop a Bayesian alternative.
+
+
+One response to the raising of the issue of bias in natural language models might be to say that there is not much point to reflecting on such biases, as they are  unavoidable. This unavoidability might seem in line with the arguments to the effect that learning algorithms are always value-laden [@JohnsonValueFree]: they employ inductive methods that require design-, data-, or risk-related decisions that have to be guided by extra-algorithmic considerations. Such choices necessarily involve value judgments and have to do, for instance, with what simplifications or risks one finds acceptable. 
+Admittedly, algorithmic decision making cannot fulfill the value-free ideal, but this only means that even more attention needs to be paid to the values underlying different techniques and decisions, and to the values being pursued in a particular use of an algorithm.
+
+
+
+Another response might be to insist that there is no bias introduced by the use of machine learning methods here, since the algorithm is simply learning to correctly predict co-occurrences based on what "reality" looks like. However, this objection overlooks the fact that we, humans, are the ones who construct this linguistic reality, is shaped in part by the natural language processing tools we use on a massive scale. Sure, if there is unfairness and our goal is to diagnose it, we should do complete justice to learning it in the model used in a study thereof. One example of this approach is [@Garg2017hundredYears]. However, if our goal is to develop downstream tools that perform tasks that we care about well without further perpetuating  or exacerbating harmful stereotypes, we still have good reasons to try to minimize the negative impact, at least as long as this does not damage the overall performance of the tool. Moreover, it is often not the case that the corpora mirror reality---to give a trivial example, heads are spoken of more often than kidneys, but this does not mean that kidneys occur much less often in reality than heads. To give a more relevant example, the disproportionate association of female words with female occupations in a corpus actually greatly exaggerates the actual lower disproportion in the real distribution of occupations. [@gordon2012reporting].
+
+
+
+
+In what follows, we focus on  two popular  measures of bias applicable to many existing word embeddings ( \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.} \emph{Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.} and \emph{Reddit Corpus}\footnote{The Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}): \emph{Word Embedding Association Test}  (WEAT) [@Caliskan2017semanticsBiases],  and \emph{Mean Average Cosine Distance} (MAC)  [@Manzini2019blackToCriminal].  We first explain how these measures are supposed to work. Then we argue that they are problematic for various reasons, a key one being that by pre-averaging data they manufacture false confidence, which we illustrate in terms of simulations showing that the measures often suggest the existence of bias even if by design it is non-existent in a simulated dataset. 
+
+We  propose to replace them with a Bayesian data analysis (hierarchical models), which not only provides more modest and realistic assessment of the uncertainty involved, but also allows for inspection at various levels of granularity. Once we introduce the method, we apply it to multiple word embeddings and results of supposed debiasing, putting forward some general observations that are not exactly in line with the usual picture painted in terms of WEAT or MAC (and the problem generalizes to any approach that focuses on chasing a single numeric metric): the word list sizes and sample sizes used in the studies are usually small,\footnote{Depending on a list for [@Caliskan2017semanticsBiases] the range for protected words is between 13 and 100, and for attributes between 16 and 25; for [@Manzini2019blackToCriminal] the range for protected words is between 14 and 18, and for attributes between 11 and 25}  posterior density intervals are fairly wide,   often the differences between associated, different and neutral human predicates, are not very impressive. Also, a preliminary inspection suggests that  the desirability of changes obtained by the usual debiasing methods is debatable. The tools that we have proposed, however, allow for a more fine-grained and multi-level evaluation of bias and debiasing in language models without abandoning modesty about the uncertainties involved.
+
+
+
+
+# Two measures of bias: WEAT and MAC
+
+Conceptually the idea is that if a particular harmful stereotype is learned in a particular embedding, then certain groups of words will be systematically closer to (or further from) each other. This gives rise to the idea of protected groups---for example, in guiding online search completion or recommendation, female words might require protection in that they should not be systematically closer to stereotypically female job names, and male words require protection in that they should not be systematically closer to toxic masculinity stereotypes, such as "tough", "never complaining" or "macho".^[However, for some research-related purposes, such as the study of stereotypes across history [@Garg2017hundredYears], embeddings which do not protect certain classes may also be useful.] 
+
+The key role in the measures to be discussed is played by the notion of cosine distance (or, symmetrically, by cosine similarity). These are defined as follows:^[Here, "$-$" stands for point-wise difference, "$\cdot$" stands for the dot product operation, and $\lVert a\rVert  = \sqrt{(a \cdot a)}$.]
+\begin{align} \tag{Sim}
+\mathsf{cosineSimilarity}(A,B) & = \frac{A \cdot B}{\lVert  A \rVert \,\lVert B \rVert}
+\\
+\tag{Distance}
+\mathsf{cosineDistance}(A,B) &  = 1 - \mathsf{cosineSimilarity}(A,B).
+\end{align}
+Note  that this terminology is slightly misleading, as mathematically cosine distance is not a distance measure, because it does not satisfy the triangle inequality, as generally $\mathsf{cosineDistance}(A,C) \not \leq \mathsf{cosineDistance}(A,B)+ \mathsf{cosineDistance}(B,C)$. We will keep using this mainstream terminology.
+
+One of the first measures of bias has been developed in [@Bolukbasi2016man].  The general idea is that a certain topic is associated with a vector of real numbers (the topic "direction"), and the bias of a word is investigated by considering the projection of its corresponding vector on this direction. For instance, in [@Bolukbasi2016man],   the gender direction $\mathsf{gd}$   is obtained by taking the differences of the vectors corresponding to ten different gendered pairs (such as $\overrightarrow{she} - \overrightarrow{he}$ or $\overrightarrow{girl} - \overrightarrow{boy}$), and then identifying their principal component.^[Roughly, the principal component  is the vector obtained by projecting the data points on their  linear combination in a way that maximizes the variance of the projections.]  The gender bias of a word $w$ is then understood as $w$'s projection on the gender direction: $\vec{w} \cdot gd$ (which, after normalizing by dividing by $\lVert  w \rVert \,\lVert \mathsf{gd} \rVert$, is the same as cosine similarity).  Given a list  $N$ of  supposedly gender neutral words,^[We follow the methodology used in the debate in assuming that there is a class of words  identified as more or less neutral, such as \emph{ballpark, eat, walk, sleep, table}, whose average similarity to the gender direction (or other protected words) is around 0. We will have more to say about this assumption when we describe our dataset construction.]  and the gender direction $\mathsf{gd}$,    the direct gender bias is defined as the average cosine similarity of the words in $N$ from $\mathsf{gd}$ ($c$ is a parameter determining how strict we want to be):
+\begin{align*}
+\mathsf{directBias_c(N,gd)} & = \frac{\sum_{w\in N}\vert \mathsf{cos}(\vec{w},\mathsf{gd})\vert^c}{\vert N \vert }
+\end{align*}
+\normalsize 
+
+The use of projections in bias estimation has been criticized for instance in [@Gonen2019lipstick], where it is pointed out that while a higher average similarity to the  gender direction might be an indicator of bias with respect to a given  class of words, but it is only one possible manifestation of it, and reducing the cosine similarity to such a projection may not be sufficient to eliminate bias. For instance, "math" and "delicate" might be equally similar to a pair of  opposed explicitly gendered words (\emph{she}, \emph{he}), while being closer to quite different stereotypical attribute words (such as \emph{scientific} or \emph{caring}). Further, it is observed in [@Gonen2019lipstick]  that most word pairs retain similarity under debiasing meant to minimize projection-based bias.^[In [@Bolukbasi2016man]  another method which involves analogies and their evaluations by human users on Mechanical Turk is also used. We do not discuss this method in this paper, see its  criticism in [@Nissim2020fair].]
+
+
+
+A measure of bias in word embeddings which does not employ similarities to  pre-calculated protected-class-level directions, the Word Embedding Association Test (WEAT), has been proposed in  [@Caliskan2017semanticsBiases]. The idea here is that the   bias between two sets of target words, $X$ and $Y$ (we call them protected words), should be quantified in terms of the cosine similarity  between the protected words and attribute words coming from  two sets of stereotype attribute words, $A$ and $B$ (we will call them attributes). For instance, $X$ might be a set of male names, $Y$ a set of female names, $A$ might contain stereotypically male-related, and $B$ stereotypically female-related career words. The association difference for a particular word $t$ (belonging to either $X$ or $Y$) is:
+
+\vspace{-2mm}
+
+\begin{align*}
+\mathsf{s}(t,A,B) & = \frac{\sum_{a\in A}\mathsf{cos}(t,a)}{\vert A\vert} - \frac{\sum_{b\in B}\mathsf{cos}(t,b)}{\vert B\vert}
+\end{align*}
+\normalsize
+\noindent then, the association difference between $A$ a $B$ is:
+
+\begin{align*}
+\mathsf{s}(X,Y,A,B) & = \sum_{x\in X} \mathsf{s}(x,A,B) -  \sum_{y\in Y} \mathsf{s}(y,A,B)
+\end{align*}
+
+
+\noindent The authors use it as a test statistic in some tests, and the assumption that $X$ and $Y$ are of the same size is necessary for the statistic to make sense. In the final measure (of effect size), WEAT, means are taken, which makes it insensitive to size differences between $X$ and $Y$:
+\begin{align}
+\mathsf{weat}(A,B) & = \frac{
+\mu(\{\mathsf{s}(x,A,B)\}_{x\in X}) -\mu(\{\mathsf{s}(y,A,B)\}_{y\in Y}) 
+}{
+\sigma(\{\mathsf{s}(w,A,B)\}_{w\in X\cup Y})
+}
+\end{align}
+
+
+ WEAT is inspired by  the Implicit Association Test (IAT) [@Nosek2002harvesting] used in psychology, and it uses almost the same word sets, allowing for a \emph{prima facie} sensible comparison with bias in humans. In  [@Caliskan2017semanticsBiases] the authors argue that significant biases---thus measured--- similar to the ones discovered by IAT can be discovered in word embeddings. In [@Lauscher2019multidimensional] the methodology is  extended to a multilingual and cross-lingual setting, arguing that using Euclidean distance instead of cosine similarity does not make much difference, while the bias effects vary greatly across embedding models (interestingly, with social media-text trained embeddings being less biased than those based on Wikipedia).
+ A similar methodology is employed in [@Garg2018years]. The authors employ word embeddings trained on corpora from different decades to study the shifts in various biases.^[Strictly speaking, these authors use Euclidean distances and their differences, but the way they take averages and averages thereof is analogous, and so what we will have to say about pre-averaging leading to false confidence applies to this methodology as well.]
+
+
+<!--  For instance, to compute the occupational embeddings bias for women the authors first compute the average vector of vector embeddings of words that represent women (e.g. \emph{she}, and \emph{female}), then calculate the Euclidean distance between this mean vector and words for occupations. Then they take the mean of these distances and subtract from it the analogously obtained mean for the average vector of vector embeddings of words that represent men. Formally they take the relative norm distance between $X$ and $Y$ to be: -->
+
+<!-- \vspace{-2mm} -->
+
+
+<!-- \footnotesize -->
+
+<!-- The effect size is computed by normalizing the difference in means as follows: -->
+
+<!-- \begin{align} -->
+<!-- \textsf{relative norm distance} & = \sum_{v_m\in M} \vert \vert v_m - v_X\vert \vert_2 - \vert v_m - v_Y\vert \vert_2 -->
+<!-- \end{align} -->
+
+<!-- \normalsize  -->
+
+<!-- \noindent where the norm used is Euclidean, and $v_X$ and $x_Y$ are average vectors for sets $X$ and $Y$ respectively.  -->
+<!-- ] -->
+
+<!-- \vspace{-2mm} -->
+
+
+
+
+WEAT, however, has been developed to investigate biases corresponding to a pair of supposedly opposing stereotypes, and so the question arises as to how generalize the measure to contexts in which biases with respect to more than two stereotypical groups are to be measured. Such a generalization can be found in [@Manzini2019blackToCriminal]. The authors introduce Mean Average Cosine distance (MAC) as a measure of bias. Let $T = \{t_1, \dots, t_k\}$ be a set of protected words, and let each $A_j\in \mathcal{A}$ be a set of attributes stereotypically associated with a protected word where $\mathcal{A}$.
+For instance, when biases related to religion are to be investigated, they use a dataset of the  format illustrated in Table \ref{tab:religionOriginal}. The measure is defined as follows:
+ 
+
+```{r religionTableHeadEarly,echo=FALSE,eval=FALSE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "80%"}
+religion <- read.csv("datasets/outdated/religionReddit.csv")[-c(1,6,7)]
+colnames(religion) <- c("protected words (T)","attributes","atrribute set (A~j)",
+                        "cosine distance")
+
+religionOriginal <- religion[!(religion$`atrtibute set (A~j)` %in% c("neutral","human")),]
+
+set.seed(22)
+religionSample <- sample_n(religionOriginal, size = 15)
+religionSample %>%  kable(format = "latex",booktabs=T,
+                          linesep = "",  escape = FALSE, 
+                          caption = "Sample 12 rows of the religion dataset.") %>%
+  kable_styling(latex_options=c("striped"))
+```
+
+\begin{table}
+\footnotesize
+
+\centering
+
+\begin{tabular}[t]{lllr}
+\toprule
+protected words ($T$) & attributes & attribute set ($A_j$) & cosine distance\\
+\midrule
+\cellcolor{gray!15}{rabbi} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{1.0306175}\\
+church & familial & christianStereotype & 0.7087424\\
+\cellcolor{gray!15}{synagogue} & \cellcolor{gray!15}{liberal} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{0.7922607}\\
+jew & familial & christianStereotype & 0.9783245\\
+\cellcolor{gray!15}{quran} & \cellcolor{gray!15}{dirty} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{1.1207093}\\
+muslim & uneducated & muslimStereotype & 0.5160429\\
+\cellcolor{gray!15}{torah} & \cellcolor{gray!15}{terrorist} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{0.9341137}\\
+quran & hairy & jewStereotype & 1.1764642\\
+\cellcolor{gray!15}{synagogue} & \cellcolor{gray!15}{violent} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{0.9549743}\\
+bible & cheap & jewStereotype & 1.2234364\\
+\cellcolor{gray!15}{christianity} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{0.9728545}\\
+muslim & hairy & jewStereotype & 0.8788219\\
+\cellcolor{gray!15}{islam} & \cellcolor{gray!15}{critical} & \cellcolor{gray!15}{christianStereotype} & \cellcolor{gray!15}{0.7880706}\\
+muslim & conservative & christianStereotype & 0.4453191\\
+\cellcolor{gray!15}{mosque} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{1.1541524}\\
+\bottomrule
+\end{tabular}
+
+\caption{Sample 15 rows of the religion dataset. The whole dataset has 15 unique protected words ($T$), and 11 unique attributes divided between 3 attribute sets ($A_1=\mathsf{jewStereotype}, A_2= \mathsf{christianStereotype}, A_3=\mathsf{muslimStereotype}$). $\mathcal{A}$ consists of these three sets, $\mathcal{A}= \{A_1, A_2, A_3\}$. The whole dataset has $15\times 11 = 165$ rows.}
+\label{tab:religionOriginal}
+\normalsize 
+\end{table}
+
+
+
+
+\begin{align*}
+\mathsf{s}(t, A_j) & = \frac{1}{\vert A_j\vert}\sum_{a\in A_j}\mathsf{cosineDistance}(t,a) \\
+\mathsf{mac}(T,\mathcal{A}) & = \frac{1}{\vert T \vert \,\vert \mathcal{A}\vert}\sum_{t \in T }\sum_{A_j \in \mathcal{A}}    \mathsf{s}(t,A_j)
+\end{align*}
+
+
+
+\noindent That is, for each  protected word $t\in T$, and each attribute set $A_j$, they first take the mean of distances for this protected word and all attributes in a given attribute class, and then take the mean of thus obtained means for all the protected words and all the protected classes.^[The authors'  code are in their github repository, [https://github.com/TManzini/DebiasMulticlassWordEmbedding](https://github.com/TManzini/DebiasMulticlassWordEmbedding).]
+
+
+
+
+
+
+Having introduced the measures,  first, we will introduce a selection of general problems with this approach, and then we will move on to more specific but important problems related to the fact that the measures take  averages and averages of averages. Once this is done, we move to the development of our Bayesian alternative and the presentation of its deployment. 
+
+
+<!-- WEAT will be useful in our criticism of the statistical methods involved, as it is simpler, so the explanation and visualizations will be more transparent (and \emph{mutatis mutandis} this criticism will apply to MAC as well), and MAC will be useful in the development of our alternative method as its range of applicability is the widest. -->
+
+
+# General methodological problems with cosine-based measures of bias
+
+
+Consider the MAC results from Table REF. Are the initial MAC values lower than 1 indicative of the presence of bias? Of course, thinking abstractly, 1 is the ideal distance for unrelated words. But clearly, there is variation in distances, which might lead to non-biased lists also having MAC smaller than 1. How much smaller? While the original paper did not employ control lists for comparison in the paper. To obtain a more realistic gauge on how to understand MAC values (and in further development of our approach), we introduced control word lists. One of them is a list of words we intuitively considered neutral (see REF in the APPENDIX). Moreover, it might be the case that words that have to do with human activities are systematically closer to the protected words than merely neutral words, for which reason we also use a second list with intuitively non-stereotypical human attributes (see REF in the APPENDIX). Another important observation is that in their calculations the authors do not distinguish whether a given  attribute is associated with a given protected word (e.g. protected word \emph{jew} and the attribute \emph{greedy}) or whether it is associated with a different stereotype from the same list (e.g. protected word \emph{quran} and the attribute \emph{greedy}), simply averaging across all such groups. 
+
+In Figure  \ref{fig:empirical} We look at the empirical distributions, while paying attention to such divisions. Horizontal lines represent 1-MAC values that the authors considered indicative of bias for stereotypes corresponding to  given  word lists. For instance, in religion, MAC was .859, so we plot $0\pm (1-.859)\approx .14$ lines around similarity = 0 (that is, distance = 1). Notice that most distributions are quite wide, and the proportions of even neutral or human neutral words with similarities higher than the value of 1-MAC deserving debiasing according to the authors is quite high.
+
+
+
+```{r cosineDistributions6b,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "75%"}
+
+genderGoogle <- read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1]
+genderReddit <-  read.csv("./datasets/macWeatDatasets/gender_group_reddit_dataset.csv")[,-1]
+genderGlove <- read.csv("./datasets/macWeatDatasets/gender_group_glove_dataset.csv")[,-1]
+
+raceGlove <-  read.csv("./datasets/macWeatDatasets/race_group_glove_dataset.csv")[,-1]
+raceGoogle <- read.csv("./datasets/macWeatDatasets/race_group_google_dataset.csv")[,-1]
+raceReddit <- read.csv("./datasets/macWeatDatasets/race_group_reddit_dataset.csv")[,-1]
+
+religionGlove <- read.csv("./datasets/macWeatDatasets/religion_group_glove_dataset.csv")[,-1]
+religionGoogle <- read.csv("./datasets/macWeatDatasets/religion_group_google_dataset.csv")[,-1]
+religionReddit <- read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1]
+
+debiasedGenderReddit <- read.csv("datasets/macWeatDatasets/debiased_gender_reddit.csv")[-1]
+debiasedRaceReddit <- read.csv("datasets/macWeatDatasets/debiased_race_reddit.csv")[-1]
+debiasedReligionReddit <- read.csv("datasets/macWeatDatasets/debiased_religion_reddit.csv")[-1]
+
+
+
+violinReligionReddit <- ggplot(religionReddit, aes(x = connection, y = cosine_similarity, fill = connection, color = connection))+
+  geom_violin(alpha = .5)+coord_flip()+
+  geom_vline(xintercept = .14) + geom_hline(yintercept = -.14, color = "grey") +
+  ylab("similarity")+theme_tufte(base_size = 10)+ geom_hline(yintercept = .14, color = "grey")+
+  labs(title =  "Religion (Reddit)", subtitle = "Empirical distribution of cosine similarities")+
+  geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  stat_summary(fun.data = "mean_cl_boot", fun.args = list(
+    conf.int = .95), geom = "pointrange",
+               colour = "black", size  = .2  )+
+  annotate(geom = "label", x = 4.2, y = 0, label = "56%")+
+  annotate(geom = "label", x = 3.2, y = 0, label = "55%")+
+  annotate(geom = "label", x = 2.2, y = 0, label = "43%")+
+  annotate(geom = "label", x = 1.2, y = 0, label = "36%")+
+  theme(plot.title.position = "plot",legend.position="top")
+
+
+
+violinGenderReddit <- ggplot(genderReddit, aes(x = connection, y = cosine_similarity, fill = connection, color = connection))+
+  geom_violin(alpha = .5)+coord_flip()+geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  geom_vline(xintercept = .38) + geom_hline(yintercept = -.38, color = "grey") +
+  ylab("similarity")+theme_tufte(base_size = 10)+ geom_hline(yintercept = .38, color = "grey")+
+  ggtitle("Gender: empirical distribution of cosine similarity")+
+  stat_summary(fun.data = "mean_cl_boot", fun.args = list(
+    conf.int = .95), geom = "pointrange",
+               colour = "black", size  = .2  )+
+  annotate(geom = "label", x = 4.2, y = 0, label = "96%")+
+  annotate(geom = "label", x = 3.2, y = 0, label = "87%")+
+  annotate(geom = "label", x = 2.2, y = 0, label = "53%")+
+  annotate(geom = "label", x = 1.2, y = 0, label = "47%")+
+  labs(title =  "Gender (Reddit)", subtitle = "Empirical distribution of cosine similarities")+
+  theme(plot.title.position = "plot",legend.position='none')
+
+
+violinRaceReddit <- ggplot(raceReddit, aes(x = connection, y = cosine_similarity, fill = connection, color = connection))+
+  geom_violin(alpha = .5)+coord_flip()+geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  geom_vline(xintercept = .11) + geom_hline(yintercept = -.11, color = "grey") +
+  ylab("similarity")+theme_tufte(base_size = 10)+ geom_hline(yintercept = .11, color = "grey")+
+   labs(title =  "Race (Reddit)", subtitle = "Empirical distribution of cosine similarities")+
+  stat_summary(fun.data = "mean_cl_boot", fun.args = list(
+    conf.int = .95), geom = "pointrange",
+               colour = "black", size  = .2  )+
+  annotate(geom = "label", x = 4.2, y = 0, label = "46%")+
+  annotate(geom = "label", x = 3.2, y = 0, label = "67%")+
+  annotate(geom = "label", x = 2.2, y = 0, label = "39%")+
+  annotate(geom = "label", x = 1.2, y = 0, label = "33%")+
+  theme(plot.title.position = "plot",legend.position='none')
+
+```
+\pagebreak
+
+\begin{figure}[H]
+```{r fig:cosineDistributions8b,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "70%", fig.height = 16}
+
+grid.arrange(violinReligionReddit, violinGenderReddit, violinRaceReddit, ncol = 1)
+
+```
+
+\caption{Empirical distributions of cosine similarities (1-distances) for three word lists used in  the original paper.  }
+
+\label{fig:empirical}
+\end{figure}
+
+
+One issue to consider is  the selection of attributes for bias measurement. The word lists used in the literature are often fairly small (5-50).
+
+
+While the papers do employ statistical tests to measure the uncertainty involved, we will later on argue that these method are not  proper for the goal at hand and  show that a more appropriate use of statistical methods leads to  estimates of uncertainty that are rather epistemologically pessimistic.  \todo{sensitivity to choice of words}
+
+Let's think about MAC, using the  case of religion-related stereotypes. The full lists from [@Manzini2019blackToCriminal] can be found in \ref{appendix:manzini_word_lists}. In the original paper,  words from all three religions were compared against all of the stereotypes. One reason this is problematic is that  no distinction between cases in which the stereotype is associated with a given religion, as opposed to the situation in which it is associated with another one, is made. This is problematic, as  not all of the stereotypical words have to be considered as harmful for all of the religions. One should investigate the religions separately as some of them may have stronger harmful associations that others.
+
+
+The interpretation of the results is also a challenge. In [@Manzini2019blackToCriminal] we can find  summaries of  average cosine distances per group (such as gender, race, or religion). For instance, for religion, here is the relevant fragment of table:
+
+
+
+<!-- Religion Debiasing  | MAC | p-value
+------------- | ------------- | -------
+Biased        | 0.859 | N/A
+Hard Debiased | 0.934 | 3.006e-07
+Soft Debiased ($\lambda$ = 0.2) | 0.894 | 0.007 -->
+
+
+\begin{table}
+\footnotesize
+
+\centering
+
+\begin{tabular}[t]{lllr}
+\toprule
+Religion Debiasing & MAC & a p-value \\
+\midrule
+\cellcolor{gray!15}{Biased} & \cellcolor{gray!15}{0.859} & \cellcolor{gray!15}{N/A} \\
+Hard Debiased & 0.934 & 3.006e-07\\
+\cellcolor{gray!15}{Soft Debiased ($\lambda$ = 0.2)} & \cellcolor{gray!15}{0.894} & \cellcolor{gray!15}{0.007} \\
+\bottomrule
+\end{tabular}
+
+\caption{The associated mean average cosine similarity
+(MAC) and p-values for debiasing methods for religious bias}
+\label{tab:religionOriginal2}
+\normalsize 
+\end{table}
+
+
+
+\noindent (MAC stand for mean average cosine similarity, although in reality the the table contains mean cosine distances). What may attract attention is the fact that the value of cosine distance in "Biased" category is already quite high (i.e. close to 1) even before debiasing. High cosine distance indicates low cosine similarity between values. One could think that average cosine similarity equal to approximately 0.141 is not significant enough to consider it as bias. However,  the authors still aim to mitigate such "bias"  to make the distance even larger. Methodologically the question is, on what basis is this small similarity still considered as a proof of the presence of bias, and whether these small changes are meaningful. 
+
+The underlying problem here is that in the paper there is no  control group.  One should also include control groups to have a way of comparing the  results for a supposedly stereotyped group with the results for sets of neutral or human-related neutral words. In our approach later on, we distinguish between stereotypes associated with a given group, stereotypes associated with different groups, and introduce control groups: neutral words and stereotype-free human predicates.
+
+
+
+
+<!-- One may consider the issue of the curse of dimensionality. In our case, the curse of dimensionality may take place when there is an increase in the volume of data that results in adding extra dimensions to the Euclidean space. As the number of features increases, it may be harder and harder to obtain useful information from the data using the available algorithms. Using cosine similarity in high dimensions in word embeddings may be prone to the curse of dimensionality. According to @Venkat2018Curse there are reasons to consider this phenomenon when searching for word similarities in higher dimensions. An experiment is conducted that aims at showing how the similarity values and variation change as the number of dimensions increases. The hypothesis made in the paper states that two things will happen as the number of dimensions increase. First, the effort required to measure cosine similarity will be greater, and two, the similarity between data will blur out and have less variation. The authors generate random points with increasing number of dimensions where each dimension of a data point is given a value between 0 and 1. Then they pick one vector at random from each dimension class and calculate the cosine similarity between the chosen vector and the rest of the data. Then they check how the variation of values changes as the number of dimensions increases. It seems like the more dimensions there are, the smaller the variance and therefore it is less obvious how to interpret the resulting cosine similarities. Maybe the scale should be adjusted to the number of dimensions and variance so that it still gives us sensible information about data. -->
+
+
+
+
+## Metrics that pre-average are a bad guide
+
+
+
+In contrast, statistical intervals will help us decide whether a given cosine similarity is high enough to consider the words to be more similar than if we chose them at random. We will use highest posterior density intervals, in line with Bayesian methodology. 
+
+
+Crucially, these approaches use  means of mean average cosine similarities to measure  similarity between protected word and harmful stereotypes. If one takes  a closer look at the individual values that are taken for the calculations, it turns out that there are quite a few  outliers and surprisingly dissimilar words. This problem becomes transparent when we examine the visualizations of the individual cosine distances, following the idea that one of the first steps in understanding data is to look at it.
+ 
+
+
+With such a method the uncertainty involved is not really considered which makes it even more difficult to give reasonable interpretations of the results. We propose the use of Bayesian method to obtain some understanding of the influence the uncertainty has on the interpretation of final results. 
+
+
+
+
+
+
+
+
+
+
+
+\noindent
+$s(X,Y,A,B)$ is the statistic used in the significance test, and the $p$-value is obtained by bootstrapping: it is the frequency of $s(X_i,Y_i,A,B)>s(X,Y,A,B)$ for all equally sized partitions $X_i, Y_i$ of $X\cup Y$. The effect size is computed by normalizing the difference in means as follows:
+
+\vspace{-2mm}
+
+\footnotesize 
+
+\begin{align}
+bias(A,B) & = \frac{
+\mu(\{s(x,A,B)\}_{x\in X}) -\mu(\{s(y,A,B)\}_{y\in Y}) 
+}{
+\sigma(\{s(w,A,B)\}_{w\in X\cup Y})
+}
+\end{align}
+
+\normalsize 
+
+
+The t-tests they employ are run on average cosines used to calculate MAC.
+
+
+#  Pre-averaging, bootstrapping and testing with the null model
+
+
+The effect sizes reported by [@Caliskan2017semanticsBiases] for lists of words for which the embeddings are supposedly biased range from 2.06 to 1.81, and the reported $p$-values are in the range of $10^{-7}-10^{-2}$ with one exception for Math vs arts, where it is $.018$. The question is, are those results meaningful?
+
+One way to answer this question is to think in terms of null models. If the words actually are samples from two populations with equal mean, how often would we see effect sizes in this range? How often would we reach the $p$-values that the authors reported? 
+
+We start our exploration with considering a list of 16 protected words, each class containing 8, with 16 attributes, 8 in each attribute class. In each particular sample we will investigate the consequence of the model being in fact null: we draw the cosine distances, every time, from the $\mathsf{Normal}(0,.08)$ distribution. $0.08$ is approximately the empirical standard deviation observed in fairly large samples of neutral words, and 16 is the sample size used in the WEAT7 word list, which is not much different from the other sample sizes in word lists used by [@Caliskan2017semanticsBiases]
+
+
+
+
+
+
+```{r CaliskanCalc2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "75%", warning = FALSE, message = FALSE}
+vectorMean <- function(vector){ sum(vector)/length(vector)}
+vectorSd <- function(vector) {
+     vmean <- vectorMean(vector)
+     return (sqrt(sum((vector - vmean)^2)/(length(vector))) )
+}
+
+set.seed(10232169)
+count <- 16
+randomizeDataset <- function(count = 16, mean = 0, sd = 0.08) {
+    tlist <- list()
+    for (t in 1:count) {
+                  tlist[[t]] <- data.frame(t = rep(t,count/2), A = 1:(count/2),
+                  Avalue  = rnorm(count/2,mean,sd), B = 1:(count/2),
+                  Bvalue = rnorm(count/2,mean,sd))
+                  }
+
+  tDF <- do.call(rbind,tlist)
+  tDF$target <- as.factor(ifelse(tDF$t <= (count/2), "X", "Y"))
+  tDF$t <- as.factor(tDF$t)
+  tDF$A <- as.factor(tDF$A)
+  tDF$B <- as.factor(tDF$B)
+
+  return(tDF)
+}
+  
+  
+tDF <- randomizeDataset()
+
+svalues <- numeric(count)
+for (term in 1:count){
+  svalues[term] <- vectorMean(tDF[tDF$t== term,]$Avalue) - 
+    vectorMean(tDF[tDF$t== term,]$Bvalue)
+}
+
+
+
+sDF <- data.frame(term = 1:count, s = svalues, 
+                  attribute = as.factor(c(rep("X", (count/2)), rep("Y", (count/2)))))
+
+
+testListX <- 1:(count/2)
+testListY <- (count/2+1):16
+
+testStatistic <- function (listX, listY){
+  sum(sDF[listX,]$s) -  sum(sDF[listY,]$s)
+      }
+
+ourStatistic <- testStatistic(testListX, testListY)
+
+
+effectSize <- function (listX, listY){
+  ( vectorMean(sDF[listX,]$s) -  vectorMean(sDF[listY,]$s) ) /
+     vectorSd(sDF$s)
+}
+
+ourEffectSize <- effectSize (testListX, testListY)
+
+
+combinations <- as.data.frame(t(combn(1:count, (count/2))))
+start_time <- Sys.time()
+for (row in 1:nrow(combinations)){
+  rowCodes <- as.integer(combinations[row,])
+  remainderCodes <- as.integer(1:count)[ !(1:count %in% rowCodes)]
+  combinations$statistic[row] <- testStatistic(rowCodes, remainderCodes)
+  combinations$es[row] <- effectSize(rowCodes, remainderCodes)
+}
+
+plotStat <- ggplot(combinations) + geom_density(aes(x = statistic))+
+geom_vline(xintercept = ourStatistic, linewidth = .5, 
+           lty = 2, alpha = .5)+theme_tufte(base_size = 10)+
+  theme(plot.title.position = "plot", axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank()) +
+  labs(title = "Boostrapped distribution of test statistics",
+       subtitle = "Random null model with N(0,.008) and n = 16")+
+   annotate("label", x = ourStatistic, y = 2,
+            label =  paste(round(ourStatistic,2),
+                           ", p=", 0.011, sep = ""), size = 3)+
+  xlim(-2,2)+xlab("test statistic")+ylab("density")
+
+plotEff <- ggplot(combinations) + geom_density(aes(x = es))+
+  xlab("effect size")+ylab("density")+
+  geom_vline(xintercept = ourEffectSize, linewidth = .5, 
+             lty = 2, alpha = .5)+theme_tufte(base_size = 10)+
+  theme(plot.title.position = "plot", axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank()) +
+  labs(title = "Boostrapped distribution of effect sizes",
+       subtitle = "Random null model with N(0,.008) and n = 16")+
+  annotate("label", x = ourEffectSize, y = .5,
+           label = paste(round(ourEffectSize,2),
+                         ", p=", 0.0086, sep = "" ), 
+           size = 3)+xlim(-2,2)
+
+plotCaliskanDist <- ggplot(tDF) + 
+  geom_point(aes(x = Avalue, y = Bvalue, color = target, shape = target
+                 ), size = 3, alpha = .8)+
+  theme_tufte(base_size = 10)+
+  ggtitle("Cosine distances by word group in  our null dataset")+
+  theme(plot.title.position = "plot", 
+        legend.position = c(0.08, 0.89),
+        legend.background = element_rect(fill="lightblue", 
+         size=0.01, linetype="solid"))
+ 
+```
+
+
+So let's draw one sample of this type. We calculate the s-values, the test statistics and the effect sizes. Then, following the original methodology, we obtain bootstrapped distributions of the effect sizes and the test statistics by calculating the same for each possible equal split of the initial random data set. The observed test statistic is `r ourStatistic` and `r ourEffectSize`. The bootstrapped distributions of the test statistics and effect sizes are illustrated in Figure \ref{fig:caliskanCalc}. Quite notably both (two-sided) $p$ values are uneven and rather low.
+
+
+
+\begin{figure}[H]
+```{r fig:caliskanCalcB2B,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "80%"}
+grid.arrange(plotStat,plotEff)
+```
+
+\caption{Bootstrapped distributions of test statistics and effect sizes in a random sample given the null hypothesis.}
+\label{fig:caliskanCalc}
+\end{figure}
+
+At this point, we might think---right, so while drawing on the assumption of the null hypothesis we just stumbled into a data set that randomly happened to display strong bias. We decide to double-check this by visual inspection expecting exactly this: a strong, clearly visible bias (Figure \ref{fig:caliskanDistances}).  
+
+
+
+\begin{figure}[H]
+```{r fig:caliskanDistC2B,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "80%"}
+plotCaliskanDist 
+```
+
+\caption{Cosine distances to two attribute sets by protected word groups. Observe nothing unusual except for a few outliers.}
+\label{fig:caliskanDistances}
+\end{figure}
+
+
+
+\noindent In fact, while there might be some outliers here and there, saying that a clear bias on which one group is systematically closer to $A$s than another is definitely a stretch. What happened? 
+
+In the calculations of WEAT means are taken twice. The $s$-values themselves are means, and then means of $s$-values are compared between groups. The test statistic used itself is of this sort as well---while it compares sums, these are sums of sets of the same size, so they are really linear transformations of means of means. Statistical troubles start when we run statistical tests on sets of means, for at least two reasons  One, by pre-averaging data we throw away information about sample sizes. For the former point, think about proportions: 10 out of 20 and 2 out of 4 give the same mean, but you would obtain more information by making the former observation rather than by making the latter.  And especially in this context, in which the word lists are not huge, sample sizes should matter. Two, when we pre-average, we remove variation, and so pre-averaging  tend to manufacture false confidence. Group means display less variation than the raw data points, and the standard deviation of a set of means of sets of means is bound to be lower than the original standard deviation in the row data. Now, if you calculate your effect size by dividing by the pre-averaged standard deviation, your quite likely to get something that looks like a strong effect size, but the results of your calculations might not track anything interesting.
+
+
+
+So let us think again about the question that we are  ultimately interested in. Are the $X$ terms systematically closer to (further from) the $A$ attributes ($B$ attributes) than the $Y$ words? But now let's use the raw data points to try to answer these questions. As the first stab, let us run two quick $t$-tests to gauge what the raw data illustrated in Figure \ref{fig:caliskanDistances} tell us. 
+
+First, distances to $A$ attributes for $X$ words and $Y$ words. Whoa, the result is significant! The $p$-value is $0.02$. So sure, the sample is in some sense unusual. But the 95\% confidence interval for the difference in means is $[.0052 .061]$, clearly nothing that a reader would expect given that the calculated effect size seemed quite large. How about the $B$ attributes? Here the $p$-value is  $.22$ and the 95\% confidence interval is $[-0.03, .009]$, even less of a reason to think a bias is present.
+
+The difficulties are exacerbated by the fact that statistical tests are based on bootstrapping from a relatively small data sets, which is quite likely to underestimate the population variance.  To make our point clear, let us avoid bootstrapping and work with the null generative model with  $\mathsf{Norm}(0,.08)$ for both word groups. We keep the sizes the same: we have eight protected words in each group, sixteen in total, and for each we randomly draw 8 distances from hypothetical $A$ attributes, and $8$ distances from hypothetical $B$ attributes. Calculate the test statistic and effect size the way [@Caliskan2017semanticsBiases] did. Do this 10000 times and look at what the distributions of these values are on the assumption of the null model with realistic empirically motivated raw data point standard deviation. 
+
+
+
+
+
+
+
+
+
+```{r ourDistances,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "75%", warning = FALSE, message = FALSE}
+
+s <- function (table){ mean(table$A) - mean(table$B)}
+
+set.seed(123456)
+
+biasesD0 <- numeric(10000)
+svaluesD0 <- numeric(10000)
+factorD0  <- numeric(10000)
+numeratorD0 <- numeric(10000)
+
+for(i in 1:10000){
+  t1 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t2 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t3 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t4 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t5 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t6 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t7 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t8 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t9 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t10 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t11 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t12 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t13 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t14 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t15 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+  t16 <- data.frame(A  = rnorm(8,0,0.08), B = rnorm(8,0,0.08))
+
+  
+factorD0[i] <- sd(c(s(t1),s(t2),s(t3),s(t4),s(t5),
+                s(t6),s(t7),s(t8),s(t9),             s(t10),s(t11),s(t12),s(t13),s(t14),s(t15),s(t16)))
+
+numeratorD0[i] <-  mean(s(t1),s(t2),s(t3),s(t4),s(t5),s(t6),
+                s(t7),s(t8)) -    
+mean(s(t9),s(t10),s(t11),s(t12),s(t13),s(t14),s(t15),s(t16))
+  
+svaluesD0[i] <-  sum(s(t1),s(t2),s(t3),s(t4),s(t5),
+                     s(t6),s(t7),s(t8)) -   sum(s(t9),s(t10),s(t11),s(t12),s(t13),s(t14),s(t15),s(t16))
+  
+
+biasesD0[i] <- numeratorD0[i]/factorD0[i]
+}
+
+
+
+```
+
+
+```{r ourDistances3B,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "75%", warning = FALSE, message = FALSE}
+
+dataPLOT <- data.frame(biasesD0, svaluesD0)
+
+ourESplot <- ggplot(dataPLOT )+geom_histogram(aes(x=biasesD0, y = ..density..), bins = 50, alpha = .6)+
+  theme_tufte(base_size = 10)+
+  labs(title="Distribution of effect sizes given a null model",
+       subtitle = "Simulation with Norm(0,0.8), n=10k")+ xlab("effect size")+
+    theme(plot.title.position = "plot", axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank()) +
+  geom_vline(xintercept = ourEffectSize, linewidth = .5,
+             lty = 2, alpha = .5)+theme_tufte(base_size = 10)+
+  annotate("label", x = ourEffectSize, y = .06,
+           label =  paste(round(ourEffectSize,2),
+                          ", p=", 0.38, sep = ""), size = 3)
+
+
+ourStatPlot <- ggplot(dataPLOT )+ geom_histogram(aes(x=svaluesD0, y = ..density..), alpha = .6, bins = 50) +
+  theme_tufte(base_size = 10)+
+  labs(title="Distribution of test statistics given a null model",
+       subtitle = "Simulation with Norm(0,0.8), n=10k")+ xlab("test statistic")+
+    theme(plot.title.position = "plot", axis.text.y = element_blank(), 
+        axis.ticks.y = element_blank()) +
+  geom_vline(xintercept = ourStatistic, linewidth = .5,
+             lty = 2, alpha = .5)+theme_tufte(base_size = 10)+
+  annotate("label", x = ourStatistic, y = 1.2,
+           label =  paste(round(ourStatistic,2),
+                          ", p=", 0.01, sep = ""), size = 3)
+
+
+
+```
+
+
+
+
+
+
+
+
+\begin{figure}[H]
+```{r fig:ourDistancesPlot2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "80%", warning = FALSE, message = FALSE}
+ 
+grid.arrange(ourESplot, ourStatPlot, ncol = 1)
+
+```
+
+\caption{Distributions of test statistics and effect sizes based on 10k simulations on the assumption of a null model in which all distances come from normal distribution with $\mu =0, \sigma = .08$.}
+\label{fig:ourDistances}
+\end{figure}
+
+
+
+
+The first observation is that the supposedly large effect size we obtained is not that unusual even assuming a null model. Around 38\% of samples result in effect size at least as extreme. This illustrates the point that the effect size used does not track anything interesting. Second, the distribution of test statistics is much more narrow, which means that if we use it to calculate $p$-values, it is not too difficult to obtain a supposedly significant test statistic which nevertheless does not correspond to anything interesting happening in the data set. 
+
+
+
+
+Where do we stand now? We have seen  that seemingly high effect sizes  might arise even if the underlying processes actually have the same mean.  The uncertainty resulting from including the raw data point variance into considerations is more extensive than the one suggested by the low p-values obtained from taking means or means of means as data points. In this section, we discussed the performance of the WEAT measure, but since the [@Manzini2019blackToCriminal] one is a generalization thereof, including the method of running statistical tests on pre-averaged data, our remarks, \emph{mutatis nutandis}, apply. Moreover, a general problem is that studies such as [@Caliskan2017semanticsBiases] or [@Manzini2019blackToCriminal]  do not use  control groups, and this makes the interpretation of the analysis additionally difficult. 
+
+What is the alternative? As we already emphasized: focusing on what the real underlying question is, and trying to answer it using a statistical analysis of the raw data. Moreover, since the data sets are not too large and since multiple evaluations are to be made, we will pursue this method from the Bayesian perspective. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Bayesian method
+
+## Introduction and model definition
+
+
+Bayesian data analysis takes prior probability distributions, a mathematical model structure and the data, and returns the posterior probability distributions over the parameters of interest, thus capturing our uncertainty about their actual values. One important difference between such  a result and the result of a classical statistical analysis is that classical confidence intervals (CIs) have a rather complicated and somewhat confusing interpretation, which has little to do with the posterior probability distribution.^[Here are a few usual problems. CIs are often mistakenly interpreted as providing  the probability that a resulting confidence interval contains the true value of a parameter. CIs bring confusion also with regard to  precision, it is a common mistake to interpret narrow intervals as the ones corresponding to a more precise knowledge. Another fallacy is to associate CIs with likelihood and stating that values within a given interval are more probable than the ones outside it. The theory of confidence intervals does not support the above interpretations. CIs should be plainly interpreted as a result of certain procedure (there are many ways to obtain CIs from a given set of data) that will in the long run contain the true value if the procedure is performed a fixed amount of times. For a nice survey and explanation of these misinterpretations, see  [@Morey2015confidenceFallacy]. For a psychological study of the occurrence of such  misinterpretations, see REF. In this study, 120 researchers and 442 students were asked to assess the truth value of six false statements involving different interpretations of a CI.  Both researchers and students endorsed, on average, more than three of these statements.] [@Hoekstra2014Misinterpretation]
+
+
+In fact, Bayesian highest posterior density intervals  (HPDIs, the narrowest intervals containing a certain ratio of the area under the curve) and CIs end up being numerically the same only if the prior probabilities are uniform. This illustrates that (1) classical analysis is unable to incorporate non-trivial priors, and (2) is therefore more susceptible to over-fitting, unless regularization (equivalent to a more straightforward Bayesian approach) is used. In contrast with CIs, the posterior distributions are easily interpretable and have direct relevance for the question at hand. Moreover, Bayesian data analysis is better at handling hierarchical models and small datasets, which is exactly what we will we dealing with. 
+
+In a standard Bayesian analysis, the first step is to understand the data and select potential predictors and the outcome variable. Once the data is understood, the next step is to formulate a mathematical description of the generative model of the relationships between the predictors and the outcome variable. Prior distributions must then be chosen for the parameters used in the model. Next, Bayesian inference must be applied to find posterior probabilities over the possible parameter values. Finally, after finding the posterior probabilities, it is important to check how well the posterior predictions reflect the data with a posterior predictive check. In our analysis the outcome variable is  the cosine distances  between the protected words and attribute words. The predictor is a factor determining whether a given attribute word is a neutral word, a human predicate, is stereotypically associated with the protected word, or comes from a different stereotype connected with another protected word. The idea is, if bias is present in the embedding, distances to associated attribute words should be systematically lower than to other attribute words.  
+
+Furthermore, conceptually there are two levels of analysis in our approach. On the one hand, we are interested in the general question of whether related attributes are systematically closer across the dataset. On the other hand, we are interested in a more fine-grained picture of the role of the predictor for particular protected words. Learning in hierarchical Bayesian models involves using Bayesian inference to update the parameters of the model. This update is based on the observed data, and estimates are made at different levels of the data hierarchy. We use hierarchical Bayesian models in which we simultaneously estimate parameters at the protected word level and at the global level, assuming that all lower-level parameters are drawn from global distributions. Such models can be thought of as incorporating adaptive regularization, which avoids overfitting and leads to improved estimates for unbalanced datasets (and the datasets we need to use are unbalanced).
+
+
+
+
+To be more specific, the underlying mathematical model is as follows. First, we assume that distances are normally distributed:
+\begin{align*} \mathsf{distance_i} & \sim \mathsf{dnorm}(\mu_i,\sigma_i)
+\end{align*}
+\noindent Second, for each particular protected word $\mathsf{pw}$ there are four parameters to be estimated. Its mean distance to associated stereotypes $a[pw]$, its mean distance to attributes coming from different stereotypes, $d[pw]$, its mean distance to human attributes, $h[pw]$, and its mean distance to neutral attributes, $n[pw]$:
+\begin{align*}
+\mu_i & = d_{\mathsf{pw[i]}} \times \mathsf{different}_i  + a_{\mathsf{pw[i]}} \times \mathsf{associated}_i  + h_{\mathsf{pw[i]}} \times \mathsf{human}_i  + n_{\mathsf{pw[i]}}\times \mathsf{neutral}_i
+\end{align*}
+\noindent where $\mathsf{different}, \mathsf{associated},\mathsf{human}$ and $\mathsf{neutral}$ are binary variables.
+
+This completes our description of the underlying mechanism. Now the priors and the hierarchy. We assume all the $a$ parameters come from one distribution, that is normal around a higher-level parameter $\bar{a}$ and so on for the other three groups of parameters. That is, $a_{\mathsf{pw[i]}}$ is the average distance of a given particular protected word to attributes stereotypically associated with it, while $\bar{a}$ is the overall average distance of protected words to attributes associated with them     [@kruschke2015bayesian; @statrethinkingbook2020].
+\begin{align*}
+d_{\mathsf{pw[i]}} &\sim \mathsf{Norm}(\bar{d}, \overline{\sigma_d}) \\
+a_{\mathsf{pw[i]}} &\sim \mathsf{Norm}(\bar{a}, \overline{\sigma_a}) \\
+h_{\mathsf{pw[i]}} &\sim \mathsf{Norm}(\bar{h}, \overline{\sigma_h}) \\
+n_{\mathsf{pw[i]}} &\sim \mathsf{Norm}(\bar{n}, \overline{\sigma_n}) 
+\end{align*}
+
+
+
+According to our priors, the group means  $\bar{a}$, $\bar{d}$, $\bar{h}$ and $\bar{n}$  all come from one normal distribution with mean equal to $1$ and standard deviation equal to $.3$.  The standard deviations $\bar{\sigma_a}$, $\bar{\sigma_d}$, $\bar{\sigma_h}$ and $\bar{sigma_n}$ to be estimated, according to our prior,  come from one  distribution, exponential with rate parameter equal to $2$. Our priors are slightly skeptical. They do reflect our knowledge and intuition on the probable distribution of the cosine distances in the data. We know that the cosine distances lie in the range $0-2$, and we expect two randomly chosen  vectors  from the embedding to have rather small similarity, so we expect the distances to be centered around $1$. However, we use a rather wide standard deviation ($.3$) to easily account for cases where there is actually much higher similarity between two vectors (especially in cases where the embedding is supposed to be biased). Our priors for the standard deviations are also fairly weak.\footnote{To build a model one may use original \textit{Stan} which is a state-of-the-art platform for statistical modeling and high-performance statistical computation (https://mc-stan.org/). The simpler option is to use \textit{Rethinking} package from the \textit{Statistical rethinking} course. With one of the functions \textit{ulam} one may build RStan models from the formulas in an easy manner}
+
+\begin{align*}
+\bar{d}, \bar{a}, \bar{h}, \bar{n} &\sim \mathsf{Norm}(1, .3)\\ 
+\overline{\sigma_d}, \overline{\sigma_a},  \overline{\sigma_h},  \overline{\sigma_n}  &\sim \mathsf{Exp}(2)
+\end{align*}
+
+
+
+## Posterior predictive check
+
+A posterior predictive check is a technique used to evaluate the fit of a Bayesian model by comparing its predictions with observed data. The underlying principle is to generate simulated data from the posterior distribution of the model parameters and compare them with the observed data. If the model is a good fit to the data, the simulated data should resemble the observed data. A posterior predictive check is crucial because it provides a way to assess the validity of a Bayesian model. This is important because a model that fits the observed data well may still fail to generalize to new data. In the figure below we can see that the model fits the the data well. 
+
+
+```{r generatePosteriorPredictiveCheckA2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message = FALSE, warning = FALSE, results = FALSE}
+source("functions/posteriorCheckPlot.R")
+
+posteriorPlotsA <- list()
+
+for (i in 1:length(predictions)){
+  name <- names(predictions)[i]
+  posteriorPlotsA[[i]] <- posteriorCheckPlotA(predictions[[i]], name = name) 
+}
+```
+
+
+```{r generatePosteriorPredictiveCheckB6,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message = FALSE, warning = FALSE, results = FALSE}
+
+posteriorPlotsB <- list()
+
+for (i in 1:length(predictions)){
+  posteriorPlotsB[[i]] <- posteriorCheckPlotB(predictions[[i]], simulated[[i]],names(predictions)[i]) 
+}
+
+```
+
+
+
+\begin{figure}[H]
+```{r figposteriorPrCheckA6b,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "80%", dpi = 300, warning = FALSE, message = FALSE}
+grid.arrange(posteriorPlotsA[[3]], posteriorPlotsB[[3]], ncol = 2)
+```
+\caption{Example of a posterior predictive check. (Left) Actual cosine distances are plotted against mean predictions with 89\% highest posterior density intervals. Notice that 90\% of actual values fall within the 89\% HPDI and 55\% of actual values fall into 50\% HPDI, which indicates appropriate performance of the model. The left-right alignment of differrent colors coressponds to the fact that cosine differences between elements of different categories differ, to some extent systematically (this will be studied in the results section). (Right) Densities of predicted and observed distances.}
+\label{fig:posteriorCheck1}
+\end{figure}
+
+
+
+
+
+\normalsize 
+
+# Results and discussion
+
+
+
+\vspace{1mm}
+\footnotesize
+```{r generatePlots2,echo=FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message = FALSE, warning = FALSE, results = FALSE}
+source("functions/cleanDataset.R")
+source("functions/plotFromPrecis.R")
+
+weat7Google <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_7_google.csv")[,-1])
+precisWeat7Google <- readRDS("resultsDFs/Weat7GoogleDF.rds")
+resultsWeat7Google <- plotFromPrecis(precis = precisWeat7Google,
+                                     dataset = weat7Google,
+                                     list = "Weat 7",
+                                     embedding = "Google",
+                                     ylims = c(.75,1.1))
+
+weat7Glove <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_7_glove.csv")[,-1])
+precisWeat7Glove <- readRDS("resultsDFs/Weat7GloveDF.rds")
+resultsWeat7Glove <- plotFromPrecis(precis = precisWeat7Glove,
+                                     dataset = weat7Glove,
+                                     list = "Weat 7",
+                                     embedding = "Glove")
+
+weat7Reddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_7_reddit.csv")[,-1])
+precisWeat7Reddit <- readRDS("resultsDFs/Weat7RedditDF.rds")
+resultsWeat7Reddit <- plotFromPrecis(precis = precisWeat7Reddit,
+                                    dataset = weat7Reddit,
+                                    list = "Weat 7",
+                                    embedding = "Reddit", ylims = c(.5,1.3))
+
+
+weat1Google <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_1_google.csv")[,-1])
+precisWeat1Google <- readRDS("resultsDFs/Weat1GoogleDF.rds")
+resultsWeat1Google <- plotFromPrecis(precis = precisWeat1Google,
+                                     dataset = weat1Google,
+                                     list = "Weat 1",
+                                     embedding = "Google",
+                                     ylims = c(.8,1.05))
+
+
+weat1Glove <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_1_glove.csv")[,-1])
+precisWeat1Glove <- readRDS("resultsDFs/Weat1GloveDF.rds")
+resultsWeat1Glove <- plotFromPrecis(precis = precisWeat1Glove,
+                                     dataset = weat1Glove,
+                                     list = "Weat 1",
+                                     embedding = "Glove",
+                                     ylims = c(.75,1.2))
+
+
+weat1Reddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_1_reddit.csv")[,-1])
+precisWeat1Reddit <- readRDS("resultsDFs/Weat1RedditDF.rds")
+resultsWeat1Reddit <- plotFromPrecis(precis = precisWeat1Reddit,
+                                     dataset = weat1Reddit,
+                                     list = "Weat 1",
+                                     embedding = "Reddit",
+                                      ylims = c(.5,1.1))
+
+
+religionGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_google_dataset.csv")[,-1])
+precisReligionGoogle <- readRDS("resultsDFs/ReligionGoogleDF.rds")
+resultsReligionGoogle <- plotFromPrecis(precis = precisReligionGoogle,
+                                     dataset = religionGoogle,
+                                     list = "Religion",
+                                     embedding = "Google",
+                                      ylims = c(.65,1.05))
+
+
+
+
+religionGlove <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_glove_dataset.csv")[,-1])
+precisReligionGlove <- readRDS("resultsDFs/ReligionGloveDF.rds")
+resultsReligionGlove <- plotFromPrecis(precis = precisReligionGlove,
+                                        dataset = religionGlove,
+                                        list = "Religion",
+                                        embedding = "Glove",
+                                        ylims = c(.7,1.1))
+
+
+
+religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1])
+precisReligionReddit <- readRDS("resultsDFs/ReligionRedditDF.rds")
+resultsReligionReddit <- plotFromPrecis(precis = precisReligionReddit,
+                                       dataset = religionReddit,
+                                       list = "Religion",
+                                       embedding = "Reddit")
+
+raceGoogle <-  cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_google_dataset.csv")[,-1])
+precisRaceGoogle <- readRDS("resultsDFs/RaceGoogleDF.rds")
+resultsRaceGoogle <- plotFromPrecis(precis = precisRaceGoogle,
+                                        dataset = raceGoogle,
+                                        list = "Race",
+                                        embedding = "Google",
+                                     ylims = c(.8,1.1))
+
+raceGlove <-  cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_glove_dataset.csv")[,-1])
+precisRaceGlove <- readRDS("resultsDFs/RaceGloveDF.rds")
+resultsRaceGlove <- plotFromPrecis(precis = precisRaceGlove,
+                                    dataset = raceGlove,
+                                    list = "Race",
+                                    embedding = "Glove",
+                                    ylims = c(.7,1.1))
+
+raceReddit <-  cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_reddit_dataset.csv")[,-1])
+precisRaceReddit <- readRDS("resultsDFs/RaceRedditDF.rds")
+resultsRaceReddit <- plotFromPrecis(precis = precisRaceReddit,
+                                    dataset = raceReddit,
+                                    list = "Race",
+                                    embedding = "Reddit")
+
+genderGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1])
+precisGenderGoogle <- readRDS("resultsDFs/GenderGoogleDF.rds")
+resultsGenderGoogle <- plotFromPrecis(precis = precisGenderGoogle,
+                                    dataset = genderGoogle,
+                                    list = "Gender",
+                                    embedding = "Google",
+                                     ylims = c(.6,1.05))
+
+genderGlove <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_glove_dataset.csv")[,-1])
+precisGenderGlove <- readRDS("resultsDFs/GenderGloveDF.rds")
+resultsGenderGlove <- plotFromPrecis(precis = precisGenderGlove,
+                                      dataset = genderGlove,
+                                      list = "Gender",
+                                      embedding = "Glove",
+                                      ylims = c(.5,1.1))
+
+genderReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_reddit_dataset.csv")[,-1])
+precisGenderReddit <- readRDS("resultsDFs/GenderRedditDF.rds")
+
+resultsGenderReddit <- plotFromPrecis(precis = precisGenderReddit,
+                                     dataset = genderReddit,
+                                     list = "Gender",
+                                     embedding = "Reddit",  ylims = c(.4,1.1))
+
+
+#now debiased
+debiasedReligionReddit <- read.csv("./datasets/macWeatDatasets/debiased_religion_reddit.csv")[,-1]
+debiasedRaceReddit <- read.csv("./datasets/macWeatDatasets/debiased_race_reddit.csv")[,-1]
+debiasedGenderReddit <- read.csv("./datasets/macWeatDatasets/debiased_gender_reddit.csv")[,-1]
+
+debiasedReligionReddit <- cleanDataset(debiasedReligionReddit)
+debiasedRaceReddit <- cleanDataset(debiasedRaceReddit)
+debiasedGenderReddit <- cleanDataset(debiasedGenderReddit)
+precisDebiasedReligionReddit <- readRDS("resultsDFs/debiasedReligionRedditDF.rds")
+precisDebiasedRaceReddit <- readRDS("resultsDFs/debiasedRaceRedditDF.rds")
+precisDebiasedGenderReddit <- readRDS("resultsDFs/debiasedGenderRedditDF.rds")
+
+
+
+resultsDebiasedReligionReddit <- plotFromPrecis(precis = precisDebiasedReligionReddit,
+                                        dataset = debiasedReligionReddit,
+                                        list = "Religion (MAC)",
+                                        embedding = "Reddit (debiased)"
+)
+
+#resultsDebiasedReligionReddit$plotJoint
+resultsDebiasedRaceReddit <- plotFromPrecis(precis = precisDebiasedRaceReddit,
+                                                dataset = debiasedRaceReddit,
+                                                list = "Race (MAC)",
+                                                embedding = "Reddit (debiased)"
+)
+
+#resultsDebiasedRaceReddit$plotJoint
+resultsDebiasedGenderReddit <- plotFromPrecis(precis = precisDebiasedGenderReddit,
+                                            dataset = debiasedGenderReddit,
+                                            list = "Gender (MAC)",
+                                            embedding = "Reddit (debiased)",
+                                            ylims = c(.4,1.1)
+)
+
+#resultsDebiasedGenderReddit$plotJoint
+```
+
+## Observations
+
+
+In brief, despite one-number metrics suggesting otherwise, our Bayesian analysis reveals that insofar as the short word lists usually used in related research projects are involved, there usually are no strong reasons to claim the presence of systematic bias. Moreover, comparison between the groups (including control word lists) leads to the conclusion that the effect sizes (that is, the absolute differences between cosine distances between groups) tend to be rather small, with few exceptions.  Moreover, the choice of protected words is crucial --- as there is a lot of variance when it comes to the protected word-level analysis. 
+
+
+In a bit more detail, the visualizations in  Appendix \ref{appendix:visualizations} show that the situation is more complicated than merely looking at one-number summaries might suggest. Note that the axes are sometimes in different scales to increase visibility.
+
+To start with, let us look at the association-type level coefficients (illustrated in the top parts of the plots). Depending on the corpus used and word class,  there is a large variety as to  the posterior densities. Quite aware of this being a crude approximation, let's compare the HPDIs and whether they overlap for different attribute groups.
+
+- In Weat 7 (Reddit)    there is no reason to think there are systematic differences between cosine distances (recall that words from Weat 7 were mostly not available in other embeddings).
+
+- In Weat 1 (Google, Glove and Reddit) associated words are somewhat closer, but the cosine distance differences from neutral words are very low, and surprisingly it is human attributes, not neutral predicates that are systematically the furthest. 
+
+- In Religion (Google, Glove, Reddit) and Race (Google, Glove), the associated attributes are not systematically closer than attributes belonging to different stereotypes, and the difference from neutral and human predicates is rather low, if noticeable. The situation is interestingly different in Race (Reddit) where both human and neutral predicates are systematically further than associated and different attributes - but even then, there is no clear difference between associated and different attributes.
+
+
+- For Gender (Google, Glove), despite the superficially binary nature, associated and opposite attributes tend to be more or less in the same distances, much closer than neutral words (but not closer than human predicates in Glove). Reddit is an extreme example: both associated and opposite attributes are much closer than neutral and human (around .6 vs. .9), but even then, there seems to be no reason to think than cosine distances to associated predicates are much different from distances to opposite predicates. 
+
+
+Moreover, when we look at particular protected words, the situation is even less straightforward. We will just go over a few notable examples, leaving the visual inspection of particular results for other protected words to the reader. One general phenomenon is that--as we already pointed out--the word lists are quite short, which contributes to large uncertainty involved in some cases. 
+
+- For some protected words  the different attributes are somewhat closer than the associated attributes.
+
+- For some protected words, associated and different attributes are closer than neutral attributes, but so are human attributes.
+
+- In some cases, associated attributes are closer, but so are neutral and human predicates, which illustrates that just looking at average cosine similarity as compared to the theoretically expected value of 1, instead of running comparison to neutral and human attributes is misleading.
+
+- The only group of protected words where differences are noticeable at the protected word level is Gender-related words-- as in Gender (Google) and in Gender (Reddit) --- note however that in the latter, for some words the opposite attributes seem to be a little bit closer than the associated ones. 
+
+
+
+
+
+
+## Rethinking debiasing
+
+These visualizations can be also handy when it comes to the investigation of the effect that debiasing has on the embedding space. Below one may see chosen pair depicting the difference in means with 89% highest posterior density intervals before and after applying debiasing. 
+
+
+
+\begin{figure}[H]
+```{r fig:debiasedCosinePair2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", dpi = 300, out.width="85%"}
+
+resultsGenderReddit$plotJoint
+
+resultsDebiasedGenderReddit$plotJoint
+
+```
+\caption{Means with 89\% highest posterior density intervals for gender before and after debiasing.}
+\label{fig:empiricalDebiasedPair}
+\end{figure}
+
+
+
+
+
+
+In Figure \ref{fig:empiricalDebiased} we look at the empirical distributions for the debiased embeddings. Comparing the results to the original embedding, one may notice that for the Religion group the neutral and human distribution has changed slightly. Before within the "correct" cosine similarity boundaries there were 56\% of neutral and 55\% of human word lists. After the debiasing the values changed to 59\% (for neutral) and 59\% (for human). The different and associated word lists were more influenced. The general shape of both distributions is less stretched. Before debiasing 43\% of the different word lists and 35\% of the associated word lists were within the accepted boundaries. After the embedding manipulation the percentage has increased for both lists to 63\%. Visualization for Gender group illustrates almost no change for the neutral and human word lists before and after debiasing. The values for different and associated word lists are also barely impacted by the embedding modification. In the Race group, the percentage within the boundaries for neutral and associated word lists have increased. The opposite happened for human and different word lists, where the percentage of "correct" cosine similarity dropped from 67\% to 55\% (human) and from 39\% to 36\% (different). 
+
+
+```{r debiasedCosine,echo=FALSE,eval=TRUE,fig.align = "center",cache=FALSE, fig.show = "hold", out.width = "75%"}
+
+debiasedGenderReddit <- read.csv("datasets/macWeatDatasets/debiased_gender_reddit.csv")[-1]
+debiasedRaceReddit <- read.csv("datasets/macWeatDatasets/debiased_race_reddit.csv")[-1]
+debiasedReligionReddit <- read.csv("datasets/macWeatDatasets/debiased_religion_reddit.csv")[-1]
+
+
+
+debiasedViolinReligionReddit <- ggplot(debiasedReligionReddit, aes(x = connection, y = cosine_similarity, fill = connection, color = connection))+
+  geom_violin(alpha = .5)+coord_flip()+geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  geom_vline(xintercept = .14) + geom_hline(yintercept = -.14, color = "grey") +
+  ylab("similarity")+theme_tufte(base_size = 10)+ geom_hline(yintercept = .14, color = "grey")+
+  labs(title =  "Debiased Religion (Reddit)", subtitle = "Empirical distribution of cosine similarities")+
+    geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  stat_summary(fun.data = "mean_cl_boot", fun.args = list(
+    conf.int = .95), geom = "pointrange",
+               colour = "black", size  = .2  )+
+  annotate(geom = "label", x = 4.15, y = 0, label = "59%")+
+  annotate(geom = "label", x = 3.15, y = 0, label = "59%")+
+  annotate(geom = "label", x = 2.15, y = 0, label = "63%")+
+  annotate(geom = "label", x = 1.15, y = 0, label = "63%")+
+  theme(plot.title.position = "plot",legend.position="top")
+
+debiasedViolinGenderReddit <- ggplot(debiasedGenderReddit, aes(x = connection, y = cosine_similarity, fill = connection, color = connection))+
+  geom_violin(alpha = .5)+coord_flip()+geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  geom_vline(xintercept = .38) + geom_hline(yintercept = -.38, color = "grey") +
+  ylab("similarity")+theme_tufte(base_size = 10)+ geom_hline(yintercept = .38, color = "grey")+
+  labs(title =  "Debiased Gender (Reddit)", subtitle = "Empirical distribution of cosine similarities")+
+    stat_summary(fun.data = "mean_cl_boot", fun.args = list(
+    conf.int = .95), geom = "pointrange",
+               colour = "black", size  = .2  )+
+  annotate(geom = "label", x = 4.15, y = 0, label = "96%")+
+  annotate(geom = "label", x = 3.15, y = 0, label = "92%")+
+  annotate(geom = "label", x = 2.15, y = 0, label = "51%")+
+  annotate(geom = "label", x = 1.15, y = 0, label = "51%")+
+  theme(plot.title.position = "plot",legend.position='none')
+
+debiasedViolinRaceReddit <- ggplot(debiasedRaceReddit, aes(x = connection, y = cosine_similarity, fill = connection, color = connection))+
+  geom_violin(alpha = .5)+coord_flip()+geom_jitter(size = 0.5, alpha = .2, width=0.08)+
+  geom_vline(xintercept = .14) + geom_hline(yintercept = -.14, color = "grey") +
+  ylab("similarity")+theme_tufte(base_size = 10)+ geom_hline(yintercept = .14, color = "grey")+
+  labs(title =  "Debiased Race (Reddit)", subtitle = "Empirical distribution of cosine similarities")+
+    stat_summary(fun.data = "mean_cl_boot", fun.args = list(
+    conf.int = .95), geom = "pointrange",
+               colour = "black", size  = .2  )+
+  annotate(geom = "label", x = 4.15, y = 0, label = "48%")+
+  annotate(geom = "label", x = 3.15, y = 0, label = "55%")+
+  annotate(geom = "label", x = 2.15, y = 0, label = "36%")+
+  annotate(geom = "label", x = 1.15, y = 0, label = "38%")+
+  theme(plot.title.position = "plot")+geom_point(size = 1.2, alpha = .3)+
+  theme(plot.title.position = "plot",legend.position='none')
+```
+\pagebreak
+
+
+\begin{figure}[H]
+```{r fig:debiasedCosine,echo=FALSE,eval=TRUE,fig.align = "center",cache=FALSE, fig.show = "hold", out.width = "70%", fig.height = 16}
+
+grid.arrange(violinReligionReddit, debiasedViolinReligionReddit, violinGenderReddit, debiasedViolinGenderReddit, violinRaceReddit, debiasedViolinRaceReddit, ncol = 2)
+
+```
+\caption{Empirical distributions of debiased cosine similarities (1-distances) for three word lists used in  the original paper.}
+\label{fig:empiricalDebiased}
+\end{figure}
+
+
+
+# Related work and conclusions
+
+It has been suggested [@Ethayarajh2020Bernstein] to use Bernstein bounds to state the uncertainty of the sample bias in a form of confidence interval. The interpretation of this interval is as follows, 95\% confidence interval contains such a range of values, that one can be 95% certain that it contains the population mean. As we will prove later in the text, confidence intervals are quite problematic for several reasons, among others the confusing interpretability. In [@Ethayarajh2020Bernstein] the current problem of bias estimation was correctly identified.  Indeed, the bias estimate should not be expressed as a single number without taking into account that the estimate is made on a sample of data and therefore has intrinsic uncertainty. However, we argue that Bernstein bounds do not provide the best solution to this problem. Applying their method to a popular WinoBias dataset leads to the conclusion that more than 11903 samples are needed to claim a 95\% confidence interval for a bias estimate. This amount exceeds existing datasets for bias measurement. We propose a more realistic method that can be applied to commonly used datasets to estimate the uncertainty of the bias measurement. 
+
+\todo{More references to similar papers}
+
+
+
+
+
+
+A Bayesian data analysis with hierarchical models of cosine distances between protected words, control group words, and stereotypical attributes  provides more modest and realistic assessment of the uncertainty involved. It reveals that much complexity is hidden when one instead chases single bias metrics present in the literature. 
+
+After introducing the method, we apply it to multiple word embeddings and results of supposed debiasing, putting forward some general observations that are not exactly in line with the usual picture painted in terms of WEAT or MAC (and the problem generalizes to any approach that focuses on chasing a single numeric metric): the word list sizes and sample sizes used in the studies are usually small,\footnote{Depending on a list for [@Caliskan2017semanticsBiases] the range for protected words is between 13 and 100, and for attributes between 16 and 25; for [@Manzini2019blackToCriminal] the range for protected words is between 14 and 18, and for attributes between 11 and 25}  posterior density intervals are fairly wide,   often the differences between associated, different and neutral human predicates, are not very impressive. Also, a preliminary inspection suggests that  the desirability of changes obtained by the usual debiasing methods is debatable. The tools that we propose, however, allow for a more fine-grained and multi-level evaluation of bias and debiasing in language models without losing modesty about the uncertainties involved.
+
+
+
+
+
+
+
+
+
+\newpage
+\appendix
+# Appendix 
+
+## Visualizations
+
+
+\label{appendix:visualizations}
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsWeat7Google$plotJoint
+```
+\caption{dsds}
+\label{fig:weat7google}
+\end{figure}
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsWeat7Glove$plotJoint
+```
+\caption{dsds}
+\label{fig:weat7glove}
+\end{figure}
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsWeat7Reddit$plotJoint
+```
+\caption{dsds}
+\label{fig:weat7reddit}
+\end{figure}
+
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsWeat1Google$plotJoint
+```
+\caption{dsds}
+\label{fig:weat1google}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsWeat1Glove$plotJoint
+```
+\caption{dsds}
+\label{fig:weat1glove}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsWeat1Reddit$plotJoint
+```
+\caption{dsds}
+\label{fig:weat1reddit}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsReligionGoogle$plotJoint
+```
+\caption{dsds}
+\label{fig:religionGoogle}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsReligionGlove$plotJoint
+```
+\caption{dsds}
+\label{fig:religionGlove}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsReligionReddit$plotJoint
+```
+\caption{dsds}
+\label{fig:religionReddit}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsRaceGoogle$plotJoint
+```
+\caption{dsds}
+\label{fig:raceGoogle}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsRaceGlove$plotJoint
+```
+\caption{dsds}
+\label{fig:raceGlove}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsRaceReddit$plotJoint
+```
+\caption{dsds}
+\label{fig:raceReddit}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsGenderGoogle$plotJoint
+```
+\caption{dsds}
+\label{fig:genderGoogle}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsGenderGlove$plotJoint
+```
+\caption{dsds}
+\label{fig:genderGlove}
+\end{figure}
+
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsGenderReddit$plotJoint
+```
+\caption{dsds}
+\label{fig:genderReddit}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsDebiasedReligionReddit$plotJoint
+```
+\caption{dsds}
+\label{fig:debiasedReligion}
+\end{figure}
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsDebiasedRaceReddit$plotJoint
+```
+\caption{dsds}
+\label{fig:debiasedRace}
+\end{figure}
+
+
+
+\begin{figure}[H]
+```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300}
+resultsDebiasedGenderReddit$plotJoint
+```
+\caption{dsds}
+\label{fig:debiasedGender}
+\end{figure}
+
+
+
+
+
+
+
+<!-- ## Examples of WEAT and MAC calculations -->
+<!-- \label{appendix: calculations} -->
+
+
+
+## Posterior predictive checks
+
+
+
+```{r figposteriorPrCheckAppendixa,echo=FALSE, eval=TRUE,fig.align = "center", cache=TRUE, fig.show = "hold", out.width = "85%", out.height= "100%", dpi = 300, warning = FALSE, message = FALSE}
+grid.arrange(posteriorCheckPlotA(predictions[[1]], name = names(predictions)[1]),
+             posteriorCheckPlotB(predictions[[1]], simulated[[1]],names(predictions)[1]),
+             posteriorCheckPlotA(predictions[[2]], name = names(predictions)[2]),
+             posteriorCheckPlotB(predictions[[2]], simulated[[2]],names(predictions)[2]),
+             ncol = 2
+             )
+             
+             # , posteriorPlotsB[[1]],
+             # posteriorPlotsA[[2]], posteriorPlotsB[[2]],
+             # ncol = 2)
+```
+
+
+```{r figposteriorPrCheckAppendixb,echo=FALSE, eval=TRUE,fig.align = "center", cache=TRUE, fig.show = "hold", out.width = "85%", out.height= "100%", dpi = 300, warning = FALSE, message = FALSE}
+grid.arrange(posteriorCheckPlotA(predictions[[4]], name = names(predictions)[4]),
+             posteriorCheckPlotB(predictions[[4]], simulated[[4]],names(predictions)[4]),
+             posteriorCheckPlotA(predictions[[5]], name = names(predictions)[5]),
+             posteriorCheckPlotB(predictions[[5]], simulated[[5]],names(predictions)[5]),
+             ncol = 2
+             )
+             
+```
+
+
+
+```{r figposteriorPrCheckAppendixc,echo=FALSE, eval=TRUE,fig.align = "center", cache=TRUE, fig.show = "hold", out.width = "87%", out.height= "100%", dpi = 300, warning = FALSE, message = FALSE}
+grid.arrange(posteriorCheckPlotA(predictions[[6]], name = names(predictions)[6]),
+             posteriorCheckPlotB(predictions[[6]], simulated[[6]],names(predictions)[6]),
+             posteriorCheckPlotA(predictions[[7]], name = names(predictions)[7]),
+             posteriorCheckPlotB(predictions[[7]], simulated[[7]],names(predictions)[7]),
+             ncol = 2
+             )
+```
+
+
+```{r figposteriorPrCheckAppendixd,echo=FALSE, eval=TRUE,fig.align = "center", cache=TRUE, fig.show = "hold", out.width = "89%", out.height= "100%", dpi = 300, warning = FALSE, message = FALSE}
+grid.arrange(posteriorCheckPlotA(predictions[[8]], name = names(predictions)[8]),
+             posteriorCheckPlotB(predictions[[8]], simulated[[8]],names(predictions)[8]),
+             posteriorCheckPlotA(predictions[[9]], name = names(predictions)[9]),
+             posteriorCheckPlotB(predictions[[9]], simulated[[9]],names(predictions)[9]),
+             ncol = 2
+             )
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Word lists
+
+### Lists for [@Manzini2019blackToCriminal]:
+\label{appendix:manzini_word_lists}
+The lists are available here:
+
+
+-  **Gender:** \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/gender_attributes_optm.json}
+
+- **Race:** \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/race_attributes_optm.json}
+
+- **Religion:** \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/religion_attributes_optm.json}
+
+The lists are:
+
+
+- **Gender:**
+
+Pairs of protected attributes:
+		["he", "she"],
+		["his", "hers"],
+		["son", "daughter"],
+		["father", "mother"],
+		["male", "female"],
+		["boy", "girl"],
+		["uncle", "aunt"]
+
+Lists of stereotypes per gender:
+		man: ["manager", "executive", "doctor", "lawyer", "programmer", "scientist", "soldier", "supervisor", "rancher", "janitor", "firefighter", "officer"],
+		woman: ["secretary", "nurse", "clerk", "artist", "homemaker", "dancer", "singer", "librarian", "maid", "hairdresser", "stylist", "receptionist", "counselor"]
+		}
+
+
+- **Race:**
+
+Sets of protected attributes:
+		["black", "caucasian", "asian"],
+		["african", "caucasian", "asian"],
+		["black", "white", "asian"],
+		["africa", "america", "asia"],
+		["africa", "america", "china"],
+		["africa", "europe", "asia"]
+
+Lists of stereotypes per race:
+			"caucasian": ["manager", "executive", "redneck", "hillbilly", "leader", "farmer"],
+			"asian"    : ["doctor", "engineer", "laborer", "teacher"],
+			"black"    : ["slave", "musician", "runner", "criminal", "homeless"]
+
+
+- **Religion:**
+
+Sets of protected attributes:
+		["judaism", "christianity", "islam"],
+		["jew", "christian", "muslim"],
+    ["synagogue", "church", "mosque"],
+    ["torah", "bible", "quran"],
+    ["rabbi", "priest", "imam"]
+
+Lists of stereotypes per race:
+			"jew"       : ["greedy", "cheap", "hairy", "liberal"],
+    	"christian" : ["judgemental", "conservative", "familial"],
+    	"muslim"    : ["violent", "terrorist", "dirty", "uneducated"]
+
+
+### Our custom word lists
+
+
+- **Neutral:**
+
+ ['ballpark', 'glitchy', 'billy', 'dallas', 'rip', 'called', 'outlooks',
+                 'floater', 'rattlesnake', 'exports',
+                 'recursion', 'shortfall', 'corrected', 'solutions', 'diagnostic', 'patently', 'flops', 'approx', 'percents',
+                 'lox', 'hamburger', 'engulfed', 'households', 'north', 'playtest', 'replayability', 'glottal',
+                 'parable', 'gingers', 'anachronism', 'organizing', 'reach', 'shtick', 'eleventh', 'cpu', 'ranked',
+                 'irreversibly', 'ponce', 'velociraptor', 'defects', 'puzzle', 'smasher', 'northside', 'heft', 'observation', 'rectum',
+                 'mystical', 'telltale', 'remnants', 'inquiry', 'indisputable', 'boatload', 'lessening', 'uselessness', 'observes', 'fictitious',
+                 'repatriation', 'duh', 'attic', 'schilling', 'charges', 'chatter', 'pad', 'smurfing', 'worthiness', 'definitive', 'neat', 'homogenized',
+                 'lexicon', 'nationalized', 'earpiece', 'specializations', 'lapse', 'concludes', 'weaving', 'apprentices', 'fri',
+                 'militias', 'inscriptions', 'gouda', 'lift', 'laboring', 'adaptive', 'lecture', 'hogging', 'thorne', 'fud', 'skews',
+                 'epistles', 'tagging', 'crud', 'two', 'rebalanced', 'payroll', 'damned', 'approve', 'reason', 'formally', 'releasing', 'muddled',
+                 'mineral', 'shied', 'capital', 'nodded', 'escrow', 'disconnecting', 'marshals',
+                 'winamp', 'forceful', 'lowes', 'sip', 'pencils', 'stomachs', 'goff', 'cg', 'backyard', 'uprooting', 'merging',
+                 'helpful', 'eid', 'trenchcoat', 'airlift', 'frothing', 'pulls', 'volta', 'guinness', 'viewership',
+                 'eruption', 'peeves', 'goat', 'goofy', 'disbanding', 'relented', 'ratings', 'disputed', 'vitamins', 'singled', 'hydroxide',
+                 'telegraphed', 'mercantile', 'headache', 'muppets', 'petal', 'arrange', 'donovan', 'scrutinized', 'spoil', 'examiner', 'ironed',
+                 'maia', 'condensation', 'receipt', 'solider', 'tattooing', 'encoded', 'compartmentalize', 'lain', 'gov',
+                 'printers', 'hiked', 'resentment', 'revisionism', 'tavern', 'backpacking', 'pestering', 'acknowledges',
+                 'testimonies', 'parlance', 'hallucinate', 'speeches', 'engaging', 'solder', 'perceptive', 'microbiology', 'reconnaissance', 'garlic',
+                 'neutrals', 'width', 'literaly', 'guild', 'despicable', 'dion', 'option', 'transistors',
+                 'chiropractic', 'tattered', 'consolidating', 'olds', 'garmin', 'shift', 'granted', 'intramural', 'allie', 'cylinders',
+                 'wishlist', 'crank', 'wrongly', 'workshop', 'yesterday', 'wooden', 'without', 'wheel', 'weather', 'watch', 'version', 'usually', 'twice',                      'tomato', 'ticket', 'text', 'switch', 'studio', 'stick', 'soup', 'sometimes', 'signal', 'prior', 'plant', 'photo', 'path', 'park', 'near',
+                 'menu', 'latter', 'grass', 'clock']
+
+
+- **Human-related:**
+
+['wear', 'walk', 'visitor', 'toy', 'tissue', 'throw', 'talk', 'sleep', 'eye',
+               'enjoy', 'blogger', 'character', 'candidate', 'breakfast', 'supper', 'dinner',
+               'eat', 'drink', "carry", "run", "cast", "ask", "awake", "ear", "nose", "lunch", "coalition",
+               "policies", "restaurant", "stood", "assumed", "attend", "swimming", "trip", "door", "determine", "gets",
+               "leg", "arrival", "translated", "eyes", "step", "whilst", "translation", "practices", "measure",
+               "storage", "window", "journey", "interested", "tries", "suggests", "allied", "cinema", "finding",
+               "restoration", "expression","visitors", "tell", "visiting",
+               "appointment", "adults", "bringing", "camera", "deaths", "filmed", "annually", "plane", "speak",
+               "meetings", "arm", "speaking", "touring", "weekend", "accept", "describe", "everyone", "ready",
+               "recovered", "birthday", "seeing", "steps", "indicate", "anyone", "youtube"]
+
+
+
