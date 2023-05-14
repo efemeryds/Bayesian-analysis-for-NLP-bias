@@ -1,9 +1,10 @@
 # Bayesian-analysis-for-NLP-bias
 
 
-## Get models by running the file functions/newModelBuilding.R
+## Setup
+- R version 4.2.2
+- Get models by running the file functions/newModelBuilding.R
 
-## Then run functions/generatedPredictions.R
 
 
 

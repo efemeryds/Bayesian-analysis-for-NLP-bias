@@ -1,3 +1,7 @@
 resultsDFs/
 paper/paperDraft_cache/latex/
 paper/paperDraft_files/
+paper/paperDraft.log
+paper/paperDraft.tex
+.RDataTmp
+.Rhistory
