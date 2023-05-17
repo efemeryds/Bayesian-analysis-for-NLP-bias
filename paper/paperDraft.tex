@@ -4,7 +4,7 @@
 \PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
 %
 \documentclass[
-  10pt,
+  12pt,
   dvipsnames,enabledeprecatedfontcommands]{scrartcl}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -96,9 +96,6 @@
 \usepackage{floatrow}
 
 \usepackage[textsize=footnotesize]{todonotes}
-\newcommand{\ali}[1]{\todo[color=gray!40]{\textbf{Alicja:} #1}}
-\newcommand{\mar}[1]{\todo[color=blue!40]{#1}}
-\newcommand{\raf}[1]{\todo[color=olive!40]{#1}}
 
 %\linespread{1.5}
 \newcommand{\indep}{\!\perp \!\!\! \perp\!}
@@ -297,15 +294,15 @@ bayesian approach}
 Natural language processing (NLP) models are used to perform various
 language-related tasks such as providing email filters, intelligent
 assistants, search results, translations, text analysis and so on. Such
-tools require input words to be represented by numbers. This can be done
-with word embeddings, which represent words as vectors of real numbers.
-A common way to construct an embedding is to use a large natural
-language corpus to train a neural network to assign vectors to words
-that optimize for co-occurrence prediction accuracy. The vectors can
-then be compared in terms of their similarity -- the usual measure is
-cosine similarity -- and the results of such comparisons can be used in
-downstream tasks. Roughly speaking, cosine similarity is an imperfect
-mathematical proxy for semantic similarity {[}14{]}.
+tools require input words to be represented by vectors of real numbers.
+This can usually be done with word embeddings. A common way to construct
+an embedding is to use a large natural language corpus to train a neural
+network to assign vectors to words that optimize for co-occurrence
+prediction accuracy. The vectors can then be compared in terms of their
+similarity -- the usual measure is cosine similarity -- and the results
+of such comparisons can be used in downstream tasks. Roughly speaking,
+cosine similarity is an imperfect mathematical proxy for semantic
+similarity {[}14{]}.
 
 It has been suggested {[}1,4,5,8,11,12{]} that such models can learn
 implicit biases that reflect harmful stereotypical thinking---for
@@ -341,15 +338,15 @@ the natural language processing tools we use on a massive scale. Sure,
 if there is unfairness and our goal is to diagnose it, we should do
 complete justice to learning it in the model used in a study thereof.
 One example of this approach is {[}3{]}. However, if our goal is to
-develop downstream tools that perform tasks that we care about well
-without further perpetuating or exacerbating harmful stereotypes, we
-still have good reasons to try to minimize the negative impact, at least
-as long as this does not damage the overall performance of the tool.
-Moreover, it is often not the case that the corpora mirror reality---to
-give a trivial example, heads are spoken of more often than kidneys, but
-this does not mean that kidneys occur much less often in reality than
-heads. To give a more relevant example, the disproportionate association
-of female words with female occupations in a corpus actually greatly
+develop downstream tools that perform tasks that we care about without
+further perpetuating or exacerbating harmful stereotypes, we still have
+good reasons to try to minimize the negative impact, at least as long as
+this does not damage the overall performance of the tool. Moreover, it
+is often not the case that the corpora mirror reality---to give a
+trivial example, heads are spoken of more often than kidneys, but this
+does not mean that kidneys occur much less often in reality than heads.
+To give a more relevant example, the disproportionate association of
+female words with female occupations in a corpus actually greatly
 exaggerates the actual lower disproportion in the real distribution of
 occupations. {[}6{]}.
 
@@ -359,13 +356,14 @@ many existing word embeddings (
 \emph{Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
 and
 \emph{Reddit Corpus}\footnote{The Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}):
-\emph{Word Embedding Association Test} (WEAT) {[}8{]}, and
-\emph{Mean Average Cosine Distance} (MAC) {[}12{]}. We first explain how
-these measures are supposed to work. Then we argue that they are
-problematic for various reasons, a key one being that by pre-averaging
-data they manufacture false confidence, which we illustrate in terms of
-simulations showing that the measures often suggest the existence of
-bias even if by design it is non-existent in a simulated dataset.
+\emph{Word Embedding Association Test} (\textsf{WEAT}) {[}8{]}, and
+\emph{Mean Average Cosine Distance} (\textsf{MAC}) {[}12{]}. We first
+explain how these measures are supposed to work. Then we argue that they
+are problematic for various reasons, a key one being that by
+pre-averaging data they manufacture false confidence, which we
+illustrate in terms of simulations showing that the measures often
+suggest the existence of bias even if by design it is non-existent in a
+simulated dataset.
 
 We propose to replace them with a Bayesian data analysis (hierarchical
 models), which not only provides more modest and realistic assessment of
@@ -373,13 +371,15 @@ the uncertainty involved, but also allows for inspection at various
 levels of granularity. Once we introduce the method, we apply it to
 multiple word embeddings and results of supposed debiasing, putting
 forward some general observations that are not exactly in line with the
-usual picture painted in terms of WEAT or MAC (and the problem
-generalizes to any approach that focuses on chasing a single numeric
-metric): the word list sizes and sample sizes used in the studies are
-usually
-small,\footnote{Depending on a list for [@Caliskan2017semanticsBiases] the range for protected words is between 13 and 100, and for attributes between 16 and 25; for [@Manzini2019blackToCriminal] the range for protected words is between 14 and 18, and for attributes between 11 and 25}
-posterior density intervals are fairly wide, often the differences
-between associated, different and neutral human predicates, are not very
+usual picture painted in terms of \textsf{WEAT} or \textsf{MAC} (and the
+problem generalizes to any approach that focuses on chasing a single
+numeric metric): the word list sizes and sample sizes used in the
+studies are usually small,\footnote{Depending on a list for {[}8{]} the
+  range for protected words is between 13 and 100, and for attributes
+  between 16 and 25; for {[}12{]} the range for protected words is
+  between 14 and 18, and for attributes between 11 and 25.} posterior
+density intervals are fairly wide, often the differences between
+associated, different and neutral human predicates, are not very
 impressive. Also, a preliminary inspection suggests that the
 desirability of changes obtained by the usual debiasing methods is
 debatable. The tools that we have proposed, however, allow for a more
@@ -450,27 +450,27 @@ parameter determining how strict we want to be): \begin{align*}
 The use of projections in bias estimation has been criticized for
 instance in {[}5{]}, where it is pointed out that while a higher average
 similarity to the gender direction might be an indicator of bias with
-respect to a given class of words, but it is only one possible
-manifestation of it, and reducing the cosine similarity to such a
-projection may not be sufficient to eliminate bias. For instance,
-``math'' and ``delicate'' might be equally similar to a pair of opposed
-explicitly gendered words (\emph{she}, \emph{he}), while being closer to
-quite different stereotypical attribute words (such as \emph{scientific}
-or \emph{caring}). Further, it is observed in {[}5{]} that most word
-pairs retain similarity under debiasing meant to minimize
-projection-based bias.\footnote{In {[}1{]} another method which involves
-  analogies and their evaluations by human users on Mechanical Turk is
-  also used. We do not discuss this method in this paper, see its
-  criticism in {[}16{]}.}
+respect to a given class of words, it is only one possible manifestation
+of it, and reducing the cosine similarity to such a projection may not
+be sufficient to eliminate bias. For instance, ``math'' and ``delicate''
+might be equally similar to a pair of opposed explicitly gendered words
+(\emph{she}, \emph{he}), while being closer to quite different
+stereotypical attribute words (such as \emph{scientific} or
+\emph{caring}). Further, it is observed in {[}5{]} that most word pairs
+retain similarity under debiasing meant to minimize projection-based
+bias.\footnote{In {[}1{]} another method which involves analogies and
+  their evaluations by human users on Mechanical Turk is also used. We
+  do not discuss this method in this paper, see its criticism in
+  {[}16{]}.}
 
 A measure of bias in word embeddings which does not employ similarities
 to pre-calculated protected-class-level directions, the Word Embedding
-Association Test (WEAT), has been proposed in {[}8{]}. The idea here is
-that the bias between two sets of target words, \(X\) and \(Y\) (we call
-them protected words), should be quantified in terms of the cosine
-similarity between the protected words and attribute words coming from
-two sets of stereotype attribute words, \(A\) and \(B\) (we will call
-them attributes). For instance, \(X\) might be a set of male names,
+Association Test (\textsf{WEAT}), has been proposed in {[}8{]}. The idea
+here is that the bias between two sets of target words, \(X\) and \(Y\)
+(we call them protected words), should be quantified in terms of the
+cosine similarity between the protected words and attribute words coming
+from two sets of stereotype attribute words, \(A\) and \(B\) (we will
+call them attributes). For instance, \(X\) might be a set of male names,
 \(Y\) a set of female names, \(A\) might contain stereotypically
 male-related, and \(B\) stereotypically female-related career words. The
 association difference for a particular word \(t\) (belonging to either
@@ -478,20 +478,22 @@ association difference for a particular word \(t\) (belonging to either
 
 \vspace{-2mm}
 
-\begin{align*}
+\begin{align}
+\label{eq:stAB}
 \mathsf{s}(t,A,B) & = \frac{\sum_{a\in A}\mathsf{cos}(t,a)}{\vert A\vert} - \frac{\sum_{b\in B}\mathsf{cos}(t,b)}{\vert B\vert}
-\end{align*} \normalsize \noindent then, the association difference
+\end{align} \normalsize \noindent then, the association difference
 between \(A\) a \(B\) is:
 
-\begin{align*}
+\begin{align}
+\label{eq:sXYAB}
 \mathsf{s}(X,Y,A,B) & = \sum_{x\in X} \mathsf{s}(x,A,B) -  \sum_{y\in Y} \mathsf{s}(y,A,B)
-\end{align*}
+\end{align}
 
 \noindent The authors use it as a test statistic in some tests, and the
 assumption that \(X\) and \(Y\) are of the same size is necessary for
 the statistic to make sense. In the final measure (of effect size),
-WEAT, means are taken, which makes it insensitive to size differences
-between \(X\) and \(Y\): \begin{align}
+\textsf{WEAT}, means are taken, which makes it insensitive to size
+differences between \(X\) and \(Y\): \begin{align}
 \mathsf{weat}(A,B) & = \frac{
 \mu(\{\mathsf{s}(x,A,B)\}_{x\in X}) -\mu(\{\mathsf{s}(y,A,B)\}_{y\in Y}) 
 }{
@@ -499,36 +501,52 @@ between \(X\) and \(Y\): \begin{align}
 }
 \end{align}
 
-WEAT is inspired by the Implicit Association Test (IAT) {[}17{]} used in
-psychology, and it uses almost the same word sets, allowing for a
-\emph{prima facie} sensible comparison with bias in humans. In {[}8{]}
-the authors argue that significant biases---thus measured--- similar to
-the ones discovered by IAT can be discovered in word embeddings. In
-{[}11{]} the methodology is extended to a multilingual and cross-lingual
-setting, arguing that using Euclidean distance instead of cosine
-similarity does not make much difference, while the bias effects vary
-greatly across embedding models (interestingly, with social media-text
-trained embeddings being less biased than those based on Wikipedia). A
-similar methodology is employed in {[}4{]}. The authors employ word
-embeddings trained on corpora from different decades to study the shifts
-in various biases.\footnote{Strictly speaking, these authors use
-  Euclidean distances and their differences, but the way they take
-  averages and averages thereof is analogous, and so what we will have
-  to say about pre-averaging leading to false confidence applies to this
-  methodology as well.}
+\textsf{WEAT} is inspired by the Implicit Association Test (IAT)
+{[}17{]} used in psychology, and it uses almost the same word sets,
+allowing for a \emph{prima facie} sensible comparison with bias in
+humans. In {[}8{]} the authors argue that significant biases---thus
+measured--- similar to the ones discovered by IAT can be discovered in
+word embeddings. In {[}11{]} the methodology is extended to a
+multilingual and cross-lingual setting, arguing that using Euclidean
+distance instead of cosine similarity does not make much difference,
+while the bias effects vary greatly across embedding models
+(interestingly, with social media-text trained embeddings being less
+biased than those based on Wikipedia). A similar methodology is employed
+in {[}4{]}. The authors employ word embeddings trained on corpora from
+different decades to study the shifts in various biases.\footnote{Strictly
+  speaking, these authors use Euclidean distances and their differences,
+  but the way they take averages and averages thereof is analogous, and
+  so what we will have to say about pre-averaging leading to false
+  confidence applies to this methodology as well.}
 
-WEAT, however, has been developed to investigate biases corresponding to
-a pair of supposedly opposing stereotypes, and so the question arises as
-to how generalize the measure to contexts in which biases with respect
-to more than two stereotypical groups are to be measured. Such a
-generalization can be found in {[}12{]}. The authors introduce Mean
-Average Cosine distance (MAC) as a measure of bias. Let
-\(T = \{t_1, \dots, t_k\}\) be a set of protected words, and let each
-\(A_j\in \mathcal{A}\) be a set of attributes stereotypically associated
-with a protected word where \(\mathcal{A}\). For instance, when biases
-related to religion are to be investigated, they use a dataset of the
-format illustrated in Table \ref{tab:religionOriginal}. The measure is
-defined as follows:
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.55\linewidth]{paperDraft_files/figure-latex/WEATexample5-1} \end{center}
+\caption{A simple example of a two-class set-up. Two groups of protected words, $X$ and $Y$ with two stereotypical attribute sets. An example of \textsf{WEAT} calculations follows.}
+\label{eq:WEATexample}
+\end{figure}
+
+\noindent Here is an example of \textsf{WEAT} calculations for Figure
+\ref{eq:WEATexample}:
+\begin{align*} s_1 & = s(he,A,B)  =  \nicefrac{(.6+.7)}{2}  - \nicefrac{(.2+.1)}{2} = .65-.15= .5 \\
+s_2  & = s(man,A,B) = .3 \\
+s_3  & = s(woman,A,B) = -.6\\
+s_4 & = s(she, A, B) = -.3\\
+\mathsf{WEAT}(A,B)  & = \frac{\nicefrac{(s_1+s_2)}{2} - \nicefrac{(s_3+s_4)}{2}}{sd(\{s_1,s_2,s_3,s_4\})} \approx 1.93
+\end{align*}
+
+\textsf{WEAT}, however, has been developed to investigate biases
+corresponding to a pair of supposedly opposing stereotypes, and so the
+question arises as to how to generalize the measure to contexts in which
+biases with respect to more than two stereotypical groups are to be
+measured. Such a generalization can be found in {[}12{]}. The authors
+introduce Mean Average Cosine distance (\textsf{MAC}) as a measure of
+bias. Let \(T = \{t_1, \dots, t_k\}\) be a set of protected words, and
+let each \(A_j\in \mathcal{A}\) be a set of attributes stereotypically
+associated with a protected word where \(\mathcal{A}\). For instance,
+when biases related to religion are to be investigated, they use a
+dataset of the format illustrated in Table \ref{tab:religionOriginal}.
+The measure is defined as follows:
 
 \begin{table}
 \footnotesize
@@ -575,6 +593,27 @@ the protected classes.\footnote{The authors' code are in their github
   repository,
   \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding}.}
 
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.5\linewidth]{paperDraft_files/figure-latex/MACexample-1} \end{center}
+\caption{A small subset of the religion dataset.  To each protected word in $T$  there corresponds one class of stereotypical attributes typically associated with it (and other classes of stereotypical attributes associated with different protected words).}
+\label{fig:MACexample}
+\end{figure}
+
+\noindent An example of \textsf{MAC} calculations for the situation
+depicted in Figure \ref{fig:MACexample} is as follows: \begin{align*}
+s_1   = s(muslim,A_1)  & = \frac{\mathsf{cos}(muslim,dirty)+\mathsf{cos}(muslim,terrorist)}{2} \\ 
+s_2   = s(muslim,A_2)  & = \frac{\mathsf{cos}(muslim,familiar)+\mathsf{cos}(muslim,conservative)}{2}\\ & \vdots \\ 
+\mathsf{MAC}(T,A)  & = \mathsf{mean}(\{s_i \vert i \in 1, \dots, k\})
+\end{align*}
+
+Notably, the inutitive distinction between different attribute sets
+plays no real role in the \textsf{MAC} calculations. Equally well one
+could calculate the mean distance of \emph{muslim} to all the
+predicates, mean distance of \emph{christian} to all the predicates,
+mean distance of \emph{jew} to all the predicates, and then to take the
+mean of these three means.
+
 Having introduced the measures, first, we will introduce a selection of
 general problems with this approach, and then we will move on to more
 specific but important problems related to the fact that the measures
@@ -582,40 +621,98 @@ take averages and averages of averages. Once this is done, we move to
 the development of our Bayesian alternative and the presentation of its
 deployment.
 
-\hypertarget{general-methodological-problems-with-cosine-based-measures-of-bias}{%
-\section{General methodological problems with cosine-based measures of
-bias}\label{general-methodological-problems-with-cosine-based-measures-of-bias}}
+\hypertarget{methodological-problems-with-cosine-based-bias-metrics}{%
+\section{Methodological problems with cosine-based bias
+metrics}\label{methodological-problems-with-cosine-based-bias-metrics}}
 
-Consider the MAC results from Table REF. Are the initial MAC values
-lower than 1 indicative of the presence of bias? Of course, thinking
-abstractly, 1 is the ideal distance for unrelated words. But clearly,
-there is variation in distances, which might lead to non-biased lists
-also having MAC smaller than 1. How much smaller? While the original
-paper did not employ control lists for comparison in the paper. To
-obtain a more realistic gauge on how to understand MAC values (and in
-further development of our approach), we introduced control word lists.
-One of them is a list of words we intuitively considered neutral (see
-REF in the APPENDIX). Moreover, it might be the case that words that
-have to do with human activities are systematically closer to the
-protected words than merely neutral words, for which reason we also use
-a second list with intuitively non-stereotypical human attributes (see
-REF in the APPENDIX). Another important observation is that in their
-calculations the authors do not distinguish whether a given attribute is
-associated with a given protected word (e.g.~protected word \emph{jew}
-and the attribute \emph{greedy}) or whether it is associated with a
-different stereotype from the same list (e.g.~protected word
-\emph{quran} and the attribute \emph{greedy}), simply averaging across
-all such groups.
+Here is an example of results of debiasing that can be found in {[}12{]}
+(Table \ref{tab:religionOriginal2}). It presents the results of applying
+the procedure with respect to the Religion dataset. \textsf{MAC} scores
+are given for the original datasets, and two resulting from two
+debiasing methods applied to the Reddit embedding. The scores for
+debiasing come with p-values for the comparison to the original
+\textsf{MAC}.
 
-In Figure \ref{fig:empirical} We look at the empirical distributions,
-while paying attention to such divisions. Horizontal lines represent
-1-MAC values that the authors considered indicative of bias for
+\begin{table}[H]
+\footnotesize
+
+\centering
+
+\begin{tabular}[t]{lllr}
+\toprule
+Religion Debiasing & \textsf{MAC} & a p-value \\
+\midrule
+\cellcolor{gray!15}{Biased} & \cellcolor{gray!15}{0.859} & \cellcolor{gray!15}{N/A} \\
+Hard Debiased & 0.934 & 3.006e-07\\
+\cellcolor{gray!15}{Soft Debiased ($\lambda$ = 0.2)} & \cellcolor{gray!15}{0.894} & \cellcolor{gray!15}{0.007} \\
+\bottomrule
+\end{tabular}
+
+\caption{The associated mean average cosine similarity
+(\textsf{MAC}) and p-values for debiasing methods for religious bias.}
+\label{tab:religionOriginal2}
+\normalsize 
+\end{table}
+
+The first conceptual question we should ask is whether the initial
+\textsf{MAC} values lower than 1 indeed are indicative of the presence
+of bias? Of course, thinking abstractly, 1 is the ideal distance for
+unrelated words. But clearly, there is variation in distances, which
+might lead to non-biased lists also having \textsf{MAC} smaller than 1.
+How much smaller? What may attract attention is the fact that the value
+of cosine distance in ``Biased'' category is already quite high
+(i.e.~close to 1) even before debiasing. High cosine distance indicates
+low cosine similarity between values. One could think that average
+cosine similarity equal to approximately 0.141 is not large enough to
+consider it as bias. The authors, though, still aim to mitigate such
+``bias'' to make the distance even larger. The question is, on what
+basis is this small similarity still considered as a proof of the
+presence of bias, and whether these small changes are meaningful.
+
+The problem is that the original paper did not employ any control group
+of neutral attributes for comparison to obtain a more realistic gauge on
+how to understand \textsf{MAC} values. Later on, in our approach, we
+introduce such control word lists. One of them is a list of words we
+intuitively considered neutral (see the Appendix for word lists).
+
+Moreover, it might be the case that words that have to do with human
+activities in general, even if unbiased, are systematically closer to
+the protected words than merely neutral words. This, again, casts doubt
+on whether comparing \textsf{MAC} to the abstractly ideal value of 1 is
+a methodologically sound idea. For this reason we also use a second list
+with intuitively non-stereotypical human attributes (again, see the
+Appendix for a word list).
+
+Another important observation is that \textsf{MAC} calculations do not
+distinguish whether a given attribute is associated with a given
+protected word, simply averaging across all such groups. Let us use the
+case of religion-related stereotypes to illustrate. The full lists from
+{[}12{]} can be found in Appendix \ref{appendix:manzini_word_lists}. In
+the original paper, words from all three religions were compared against
+all of the stereotypes. No distinction between cases in which the
+stereotype is associated with a given religion, as opposed to the
+situation in which it is associated with another one, is made. For
+example, the protected word \emph{jew} is supposed to be stereotypically
+connected with the attribute \emph{greedy}, while from the protected
+word \emph{quran} the attribute \emph{greedy} comes from a different
+stereotype, and yet the distances between these pairs contribute equally
+to the final \textsf{MAC} score. This is problematic, as not all of the
+stereotypical words have to be considered as harmful for all of the
+religions. To avoid the masking effect, one should pay attention to how
+protected words and attributes are paired by stereotypes.
+
+In Figure \ref{fig:empirical} we look at the empirical distributions,
+while paying attention to such divisions. The horizontal lines represent
+the values of 1-\textsf{MAC} (that is, we now talk in terms of cosine
+similarity rather than cosine distance; this is a trivial linear
+transformation) that the authors considered indicative of bias for
 stereotypes corresponding to given word lists. For instance, in
-religion, MAC was .859, so we plot \(0\pm (1-.859)\approx .14\) lines
-around similarity = 0 (that is, distance = 1). Notice that most
-distributions are quite wide, and the proportions of even neutral or
-human neutral words with similarities higher than the value of 1-MAC
-deserving debiasing according to the authors is quite high.
+religion, \textsf{MAC} was .859 and considered a sign of bias, so we
+plot \(0\pm (1-.859)\approx .14\) lines around similarity = 0 (that is,
+distance = 1). Notice that most distributions are quite wide, and the
+proportions of even neutral or human neutral words with similarities
+higher than the value of 1-\textsf{MAC} deserving debiasing according to
+the authors is quite high.
 
 \pagebreak
 
@@ -628,91 +725,46 @@ deserving debiasing according to the authors is quite high.
 \label{fig:empirical}
 \end{figure}
 
-One issue to consider is the selection of attributes for bias
+Another issue to consider is the selection of attributes for bias
 measurement. The word lists used in the literature are often fairly
-small (5-50).
+small (5-50). The papers in the field do employ statistical tests to
+measure the uncertainty involved and do make claims of statistical
+significance. Yet, we will later on argue that these method are not
+proper for the goal at hand. By using Bayesian methods we will show that
+a more appropriate use of statistical methods leads to estimates of
+uncertainty which suggest that larger word lists would be advisable.
 
-While the papers do employ statistical tests to measure the uncertainty
-involved, we will later on argue that these method are not proper for
-the goal at hand and show that a more appropriate use of statistical
-methods leads to estimates of uncertainty that are rather
-epistemologically pessimistic. \todo{sensitivity to choice of words}
+To avoid such problems, later on, we employ control groups and in line
+with Bayesian methodology, use posterior distributions and highest
+posterior density intervals instead of chasing single-point metrics
+based on pre-averaged data. But before we do so, let us spend some time
+explaining why pre-averaging is a sub-optimal strategy.
 
-Let's think about MAC, using the case of religion-related stereotypes.
-The full lists from {[}12{]} can be found in
-\ref{appendix:manzini_word_lists}. In the original paper, words from all
-three religions were compared against all of the stereotypes. One reason
-this is problematic is that no distinction between cases in which the
-stereotype is associated with a given religion, as opposed to the
-situation in which it is associated with another one, is made. This is
-problematic, as not all of the stereotypical words have to be considered
-as harmful for all of the religions. One should investigate the
-religions separately as some of them may have stronger harmful
-associations that others.
+\hypertarget{pre-averaging-bootstrapping-and-testing-with-the-null-model}{%
+\section{Pre-averaging, bootstrapping and testing with the null
+model}\label{pre-averaging-bootstrapping-and-testing-with-the-null-model}}
 
-The interpretation of the results is also a challenge. In {[}12{]} we
-can find summaries of average cosine distances per group (such as
-gender, race, or religion). For instance, for religion, here is the
-relevant fragment of table:
+The approaches we have been describing use means of mean average cosine
+similarities to measure similarity between protected words and
+attributes coming from harmful stereotypes. However, a closer inspection
+look at the individual values that are taken for the calculations, it
+turns out that there are quite a few outliers and surprisingly
+dissimilar words. This problem becomes transparent when we examine the
+visualizations of the individual cosine distances, following the idea
+that one of the first steps in understanding data is to look at it.
 
-\begin{table}
-\footnotesize
+\begin{figure}[H]
 
-\centering
+\begin{center}\includegraphics[width=1\linewidth]{paperDraft_files/figure-latex/visMuslim-1} \end{center}
 
-\begin{tabular}[t]{lllr}
-\toprule
-Religion Debiasing & MAC & a p-value \\
-\midrule
-\cellcolor{gray!15}{Biased} & \cellcolor{gray!15}{0.859} & \cellcolor{gray!15}{N/A} \\
-Hard Debiased & 0.934 & 3.006e-07\\
-\cellcolor{gray!15}{Soft Debiased ($\lambda$ = 0.2)} & \cellcolor{gray!15}{0.894} & \cellcolor{gray!15}{0.007} \\
-\bottomrule
-\end{tabular}
 
-\caption{The associated mean average cosine similarity
-(MAC) and p-values for debiasing methods for religious bias}
-\label{tab:religionOriginal2}
-\normalsize 
-\end{table}
 
-\noindent (MAC stand for mean average cosine similarity, although in
-reality the the table contains mean cosine distances). What may attract
-attention is the fact that the value of cosine distance in ``Biased''
-category is already quite high (i.e.~close to 1) even before debiasing.
-High cosine distance indicates low cosine similarity between values. One
-could think that average cosine similarity equal to approximately 0.141
-is not significant enough to consider it as bias. However, the authors
-still aim to mitigate such ``bias'' to make the distance even larger.
-Methodologically the question is, on what basis is this small similarity
-still considered as a proof of the presence of bias, and whether these
-small changes are meaningful.
 
-The underlying problem here is that in the paper there is no control
-group. One should also include control groups to have a way of comparing
-the results for a supposedly stereotyped group with the results for sets
-of neutral or human-related neutral words. In our approach later on, we
-distinguish between stereotypes associated with a given group,
-stereotypes associated with different groups, and introduce control
-groups: neutral words and stereotype-free human predicates.
 
-\hypertarget{metrics-that-pre-average-are-a-bad-guide}{%
-\subsection{Metrics that pre-average are a bad
-guide}\label{metrics-that-pre-average-are-a-bad-guide}}
+\begin{center}\includegraphics[width=1\linewidth]{paperDraft_files/figure-latex/visPriest-1} \end{center}
 
-In contrast, statistical intervals will help us decide whether a given
-cosine similarity is high enough to consider the words to be more
-similar than if we chose them at random. We will use highest posterior
-density intervals, in line with Bayesian methodology.
-
-Crucially, these approaches use means of mean average cosine
-similarities to measure similarity between protected word and harmful
-stereotypes. If one takes a closer look at the individual values that
-are taken for the calculations, it turns out that there are quite a few
-outliers and surprisingly dissimilar words. This problem becomes
-transparent when we examine the visualizations of the individual cosine
-distances, following the idea that one of the first steps in
-understanding data is to look at it.
+\caption{Actual distances for two protected words. For the protected word "muslim", the most similar attributes tend to be the ones associated with it stereotypically, but then words associated with other stereotypes come closer than neutral or human predicates. For the word "priest", the situation is even less as expected: the nearest attributes are human attributes, and all there seems to be no clear pattern to the distances to other attributes.}
+\end{figure}
 
 With such a method the uncertainty involved is not really considered
 which makes it even more difficult to give reasonable interpretations of
@@ -741,11 +793,7 @@ bias(A,B) & = \frac{
 \normalsize
 
 The t-tests they employ are run on average cosines used to calculate
-MAC.
-
-\hypertarget{pre-averaging-bootstrapping-and-testing-with-the-null-model}{%
-\section{Pre-averaging, bootstrapping and testing with the null
-model}\label{pre-averaging-bootstrapping-and-testing-with-the-null-model}}
+\textsf{MAC}.
 
 The effect sizes reported by {[}8{]} for lists of words for which the
 embeddings are supposedly biased range from 2.06 to 1.81, and the
@@ -804,26 +852,26 @@ bias (Figure \ref{fig:caliskanDistances}).
 saying that a clear bias on which one group is systematically closer to
 \(A\)s than another is definitely a stretch. What happened?
 
-In the calculations of WEAT means are taken twice. The \(s\)-values
-themselves are means, and then means of \(s\)-values are compared
-between groups. The test statistic used itself is of this sort as
-well---while it compares sums, these are sums of sets of the same size,
-so they are really linear transformations of means of means. Statistical
-troubles start when we run statistical tests on sets of means, for at
-least two reasons One, by pre-averaging data we throw away information
-about sample sizes. For the former point, think about proportions: 10
-out of 20 and 2 out of 4 give the same mean, but you would obtain more
-information by making the former observation rather than by making the
-latter. And especially in this context, in which the word lists are not
-huge, sample sizes should matter. Two, when we pre-average, we remove
-variation, and so pre-averaging tend to manufacture false confidence.
-Group means display less variation than the raw data points, and the
-standard deviation of a set of means of sets of means is bound to be
-lower than the original standard deviation in the row data. Now, if you
-calculate your effect size by dividing by the pre-averaged standard
-deviation, your quite likely to get something that looks like a strong
-effect size, but the results of your calculations might not track
-anything interesting.
+In the calculations of \textsf{WEAT} means are taken twice. The
+\(s\)-values themselves are means, and then means of \(s\)-values are
+compared between groups. The test statistic used itself is of this sort
+as well---while it compares sums, these are sums of sets of the same
+size, so they are really linear transformations of means of means.
+Statistical troubles start when we run statistical tests on sets of
+means, for at least two reasons One, by pre-averaging data we throw away
+information about sample sizes. For the former point, think about
+proportions: 10 out of 20 and 2 out of 4 give the same mean, but you
+would obtain more information by making the former observation rather
+than by making the latter. And especially in this context, in which the
+word lists are not huge, sample sizes should matter. Two, when we
+pre-average, we remove variation, and so pre-averaging tend to
+manufacture false confidence. Group means display less variation than
+the raw data points, and the standard deviation of a set of means of
+sets of means is bound to be lower than the original standard deviation
+in the row data. Now, if you calculate your effect size by dividing by
+the pre-averaged standard deviation, your quite likely to get something
+that looks like a strong effect size, but the results of your
+calculations might not track anything interesting.
 
 So let us think again about the question that we are ultimately
 interested in. Are the \(X\) terms systematically closer to (further
@@ -877,13 +925,13 @@ might arise even if the underlying processes actually have the same
 mean. The uncertainty resulting from including the raw data point
 variance into considerations is more extensive than the one suggested by
 the low p-values obtained from taking means or means of means as data
-points. In this section, we discussed the performance of the WEAT
-measure, but since the {[}12{]} one is a generalization thereof,
-including the method of running statistical tests on pre-averaged data,
-our remarks, \emph{mutatis nutandis}, apply. Moreover, a general problem
-is that studies such as {[}8{]} or {[}12{]} do not use control groups,
-and this makes the interpretation of the analysis additionally
-difficult.
+points. In this section, we discussed the performance of the
+\textsf{WEAT} measure, but since the {[}12{]} one is a generalization
+thereof, including the method of running statistical tests on
+pre-averaged data, our remarks, \emph{mutatis nutandis}, apply.
+Moreover, a general problem is that studies such as {[}8{]} or {[}12{]}
+do not use control groups, and this makes the interpretation of the
+analysis additionally difficult.
 
 What is the alternative? As we already emphasized: focusing on what the
 real underlying question is, and trying to answer it using a statistical
@@ -956,19 +1004,28 @@ in the embedding, distances to associated attribute words should be
 systematically lower than to other attribute words.
 
 Furthermore, conceptually there are two levels of analysis in our
-approach. On the one hand, we are interested in the general question of
-whether related attributes are systematically closer across the dataset.
-On the other hand, we are interested in a more fine-grained picture of
-the role of the predictor for particular protected words. Learning in
-hierarchical Bayesian models involves using Bayesian inference to update
-the parameters of the model. This update is based on the observed data,
-and estimates are made at different levels of the data hierarchy. We use
-hierarchical Bayesian models in which we simultaneously estimate
-parameters at the protected word level and at the global level, assuming
-that all lower-level parameters are drawn from global distributions.
-Such models can be thought of as incorporating adaptive regularization,
-which avoids overfitting and leads to improved estimates for unbalanced
-datasets (and the datasets we need to use are unbalanced).
+approach (see Figure \ref{fig:visDag}). On the one hand, we are
+interested in the general question of whether related attributes are
+systematically closer across the dataset. On the other hand, we are
+interested in a more fine-grained picture of the role of the predictor
+for particular protected words. Learning in hierarchical Bayesian models
+involves using Bayesian inference to update the parameters of the model.
+This update is based on the observed data, and estimates are made at
+different levels of the data hierarchy. We use hierarchical Bayesian
+models in which we simultaneously estimate parameters at the protected
+word level and at the global level, assuming that all lower-level
+parameters are drawn from global distributions. Such models can be
+thought of as incorporating adaptive regularization, which avoids
+overfitting and leads to improved estimates for unbalanced datasets (and
+the datasets we need to use are unbalanced).
+
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.8\linewidth]{paperDraft_files/figure-latex/dagVis-1} \end{center}
+
+\caption{At a general level, we will be estimating the coefficients for distances as grouped by whether they are between protected words and attributes coming from their respective associated/different/human/neutral attribute groups. At a more fine-grained level, for each protected word we will be estimating the proximity of that word to attributes that are associated with its respective stereotype, come from a different stereotype, or come from the human/neutral attribute lists.}
+\label{fig:visDag}
+\end{figure}
 
 To be more specific, the underlying mathematical model is as follows.
 First, we assume that distances are normally distributed:
@@ -1213,10 +1270,9 @@ instead chases single bias metrics present in the literature.
 After introducing the method, we apply it to multiple word embeddings
 and results of supposed debiasing, putting forward some general
 observations that are not exactly in line with the usual picture painted
-in terms of WEAT or MAC (and the problem generalizes to any approach
-that focuses on chasing a single numeric metric): the word list sizes
-and sample sizes used in the studies are usually
-small,\footnote{Depending on a list for [@Caliskan2017semanticsBiases] the range for protected words is between 13 and 100, and for attributes between 16 and 25; for [@Manzini2019blackToCriminal] the range for protected words is between 14 and 18, and for attributes between 11 and 25}
+in terms of \textsf{WEAT} or \textsf{MAC} (and the problem generalizes
+to any approach that focuses on chasing a single numeric metric): the
+word list sizes and sample sizes used in the studies are usually small.
 posterior density intervals are fairly wide, often the differences
 between associated, different and neutral human predicates, are not very
 impressive. Also, a preliminary inspection suggests that the
