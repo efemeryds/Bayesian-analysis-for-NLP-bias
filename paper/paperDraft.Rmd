@@ -452,7 +452,7 @@ The approaches we have been describing use  means of mean average cosine similar
 
 
 \begin{figure}[H]
-```{r visMuslim,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message =FALSE, warning = FALSE}
+```{r visMuslimd,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%",message =FALSE, warning = FALSE}
 religion <- read.csv("datasets/cleanedDatasets/religionRedditCleaned.csv")
 muslimWords <- c("imam","islam","mosque","muslim","quran")
 muslim <- religion %>% filter(protectedWord %in% muslimWords)
@@ -464,13 +464,13 @@ muslimVis <- rbind(muslimVis,neutralSample,humanSample)
 
 source("functions/visualisationTools.R")
 
-visualiseProtected(muslimVis,"muslim")+theme_void(base_size = 20)
+visualiseProtected(muslimVis,"muslim")+theme_void(base_size = 11)
 ```
 
 
 
 
-```{r visPriest,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning = FALSE, message = FALSE}
+```{r visPriestd,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", warning = FALSE, message = FALSE}
 religion <- read.csv("datasets/cleanedDatasets/religionRedditCleaned.csv")
 priestClass <- religion %>% filter(protectedWord == "priest")
 neutralSample <- sample_n(filter(priestClass,connection == "none"), 5)
@@ -481,7 +481,7 @@ priestVis <- rbind(priestVis,neutralSample,humanSample)
 
 source("functions/visualisationTools.R")
 
-visualiseProtected(priestVis,"priest")+theme_void(base_size = 20)
+visualiseProtected(priestVis,"priest")+theme_void(base_size = 11)
 ```
 
 \caption{Actual distances for two protected words. For the protected word "muslim", the most similar attributes tend to be the ones associated with it stereotypically, but then words associated with other stereotypes come closer than neutral or human predicates. For the word "priest", the situation is even less as expected: the nearest attributes are human attributes, and all there seems to be no clear pattern to the distances to other attributes.}
@@ -980,7 +980,7 @@ grid.arrange(posteriorPlotsA[[3]], posteriorPlotsB[[3]], ncol = 2)
 
 \vspace{1mm}
 \footnotesize
-```{r generatePlots2,echo=FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message = FALSE, warning = FALSE, results = FALSE}
+```{r generatePlots2h,echo=FALSE, eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "100%", message = FALSE, warning = FALSE, results = FALSE}
 source("functions/cleanDataset.R")
 source("functions/plotFromPrecis.R")
 
@@ -990,7 +990,7 @@ resultsWeat7Google <- plotFromPrecis(precis = precisWeat7Google,
                                      dataset = weat7Google,
                                      list = "Weat 7",
                                      embedding = "Google",
-                                     ylims = c(.75,1.1))
+                                     ylims = c(.8,1.05))
 
 weat7Glove <- cleanDataset(read.csv("./datasets/macWeatDatasets/weat_7_glove.csv")[,-1])
 precisWeat7Glove <- readRDS("resultsDFs/Weat7GloveDF.rds")
@@ -1190,7 +1190,7 @@ These visualizations can be also handy when it comes to the investigation of the
 
 
 \begin{figure}[H]
-```{r fig:debiasedCosinePair2,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", dpi = 300, out.width="85%", warning = FALSE, message = FALSE}
+```{r fig:debiasedCosinePair2b,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", dpi = 300, out.width="85%", warning = FALSE, message = FALSE}
 
 resultsGenderReddit$plotJoint
 
@@ -1308,178 +1308,178 @@ After introducing the method, we apply it to multiple word embeddings and result
 
 \label{appendix:visualizations}
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r weatjoint2r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsWeat7Google$plotJoint
 ```
-\caption{dsds}
-\label{fig:weat7google}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:weat7google} -->
+<!-- \end{figure} -->
 
+\pagebreak 
 
+<!-- \begin{figure}[H] -->
 
-\begin{figure}[H]
-
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r weat7glovf, echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsWeat7Glove$plotJoint
 ```
-\caption{dsds}
-\label{fig:weat7glove}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:weat7glove} -->
+<!-- \end{figure} -->
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsWeat7Reddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsWeat7Reddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:weat7reddit}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:weat7reddit} -->
+<!-- \end{figure} -->
 
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsWeat1Google,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsWeat1Google$plotJoint
 ```
-\caption{dsds}
-\label{fig:weat1google}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:weat1google} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsWeat1Glove,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsWeat1Glove$plotJoint
 ```
-\caption{dsds}
-\label{fig:weat1glove}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:weat1glove} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsWeat1Reddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsWeat1Reddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:weat1reddit}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:weat1reddit} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsReligionGoogle,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsReligionGoogle$plotJoint
 ```
-\caption{dsds}
-\label{fig:religionGoogle}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:religionGoogle} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsReligionGlove,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsReligionGlove$plotJoint
 ```
-\caption{dsds}
-\label{fig:religionGlove}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:religionGlove} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsReligionReddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsReligionReddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:religionReddit}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:religionReddit} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsRaceGoogle,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsRaceGoogle$plotJoint
 ```
-\caption{dsds}
-\label{fig:raceGoogle}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:raceGoogle} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsRaceGlove,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsRaceGlove$plotJoint
 ```
-\caption{dsds}
-\label{fig:raceGlove}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:raceGlove} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsRaceReddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsRaceReddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:raceReddit}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:raceReddit} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
+<!-- \begin{figure}[H] -->
 
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+```{r resultsGenderGoogle,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsGenderGoogle$plotJoint
 ```
-\caption{dsds}
-\label{fig:genderGoogle}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:genderGoogle} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+<!-- \begin{figure}[H] -->
+```{r resultsGenderGlove,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsGenderGlove$plotJoint
 ```
-\caption{dsds}
-\label{fig:genderGlove}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:genderGlove} -->
+<!-- \end{figure} -->
 
 
 
 
-\begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+<!-- \begin{figure}[H] -->
+```{r resultsGenderReddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsGenderReddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:genderReddit}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:genderReddit} -->
+<!-- \end{figure} -->
 
 
 
@@ -1490,33 +1490,33 @@ resultsGenderReddit$plotJoint
 
 
 
-\begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+<!-- \begin{figure}[H] -->
+```{r resultsDebiasedReligionReddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsDebiasedReligionReddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:debiasedReligion}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:debiasedReligion} -->
+<!-- \end{figure} -->
 
 
 
-\begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+<!-- \begin{figure}[H] -->
+```{r resultsDebiasedRaceReddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsDebiasedRaceReddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:debiasedRace}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:debiasedRace} -->
+<!-- \end{figure} -->
 
 
 
-\begin{figure}[H]
-```{r,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE}
+<!-- \begin{figure}[H] -->
+```{r resultsDebiasedGenderReddit,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "110%", dpi = 300, warning = FALSE, message = FALSE, fig.height= 9, fig.width= 6}
 resultsDebiasedGenderReddit$plotJoint
 ```
-\caption{dsds}
-\label{fig:debiasedGender}
-\end{figure}
+<!-- \caption{dsds} -->
+<!-- \label{fig:debiasedGender} -->
+<!-- \end{figure} -->
 
 
 

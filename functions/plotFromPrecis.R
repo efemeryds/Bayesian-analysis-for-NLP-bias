@@ -53,7 +53,7 @@ plotFromPrecis <- function (precis, dataset, ylims = c(.5,1.2), list, embedding)
     geom_segment(data = DFindividual,aes(x=reorder(pw, desc(pw)),xend=reorder(pw, desc(pw)), y  = `5.5%`, yend= `94.5%`,
                                          color = type),
                  position = position_nudge((as.integer(DFindividual$type)-1)*0.15), size = .4)+
-    geom_hline(yintercept = 1, lty = 2, size = .2, alpha = .3) +labs(title = paste(list, ", ", embedding, ", cosine distances, by protected-word", sep = ""), subtitle = "Means with 89% highest posterior density intervals")+ 
+    geom_hline(yintercept = 1, lty = 2, size = .2, alpha = .3) +labs(title = paste(list, ", ", embedding, ", cosine distances, by protected word", sep = ""), subtitle = "Means with 89% highest posterior density intervals")+ 
     theme(legend.position='none', plot.title.position = "plot") + ylim(ylims)
   
   
@@ -74,14 +74,15 @@ plotFromPrecis <- function (precis, dataset, ylims = c(.5,1.2), list, embedding)
   
   
   grobIndividual <- ggplotGrob(results$plotIndividual+theme_tufte(base_size = 6) + theme(legend.position='none'))
-  grobOverall <- ggplotGrob(results$plotOverall+theme_tufte(base_size = 6)+ theme(legend.position = c(0.9, 0.7)))
+  grobOverall <- ggplotGrob(results$plotOverall+theme_tufte(base_size = 6)+ theme(legend.position = "top"))
   
   
-  results$plotJoint <- ggplot(data.frame(a=1)) + xlim(1, 20) + ylim(10, 60)+theme_void()+
-    annotation_custom(grobIndividual, xmin = 1, xmax = 20, ymin = 10, ymax = 50)+
-    annotation_custom(grobOverall, xmin = 1, xmax = 20, ymin = 50, ymax = 60)  
+  results$plotJoint <- ggplot(data.frame(a=1)) + xlim(1, 20) + ylim(10, 100)+theme_void()+
+    annotation_custom(grobIndividual, xmin = 1, xmax = 20, ymin = 10, ymax = 80)+
+    annotation_custom(grobOverall, xmin = 1, xmax = 20, ymin = 80, ymax = 100)  
   
   return(results)
 }
+
 
 

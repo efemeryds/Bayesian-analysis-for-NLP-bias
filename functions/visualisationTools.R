@@ -37,8 +37,8 @@ visualiseProtected <- function(dataset, protected){
     geom_point(aes(x=xaxis,y=yaxis, color = connection, size = cosineSimilarity), alpha = 0.3)+ 
     geom_segment(aes(x= 0, y = 0, xend = closestx,yend=closesty),alpha= 0.1, size = 0.2)+
     geom_segment(aes(x= 0, y = 0, xend = furthestx,yend=furthesty),alpha=0.1,size = 0.2)+
-    annotate("text", x = 0.5*closestx, y = 0.5*closesty-0.05, label = round(closestDistance,3), size = 3)+
-    annotate("text", x = 1.5*furthestx, y = 0.5*furthesty, label = round(furthestDistance,3), size = 3)+
+    annotate("text", x = 0.5*closestx, y = 0.5*closesty-0.05, label = round(closestDistance,2), size = 3)+
+    annotate("text", x = 1.9*furthestx, y = 0.5*furthesty, label = round(furthestDistance,2), size = 3)+
     annotate("text", x = -0.02, y = -0.13, label = protected, size = 4)+
     geom_text(aes(label = wordToCompare,x=xaxis+.07,y=yaxis+0.03,color = connection), size = 3)+
     theme_void()+
