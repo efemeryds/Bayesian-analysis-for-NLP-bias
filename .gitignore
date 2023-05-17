@@ -1,4 +1,5 @@
-resultsDFs/
+resultsDFs/*.rds
+resultsDFs/*.RDS
 paper/paperDraft_cache/latex/
 paper/paperDraft_files/
 paper/paperDraft.log
