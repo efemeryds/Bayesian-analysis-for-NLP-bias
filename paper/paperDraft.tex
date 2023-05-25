@@ -224,8 +224,9 @@
 
 \usepackage{float}
 
-\usepackage{sectsty}
-\sectionfont{\fontsize{11}{11}\selectfont}
+% \usepackage{sectsty}
+% \sectionfont{\fontsize{12}{11}\selectfont}
+% \subsectionfont{\fontsize{11}{11}\selectfont}
 
 % \setbeamertemplate{blocks}[rounded][shadow=true]
 % \setbeamertemplate{itemize items}[ball]
@@ -291,29 +292,29 @@ bayesian approach}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-Natural language processing (NLP) models are used to perform various
-language-related tasks such as providing email filters, intelligent
-assistants, search results, translations, text analysis and so on. Such
-tools require input words to be represented by vectors of real numbers.
-This can usually be done with word embeddings. A common way to construct
-an embedding is to use a large natural language corpus to train a neural
-network to assign vectors to words that optimize for co-occurrence
-prediction accuracy. The vectors can then be compared in terms of their
-similarity -- the usual measure is cosine similarity -- and the results
-of such comparisons can be used in downstream tasks. Roughly speaking,
-cosine similarity is an imperfect mathematical proxy for semantic
-similarity {[}14{]}.
+It has been suggested\footnote{See for instance {[}1,4,5,8,11,12{]}.}
+that language models can learn implicit biases that reflect harmful
+stereotypical thinking---for example, the (vector corresponding to the)
+word \textit{she} might be much closer in the vector space to the word
+\textit{cooking} than the word \textit{he}. Such phenomena are
+undesirable at least in some downstream tasks, such as web search,
+recommendations, and so on. To investigate such issues, several measures
+of bias in word embeddings have been formulated and applied. Our goal is
+to use two prominent examples of such measures to argue that this
+approach oversimplifies the situation and to develop a Bayesian
+alternative.
 
-It has been suggested {[}1,4,5,8,11,12{]} that such models can learn
-implicit biases that reflect harmful stereotypical thinking---for
-example, the (vector corresponding to the) word \textit{she} might be
-much closer in the vector space to the word \textit{cooking} than the
-word \textit{he}. Such phenomena may be undesirable at least in some
-downstream tasks, such as web search, recommendations, and so on. To
-investigate such issues, several measures of bias in word embeddings
-have been formulated and applied. Our goal is to use two prominent
-examples of such measures to argue that this approach oversimplifies the
-situation and to develop a Bayesian alternative.
+A common approach in natural language processing is to represent words
+by vectors of real numbers---such representations are called
+\emph{embeddings}. One way to construct an embedding---we will focus our
+attention on non-contextual language models\footnote{One example of a
+  contextualized representation is BERT. Another is GPT.}---is to use a
+large corpus to train a neural network to assign vectors to words in a
+way that optimizes for co-occurrence prediction accuracy. Such vectors
+can then be compared in terms of their similarity---the usual measure is
+cosine similarity---and the results of such comparisons can be used in
+downstream tasks. Roughly speaking, cosine similarity is an imperfect
+mathematical proxy for semantic similarity {[}14{]}.
 
 One response to the raising of the issue of bias in natural language
 models might be to say that there is not much point to reflecting on
@@ -333,91 +334,124 @@ Another response might be to insist that there is no bias introduced by
 the use of machine learning methods here, since the algorithm is simply
 learning to correctly predict co-occurrences based on what ``reality''
 looks like. However, this objection overlooks the fact that we, humans,
-are the ones who construct this linguistic reality, is shaped in part by
-the natural language processing tools we use on a massive scale. Sure,
-if there is unfairness and our goal is to diagnose it, we should do
-complete justice to learning it in the model used in a study thereof.
-One example of this approach is {[}3{]}. However, if our goal is to
-develop downstream tools that perform tasks that we care about without
-further perpetuating or exacerbating harmful stereotypes, we still have
-good reasons to try to minimize the negative impact, at least as long as
-this does not damage the overall performance of the tool. Moreover, it
-is often not the case that the corpora mirror reality---to give a
-trivial example, heads are spoken of more often than kidneys, but this
-does not mean that kidneys occur much less often in reality than heads.
-To give a more relevant example, the disproportionate association of
-female words with female occupations in a corpus actually greatly
-exaggerates the actual lower disproportion in the real distribution of
-occupations. {[}6{]}.
+are the ones who construct this linguistic reality, which is shaped in
+part by the natural language processing tools we use on a massive scale.
+Sure, if there is unfairness and our goal is to diagnose it, we should
+do complete justice to learning it in the model used to study it. One
+example of this approach is {[}3{]}, where the authors use language
+models to study the shape of certain biases across a century.
+
+However, if our goal is to develop downstream tools that perform tasks
+that we care about without further perpetuating or exacerbating harmful
+stereotypes, we still have good reasons to try to minimize the negative
+impact. Moreover, it is often not the case that the corpora mirror
+reality---to give a trivial example, heads are spoken of more often than
+kidneys, but this does not mean that kidneys occur much less often in
+reality than heads. To give a more relevant example, the
+disproportionate association of female words with female occupations in
+a corpus actually greatly exaggerates the actual lower disproportion in
+the real distribution of occupations {[}6{]}.
 
 In what follows, we focus on two popular measures of bias applicable to
-many existing word embeddings (
+many existing word embeddings, such as
 \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.}
 \emph{Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
 and
-\emph{Reddit Corpus}\footnote{The Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}):
+\emph{Reddit Corpus}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
 \emph{Word Embedding Association Test} (\textsf{WEAT}) {[}8{]}, and
 \emph{Mean Average Cosine Distance} (\textsf{MAC}) {[}12{]}. We first
 explain how these measures are supposed to work. Then we argue that they
-are problematic for various reasons, a key one being that by
+are problematic for various reasons---the key one being that by
 pre-averaging data they manufacture false confidence, which we
 illustrate in terms of simulations showing that the measures often
 suggest the existence of bias even if by design it is non-existent in a
 simulated dataset.
 
-We propose to replace them with a Bayesian data analysis (hierarchical
-models), which not only provides more modest and realistic assessment of
-the uncertainty involved, but also allows for inspection at various
-levels of granularity. Once we introduce the method, we apply it to
-multiple word embeddings and results of supposed debiasing, putting
+We propose to replace them with a Bayesian data analysis, which not only
+provides more modest and realistic assessment of the uncertainty
+involved, but in which hierarchical models allow for inspection at
+various levels of granularity. Once we introduce the method, we apply it
+to multiple word embeddings and results of supposed debiasing, putting
 forward some general observations that are not exactly in line with the
-usual picture painted in terms of \textsf{WEAT} or \textsf{MAC} (and the
-problem generalizes to any approach that focuses on chasing a single
-numeric metric): the word list sizes and sample sizes used in the
-studies are usually small,\footnote{Depending on a list for {[}8{]} the
-  range for protected words is between 13 and 100, and for attributes
-  between 16 and 25; for {[}12{]} the range for protected words is
-  between 14 and 18, and for attributes between 11 and 25.} posterior
-density intervals are fairly wide, often the differences between
-associated, different and neutral human predicates, are not very
-impressive. Also, a preliminary inspection suggests that the
-desirability of changes obtained by the usual debiasing methods is
-debatable. The tools that we have proposed, however, allow for a more
-fine-grained and multi-level evaluation of bias and debiasing in
-language models without abandoning modesty about the uncertainties
-involved.
+usual picture painted in terms of \textsf{WEAT} or \textsf{MAC}.
+
+Most of the problems that we point out generalize to any existing
+approach that focuses on chasing a single numeric metric of bias. (1)
+They treat the results of pre-averaging as raw data in statistical
+significance tests, which in this context is bound to overestimate
+significance. We show similar results can easily be obtained when
+sampling from null models with no bias. (2) The word list sizes and
+sample sizes used in the studies are usually small,\footnote{Depending
+  on a list for {[}8{]} the range for protected words is between 13 and
+  100, and for attributes between 16 and 25; for {[}12{]} the range for
+  protected words is between 14 and 18, and for attributes between 11
+  and 25.} (3) Many studies do not use any control predicates, such as
+random neutral words or neutral human predicates for comparison.
+
+On the constructive side, we develop and deploy our method, and the
+results are, roughly, as follows. (A) Posterior density intervals are
+fairly wide and the average differences between associated, different
+and neutral human predicates, are not very large. (B) A preliminary
+inspection suggests that the desirability of changes obtained by the
+usual debiasing methods is debatable.
+
+In Section \ref{sec:two} we describe the two key measures discussed in
+this paper, \textsf{WEAT} and \textsf{MAC}, explaining how they are
+calculated and how they are supposed to work. In Section
+\ref{sec:challenges} we first argue in Subsection
+\ref{subsec:interpretability}, that it is far from clear how results
+given in terms of \textsf{WEAT} or \textsf{MAC} are to be interpreted.
+Second, in Subsection \ref{subsec:problems} we explain the statistical
+problems that arise when one uses pre-averaged data in such contexts, as
+these measures do. In Section \ref{sec:bayesian} we explain the
+alternative Bayesian approach that we propose. In Section
+\ref{sec:results} we elaborate on the results that it leads to,
+including a somewhat skeptical view of the efficiency of debiasing
+methods, discussed in Subsection \ref{subsec:rethinking}. Finally, in
+Section \ref{sec:related} we spend some time placing our results in the
+ongoing discussions.\footnote{\textbf{Disclaimer:} throughout the paper
+  we will be mentioning and using word lists and stereotypes we did not
+  formulate, which does not mean we condone any judgment made therein or
+  underlying a given word selection. For instance, the Gender dataset
+  does not recognize non-binary categories, and yet we use it without
+  claiming that such categories should be ignored.}
 
 \hypertarget{two-measures-of-bias-weat-and-mac}{%
 \section{Two measures of bias: WEAT and
 MAC}\label{two-measures-of-bias-weat-and-mac}}
 
-Conceptually the idea is that if a particular harmful stereotype is
+\label{sec:two}
+
+Conceptually, the idea is that if a particular harmful stereotype is
 learned in a particular embedding, then certain groups of words will be
 systematically closer to (or further from) each other. This gives rise
 to the idea of protected groups---for example, in guiding online search
 completion or recommendation, female words might require protection in
 that they should not be systematically closer to stereotypically female
-job names, and male words require protection in that they should not be
-systematically closer to toxic masculinity stereotypes, such as
-``tough'', ``never complaining'' or ``macho''.\footnote{However, for
-  some research-related purposes, such as the study of stereotypes
-  across history {[}3{]}, embeddings which do not protect certain
-  classes may also be useful.}
+job names, such as ``nurse'', ``librarian'', ``waitress'', and male
+words require protection in that they should not be systematically
+closer to toxic masculinity stereotypes, such as ``tough'', ``never
+complaining'' or ``macho''.\footnote{However, for some research-related
+  purposes, such as the study of stereotypes across history {[}3{]},
+  embeddings which do not protect certain classes may also be useful.}
 
 The key role in the measures to be discussed is played by the notion of
 cosine distance (or, symmetrically, by cosine similarity). These are
 defined as follows:\footnote{Here, ``\(-\)'' stands for point-wise
   difference, ``\(\cdot\)'' stands for the dot product operation, and
-  \(\lVert a\rVert = \sqrt{(a \cdot a)}\).} \begin{align} \tag{Sim}
+  \(\lVert a\rVert = \sqrt{(a \cdot a)}\).}
+\(^{\!\!\! , \,}\)\footnote{Note that this terminology is slightly
+  misleading, as mathematically cosine distance is not a distance
+  measure, because it does not satisfy the triangle inequality, as
+  generally
+  \(\mathsf{cosineDistance}(A,C) \not \leq \mathsf{cosineDistance}(A,B)+ \mathsf{cosineDistance}(B,C)\).
+  We will keep using this mainstream terminology.}
+\begin{align} \tag{Sim}
 \mathsf{cosineSimilarity}(A,B) & = \frac{A \cdot B}{\lVert  A \rVert \,\lVert B \rVert}
 \\
 \tag{Distance}
 \mathsf{cosineDistance}(A,B) &  = 1 - \mathsf{cosineSimilarity}(A,B).
-\end{align} Note that this terminology is slightly misleading, as
-mathematically cosine distance is not a distance measure, because it
-does not satisfy the triangle inequality, as generally
-\(\mathsf{cosineDistance}(A,C) \not \leq \mathsf{cosineDistance}(A,B)+ \mathsf{cosineDistance}(B,C)\).
-We will keep using this mainstream terminology.
+\end{align}
 
 One of the first measures of bias has been developed in {[}1{]}. The
 general idea is that a certain topic is associated with a vector of real
@@ -557,21 +591,21 @@ The measure is defined as follows:
 \toprule
 protected words ($T$) & attributes & attribute set ($A_j$) & cosine distance\\
 \midrule
-\cellcolor{gray!15}{rabbi} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{1.0306175}\\
-church & familial & christianStereotype & 0.7087424\\
-\cellcolor{gray!15}{synagogue} & \cellcolor{gray!15}{liberal} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{0.7922607}\\
-jew & familial & christianStereotype & 0.9783245\\
-\cellcolor{gray!15}{quran} & \cellcolor{gray!15}{dirty} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{1.1207093}\\
-muslim & uneducated & muslimStereotype & 0.5160429\\
-\cellcolor{gray!15}{torah} & \cellcolor{gray!15}{terrorist} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{0.9341137}\\
-quran & hairy & jewStereotype & 1.1764642\\
-\cellcolor{gray!15}{synagogue} & \cellcolor{gray!15}{violent} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{0.9549743}\\
-bible & cheap & jewStereotype & 1.2234364\\
-\cellcolor{gray!15}{christianity} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{0.9728545}\\
-muslim & hairy & jewStereotype & 0.8788219\\
-\cellcolor{gray!15}{islam} & \cellcolor{gray!15}{critical} & \cellcolor{gray!15}{christianStereotype} & \cellcolor{gray!15}{0.7880706}\\
-muslim & conservative & christianStereotype & 0.4453191\\
-\cellcolor{gray!15}{mosque} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{1.1541524}\\
+\cellcolor{gray!15}{rabbi} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{1.03}\\
+church & familial & christianStereotype & 0.70\\
+\cellcolor{gray!15}{synagogue} & \cellcolor{gray!15}{liberal} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{0.79}\\
+jew & familial & christianStereotype & 0.98\\
+\cellcolor{gray!15}{quran} & \cellcolor{gray!15}{dirty} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{1.12}\\
+muslim & uneducated & muslimStereotype & 0.52\\
+\cellcolor{gray!15}{torah} & \cellcolor{gray!15}{terrorist} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{0.93}\\
+quran & hairy & jewStereotype & 1.18\\
+\cellcolor{gray!15}{synagogue} & \cellcolor{gray!15}{violent} & \cellcolor{gray!15}{muslimStereotype} & \cellcolor{gray!15}{0.95}\\
+bible & cheap & jewStereotype & 1.22\\
+\cellcolor{gray!15}{christianity} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{0.97}\\
+muslim & hairy & jewStereotype & 0.88\\
+\cellcolor{gray!15}{islam} & \cellcolor{gray!15}{critical} & \cellcolor{gray!15}{christianStereotype} & \cellcolor{gray!15}{0.79}\\
+muslim & conservative & christianStereotype & 0.45\\
+\cellcolor{gray!15}{mosque} & \cellcolor{gray!15}{greedy} & \cellcolor{gray!15}{jewStereotype} & \cellcolor{gray!15}{1.15}\\
 \bottomrule
 \end{tabular}
 
@@ -621,9 +655,16 @@ take averages and averages of averages. Once this is done, we move to
 the development of our Bayesian alternative and the presentation of its
 deployment.
 
-\hypertarget{methodological-problems-with-cosine-based-bias-metrics}{%
-\section{Methodological problems with cosine-based bias
-metrics}\label{methodological-problems-with-cosine-based-bias-metrics}}
+\hypertarget{challenges-to-cosine-based-bias-metrics}{%
+\section{Challenges to cosine-based bias
+metrics}\label{challenges-to-cosine-based-bias-metrics}}
+
+\label{sec:challenges}
+
+\hypertarget{interpretability-issues}{%
+\subsection{Interpretability issues}\label{interpretability-issues}}
+
+\label{subsec:interpretability}
 
 Here is an example of results of debiasing that can be found in {[}12{]}
 (Table \ref{tab:religionOriginal2}). It presents the results of applying
@@ -701,28 +742,44 @@ stereotypical words have to be considered as harmful for all of the
 religions. To avoid the masking effect, one should pay attention to how
 protected words and attributes are paired by stereotypes.
 
-In Figure \ref{fig:empirical} we look at the empirical distributions,
-while paying attention to such divisions. The horizontal lines represent
-the values of 1-\textsf{MAC} (that is, we now talk in terms of cosine
-similarity rather than cosine distance; this is a trivial linear
-transformation) that the authors considered indicative of bias for
-stereotypes corresponding to given word lists. For instance, in
-religion, \textsf{MAC} was .859 and considered a sign of bias, so we
+In Figures (\ref{fig:empirical0}-\ref{fig:empirical3}) we look at the
+empirical distributions, while paying attention to such divisions. The
+horizontal lines represent the values of 1-\textsf{MAC} (that is, we now
+talk in terms of cosine similarity rather than cosine distance; this is
+a trivial linear transformation) that the authors considered indicative
+of bias for stereotypes corresponding to given word lists. For instance,
+in religion, \textsf{MAC} was .859 and considered a sign of bias, so we
 plot \(0\pm (1-.859)\approx .14\) lines around similarity = 0 (that is,
 distance = 1). Notice that most distributions are quite wide, and the
 proportions of even neutral or human neutral words with similarities
 higher than the value of 1-\textsf{MAC} deserving debiasing according to
 the authors is quite high.
 
-\pagebreak
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.7\linewidth]{paperDraft_files/figure-latex/fig:cosineDistributions8d-1} \end{center}
+
+\caption{Empirical distributions of cosine similarities  for the Religion word list  used in  the original paper. }
+
+\label{fig:empirical0}
+\end{figure}
 
 \begin{figure}[H]
 
-\begin{center}\includegraphics[width=0.7\linewidth]{paperDraft_files/figure-latex/fig:cosineDistributions8b-1} \end{center}
+\begin{center}\includegraphics[width=0.7\linewidth]{paperDraft_files/figure-latex/fig:cosineDistributions8df-1} \end{center}
 
-\caption{Empirical distributions of cosine similarities (1-distances) for three word lists used in  the original paper.  }
+\caption{Empirical distributions of cosine similarities for the Gender word list used in  the original paper.  }
 
-\label{fig:empirical}
+\label{fig:empirical2}
+\end{figure}
+
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.7\linewidth]{paperDraft_files/figure-latex/fig:cosineDistributions8dg-1} \end{center}
+
+\caption{Empirical distributions of cosine similarities  for the Race word list used in  the original paper.  }
+
+\label{fig:empirical3}
 \end{figure}
 
 Another issue to consider is the selection of attributes for bias
@@ -740,9 +797,11 @@ posterior density intervals instead of chasing single-point metrics
 based on pre-averaged data. But before we do so, let us spend some time
 explaining why pre-averaging is a sub-optimal strategy.
 
-\hypertarget{pre-averaging-bootstrapping-and-testing-with-the-null-model}{%
-\section{Pre-averaging, bootstrapping and testing with the null
-model}\label{pre-averaging-bootstrapping-and-testing-with-the-null-model}}
+\hypertarget{problems-with-pre-averaging}{%
+\subsection{Problems with
+pre-averaging}\label{problems-with-pre-averaging}}
+
+\label{subsec:problems}
 
 The approaches we have been describing use means of mean average cosine
 similarities to measure similarity between protected words and
@@ -752,18 +811,22 @@ turns out that there are quite a few outliers and surprisingly
 dissimilar words. This problem becomes transparent when we examine the
 visualizations of the individual cosine distances, following the idea
 that one of the first steps in understanding data is to look at it.
+Let's start with inspecting two examples in Figures \ref{fig:muslim} and
+\ref{fig:priest}.
 
 \begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{paperDraft_files/figure-latex/visMuslimd-1} \end{center}
+\caption{Actual distances for the protected word "muslim". The most similar attributes tend to be the ones associated with it stereotypically, but then words associated with other stereotypes come closer than neutral or human predicates. }
+\label{fig:muslim}
+\end{figure}
 
-
-
-
+\begin{figure}[H]
 
 \begin{center}\includegraphics[width=1\linewidth]{paperDraft_files/figure-latex/visPriestd-1} \end{center}
 
-\caption{Actual distances for two protected words. For the protected word "muslim", the most similar attributes tend to be the ones associated with it stereotypically, but then words associated with other stereotypes come closer than neutral or human predicates. For the word "priest", the situation is even less as expected: the nearest attributes are human attributes, and all there seems to be no clear pattern to the distances to other attributes.}
+\caption{Actual distances for the protected word "priest", the situation is even less as expected: the nearest attributes are human attributes, and all there seems to be no clear pattern to the distances to other attributes.}
+\label{fig:priest}
 \end{figure}
 
 With such a method the uncertainty involved is not really considered
@@ -904,9 +967,9 @@ raw data point standard deviation.
 
 \begin{figure}[H]
 
-\begin{center}\includegraphics[width=0.8\linewidth]{paperDraft_files/figure-latex/fig:ourDistancesPlot2-1} \end{center}
+\begin{center}\includegraphics[width=0.8\linewidth]{paperDraft_files/figure-latex/fig:ourDistancesPlot2e-1} \end{center}
 
-\caption{Distributions of test statistics and effect sizes based on 10k simulations on the assumption of a null model in which all distances come from normal distribution with $\mu =0, \sigma = .08$.}
+\caption{Distributions of test statistics and effect sizes based on 10k simulations on the assumption of a null model in which all distances come from normal distribution with $\mu =0, \sigma = .08, n=10k$.}
 \label{fig:ourDistances}
 \end{figure}
 
@@ -942,9 +1005,12 @@ method from the Bayesian perspective.
 \hypertarget{bayesian-method}{%
 \section{Bayesian method}\label{bayesian-method}}
 
-\hypertarget{introduction-and-model-definition}{%
-\subsection{Introduction and model
-definition}\label{introduction-and-model-definition}}
+\label{sec:bayesian}
+
+\hypertarget{model-construction}{%
+\subsection{Model construction}\label{model-construction}}
+
+\label{subsec:model}
 
 Bayesian data analysis takes prior probability distributions, a
 mathematical model structure and the data, and returns the posterior
@@ -1081,6 +1147,8 @@ weak.\footnote{To build a model one may use original \textit{Stan} which is a st
 \subsection{Posterior predictive
 check}\label{posterior-predictive-check}}
 
+\label{subsec:posterior}
+
 A posterior predictive check is a technique used to evaluate the fit of
 a Bayesian model by comparing its predictions with observed data. The
 underlying principle is to generate simulated data from the posterior
@@ -1104,11 +1172,16 @@ that the model fits the the data well.
 \hypertarget{results-and-discussion}{%
 \section{Results and discussion}\label{results-and-discussion}}
 
+\label{sec:results}
+
 \vspace{1mm}
-\footnotesize
+
+\normalsize
 
 \hypertarget{observations}{%
 \subsection{Observations}\label{observations}}
+
+\label{subsec:observations}
 
 In brief, despite one-number metrics suggesting otherwise, our Bayesian
 analysis reveals that insofar as the short word lists usually used in
@@ -1195,51 +1268,76 @@ uncertainty involved in some cases.
 \hypertarget{rethinking-debiasing}{%
 \subsection{Rethinking debiasing}\label{rethinking-debiasing}}
 
+\label{subsec:rethinking}
+
 These visualizations can be also handy when it comes to the
 investigation of the effect that debiasing has on the embedding space.
-Below one may see chosen pair depicting the difference in means with
-89\% highest posterior density intervals before and after applying
-debiasing.
+In Figures \ref{fig:empiricalPriorToDebiasing} and
+\ref{fig:empiricalDebiased} we see chosen pair depicting the difference
+in means with 89\% highest posterior density intervals before and after
+applying debiasing.
 
 \begin{figure}[H]
 
-\begin{center}\includegraphics[width=0.85\linewidth]{paperDraft_files/figure-latex/fig:debiasedCosinePair2b-1} \includegraphics[width=0.85\linewidth]{paperDraft_files/figure-latex/fig:debiasedCosinePair2b-2} \end{center}
-\caption{Means with 89\% highest posterior density intervals for gender before and after debiasing.}
-\label{fig:empiricalDebiasedPair}
+\begin{center}\includegraphics{paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1} \end{center}
+\caption{Mean cosine distances with 89\% highest posterior density intervals for the  gender dataset before debiasing.}
+\label{fig:empiricalPriorToDebiasing}
 \end{figure}
 
-In Figure \ref{fig:empiricalDebiased} we look at the empirical
-distributions for the debiased embeddings. Comparing the results to the
-original embedding, one may notice that for the Religion group the
-neutral and human distribution has changed slightly. Before within the
-``correct'' cosine similarity boundaries there were 56\% of neutral and
-55\% of human word lists. After the debiasing the values changed to 59\%
-(for neutral) and 59\% (for human). The different and associated word
-lists were more influenced. The general shape of both distributions is
-less stretched. Before debiasing 43\% of the different word lists and
-35\% of the associated word lists were within the accepted boundaries.
-After the embedding manipulation the percentage has increased for both
-lists to 63\%. Visualization for Gender group illustrates almost no
-change for the neutral and human word lists before and after debiasing.
-The values for different and associated word lists are also barely
-impacted by the embedding modification. In the Race group, the
-percentage within the boundaries for neutral and associated word lists
-have increased. The opposite happened for human and different word
-lists, where the percentage of ``correct'' cosine similarity dropped
-from 67\% to 55\% (human) and from 39\% to 36\% (different).
+\begin{figure}[H]
 
-\pagebreak
+\begin{center}\includegraphics{paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1} \end{center}
+\caption{Mean with 89\% highest posterior density intervals for gender after debiasing.}
+\label{fig:empiricalDebiased}
+\end{figure}
+
+In Figures \ref{fig:empiricalDebiased}-\ref{fig:empiricalDebiased3} we
+inspect the empirical distributions for the debiased embeddings.
+Comparing the results to the original embedding, one may notice that for
+the Religion group the neutral and human distribution has changed
+slightly. Before within the ``correct'' cosine similarity boundaries
+there were 56\% of neutral and 55\% of human word lists. After the
+debiasing the values changed to 59\% (for neutral) and 59\% (for human).
+The different and associated word lists were more influenced. The
+general shape of both distributions is less stretched. Before debiasing
+43\% of the different word lists and 35\% of the associated word lists
+were within the accepted boundaries. After the embedding manipulation
+the percentage has increased for both lists to 63\%. Visualization for
+Gender group illustrates almost no change for the neutral and human word
+lists before and after debiasing. The values for different and
+associated word lists are also barely impacted by the embedding
+modification. In the Race group, the percentage within the boundaries
+for neutral and associated word lists have increased. The opposite
+happened for human and different word lists, where the percentage of
+``correct'' cosine similarity dropped from 67\% to 55\% (human) and from
+39\% to 36\% (different).
 
 \begin{figure}[H]
 
-\begin{center}\includegraphics[width=0.7\linewidth]{paperDraft_files/figure-latex/fig:debiasedCosine-1} \end{center}
-\caption{Empirical distributions of debiased cosine similarities (1-distances) for three word lists used in  the original paper.}
+\begin{center}\includegraphics[width=0.95\linewidth]{paperDraft_files/figure-latex/fig:debiasedCosine21c-1} \end{center}
+\caption{Empirical distributions of cosine similarities before and after  debiasing  for  the Religion word list  used in  the original paper.}
 \label{fig:empiricalDebiased}
+\end{figure}
+
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.95\linewidth]{paperDraft_files/figure-latex/fig:debiasedCosine22c-1} \end{center}
+\caption{Empirical distributions of cosine similarities before and after  debiasing for  the Gender word list used in  the original paper.}
+\label{fig:empiricalDebiased2}
+\end{figure}
+
+\begin{figure}[H]
+
+\begin{center}\includegraphics[width=0.95\linewidth]{paperDraft_files/figure-latex/fig:debiasedCosine23c-1} \end{center}
+\caption{Empirical distributions of cosine similarities before and after  debiasing for the Race word list used in  the original paper.}
+\label{fig:empiricalDebiased3}
 \end{figure}
 
 \hypertarget{related-work-and-conclusions}{%
 \section{Related work and
 conclusions}\label{related-work-and-conclusions}}
+
+\label{sec:related}
 
 It has been suggested {[}2{]} to use Bernstein bounds to state the
 uncertainty of the sample bias in a form of confidence interval. The
@@ -1282,212 +1380,10 @@ fine-grained and multi-level evaluation of bias and debiasing in
 language models without losing modesty about the uncertainties involved.
 
 \newpage
-\appendix
 
-\hypertarget{appendix}{%
-\section{Appendix}\label{appendix}}
-
-\hypertarget{visualizations}{%
-\subsection{Visualizations}\label{visualizations}}
-
-\label{appendix:visualizations}
-
-\begin{center}\includegraphics{paperDraft_files/figure-latex/weatjoint2r-1} \end{center}
-
-\pagebreak
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/weat7glovf-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat7Reddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat1Google-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat1Glove-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat1Reddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsReligionGoogle-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsReligionGlove-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsReligionReddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsRaceGoogle-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsRaceGlove-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsRaceReddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsGenderGoogle-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsGenderGlove-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsGenderReddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsDebiasedReligionReddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsDebiasedRaceReddit-1} \end{center}
-
-\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsDebiasedGenderReddit-1} \end{center}
-
-\hypertarget{posterior-predictive-checks}{%
-\subsection{Posterior predictive
-checks}\label{posterior-predictive-checks}}
-
-\begin{center}\includegraphics[width=0.85\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1} \end{center}
-
-\begin{center}\includegraphics[width=0.85\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1} \end{center}
-
-\begin{center}\includegraphics[width=0.87\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1} \end{center}
-
-\begin{center}\includegraphics[width=0.89\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1} \end{center}
-
-\hypertarget{word-lists}{%
-\subsection{Word lists}\label{word-lists}}
-
-\hypertarget{lists-for-manzini2019blacktocriminal}{%
-\subsubsection{Lists for
-{[}12{]}:}\label{lists-for-manzini2019blacktocriminal}}
-
-\label{appendix:manzini_word_lists} The lists are available here:
-
-\begin{itemize}
-\item
-  \textbf{Gender:}
-  \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/gender_attributes_optm.json}
-\item
-  \textbf{Race:}
-  \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/race_attributes_optm.json}
-\item
-  \textbf{Religion:}
-  \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/religion_attributes_optm.json}
-\end{itemize}
-
-The lists are:
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Gender:}
-\end{itemize}
-
-Pairs of protected attributes: {[}``he'', ``she''{]}, {[}``his'',
-``hers''{]}, {[}``son'', ``daughter''{]}, {[}``father'', ``mother''{]},
-{[}``male'', ``female''{]}, {[}``boy'', ``girl''{]}, {[}``uncle'',
-``aunt''{]}
-
-Lists of stereotypes per gender: man: {[}``manager'', ``executive'',
-``doctor'', ``lawyer'', ``programmer'', ``scientist'', ``soldier'',
-``supervisor'', ``rancher'', ``janitor'', ``firefighter'',
-``officer''{]}, woman: {[}``secretary'', ``nurse'', ``clerk'',
-``artist'', ``homemaker'', ``dancer'', ``singer'', ``librarian'',
-``maid'', ``hairdresser'', ``stylist'', ``receptionist'',
-``counselor''{]} \}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Race:}
-\end{itemize}
-
-Sets of protected attributes: {[}``black'', ``caucasian'', ``asian''{]},
-{[}``african'', ``caucasian'', ``asian''{]}, {[}``black'', ``white'',
-``asian''{]}, {[}``africa'', ``america'', ``asia''{]}, {[}``africa'',
-``america'', ``china''{]}, {[}``africa'', ``europe'', ``asia''{]}
-
-Lists of stereotypes per race: ``caucasian'': {[}``manager'',
-``executive'', ``redneck'', ``hillbilly'', ``leader'', ``farmer''{]},
-``asian'' : {[}``doctor'', ``engineer'', ``laborer'', ``teacher''{]},
-``black'' : {[}``slave'', ``musician'', ``runner'', ``criminal'',
-``homeless''{]}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Religion:}
-\end{itemize}
-
-Sets of protected attributes: {[}``judaism'', ``christianity'',
-``islam''{]}, {[}``jew'', ``christian'', ``muslim''{]},
-{[}``synagogue'', ``church'', ``mosque''{]}, {[}``torah'', ``bible'',
-``quran''{]}, {[}``rabbi'', ``priest'', ``imam''{]}
-
-Lists of stereotypes per race: ``jew'' : {[}``greedy'', ``cheap'',
-``hairy'', ``liberal''{]}, ``christian'' : {[}``judgemental'',
-``conservative'', ``familial''{]}, ``muslim'' : {[}``violent'',
-``terrorist'', ``dirty'', ``uneducated''{]}
-
-\hypertarget{our-custom-word-lists}{%
-\subsubsection{Our custom word lists}\label{our-custom-word-lists}}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Neutral:}
-\end{itemize}
-
-{[}`ballpark', `glitchy', `billy', `dallas', `rip', `called',
-`outlooks', `floater', `rattlesnake', `exports', `recursion',
-`shortfall', `corrected', `solutions', `diagnostic', `patently',
-`flops', `approx', `percents', `lox', `hamburger', `engulfed',
-`households', `north', `playtest', `replayability', `glottal',
-`parable', `gingers', `anachronism', `organizing', `reach', `shtick',
-`eleventh', `cpu', `ranked', `irreversibly', `ponce', `velociraptor',
-`defects', `puzzle', `smasher', `northside', `heft', `observation',
-`rectum', `mystical', `telltale', `remnants', `inquiry', `indisputable',
-`boatload', `lessening', `uselessness', `observes', `fictitious',
-`repatriation', `duh', `attic', `schilling', `charges', `chatter',
-`pad', `smurfing', `worthiness', `definitive', `neat', `homogenized',
-`lexicon', `nationalized', `earpiece', `specializations', `lapse',
-`concludes', `weaving', `apprentices', `fri', `militias',
-`inscriptions', `gouda', `lift', `laboring', `adaptive', `lecture',
-`hogging', `thorne', `fud', `skews', `epistles', `tagging', `crud',
-`two', `rebalanced', `payroll', `damned', `approve', `reason',
-`formally', `releasing', `muddled', `mineral', `shied', `capital',
-`nodded', `escrow', `disconnecting', `marshals', `winamp', `forceful',
-`lowes', `sip', `pencils', `stomachs', `goff', `cg', `backyard',
-`uprooting', `merging', `helpful', `eid', `trenchcoat', `airlift',
-`frothing', `pulls', `volta', `guinness', `viewership', `eruption',
-`peeves', `goat', `goofy', `disbanding', `relented', `ratings',
-`disputed', `vitamins', `singled', `hydroxide', `telegraphed',
-`mercantile', `headache', `muppets', `petal', `arrange', `donovan',
-`scrutinized', `spoil', `examiner', `ironed', `maia', `condensation',
-`receipt', `solider', `tattooing', `encoded', `compartmentalize',
-`lain', `gov', `printers', `hiked', `resentment', `revisionism',
-`tavern', `backpacking', `pestering', `acknowledges', `testimonies',
-`parlance', `hallucinate', `speeches', `engaging', `solder',
-`perceptive', `microbiology', `reconnaissance', `garlic', `neutrals',
-`width', `literaly', `guild', `despicable', `dion', `option',
-`transistors', `chiropractic', `tattered', `consolidating', `olds',
-`garmin', `shift', `granted', `intramural', `allie', `cylinders',
-`wishlist', `crank', `wrongly', `workshop', `yesterday', `wooden',
-`without', `wheel', `weather', `watch', `version', `usually', `twice',
-`tomato', `ticket', `text', `switch', `studio', `stick', `soup',
-`sometimes', `signal', `prior', `plant', `photo', `path', `park',
-`near', `menu', `latter', `grass', `clock'{]}
-
-\begin{itemize}
-\tightlist
-\item
-  \textbf{Human-related:}
-\end{itemize}
-
-{[}`wear', `walk', `visitor', `toy', `tissue', `throw', `talk', `sleep',
-`eye', `enjoy', `blogger', `character', `candidate', `breakfast',
-`supper', `dinner', `eat', `drink', ``carry'', ``run'', ``cast'',
-``ask'', ``awake'', ``ear'', ``nose'', ``lunch'', ``coalition'',
-``policies'', ``restaurant'', ``stood'', ``assumed'', ``attend'',
-``swimming'', ``trip'', ``door'', ``determine'', ``gets'', ``leg'',
-``arrival'', ``translated'', ``eyes'', ``step'', ``whilst'',
-``translation'', ``practices'', ``measure'', ``storage'', ``window'',
-``journey'', ``interested'', ``tries'', ``suggests'', ``allied'',
-``cinema'', ``finding'', ``restoration'', ``expression'',``visitors'',
-``tell'', ``visiting'', ``appointment'', ``adults'', ``bringing'',
-``camera'', ``deaths'', ``filmed'', ``annually'', ``plane'', ``speak'',
-``meetings'', ``arm'', ``speaking'', ``touring'', ``weekend'',
-``accept'', ``describe'', ``everyone'', ``ready'', ``recovered'',
-``birthday'', ``seeing'', ``steps'', ``indicate'', ``anyone'',
-``youtube''{]}
+\hypertarget{references}{%
+\section*{References}\label{references}}
+\addcontentsline{toc}{section}{References}
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{0}{0}
@@ -1616,5 +1512,221 @@ Practice} 6, 1 (2002), 101--115.
 DOI:https://doi.org/\href{https://doi.org/10.1037/1089-2699.6.1.101}{10.1037/1089-2699.6.1.101}}
 
 \end{CSLReferences}
+
+\newpage
+\appendix
+
+\hypertarget{appendix}{%
+\section{Appendix}\label{appendix}}
+
+\label{sec:appendix}
+
+\hypertarget{visualizations}{%
+\subsection{Visualizations}\label{visualizations}}
+
+\label{appendix:visualizations}
+
+\begin{center}\includegraphics{paperDraft_files/figure-latex/weatjoint2z-1} \end{center}
+
+\pagebreak
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/weat7glovh-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat7Reddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat1Googlea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat1Glovea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsWeat1Reddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsReligionGooglea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsReligionGlovea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsReligionReddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsRaceGooglea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsRaceGlovea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsRaceReddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsGenderGooglea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsGenderGlovea-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsGenderReddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1} \end{center}
+
+\begin{center}\includegraphics[width=1.1\linewidth]{paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1} \end{center}
+
+\hypertarget{posterior-predictive-checks}{%
+\subsection{Posterior predictive
+checks}\label{posterior-predictive-checks}}
+
+\label{appendix:posterior}
+
+\begin{center}\includegraphics[width=0.85\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1} \end{center}
+
+\begin{center}\includegraphics[width=0.85\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1} \end{center}
+
+\begin{center}\includegraphics[width=0.87\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1} \end{center}
+
+\begin{center}\includegraphics[width=0.89\linewidth,height=1\textheight]{paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1} \end{center}
+
+\hypertarget{word-lists}{%
+\subsection{Word lists}\label{word-lists}}
+
+\label{appendix:word}
+
+\hypertarget{lists-used-in-previous-research}{%
+\subsubsection{Lists used in previous
+research}\label{lists-used-in-previous-research}}
+
+\label{appendix:manzini_word_lists} The lists from {[}12{]} are
+available here:
+
+\begin{itemize}
+\item
+  \textbf{Gender:}
+  \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/gender_attributes_optm.json}
+\item
+  \textbf{Race:}
+  \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/race_attributes_optm.json}
+\item
+  \textbf{Religion:}
+  \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/data/vocab/religion_attributes_optm.json}
+\end{itemize}
+
+The lists are:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Gender:}
+\end{itemize}
+
+Pairs of protected attributes: {[}``he'', ``she''{]}, {[}``his'',
+``hers''{]}, {[}``son'', ``daughter''{]}, {[}``father'', ``mother''{]},
+{[}``male'', ``female''{]}, {[}``boy'', ``girl''{]}, {[}``uncle'',
+``aunt''{]}
+
+Lists of stereotypes per gender: man: {[}``manager'', ``executive'',
+``doctor'', ``lawyer'', ``programmer'', ``scientist'', ``soldier'',
+``supervisor'', ``rancher'', ``janitor'', ``firefighter'',
+``officer''{]}, woman: {[}``secretary'', ``nurse'', ``clerk'',
+``artist'', ``homemaker'', ``dancer'', ``singer'', ``librarian'',
+``maid'', ``hairdresser'', ``stylist'', ``receptionist'',
+``counselor''{]} \}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Race:}
+\end{itemize}
+
+Sets of protected attributes: {[}``black'', ``caucasian'', ``asian''{]},
+{[}``african'', ``caucasian'', ``asian''{]}, {[}``black'', ``white'',
+``asian''{]}, {[}``africa'', ``america'', ``asia''{]}, {[}``africa'',
+``america'', ``china''{]}, {[}``africa'', ``europe'', ``asia''{]}
+
+Lists of stereotypes per race: ``caucasian'': {[}``manager'',
+``executive'', ``redneck'', ``hillbilly'', ``leader'', ``farmer''{]},
+``asian'' : {[}``doctor'', ``engineer'', ``laborer'', ``teacher''{]},
+``black'' : {[}``slave'', ``musician'', ``runner'', ``criminal'',
+``homeless''{]}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Religion:}
+\end{itemize}
+
+Sets of protected attributes: {[}``judaism'', ``christianity'',
+``islam''{]}, {[}``jew'', ``christian'', ``muslim''{]},
+{[}``synagogue'', ``church'', ``mosque''{]}, {[}``torah'', ``bible'',
+``quran''{]}, {[}``rabbi'', ``priest'', ``imam''{]}
+
+Lists of stereotypes per race: ``jew'' : {[}``greedy'', ``cheap'',
+``hairy'', ``liberal''{]}, ``christian'' : {[}``judgemental'',
+``conservative'', ``familial''{]}, ``muslim'' : {[}``violent'',
+``terrorist'', ``dirty'', ``uneducated''{]}
+
+\hypertarget{custom-lists-used-in-this-paper}{%
+\subsubsection{Custom lists used in this
+paper}\label{custom-lists-used-in-this-paper}}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Neutral:}
+\end{itemize}
+
+{[}`ballpark', `glitchy', `billy', `dallas', `rip', `called',
+`outlooks', `floater', `rattlesnake', `exports', `recursion',
+`shortfall', `corrected', `solutions', `diagnostic', `patently',
+`flops', `approx', `percents', `lox', `hamburger', `engulfed',
+`households', `north', `playtest', `replayability', `glottal',
+`parable', `gingers', `anachronism', `organizing', `reach', `shtick',
+`eleventh', `cpu', `ranked', `irreversibly', `ponce', `velociraptor',
+`defects', `puzzle', `smasher', `northside', `heft', `observation',
+`rectum', `mystical', `telltale', `remnants', `inquiry', `indisputable',
+`boatload', `lessening', `uselessness', `observes', `fictitious',
+`repatriation', `duh', `attic', `schilling', `charges', `chatter',
+`pad', `smurfing', `worthiness', `definitive', `neat', `homogenized',
+`lexicon', `nationalized', `earpiece', `specializations', `lapse',
+`concludes', `weaving', `apprentices', `fri', `militias',
+`inscriptions', `gouda', `lift', `laboring', `adaptive', `lecture',
+`hogging', `thorne', `fud', `skews', `epistles', `tagging', `crud',
+`two', `rebalanced', `payroll', `damned', `approve', `reason',
+`formally', `releasing', `muddled', `mineral', `shied', `capital',
+`nodded', `escrow', `disconnecting', `marshals', `winamp', `forceful',
+`lowes', `sip', `pencils', `stomachs', `goff', `cg', `backyard',
+`uprooting', `merging', `helpful', `eid', `trenchcoat', `airlift',
+`frothing', `pulls', `volta', `guinness', `viewership', `eruption',
+`peeves', `goat', `goofy', `disbanding', `relented', `ratings',
+`disputed', `vitamins', `singled', `hydroxide', `telegraphed',
+`mercantile', `headache', `muppets', `petal', `arrange', `donovan',
+`scrutinized', `spoil', `examiner', `ironed', `maia', `condensation',
+`receipt', `solider', `tattooing', `encoded', `compartmentalize',
+`lain', `gov', `printers', `hiked', `resentment', `revisionism',
+`tavern', `backpacking', `pestering', `acknowledges', `testimonies',
+`parlance', `hallucinate', `speeches', `engaging', `solder',
+`perceptive', `microbiology', `reconnaissance', `garlic', `neutrals',
+`width', `literaly', `guild', `despicable', `dion', `option',
+`transistors', `chiropractic', `tattered', `consolidating', `olds',
+`garmin', `shift', `granted', `intramural', `allie', `cylinders',
+`wishlist', `crank', `wrongly', `workshop', `yesterday', `wooden',
+`without', `wheel', `weather', `watch', `version', `usually', `twice',
+`tomato', `ticket', `text', `switch', `studio', `stick', `soup',
+`sometimes', `signal', `prior', `plant', `photo', `path', `park',
+`near', `menu', `latter', `grass', `clock'{]}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Human-related:}
+\end{itemize}
+
+{[}`wear', `walk', `visitor', `toy', `tissue', `throw', `talk', `sleep',
+`eye', `enjoy', `blogger', `character', `candidate', `breakfast',
+`supper', `dinner', `eat', `drink', ``carry'', ``run'', ``cast'',
+``ask'', ``awake'', ``ear'', ``nose'', ``lunch'', ``coalition'',
+``policies'', ``restaurant'', ``stood'', ``assumed'', ``attend'',
+``swimming'', ``trip'', ``door'', ``determine'', ``gets'', ``leg'',
+``arrival'', ``translated'', ``eyes'', ``step'', ``whilst'',
+``translation'', ``practices'', ``measure'', ``storage'', ``window'',
+``journey'', ``interested'', ``tries'', ``suggests'', ``allied'',
+``cinema'', ``finding'', ``restoration'', ``expression'',``visitors'',
+``tell'', ``visiting'', ``appointment'', ``adults'', ``bringing'',
+``camera'', ``deaths'', ``filmed'', ``annually'', ``plane'', ``speak'',
+``meetings'', ``arm'', ``speaking'', ``touring'', ``weekend'',
+``accept'', ``describe'', ``everyone'', ``ready'', ``recovered'',
+``birthday'', ``seeing'', ``steps'', ``indicate'', ``anyone'',
+``youtube''{]}
 
 \end{document}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  17 MAY 2023 17:54
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  25 MAY 2023 16:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1187,33 +1187,7 @@ Package: enumitem 2019/06/20 v3.9 Customized lists
 \enit@inbox=\box72
 \enit@count@id=\count332
 \enitdp@description=\count333
-) (/usr/share/texlive/texmf-dist/tex/latex/sectsty/sectsty.sty
-Package: sectsty 2002/02/25 v2.0.2 Commands to change all sectional heading sty
-les
-
-LaTeX Warning: Command \underbar  has changed.
-               Check if current package is valid.
-
-
-LaTeX Warning: Command \underline  has changed.
-               Check if current package is valid.
-
-)
-
-Class scrartcl Warning: Incompatible package `sectsty' loaded!
-(scrartcl)              Package `sectsty' up to version 2.0.2 is incompatible
-(scrartcl)              with KOMA-Script from version 2.8e released in 2001.
-(scrartcl)              You should avoid that package and configure the
-(scrartcl)              section titles of your document using the KOMA-Script
-(scrartcl)              user interface, e.g., \chapterlinesformat,
-(scrartcl)              \RedeclareSectionCommand etc. or you should ask
-(scrartcl)              the `sectsty' maintainer for a more compatible release.
-
-(scrartcl)              Ignoring this warning could result in several error
-(scrartcl)              messages and formatting issues after loading package
-(scrartcl)              `sectsty' on input line 228.
-
-(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip114
 \bibsep=\skip115
@@ -1315,7 +1289,7 @@ Package: longtable 2021-09-01 v4.17 Multi-page Table package (DPC)
 \c@LT@chunks=\count339
 \LT@p@ftn=\toks50
 )
-Class scrartcl Info: longtable captions redefined on input line 255.
+Class scrartcl Info: longtable captions redefined on input line 256.
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
 \col@sep=\dimen313
@@ -1518,67 +1492,71 @@ File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
 )) (/usr/share/texlive/texmf-dist/tex/latex/xurl/xurl.sty
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 281.
+Package hyperref Info: Option `colorlinks' set `true' on input line 282.
 LaTeX Font Info:    Trying to load font information for T1+ptm on input line 28
-8.
+9.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
-) (./paperDraft.aux)
+) (./paperDraft.aux
+
+LaTeX Warning: Label `fig:empiricalDebiased' multiply defined.
+
+)
 \openout1 = `paperDraft.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 288.
+LaTeX Font Info:    Checking defaults for OML/jkp/m/it on input line 289.
 LaTeX Font Info:    Trying to load font information for OML+jkp on input line 2
-88.
+89.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/omljkp.fd
 File: omljkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 288.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for OMS/jkp/m/n on input line 289.
 LaTeX Font Info:    Trying to load font information for OMS+jkp on input line 2
-88.
+89.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/omsjkp.fd
 File: omsjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 288.
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 288.
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 288.
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 288.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 289.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 289.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 289.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for OMX/jkp/m/n on input line 289.
 LaTeX Font Info:    Trying to load font information for OMX+jkp on input line 2
-88.
+89.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/omxjkp.fd
 File: omxjkp.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 288.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for U/jkpexa/m/n on input line 289.
 LaTeX Font Info:    Trying to load font information for U+jkpexa on input line 
-288.
+289.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpexa.fd
 File: ujkpexa.fd 2006/08/15 v1.0
 )
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 288.
-LaTeX Font Info:    ... okay on input line 288.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 288.
-LaTeX Font Info:    ... okay on input line 288.
-Package scrbase Info: activating english \contentsname on input line 288.
-Package scrbase Info: activating english \listfigurename on input line 288.
-Package scrbase Info: activating english \listtablename on input line 288.
-LaTeX Info: Redefining \microtypecontext on input line 288.
-Package microtype Info: Applying patch `item' on input line 288.
-Package microtype Info: Applying patch `toc' on input line 288.
-Package microtype Info: Applying patch `eqnum' on input line 288.
-Package microtype Info: Applying patch `footnote' on input line 288.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 289.
+LaTeX Font Info:    ... okay on input line 289.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 289.
+LaTeX Font Info:    ... okay on input line 289.
+Package scrbase Info: activating english \contentsname on input line 289.
+Package scrbase Info: activating english \listfigurename on input line 289.
+Package scrbase Info: activating english \listtablename on input line 289.
+LaTeX Info: Redefining \microtypecontext on input line 289.
+Package microtype Info: Applying patch `item' on input line 289.
+Package microtype Info: Applying patch `toc' on input line 289.
+Package microtype Info: Applying patch `eqnum' on input line 289.
+Package microtype Info: Applying patch `footnote' on input line 289.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using protrusion set `basicmath'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 288.
+LaTeX Info: Redefining \showhyphens on input line 289.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -1629,7 +1607,7 @@ Package: fr-longtable 2007/11/28 v0.1b (beta) floatrow: additions for longtable
 Package todonotes Warning: The length marginparwidth is less than 2cm and will 
 most likely cause issues with the appearance of inserted todonotes. The issue c
 an be solved by adding a line like \setlength {\marginparwidth }{2cm} prior to 
-loading the todonotes package. on input line 288.
+loading the todonotes package. on input line 289.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -1665,7 +1643,7 @@ loading the todonotes package. on input line 288.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 288.
+Package hyperref Info: Link coloring ON on input line 289.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -1675,551 +1653,591 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count368
 )
-LaTeX Info: Redefining \ref on input line 288.
-LaTeX Info: Redefining \pageref on input line 288.
-LaTeX Info: Redefining \nameref on input line 288.
+LaTeX Info: Redefining \ref on input line 289.
+LaTeX Info: Redefining \pageref on input line 289.
+LaTeX Info: Redefining \nameref on input line 289.
 LaTeX Font Info:    Trying to load font information for T1+phv on input line 29
-0.
+1.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1phv.fd
 File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 10.32pt on input line 290.
+(Font)              scaled to size 10.32pt on input line 291.
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 10.32pt on input line 290.
+(Font)              scaled to size 10.32pt on input line 291.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 21.3968pt on input line 290.
+(Font)              scaled to size 21.3968pt on input line 291.
 LaTeX Font Info:    Trying to load font information for OT1+ztmcm on input line
- 290.
+ 291.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
 File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OML+ztmcm on input line
- 290.
+ 291.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
 File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMS+ztmcm on input line
- 290.
+ 291.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
 File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for OMX+ztmcm on input line
- 290.
+ 291.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
 File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsya on input line 
-290.
+291.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpsya.fd
 File: ujkpsya.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyb on input line 
-290.
+291.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpsyb.fd
 File: ujkpsyb.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpmia on input line 
-290.
+291.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpmia.fd
 File: ujkpmia.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for U+jkpsyc on input line 
-290.
+291.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ujkpsyc.fd
 File: ujkpsyc.fd 2006/08/15 v1.0
 )
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 2
-90.
+91.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 290.
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 14.86081pt on input line 292.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 14.86081pt on input line 292.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 9.46pt on input line 292.
+(Font)              scaled to size 14.86081pt on input line 293.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
 [1
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 355.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 355.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 355.
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 355.
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Trying to load font information for OT1+jkpss on input line
- 416.
+ 448.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ot1jkpss.fd
 File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
-) [3]
-<paperDraft_files/figure-latex/WEATexample5-1.pdf, id=59, 411.5375pt x 309.155p
+) [3] [4]
+<paperDraft_files/figure-latex/WEATexample5-1.pdf, id=92, 411.5375pt x 309.155p
 t>
 File: paperDraft_files/figure-latex/WEATexample5-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/WEATexample5-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/WEATexample5-1.pdf  used
- on input line 524.
+ on input line 558.
 (pdftex.def)             Requested size: 224.56293pt x 168.69604pt.
-[4]
-<paperDraft_files/figure-latex/MACexample-1.pdf, id=74, 423.5825pt x 312.16624p
-t>
+[5 <./paperDraft_files/figure-latex/WEATexample5-1.pdf>]
+<paperDraft_files/figure-latex/MACexample-1.pdf, id=112, 423.5825pt x 312.16624
+pt>
 File: paperDraft_files/figure-latex/MACexample-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/MACexample-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/MACexample-1.pdf  used o
-n input line 598.
+n input line 632.
 (pdftex.def)             Requested size: 204.14459pt x 150.44778pt.
-[5 <./paperDraft_files/figure-latex/WEATexample5-1.pdf>] [6 <./paperDraft_files
-/figure-latex/MACexample-1.pdf>]
+[6]
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 12.384pt on input line 665.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.6pt on input line 643.
-[7] [8]
-<paperDraft_files/figure-latex/fig:cosineDistributions8b-1.pdf, id=122, 460.721
-25pt x 1148.29pt>
-File: paperDraft_files/figure-latex/fig:cosineDistributions8b-1.pdf Graphic fil
+(Font)              scaled to size 8.6pt on input line 684.
+[7 <./paperDraft_files/figure-latex/MACexample-1.pdf>] [8]
+<paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf, id=149, 440.646
+26pt x 313.17pt>
+File: paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf Graphic fil
 e (type pdf)
-<use paperDraft_files/figure-latex/fig:cosineDistributions8b-1.pdf>
+<use paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:cosineDistributions8
-b-1.pdf  used on input line 721.
-(pdftex.def)             Requested size: 275.54207pt x 686.75409pt.
-
-Overfull \vbox (52.01938pt too high) has occurred while \output is active []
-
-[9 <./paperDraft_files/figure-latex/fig:cosineDistributions8b-1.pdf>]
-<paperDraft_files/figure-latex/visMuslimd-1.pdf, id=141, 340.27126pt x 284.0612
+d-1.pdf  used on input line 760.
+(pdftex.def)             Requested size: 285.81825pt x 203.13278pt.
+<paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf, id=150, 454.69
+875pt x 313.17pt>
+File: paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf Graphic fi
+le (type pdf)
+<use paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:cosineDistributions8
+df-1.pdf  used on input line 769.
+(pdftex.def)             Requested size: 285.80954pt x 196.84894pt.
+<paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf, id=151, 458.71
+375pt x 313.17pt>
+File: paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf Graphic fi
+le (type pdf)
+<use paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:cosineDistributions8
+dg-1.pdf  used on input line 778.
+(pdftex.def)             Requested size: 285.82047pt x 195.13344pt.
+[9 <./paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf> <./paperDr
+aft_files/figure-latex/fig:cosineDistributions8df-1.pdf>]
+<paperDraft_files/figure-latex/visMuslimd-1.pdf, id=185, 340.27126pt x 284.0612
 5pt>
 File: paperDraft_files/figure-latex/visMuslimd-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/visMuslimd-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/visMuslimd-1.pdf  used o
-n input line 758.
+n input line 819.
 (pdftex.def)             Requested size: 340.30156pt x 284.08653pt.
-<paperDraft_files/figure-latex/visPriestd-1.pdf, id=142, 339.2675pt x 287.0725p
+[10 <./paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf>]
+<paperDraft_files/figure-latex/visPriestd-1.pdf, id=206, 339.2675pt x 287.0725p
 t>
 File: paperDraft_files/figure-latex/visPriestd-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/visPriestd-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/visPriestd-1.pdf  used o
-n input line 764.
+n input line 826.
 (pdftex.def)             Requested size: 339.27701pt x 287.08055pt.
-[10]
-Overfull \vbox (8.43237pt too high) has occurred while \output is active []
-
-[11 <./paperDraft_files/figure-latex/visMuslimd-1.pdf> <./paperDraft_files/figu
-re-latex/visPriestd-1.pdf>]
-<paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pdf, id=181, 442.65375pt x
+[11 <./paperDraft_files/figure-latex/visMuslimd-1.pdf>] [12 <./paperDraft_files
+/figure-latex/visPriestd-1.pdf>]
+<paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pdf, id=243, 442.65375pt x
  314.17375pt>
 File: paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pd
-f  used on input line 831.
+f  used on input line 894.
 (pdftex.def)             Requested size: 326.65355pt x 231.84254pt.
-[12]
-<paperDraft_files/figure-latex/fig:caliskanDistC2B-1.pdf, id=189, 446.66875pt x
+<paperDraft_files/figure-latex/fig:caliskanDistC2B-1.pdf, id=245, 446.66875pt x
  314.17375pt>
 File: paperDraft_files/figure-latex/fig:caliskanDistC2B-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/fig:caliskanDistC2B-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:caliskanDistC2B-1.pd
-f  used on input line 845.
+f  used on input line 908.
 (pdftex.def)             Requested size: 326.64479pt x 229.7524pt.
-[13 <./paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pdf> <./paperDraft_f
-iles/figure-latex/fig:caliskanDistC2B-1.pdf>]
-<paperDraft_files/figure-latex/fig:ourDistancesPlot2-1.pdf, id=218, 462.72874pt
- x 314.17375pt>
-File: paperDraft_files/figure-latex/fig:ourDistancesPlot2-1.pdf Graphic file (t
-ype pdf)
-<use paperDraft_files/figure-latex/fig:ourDistancesPlot2-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/fig:ourDistancesPlot2-1.
-pdf  used on input line 907.
-(pdftex.def)             Requested size: 326.64038pt x 221.77536pt.
-[14]
-LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 12.384pt on input line 947.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.384pt on input line 947.
-[15 <./paperDraft_files/figure-latex/fig:ourDistancesPlot2-1.pdf>] [16]
-<paperDraft_files/figure-latex/dagVis-1.pdf, id=252, 429.605pt x 291.0875pt>
+[13 <./paperDraft_files/figure-latex/fig:caliskanCalcB2B-1.pdf>] [14 <./paperDr
+aft_files/figure-latex/fig:caliskanDistC2B-1.pdf>]
+<paperDraft_files/figure-latex/fig:ourDistancesPlot2e-1.pdf, id=280, 459.7175pt
+ x 310.15875pt>
+File: paperDraft_files/figure-latex/fig:ourDistancesPlot2e-1.pdf Graphic file (
+type pdf)
+<use paperDraft_files/figure-latex/fig:ourDistancesPlot2e-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:ourDistancesPlot2e-1
+.pdf  used on input line 970.
+(pdftex.def)             Requested size: 326.65424pt x 220.38463pt.
+[15 <./paperDraft_files/figure-latex/fig:ourDistancesPlot2e-1.pdf>] [16]
+<paperDraft_files/figure-latex/dagVis-1.pdf, id=308, 429.605pt x 291.0875pt>
 File: paperDraft_files/figure-latex/dagVis-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/dagVis-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/dagVis-1.pdf  used on in
-put line 1024.
+put line 1090.
 (pdftex.def)             Requested size: 326.64084pt x 221.32205pt.
-[17 <./paperDraft_files/figure-latex/dagVis-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf, id=266, 454.69875p
-t x 319.1925pt>
+[17 <./paperDraft_files/figure-latex/dagVis-1.pdf>] [18]
+<paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf, id=330, 447.6725pt
+ x 416.55624pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf Graphic file (
 type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckA6b-1
-.pdf  used on input line 1097.
-(pdftex.def)             Requested size: 326.64046pt x 229.29727pt.
-[18]
+.pdf  used on input line 1165.
+(pdftex.def)             Requested size: 326.64792pt x 303.9437pt.
+[19 <./paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-139.
+212.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [19 <./paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf>]
-<paperDraft_files/figure-latex/fig:debiasedCosinePair2b-1.pdf, id=299, 367.3725
-pt x 290.08376pt>
-File: paperDraft_files/figure-latex/fig:debiasedCosinePair2b-1.pdf Graphic file
+) [20]
+<paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf, id=360, 338.2637
+5pt x 580.1675pt>
+File: paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf Graphic file
  (type pdf)
-<use paperDraft_files/figure-latex/fig:debiasedCosinePair2b-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosinePair2b
--1.pdf  used on input line 1206.
-(pdftex.def)             Requested size: 347.07913pt x 274.05977pt.
-<paperDraft_files/figure-latex/fig:debiasedCosinePair2b-2.pdf, id=300, 356.3312
-5pt x 290.08376pt>
-File: paperDraft_files/figure-latex/fig:debiasedCosinePair2b-2.pdf Graphic file
- (type pdf)
-<use paperDraft_files/figure-latex/fig:debiasedCosinePair2b-2.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosinePair2b
--2.pdf  used on input line 1206.
-(pdftex.def)             Requested size: 347.07086pt x 282.54501pt.
-[20] [21 <./paperDraft_files/figure-latex/fig:debiasedCosinePair2b-1.pdf> <./pa
-perDraft_files/figure-latex/fig:debiasedCosinePair2b-2.pdf>] [22]
-<paperDraft_files/figure-latex/fig:debiasedCosine-1.pdf, id=338, 465.74pt x 114
-8.29pt>
-File: paperDraft_files/figure-latex/fig:debiasedCosine-1.pdf Graphic file (type
- pdf)
-<use paperDraft_files/figure-latex/fig:debiasedCosine-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine-1.pdf
-  used on input line 1235.
-(pdftex.def)             Requested size: 278.54361pt x 686.75409pt.
-
-Overfull \vbox (52.01938pt too high) has occurred while \output is active []
-
-[23 <./paperDraft_files/figure-latex/fig:debiasedCosine-1.pdf>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 1262.
-[24]
-<paperDraft_files/figure-latex/weatjoint2r-1.pdf, id=365, 377.41pt x 585.18625p
-t>
-File: paperDraft_files/figure-latex/weatjoint2r-1.pdf Graphic file (type pdf)
-<use paperDraft_files/figure-latex/weatjoint2r-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/weatjoint2r-1.pdf  used 
-on input line 1295.
-(pdftex.def)             Requested size: 377.40907pt x 585.18481pt.
-[25 <./paperDraft_files/figure-latex/weatjoint2r-1.pdf>]
-<paperDraft_files/figure-latex/weat7glovf-1.pdf, id=384, 376.40625pt x 585.1862
-5pt>
-File: paperDraft_files/figure-latex/weat7glovf-1.pdf Graphic file (type pdf)
-<use paperDraft_files/figure-latex/weat7glovf-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/weat7glovf-1.pdf  used o
-n input line 1299.
-(pdftex.def)             Requested size: 376.43977pt x 585.23839pt.
-<paperDraft_files/figure-latex/resultsWeat7Reddit-1.pdf, id=385, 342.27875pt x 
-585.18625pt>
-File: paperDraft_files/figure-latex/resultsWeat7Reddit-1.pdf Graphic file (type
- pdf)
-<use paperDraft_files/figure-latex/resultsWeat7Reddit-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat7Reddit-1.pdf
-  used on input line 1301.
-(pdftex.def)             Requested size: 342.30922pt x 585.23839pt.
-[26 <./paperDraft_files/figure-latex/weat7glovf-1.pdf>]
-<paperDraft_files/figure-latex/resultsWeat1Google-1.pdf, id=401, 377.41pt x 585
-.18625pt>
-File: paperDraft_files/figure-latex/resultsWeat1Google-1.pdf Graphic file (type
- pdf)
-<use paperDraft_files/figure-latex/resultsWeat1Google-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Google-1.pdf
-  used on input line 1303.
-(pdftex.def)             Requested size: 377.44362pt x 585.23839pt.
-[27 <./paperDraft_files/figure-latex/resultsWeat7Reddit-1.pdf>]
-<paperDraft_files/figure-latex/resultsWeat1Glove-1.pdf, id=416, 376.40625pt x 5
-85.18625pt>
-File: paperDraft_files/figure-latex/resultsWeat1Glove-1.pdf Graphic file (type 
-pdf)
-<use paperDraft_files/figure-latex/resultsWeat1Glove-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Glove-1.pdf 
- used on input line 1305.
-(pdftex.def)             Requested size: 376.43977pt x 585.23839pt.
-[28 <./paperDraft_files/figure-latex/resultsWeat1Google-1.pdf>]
-<paperDraft_files/figure-latex/resultsWeat1Reddit-1.pdf, id=431, 337.26pt x 585
-.18625pt>
-File: paperDraft_files/figure-latex/resultsWeat1Reddit-1.pdf Graphic file (type
- pdf)
-<use paperDraft_files/figure-latex/resultsWeat1Reddit-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Reddit-1.pdf
-  used on input line 1307.
-(pdftex.def)             Requested size: 337.29004pt x 585.23839pt.
-[29 <./paperDraft_files/figure-latex/resultsWeat1Glove-1.pdf>]
-<paperDraft_files/figure-latex/resultsReligionGoogle-1.pdf, id=446, 335.2525pt 
-x 585.18625pt>
-File: paperDraft_files/figure-latex/resultsReligionGoogle-1.pdf Graphic file (t
-ype pdf)
-<use paperDraft_files/figure-latex/resultsReligionGoogle-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionGoogle-1.
-pdf  used on input line 1309.
-(pdftex.def)             Requested size: 335.28236pt x 585.23839pt.
-[30 <./paperDraft_files/figure-latex/resultsWeat1Reddit-1.pdf>]
-<paperDraft_files/figure-latex/resultsReligionGlove-1.pdf, id=461, 375.4025pt x
- 585.18625pt>
-File: paperDraft_files/figure-latex/resultsReligionGlove-1.pdf Graphic file (ty
-pe pdf)
-<use paperDraft_files/figure-latex/resultsReligionGlove-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionGlove-1.p
-df  used on input line 1311.
-(pdftex.def)             Requested size: 375.43594pt x 585.23839pt.
-[31 <./paperDraft_files/figure-latex/resultsReligionGoogle-1.pdf>]
-<paperDraft_files/figure-latex/resultsReligionReddit-1.pdf, id=477, 376.40625pt
- x 585.18625pt>
-File: paperDraft_files/figure-latex/resultsReligionReddit-1.pdf Graphic file (t
-ype pdf)
-<use paperDraft_files/figure-latex/resultsReligionReddit-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionReddit-1.
-pdf  used on input line 1313.
-(pdftex.def)             Requested size: 376.43977pt x 585.23839pt.
-[32 <./paperDraft_files/figure-latex/resultsReligionGlove-1.pdf>]
-<paperDraft_files/figure-latex/resultsRaceGoogle-1.pdf, id=492, 375.4025pt x 58
-5.18625pt>
-File: paperDraft_files/figure-latex/resultsRaceGoogle-1.pdf Graphic file (type 
-pdf)
-<use paperDraft_files/figure-latex/resultsRaceGoogle-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceGoogle-1.pdf 
- used on input line 1315.
-(pdftex.def)             Requested size: 375.43594pt x 585.23839pt.
-[33 <./paperDraft_files/figure-latex/resultsReligionReddit-1.pdf>]
-<paperDraft_files/figure-latex/resultsRaceGlove-1.pdf, id=507, 375.4025pt x 585
-.18625pt>
-File: paperDraft_files/figure-latex/resultsRaceGlove-1.pdf Graphic file (type p
-df)
-<use paperDraft_files/figure-latex/resultsRaceGlove-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceGlove-1.pdf  
-used on input line 1317.
-(pdftex.def)             Requested size: 375.43594pt x 585.23839pt.
-[34 <./paperDraft_files/figure-latex/resultsRaceGoogle-1.pdf>]
-<paperDraft_files/figure-latex/resultsRaceReddit-1.pdf, id=522, 376.40625pt x 5
-85.18625pt>
-File: paperDraft_files/figure-latex/resultsRaceReddit-1.pdf Graphic file (type 
-pdf)
-<use paperDraft_files/figure-latex/resultsRaceReddit-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceReddit-1.pdf 
- used on input line 1319.
-(pdftex.def)             Requested size: 376.43977pt x 585.23839pt.
-[35 <./paperDraft_files/figure-latex/resultsRaceGlove-1.pdf>]
-<paperDraft_files/figure-latex/resultsGenderGoogle-1.pdf, id=537, 340.27126pt x
- 585.18625pt>
-File: paperDraft_files/figure-latex/resultsGenderGoogle-1.pdf Graphic file (typ
-e pdf)
-<use paperDraft_files/figure-latex/resultsGenderGoogle-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderGoogle-1.pd
-f  used on input line 1321.
-(pdftex.def)             Requested size: 340.30156pt x 585.23839pt.
-[36 <./paperDraft_files/figure-latex/resultsRaceReddit-1.pdf>]
-<paperDraft_files/figure-latex/resultsGenderGlove-1.pdf, id=553, 326.21875pt x 
-585.18625pt>
-File: paperDraft_files/figure-latex/resultsGenderGlove-1.pdf Graphic file (type
- pdf)
-<use paperDraft_files/figure-latex/resultsGenderGlove-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderGlove-1.pdf
-  used on input line 1323.
-(pdftex.def)             Requested size: 326.2478pt x 585.23839pt.
-[37 <./paperDraft_files/figure-latex/resultsGenderGoogle-1.pdf>]
-<paperDraft_files/figure-latex/resultsGenderReddit-1.pdf, id=569, 339.2675pt x 
-585.18625pt>
-File: paperDraft_files/figure-latex/resultsGenderReddit-1.pdf Graphic file (typ
-e pdf)
-<use paperDraft_files/figure-latex/resultsGenderReddit-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderReddit-1.pd
-f  used on input line 1325.
-(pdftex.def)             Requested size: 339.29771pt x 585.23839pt.
-[38 <./paperDraft_files/figure-latex/resultsGenderGlove-1.pdf>]
-<paperDraft_files/figure-latex/resultsDebiasedReligionReddit-1.pdf, id=584, 376
-.40625pt x 585.18625pt>
-File: paperDraft_files/figure-latex/resultsDebiasedReligionReddit-1.pdf Graphic
- file (type pdf)
-<use paperDraft_files/figure-latex/resultsDebiasedReligionReddit-1.pdf>
-Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedReligionR
-eddit-1.pdf  used on input line 1327.
-(pdftex.def)             Requested size: 376.43977pt x 585.23839pt.
-[39 <./paperDraft_files/figure-latex/resultsGenderReddit-1.pdf>]
-<paperDraft_files/figure-latex/resultsDebiasedRaceReddit-1.pdf, id=599, 376.406
-25pt x 585.18625pt>
-File: paperDraft_files/figure-latex/resultsDebiasedRaceReddit-1.pdf Graphic fil
+<use paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosinePair2e
+-1.pdf  used on input line 1282.
+(pdftex.def)             Requested size: 338.27322pt x 580.18376pt.
+[21]
+<paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf, id=368, 331.237
+5pt x 580.1675pt>
+File: paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf Graphic fil
 e (type pdf)
-<use paperDraft_files/figure-latex/resultsDebiasedRaceReddit-1.pdf>
+<use paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosinePair2_
+e-1.pdf  used on input line 1289.
+(pdftex.def)             Requested size: 331.25183pt x 580.19261pt.
+[22 <./paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf>] [23 <./pa
+perDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf>]
+<paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf, id=402, 465.74pt x 
+423.5825pt>
+File: paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf Graphic file (t
+ype pdf)
+<use paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine21c-1.
+pdf  used on input line 1317.
+(pdftex.def)             Requested size: 387.89304pt x 352.78203pt.
+<paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf, id=403, 467.7475pt 
+x 423.5825pt>
+File: paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf Graphic file (t
+ype pdf)
+<use paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine22c-1.
+pdf  used on input line 1324.
+(pdftex.def)             Requested size: 387.902pt x 351.27608pt.
+[24 <./paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf>]
+<paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf, id=421, 457.71pt x 
+423.5825pt>
+File: paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf Graphic file (t
+ype pdf)
+<use paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine23c-1.
+pdf  used on input line 1331.
+(pdftex.def)             Requested size: 387.89598pt x 358.9739pt.
+[25 <./paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf>]
+Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
+ine 1360.
+[26 <./paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf>] [27]
+Underfull \hbox (badness 10000) in paragraph at lines 1390--1396
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1397--1403
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1404--1411
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1412--1419
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1420--1430
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1431--1438
+
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 1445--1445
+[]\T1/ptm/m/n/12 (+20) Rink Hoek-stra, Richard D. Morey, Jef-frey N. Rouder, an
+d Eric-Jan
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 1445--1445
+\T1/ptm/m/n/12 (+20) Wa-gen-mak-ers. 2014. Ro-bust mis-in-ter-pre-ta-tion of co
+n-fi-dence in-ter-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1439--1446
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1447--1453
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1454--1459
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1460--1464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1465--1471
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1472--1478
+
+ []
+
+[28]
+Underfull \hbox (badness 10000) in paragraph at lines 1479--1485
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1490--1490
+[]\T1/ptm/m/n/12 (+20) Tomas Mikolov, Kai Chen, Greg Cor-rado, and Jef-frey Dea
+n.
+ []
+
+
+Underfull \hbox (badness 2205) in paragraph at lines 1490--1490
+\T1/ptm/m/n/12 (+20) 2013. Ef-fi-cient es-ti-ma-tion of word rep-re-sen-ta-tion
+s in vec-tor space.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1486--1491
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1492--1498
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1499--1505
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1513
+
+ []
+
+[29]
+<paperDraft_files/figure-latex/weatjoint2z-1.pdf, id=509, 376.40625pt x 580.167
+5pt>
+File: paperDraft_files/figure-latex/weatjoint2z-1.pdf Graphic file (type pdf)
+<use paperDraft_files/figure-latex/weatjoint2z-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/weatjoint2z-1.pdf  used 
+on input line 1529.
+(pdftex.def)             Requested size: 376.42828pt x 580.20146pt.
+[30 <./paperDraft_files/figure-latex/weatjoint2z-1.pdf>]
+<paperDraft_files/figure-latex/weat7glovh-1.pdf, id=528, 375.4025pt x 580.1675p
+t>
+File: paperDraft_files/figure-latex/weat7glovh-1.pdf Graphic file (type pdf)
+<use paperDraft_files/figure-latex/weat7glovh-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/weat7glovh-1.pdf  used o
+n input line 1533.
+(pdftex.def)             Requested size: 375.42448pt x 580.20146pt.
+<paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf, id=529, 341.275pt x 5
+80.1675pt>
+File: paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf Graphic file (typ
+e pdf)
+<use paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat7Reddita-1.pd
+f  used on input line 1535.
+(pdftex.def)             Requested size: 341.29498pt x 580.20146pt.
+[31 <./paperDraft_files/figure-latex/weat7glovh-1.pdf>]
+<paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf, id=545, 376.40625pt x
+ 580.1675pt>
+File: paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf Graphic file (typ
+e pdf)
+<use paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Googlea-1.pd
+f  used on input line 1537.
+(pdftex.def)             Requested size: 376.42828pt x 580.20146pt.
+[32 <./paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf, id=560, 374.39874pt x 
+580.1675pt>
+File: paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf Graphic file (type
+ pdf)
+<use paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf
+  used on input line 1539.
+(pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
+[33 <./paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf>]
+<paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf, id=575, 336.25626pt x
+ 580.1675pt>
+File: paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf Graphic file (typ
+e pdf)
+<use paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Reddita-1.pd
+f  used on input line 1541.
+(pdftex.def)             Requested size: 336.27596pt x 580.20146pt.
+[34 <./paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf, id=590, 337.26pt x
+ 580.1675pt>
+File: paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf Graphic file (
+type pdf)
+<use paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionGooglea-1
+.pdf  used on input line 1543.
+(pdftex.def)             Requested size: 337.27975pt x 580.20146pt.
+[35 <./paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf, id=605, 374.39874pt
+ x 580.1675pt>
+File: paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf Graphic file (t
+ype pdf)
+<use paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionGlovea-1.
+pdf  used on input line 1545.
+(pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
+[36 <./paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf>]
+<paperDraft_files/figure-latex/resultsReligionReddita-1.pdf, id=620, 375.4025pt
+ x 580.1675pt>
+File: paperDraft_files/figure-latex/resultsReligionReddita-1.pdf Graphic file (
+type pdf)
+<use paperDraft_files/figure-latex/resultsReligionReddita-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionReddita-1
+.pdf  used on input line 1547.
+(pdftex.def)             Requested size: 375.42448pt x 580.20146pt.
+[37 <./paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf, id=636, 374.39874pt x 
+580.1675pt>
+File: paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf Graphic file (type
+ pdf)
+<use paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf
+  used on input line 1549.
+(pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
+[38 <./paperDraft_files/figure-latex/resultsReligionReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf, id=652, 374.39874pt x 5
+80.1675pt>
+File: paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf Graphic file (type 
+pdf)
+<use paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf 
+ used on input line 1551.
+(pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
+[39 <./paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf>]
+<paperDraft_files/figure-latex/resultsRaceReddita-1.pdf, id=667, 374.39874pt x 
+580.1675pt>
+File: paperDraft_files/figure-latex/resultsRaceReddita-1.pdf Graphic file (type
+ pdf)
+<use paperDraft_files/figure-latex/resultsRaceReddita-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceReddita-1.pdf
+  used on input line 1553.
+(pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
+[40 <./paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf, id=682, 341.275pt x 
+580.1675pt>
+File: paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf Graphic file (ty
+pe pdf)
+<use paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderGooglea-1.p
+df  used on input line 1555.
+(pdftex.def)             Requested size: 341.29498pt x 580.20146pt.
+[41 <./paperDraft_files/figure-latex/resultsRaceReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf, id=697, 329.23pt x 58
+0.1675pt>
+File: paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf Graphic file (typ
+e pdf)
+<use paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderGlovea-1.pd
+f  used on input line 1557.
+(pdftex.def)             Requested size: 329.24927pt x 580.20146pt.
+[42 <./paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf>]
+<paperDraft_files/figure-latex/resultsGenderReddita-1.pdf, id=712, 338.26375pt 
+x 580.1675pt>
+File: paperDraft_files/figure-latex/resultsGenderReddita-1.pdf Graphic file (ty
+pe pdf)
+<use paperDraft_files/figure-latex/resultsGenderReddita-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderReddita-1.p
+df  used on input line 1559.
+(pdftex.def)             Requested size: 338.28355pt x 580.20146pt.
+[43 <./paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf, id=728, 37
+5.4025pt x 580.1675pt>
+File: paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf Graphi
+c file (type pdf)
+<use paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf>
+Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedReligionR
+eddita-1.pdf  used on input line 1561.
+(pdftex.def)             Requested size: 375.42448pt x 580.20146pt.
+[44 <./paperDraft_files/figure-latex/resultsGenderReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf, id=743, 374.39
+874pt x 580.1675pt>
+File: paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf Graphic fi
+le (type pdf)
+<use paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedRaceReddi
-t-1.pdf  used on input line 1329.
-(pdftex.def)             Requested size: 376.43977pt x 585.23839pt.
-[40 <./paperDraft_files/figure-latex/resultsDebiasedReligionReddit-1.pdf>]
-<paperDraft_files/figure-latex/resultsDebiasedGenderReddit-1.pdf, id=614, 329.2
-3pt x 585.18625pt>
-File: paperDraft_files/figure-latex/resultsDebiasedGenderReddit-1.pdf Graphic f
-ile (type pdf)
-<use paperDraft_files/figure-latex/resultsDebiasedGenderReddit-1.pdf>
+ta-1.pdf  used on input line 1563.
+(pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
+[45 <./paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf, id=758, 331.
+2375pt x 580.1675pt>
+File: paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf Graphic 
+file (type pdf)
+<use paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedGenderRed
-dit-1.pdf  used on input line 1331.
-(pdftex.def)             Requested size: 329.25932pt x 585.23839pt.
-[41 <./paperDraft_files/figure-latex/resultsDebiasedRaceReddit-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf, id=629, 453.
+dita-1.pdf  used on input line 1565.
+(pdftex.def)             Requested size: 331.25688pt x 580.20146pt.
+[46 <./paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf>]
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf, id=773, 453.
 695pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixa-1.pdf  used on input line 1337.
+dixa-1.pdf  used on input line 1573.
 (pdftex.def)             Requested size: 347.05478pt x 244.16684pt.
-[42 <./paperDraft_files/figure-latex/resultsDebiasedGenderReddit-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf, id=645, 462.
+[47 <./paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf>]
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf, id=790, 462.
 72874pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixb-1.pdf  used on input line 1339.
+dixb-1.pdf  used on input line 1575.
 (pdftex.def)             Requested size: 347.05983pt x 239.40352pt.
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf, id=646, 465.
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf, id=791, 465.
 74pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixc-1.pdf  used on input line 1341.
+dixc-1.pdf  used on input line 1577.
 (pdftex.def)             Requested size: 355.22394pt x 243.45088pt.
-[43 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf> <./pap
+[48 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf> <./pap
 erDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf, id=678, 453.
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf, id=821, 453.
 695pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixd-1.pdf  used on input line 1343.
+dixd-1.pdf  used on input line 1579.
 (pdftex.def)             Requested size: 363.38571pt x 255.65631pt.
-[44 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf> <./pap
-erDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf>]
-Overfull \hbox (0.74954pt too wide) in paragraph at lines 1398--1403
-\T1/ptm/m/n/10 (-20) ``farmer''], ``asian'' : [``doctor'', ``engineer'', ``labo
-rer'', ``teacher''], ``black'' : [``slave'', ``musician'', ``runner'',
- []
+[49 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf> <./pap
+erDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf>] [50] [51] (./pa
+perDraft.aux)
 
-[45]
-Underfull \hbox (badness 10000) in paragraph at lines 1494--1500
+LaTeX Warning: There were multiply-defined labels.
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1501--1507
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1508--1515
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1516--1523
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1524--1534
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1535--1542
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1543--1550
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1551--1557
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1558--1563
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1564--1568
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1569--1575
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1576--1582
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1583--1589
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1590--1595
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1596--1602
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1603--1609
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1610--1617
-
- []
-
-[46] (./paperDraft.aux) ) 
+ ) 
 Here is how much of TeX's memory you used:
- 37571 strings out of 478287
- 730640 string characters out of 5849288
- 1173300 words of memory out of 5000000
- 54387 multiletter control sequences out of 15000+600000
- 587866 words of font info for 480 fonts, out of 8000000 for 9000
+ 37514 strings out of 478287
+ 732274 string characters out of 5849288
+ 1165383 words of memory out of 5000000
+ 54364 multiletter control sequences out of 15000+600000
+ 582335 words of font info for 444 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,14n,106p,10633b,964s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r
-.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/kpfonts/jkpssmn8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/kpfonts/jkpssmne.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/kpfonts/jkpsyb.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-rsfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/ut
-mr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paperDraft.pdf (46 pages, 6825424 bytes).
+ 108i,14n,106p,10633b,956s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/u
+sr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/kpfonts/jkpssmn8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/kpfon
+ts/jkpssmne.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/kpfonts/jkpsy
+b.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on paperDraft.pdf (51 pages, 6814710 bytes).
 PDF statistics:
- 908 PDF objects out of 1000 (max. 8388607)
- 717 compressed objects within 8 object streams
- 132 named destinations out of 1000 (max. 500000)
- 96580 words of extra memory for PDF output out of 106986 (max. 10000000)
+ 1030 PDF objects out of 1200 (max. 8388607)
+ 821 compressed objects within 9 object streams
+ 151 named destinations out of 1000 (max. 500000)
+ 92520 words of extra memory for PDF output out of 106986 (max. 10000000)
 
