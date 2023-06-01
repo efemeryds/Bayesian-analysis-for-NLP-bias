@@ -19789,4 +19789,41 @@ journal = {Psychonomic Bulletin & Review}
   primaryclass  = {cs.CL},
 }
 
+@Misc{schröder2021evaluating,
+  author        = {Sarah Schröder and Alexander Schulz and Philip Kenneweg and Robert Feldhans and Fabian Hinder and Barbara Hammer},
+  title         = {Evaluating Metrics for Bias in Word Embeddings},
+  year          = {2021},
+  eprint        = {2111.07864},
+  archiveprefix = {arXiv},
+  primaryclass  = {cs.CL},
+}
+
+@InProceedings{may-etal-2019-measuring,
+  author    = {May, Chandler and Wang, Alex and Bordia, Shikha and Bowman, Samuel R. and Rudinger, Rachel},
+  title     = {On Measuring Social Biases in Sentence Encoders},
+  booktitle = {Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)},
+  year      = {2019},
+  publisher = {Association for Computational Linguistics},
+  month     = jun,
+  pages     = {622--628},
+  doi       = {10.18653/v1/N19-1063},
+  url       = {https://aclanthology.org/N19-1063},
+  abstract  = {The Word Embedding Association Test shows that GloVe and word2vec word embeddings exhibit human-like implicit biases based on gender, race, and other social constructs (Caliskan et al., 2017). Meanwhile, research on learning reusable text representations has begun to explore sentence-level texts, with some sentence encoders seeing enthusiastic adoption. Accordingly, we extend the Word Embedding Association Test to measure bias in sentence encoders. We then test several sentence encoders, including state-of-the-art methods such as ELMo and BERT, for the social biases studied in prior work and two important biases that are difficult or impossible to test at the word level. We observe mixed results including suspicious patterns of sensitivity that suggest the test{'}s assumptions may not hold in general. We conclude by proposing directions for future work on measuring bias in sentence encoders.},
+  address   = {Minneapolis, Minnesota},
+}
+
+@Article{DBLP:journals/corr/abs-1811-07253,
+  author     = {Yijun Xiao and William Yang Wang},
+  title      = {Quantifying Uncertainties in Natural Language Processing Tasks},
+  journal    = {CoRR},
+  year       = {2018},
+  volume     = {abs/1811.07253},
+  eprint     = {1811.07253},
+  eprinttype = {arXiv},
+  url        = {http://arxiv.org/abs/1811.07253},
+  bibsource  = {dblp computer science bibliography, https://dblp.org},
+  biburl     = {https://dblp.org/rec/journals/corr/abs-1811-07253.bib},
+  timestamp  = {Sun, 25 Nov 2018 18:57:12 +0100},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
