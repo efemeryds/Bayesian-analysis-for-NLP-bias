@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  1 JUN 2023 16:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  15 JUN 2023 13:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1722,519 +1722,523 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 291.
-LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 14.86081pt on input line 293.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 311.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 311.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 311.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 295.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 311.
+LaTeX Font Info:    Font shape `T1/phv/b/n' will be
+(Font)              scaled to size 14.86081pt on input line 314.
 [1
 
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    Trying to load font information for OT1+jkpss on input line
- 448.
+ 469.
 (/usr/share/texlive/texmf-dist/tex/latex/kpfonts/ot1jkpss.fd
 File: ot1jkpss.fd 2007/07/16 Fontinst v1.928 font definitions for OT1/jkpss.
 ) [3] [4]
-<paperDraft_files/figure-latex/WEATexample5-1.pdf, id=98, 411.5375pt x 309.155p
+<paperDraft_files/figure-latex/WEATexample5-1.pdf, id=96, 411.5375pt x 309.155p
 t>
 File: paperDraft_files/figure-latex/WEATexample5-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/WEATexample5-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/WEATexample5-1.pdf  used
- on input line 562.
+ on input line 583.
 (pdftex.def)             Requested size: 224.56293pt x 168.69604pt.
-[5 <./paperDraft_files/figure-latex/WEATexample5-1.pdf>]
-<paperDraft_files/figure-latex/MACexample-1.pdf, id=118, 416.55624pt x 312.1662
+[5]
+<paperDraft_files/figure-latex/MACexample-1.pdf, id=112, 416.55624pt x 312.1662
 4pt>
 File: paperDraft_files/figure-latex/MACexample-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/MACexample-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/MACexample-1.pdf  used o
-n input line 636.
+n input line 657.
 (pdftex.def)             Requested size: 204.14612pt x 152.9866pt.
-[6]
+[6 <./paperDraft_files/figure-latex/WEATexample5-1.pdf>] [7 <./paperDraft_files
+/figure-latex/MACexample-1.pdf>]
 LaTeX Font Info:    Font shape `T1/phv/b/n' will be
-(Font)              scaled to size 12.384pt on input line 669.
+(Font)              scaled to size 12.384pt on input line 690.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
-(Font)              scaled to size 8.6pt on input line 688.
-[7 <./paperDraft_files/figure-latex/MACexample-1.pdf>] [8]
-<paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf, id=160, 440.646
+(Font)              scaled to size 8.6pt on input line 709.
+[8]
+<paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf, id=159, 440.646
 26pt x 313.17pt>
 File: paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf Graphic fil
 e (type pdf)
 <use paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:cosineDistributions8
-d-1.pdf  used on input line 764.
+d-1.pdf  used on input line 785.
 (pdftex.def)             Requested size: 285.81825pt x 203.13278pt.
-<paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf, id=161, 454.69
+<paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf, id=160, 454.69
 875pt x 313.17pt>
 File: paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf Graphic fi
 le (type pdf)
 <use paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:cosineDistributions8
-df-1.pdf  used on input line 773.
+df-1.pdf  used on input line 794.
 (pdftex.def)             Requested size: 285.80954pt x 196.84894pt.
-<paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf, id=162, 458.71
+[9 <./paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf>]
+<paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf, id=182, 458.71
 375pt x 313.17pt>
 File: paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf Graphic fi
 le (type pdf)
 <use paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:cosineDistributions8
-dg-1.pdf  used on input line 782.
+dg-1.pdf  used on input line 803.
 (pdftex.def)             Requested size: 285.82047pt x 195.13344pt.
-[9 <./paperDraft_files/figure-latex/fig:cosineDistributions8d-1.pdf> <./paperDr
-aft_files/figure-latex/fig:cosineDistributions8df-1.pdf>]
-<paperDraft_files/figure-latex/visMuslimd-1.pdf, id=196, 340.27126pt x 284.0612
-5pt>
+[10 <./paperDraft_files/figure-latex/fig:cosineDistributions8df-1.pdf> <./paper
+Draft_files/figure-latex/fig:cosineDistributions8dg-1.pdf>]
+<paperDraft_files/figure-latex/visMuslimd-1.pdf, id=216, 339.2675pt x 284.06125
+pt>
 File: paperDraft_files/figure-latex/visMuslimd-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/visMuslimd-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/visMuslimd-1.pdf  used o
-n input line 827.
-(pdftex.def)             Requested size: 340.30156pt x 284.08653pt.
-[10 <./paperDraft_files/figure-latex/fig:cosineDistributions8dg-1.pdf>]
+n input line 848.
+(pdftex.def)             Requested size: 339.29771pt x 284.08653pt.
 <paperDraft_files/figure-latex/visPriestd-1.pdf, id=217, 339.2675pt x 287.0725p
 t>
 File: paperDraft_files/figure-latex/visPriestd-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/visPriestd-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/visPriestd-1.pdf  used o
-n input line 834.
+n input line 855.
 (pdftex.def)             Requested size: 339.27701pt x 287.08055pt.
-[11 <./paperDraft_files/figure-latex/visMuslimd-1.pdf> <./paperDraft_files/figu
-re-latex/visPriestd-1.pdf>] [12]
+[11 <./paperDraft_files/figure-latex/visMuslimd-1.pdf>] [12 <./paperDraft_files
+/figure-latex/visPriestd-1.pdf>]
 <paperDraft_files/figure-latex/fig:caliskanCalcB2D-1.pdf, id=263, 442.65375pt x
  314.17375pt>
 File: paperDraft_files/figure-latex/fig:caliskanCalcB2D-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/fig:caliskanCalcB2D-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:caliskanCalcB2D-1.pd
-f  used on input line 921.
+f  used on input line 942.
 (pdftex.def)             Requested size: 326.65355pt x 231.84254pt.
-<paperDraft_files/figure-latex/fig:caliskanDistC2K-1.pdf, id=265, 446.66875pt x
+[13]
+<paperDraft_files/figure-latex/fig:caliskanDistC2K-1.pdf, id=274, 446.66875pt x
  314.17375pt>
 File: paperDraft_files/figure-latex/fig:caliskanDistC2K-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/fig:caliskanDistC2K-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:caliskanDistC2K-1.pd
-f  used on input line 934.
+f  used on input line 955.
 (pdftex.def)             Requested size: 326.64479pt x 229.7524pt.
-[13 <./paperDraft_files/figure-latex/fig:caliskanCalcB2D-1.pdf>] [14 <./paperDr
-aft_files/figure-latex/fig:caliskanDistC2K-1.pdf>]
-<paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1.pdf, id=301, 459.7175pt
+[14 <./paperDraft_files/figure-latex/fig:caliskanCalcB2D-1.pdf> <./paperDraft_f
+iles/figure-latex/fig:caliskanDistC2K-1.pdf>]
+<paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1.pdf, id=302, 459.7175pt
  x 310.15875pt>
 File: paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1.pdf Graphic file (
 type pdf)
 <use paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1
-.pdf  used on input line 991.
+.pdf  used on input line 1012.
 (pdftex.def)             Requested size: 326.65424pt x 220.38463pt.
-[15 <./paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1.pdf>] [16]
-<paperDraft_files/figure-latex/dagVis-1.pdf, id=329, 429.605pt x 291.0875pt>
+[15] [16 <./paperDraft_files/figure-latex/fig:ourDistancesPlot2f-1.pdf>] [17]
+<paperDraft_files/figure-latex/dagVis-1.pdf, id=336, 429.605pt x 291.0875pt>
 File: paperDraft_files/figure-latex/dagVis-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/dagVis-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/dagVis-1.pdf  used on in
-put line 1113.
+put line 1133.
 (pdftex.def)             Requested size: 326.64084pt x 221.32205pt.
-[17 <./paperDraft_files/figure-latex/dagVis-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf, id=345, 447.6725pt
+[18 <./paperDraft_files/figure-latex/dagVis-1.pdf>]
+<paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf, id=353, 447.6725pt
  x 416.55624pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf Graphic file (
 type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckA6b-1
-.pdf  used on input line 1188.
+.pdf  used on input line 1208.
 (pdftex.def)             Requested size: 326.64792pt x 303.9437pt.
-[18] [19 <./paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf>]
+[19] [20 <./paperDraft_files/figure-latex/figposteriorPrCheckA6b-1.pdf>]
 LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 1
-235.
+255.
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
-) [20]
-<paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf, id=385, 338.2637
+) [21]
+<paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf, id=393, 338.2637
 5pt x 580.1675pt>
 File: paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf Graphic file
  (type pdf)
 <use paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosinePair2e
--1.pdf  used on input line 1348.
+-1.pdf  used on input line 1368.
 (pdftex.def)             Requested size: 338.27322pt x 580.18376pt.
-[21]
-<paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf, id=393, 331.237
+[22]
+<paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf, id=400, 331.237
 5pt x 580.1675pt>
 File: paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf Graphic fil
 e (type pdf)
 <use paperDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosinePair2_
-e-1.pdf  used on input line 1355.
+e-1.pdf  used on input line 1375.
 (pdftex.def)             Requested size: 331.25183pt x 580.19261pt.
-[22 <./paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf>] [23 <./pa
+[23 <./paperDraft_files/figure-latex/fig:debiasedCosinePair2e-1.pdf>] [24 <./pa
 perDraft_files/figure-latex/fig:debiasedCosinePair2_e-1.pdf>]
-<paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf, id=426, 465.74pt x 
+<paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf, id=433, 465.74pt x 
 423.5825pt>
 File: paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf Graphic file (t
 ype pdf)
 <use paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine21c-1.
-pdf  used on input line 1383.
+pdf  used on input line 1403.
 (pdftex.def)             Requested size: 387.89304pt x 352.78203pt.
-<paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf, id=427, 467.7475pt 
+<paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf, id=434, 467.7475pt 
 x 423.5825pt>
 File: paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf Graphic file (t
 ype pdf)
 <use paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine22c-1.
-pdf  used on input line 1390.
+pdf  used on input line 1410.
 (pdftex.def)             Requested size: 387.902pt x 351.27608pt.
-[24 <./paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf>]
-<paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf, id=445, 457.71pt x 
+[25 <./paperDraft_files/figure-latex/fig:debiasedCosine21c-1.pdf>]
+<paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf, id=453, 457.71pt x 
 423.5825pt>
 File: paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf Graphic file (t
 ype pdf)
 <use paperDraft_files/figure-latex/fig:debiasedCosine23c-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/fig:debiasedCosine23c-1.
-pdf  used on input line 1397.
+pdf  used on input line 1417.
 (pdftex.def)             Requested size: 387.89598pt x 358.9739pt.
-[25 <./paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf>] [26 <./paper
-Draft_files/figure-latex/fig:debiasedCosine23c-1.pdf>]
-Package hyperref Info: bookmark level for unknown todo defaults to 0 on input l
-ine 1435.
-[27]
-Underfull \hbox (badness 10000) in paragraph at lines 1469--1475
+[26 <./paperDraft_files/figure-latex/fig:debiasedCosine22c-1.pdf>] [27 <./paper
+Draft_files/figure-latex/fig:debiasedCosine23c-1.pdf>] [28]
+Underfull \hbox (badness 10000) in paragraph at lines 1509--1515
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1476--1482
+Underfull \hbox (badness 10000) in paragraph at lines 1516--1522
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1483--1490
+Underfull \hbox (badness 10000) in paragraph at lines 1523--1529
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1491--1498
+Underfull \hbox (badness 10000) in paragraph at lines 1530--1537
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1499--1509
+Underfull \hbox (badness 10000) in paragraph at lines 1538--1545
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1510--1517
+Underfull \hbox (badness 10000) in paragraph at lines 1546--1556
 
  []
 
 
-Underfull \hbox (badness 1931) in paragraph at lines 1524--1524
+Underfull \hbox (badness 10000) in paragraph at lines 1557--1564
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1565--1572
+
+ []
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 1579--1579
 []\T1/ptm/m/n/12 (+20) Rink Hoek-stra, Richard D. Morey, Jef-frey N. Rouder, an
 d Eric-Jan
  []
 
 
-Underfull \hbox (badness 2020) in paragraph at lines 1524--1524
+Underfull \hbox (badness 2020) in paragraph at lines 1579--1579
 \T1/ptm/m/n/12 (+20) Wa-gen-mak-ers. 2014. Ro-bust mis-in-ter-pre-ta-tion of co
 n-fi-dence in-ter-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1518--1525
+Underfull \hbox (badness 10000) in paragraph at lines 1573--1580
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1526--1532
+Underfull \hbox (badness 10000) in paragraph at lines 1581--1586
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1533--1538
+Underfull \hbox (badness 10000) in paragraph at lines 1587--1591
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1539--1543
+Underfull \hbox (badness 10000) in paragraph at lines 1592--1598
+
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 1599--1605
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1544--1550
+Underfull \hbox (badness 10000) in paragraph at lines 1606--1616
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1551--1557
-
- []
-
-[28]
-Underfull \hbox (badness 10000) in paragraph at lines 1558--1568
+Underfull \hbox (badness 10000) in paragraph at lines 1617--1623
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1569--1575
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 1580--1580
+Underfull \hbox (badness 10000) in paragraph at lines 1628--1628
 []\T1/ptm/m/n/12 (+20) Tomas Mikolov, Kai Chen, Greg Cor-rado, and Jef-frey Dea
 n.
  []
 
 
-Underfull \hbox (badness 2205) in paragraph at lines 1580--1580
+Underfull \hbox (badness 2205) in paragraph at lines 1628--1628
 \T1/ptm/m/n/12 (+20) 2013. Ef-fi-cient es-ti-ma-tion of word rep-re-sen-ta-tion
 s in vec-tor space.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1576--1581
+Underfull \hbox (badness 10000) in paragraph at lines 1624--1629
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1582--1588
+Underfull \hbox (badness 10000) in paragraph at lines 1630--1636
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1589--1595
+Underfull \hbox (badness 10000) in paragraph at lines 1637--1643
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1596--1603
+Underfull \hbox (badness 10000) in paragraph at lines 1644--1651
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1604--1610
+Underfull \hbox (badness 10000) in paragraph at lines 1652--1658
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1611--1617
+Underfull \hbox (badness 10000) in paragraph at lines 1659--1665
 
  []
 
-[29]
-<paperDraft_files/figure-latex/weatjoint2z-1.pdf, id=540, 376.40625pt x 580.167
+[30]
+<paperDraft_files/figure-latex/weatjoint2z-1.pdf, id=547, 376.40625pt x 580.167
 5pt>
 File: paperDraft_files/figure-latex/weatjoint2z-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/weatjoint2z-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/weatjoint2z-1.pdf  used 
-on input line 1633.
+on input line 1681.
 (pdftex.def)             Requested size: 376.42828pt x 580.20146pt.
-[30 <./paperDraft_files/figure-latex/weatjoint2z-1.pdf>]
-<paperDraft_files/figure-latex/weat7glovh-1.pdf, id=558, 375.4025pt x 580.1675p
+[31 <./paperDraft_files/figure-latex/weatjoint2z-1.pdf>]
+<paperDraft_files/figure-latex/weat7glovh-1.pdf, id=566, 375.4025pt x 580.1675p
 t>
 File: paperDraft_files/figure-latex/weat7glovh-1.pdf Graphic file (type pdf)
 <use paperDraft_files/figure-latex/weat7glovh-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/weat7glovh-1.pdf  used o
-n input line 1637.
+n input line 1685.
 (pdftex.def)             Requested size: 375.42448pt x 580.20146pt.
-<paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf, id=559, 341.275pt x 5
+<paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf, id=567, 341.275pt x 5
 80.1675pt>
 File: paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat7Reddita-1.pd
-f  used on input line 1639.
+f  used on input line 1687.
 (pdftex.def)             Requested size: 341.29498pt x 580.20146pt.
-[31 <./paperDraft_files/figure-latex/weat7glovh-1.pdf>]
-<paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf, id=575, 376.40625pt x
+[32 <./paperDraft_files/figure-latex/weat7glovh-1.pdf>]
+<paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf, id=582, 376.40625pt x
  580.1675pt>
 File: paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Googlea-1.pd
-f  used on input line 1641.
+f  used on input line 1689.
 (pdftex.def)             Requested size: 376.42828pt x 580.20146pt.
-[32 <./paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf>]
-<paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf, id=590, 374.39874pt x 
+[33 <./paperDraft_files/figure-latex/resultsWeat7Reddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf, id=597, 374.39874pt x 
 580.1675pt>
 File: paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf Graphic file (type
  pdf)
 <use paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf
-  used on input line 1643.
+  used on input line 1691.
 (pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
-[33 <./paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf>]
-<paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf, id=605, 336.25626pt x
+[34 <./paperDraft_files/figure-latex/resultsWeat1Googlea-1.pdf>]
+<paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf, id=612, 336.25626pt x
  580.1675pt>
 File: paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsWeat1Reddita-1.pd
-f  used on input line 1645.
+f  used on input line 1693.
 (pdftex.def)             Requested size: 336.27596pt x 580.20146pt.
-[34 <./paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf>]
-<paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf, id=620, 337.26pt x
+[35 <./paperDraft_files/figure-latex/resultsWeat1Glovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf, id=627, 337.26pt x
  580.1675pt>
 File: paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf Graphic file (
 type pdf)
 <use paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionGooglea-1
-.pdf  used on input line 1647.
+.pdf  used on input line 1695.
 (pdftex.def)             Requested size: 337.27975pt x 580.20146pt.
-[35 <./paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf>]
-<paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf, id=635, 374.39874pt
+[36 <./paperDraft_files/figure-latex/resultsWeat1Reddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf, id=643, 374.39874pt
  x 580.1675pt>
 File: paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf Graphic file (t
 ype pdf)
 <use paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionGlovea-1.
-pdf  used on input line 1649.
+pdf  used on input line 1697.
 (pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
-[36 <./paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf>]
-<paperDraft_files/figure-latex/resultsReligionReddita-1.pdf, id=651, 375.4025pt
+[37 <./paperDraft_files/figure-latex/resultsReligionGooglea-1.pdf>]
+<paperDraft_files/figure-latex/resultsReligionReddita-1.pdf, id=659, 375.4025pt
  x 580.1675pt>
 File: paperDraft_files/figure-latex/resultsReligionReddita-1.pdf Graphic file (
 type pdf)
 <use paperDraft_files/figure-latex/resultsReligionReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsReligionReddita-1
-.pdf  used on input line 1651.
+.pdf  used on input line 1699.
 (pdftex.def)             Requested size: 375.42448pt x 580.20146pt.
-[37 <./paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf>]
-<paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf, id=667, 374.39874pt x 
+[38 <./paperDraft_files/figure-latex/resultsReligionGlovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf, id=674, 374.39874pt x 
 580.1675pt>
 File: paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf Graphic file (type
  pdf)
 <use paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf
-  used on input line 1653.
+  used on input line 1701.
 (pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
-[38 <./paperDraft_files/figure-latex/resultsReligionReddita-1.pdf>]
-<paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf, id=682, 374.39874pt x 5
+[39 <./paperDraft_files/figure-latex/resultsReligionReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf, id=689, 374.39874pt x 5
 80.1675pt>
 File: paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf Graphic file (type 
 pdf)
 <use paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf 
- used on input line 1655.
+ used on input line 1703.
 (pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
-[39 <./paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf>]
-<paperDraft_files/figure-latex/resultsRaceReddita-1.pdf, id=697, 374.39874pt x 
+[40 <./paperDraft_files/figure-latex/resultsRaceGooglea-1.pdf>]
+<paperDraft_files/figure-latex/resultsRaceReddita-1.pdf, id=704, 374.39874pt x 
 580.1675pt>
 File: paperDraft_files/figure-latex/resultsRaceReddita-1.pdf Graphic file (type
  pdf)
 <use paperDraft_files/figure-latex/resultsRaceReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsRaceReddita-1.pdf
-  used on input line 1657.
+  used on input line 1705.
 (pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
-[40 <./paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf>]
-<paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf, id=712, 341.275pt x 
+[41 <./paperDraft_files/figure-latex/resultsRaceGlovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf, id=719, 341.275pt x 
 580.1675pt>
 File: paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf Graphic file (ty
 pe pdf)
 <use paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderGooglea-1.p
-df  used on input line 1659.
+df  used on input line 1707.
 (pdftex.def)             Requested size: 341.29498pt x 580.20146pt.
-[41 <./paperDraft_files/figure-latex/resultsRaceReddita-1.pdf>]
-<paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf, id=727, 329.23pt x 58
+[42 <./paperDraft_files/figure-latex/resultsRaceReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf, id=734, 329.23pt x 58
 0.1675pt>
 File: paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf Graphic file (typ
 e pdf)
 <use paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderGlovea-1.pd
-f  used on input line 1661.
+f  used on input line 1709.
 (pdftex.def)             Requested size: 329.24927pt x 580.20146pt.
-[42 <./paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf>]
-<paperDraft_files/figure-latex/resultsGenderReddita-1.pdf, id=742, 338.26375pt 
+[43 <./paperDraft_files/figure-latex/resultsGenderGooglea-1.pdf>]
+<paperDraft_files/figure-latex/resultsGenderReddita-1.pdf, id=750, 338.26375pt 
 x 580.1675pt>
 File: paperDraft_files/figure-latex/resultsGenderReddita-1.pdf Graphic file (ty
 pe pdf)
 <use paperDraft_files/figure-latex/resultsGenderReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsGenderReddita-1.p
-df  used on input line 1663.
+df  used on input line 1711.
 (pdftex.def)             Requested size: 338.28355pt x 580.20146pt.
-[43 <./paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf>]
-<paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf, id=758, 37
+[44 <./paperDraft_files/figure-latex/resultsGenderGlovea-1.pdf>]
+<paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf, id=765, 37
 5.4025pt x 580.1675pt>
 File: paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf Graphi
 c file (type pdf)
 <use paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedReligionR
-eddita-1.pdf  used on input line 1665.
+eddita-1.pdf  used on input line 1713.
 (pdftex.def)             Requested size: 375.42448pt x 580.20146pt.
-[44 <./paperDraft_files/figure-latex/resultsGenderReddita-1.pdf>]
-<paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf, id=773, 374.39
+[45 <./paperDraft_files/figure-latex/resultsGenderReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf, id=781, 374.39
 874pt x 580.1675pt>
 File: paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf Graphic fi
 le (type pdf)
 <use paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedRaceReddi
-ta-1.pdf  used on input line 1667.
+ta-1.pdf  used on input line 1715.
 (pdftex.def)             Requested size: 374.42067pt x 580.20146pt.
-[45 <./paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf>]
-<paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf, id=789, 331.
+[46 <./paperDraft_files/figure-latex/resultsDebiasedReligionReddita-1.pdf>]
+<paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf, id=796, 331.
 2375pt x 580.1675pt>
 File: paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/resultsDebiasedGenderRed
-dita-1.pdf  used on input line 1669.
+dita-1.pdf  used on input line 1717.
 (pdftex.def)             Requested size: 331.25688pt x 580.20146pt.
-[46 <./paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf, id=804, 453.
+[47 <./paperDraft_files/figure-latex/resultsDebiasedRaceReddita-1.pdf>]
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf, id=811, 453.
 695pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixa-1.pdf  used on input line 1677.
+dixa-1.pdf  used on input line 1725.
 (pdftex.def)             Requested size: 347.05478pt x 244.16684pt.
-[47 <./paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf, id=820, 462.
+[48 <./paperDraft_files/figure-latex/resultsDebiasedGenderReddita-1.pdf>]
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf, id=827, 462.
 72874pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixb-1.pdf  used on input line 1679.
+dixb-1.pdf  used on input line 1727.
 (pdftex.def)             Requested size: 347.05983pt x 239.40352pt.
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf, id=821, 465.
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf, id=828, 465.
 74pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixc-1.pdf  used on input line 1681.
+dixc-1.pdf  used on input line 1729.
 (pdftex.def)             Requested size: 355.22394pt x 243.45088pt.
-[48 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf> <./pap
+[49 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixa-1.pdf> <./pap
 erDraft_files/figure-latex/figposteriorPrCheckAppendixb-1.pdf>]
-<paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf, id=850, 453.
+<paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf, id=858, 453.
 695pt x 319.1925pt>
 File: paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf Graphic 
 file (type pdf)
 <use paperDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf>
 Package pdftex.def Info: paperDraft_files/figure-latex/figposteriorPrCheckAppen
-dixd-1.pdf  used on input line 1683.
+dixd-1.pdf  used on input line 1731.
 (pdftex.def)             Requested size: 363.38571pt x 255.65631pt.
-[49 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf> <./pap
-erDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf>] [50] [51] (./pa
+[50 <./paperDraft_files/figure-latex/figposteriorPrCheckAppendixc-1.pdf> <./pap
+erDraft_files/figure-latex/figposteriorPrCheckAppendixd-1.pdf>] [51] [52] (./pa
 perDraft.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 37566 strings out of 478287
- 732944 string characters out of 5849288
- 1165383 words of memory out of 5000000
- 54374 multiletter control sequences out of 15000+600000
- 588175 words of font info for 466 fonts, out of 8000000 for 9000
+ 37472 strings out of 478287
+ 730677 string characters out of 5849288
+ 1166383 words of memory out of 5000000
+ 54272 multiletter control sequences out of 15000+600000
+ 588725 words of font info for 470 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 108i,14n,106p,10633b,954s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 108i,14n,106p,10633b,576s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/kpfonts/kpfonts-expert.enc}{/u
 sr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dis
@@ -2250,10 +2254,10 @@ fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
 symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on paperDraft.pdf (51 pages, 6823834 bytes).
+Output written on paperDraft.pdf (52 pages, 6826017 bytes).
 PDF statistics:
- 1059 PDF objects out of 1200 (max. 8388607)
- 850 compressed objects within 9 object streams
- 160 named destinations out of 1000 (max. 500000)
+ 1066 PDF objects out of 1200 (max. 8388607)
+ 856 compressed objects within 9 object streams
+ 162 named destinations out of 1000 (max. 500000)
  98664 words of extra memory for PDF output out of 106986 (max. 10000000)
 
