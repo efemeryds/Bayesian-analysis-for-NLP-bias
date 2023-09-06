@@ -113,42 +113,6 @@ cosine similarity---and the results of such comparisons can be used in
 downstream tasks. Roughly speaking, cosine similarity is an imperfect
 mathematical proxy for semantic similarity \citep{Mikolov2013efficient}.
 
-One response to the raising of the issue of bias in natural language
-models might be to say that there is not much point in reflecting on
-such biases, as they are unavoidable. This unavoidability might seem in
-line with the arguments to the effect that learning algorithms are
-always value-laden \citep{JohnsonValueFree}: they employ inductive methods that require
-design-, data-, or risk-related decisions that have to be guided by
-extra-algorithmic considerations. Such choices necessarily involve value
-judgments and have to do, for instance, with what simplifications or
-risks one finds acceptable. Admittedly, algorithmic decision making
-cannot fulfill the value-free ideal, but this only means that even more
-attention needs to be paid to the values underlying different techniques
-and decisions, and to the values being pursued in a particular use of an
-algorithm.
-
-Another response might be to insist that there is no bias introduced by
-the use of machine learning methods here since the algorithm is simply
-learning to correctly predict co-occurrences based on what ``reality''
-looks like. However, this objection overlooks the fact that we, humans,
-are the ones who construct this linguistic reality, which is shaped in
-part by the natural language processing tools we use on a massive scale.
-Sure, if there is unfairness and our goal is to diagnose it, we should
-do complete justice to learning it in the model used to study it. One
-example of this approach is \citep{Garg2017hundredYears}, where the authors use language
-models to study the shape of certain biases across a century.
-
-However, if our goal is to develop downstream tools that perform tasks
-that we care about without further perpetuating or exacerbating harmful
-stereotypes, we still have good reasons to try to minimize the negative
-impact. Moreover, it is often not the case that the corpora mirror
-reality---to give a trivial example, heads are spoken of more often than
-kidneys, but this does not mean that kidneys occur much less often in
-reality than heads. To give a more relevant example, the
-disproportionate association of female words with female occupations in
-a corpus actually greatly exaggerates the actual lower disproportion in
-the real distribution of occupations \citep{gordon2012reporting}.
-
 In what follows, we focus on two popular measures of bias applicable to
 many existing word embeddings, such as
 \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.}
@@ -211,7 +175,7 @@ ongoing discussions.\footnote{\textbf{Disclaimer:} throughout the paper
   formulate, which does not mean we condone any judgment made therein or
   underlying a given word selection. For instance, the Gender dataset
   does not recognize non-binary categories, and yet we use it without
-  claiming that such categories should be ignored.}
+  claiming that such categories should be ignored.}$^{, }$ \footnote{A few more philosophical comments on the enterprise of reflecting on bias in language models can be found in Appendix \ref{appendix:philosophical}.}
 
 
 
@@ -1398,6 +1362,8 @@ rather devote attention to more nuanced analysis.
 
 
 %\newpage
+
+
 \appendix
 
 \hypertarget{appendix}{%
@@ -1405,6 +1371,50 @@ rather devote attention to more nuanced analysis.
 
 \label{sec:appendix}
 
+
+\hypertarget{philosophical}{%
+	\subsection{A philosophical commentary}}
+
+\label{appendix:philosophical}
+
+
+One response to the raising of the issue of bias in natural language
+	models might be to say that there is not much point in reflecting on
+	such biases, as they are unavoidable. This unavoidability might seem in
+	line with the arguments to the effect that learning algorithms are
+	always value-laden \citep{JohnsonValueFree}: they employ inductive methods that require
+	design-, data-, or risk-related decisions that have to be guided by
+	extra-algorithmic considerations. Such choices necessarily involve value
+	judgments and have to do, for instance, with what simplifications or
+	risks one finds acceptable. Admittedly, algorithmic decision making
+	cannot fulfill the value-free ideal, but this only means that even more
+	attention needs to be paid to the values underlying different techniques
+	and decisions, and to the values being pursued in a particular use of an
+	algorithm.
+	
+	Another response might be to insist that there is no bias introduced by
+	the use of machine learning methods here since the algorithm is simply
+	learning to correctly predict co-occurrences based on what ``reality''
+	looks like. However, this objection overlooks the fact that we, humans,
+	are the ones who construct this linguistic reality, which is shaped in
+	part by the natural language processing tools we use on a massive scale.
+	Sure, if there is unfairness and our goal is to diagnose it, we should
+	do complete justice to learning it in the model used to study it. One
+	example of this approach is \citep{Garg2017hundredYears}, where the authors use language
+	models to study the shape of certain biases across a century.
+	
+	However, if our goal is to develop downstream tools that perform tasks
+	that we care about without further perpetuating or exacerbating harmful
+	stereotypes, we still have good reasons to try to minimize the negative
+	impact. Moreover, it is often not the case that the corpora mirror
+	reality---to give a trivial example, heads are spoken of more often than
+	kidneys, but this does not mean that kidneys occur much less often in
+	reality than heads. To give a more relevant example, the
+	disproportionate association of female words with female occupations in
+	a corpus actually greatly exaggerates the actual lower disproportion in
+	the real distribution of occupations \citep{gordon2012reporting}.
+	
+	
 \hypertarget{visualizations}{%
 \subsection{Visualizations}\label{visualizations}}
 
