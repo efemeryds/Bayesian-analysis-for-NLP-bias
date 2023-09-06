@@ -1,4 +1,4 @@
-\begin{thebibliography}{21}
+\begin{thebibliography}{29}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Bolukbasi et~al.(2016)Bolukbasi, Chang, Zou, Saligrama, and
@@ -15,11 +15,24 @@ Caliskan, Aylin, Joanna~J. Bryson, and Arvind Narayanan. 2016.
   contain human biases.
 \newblock \emph{CoRR}, abs/1608.07187.
 
+\bibitem[{Du, Fang, and Nguyen(2021)}]{Du2021Assessing}
+Du, Yupei, Qixiang Fang, and Dong Nguyen. 2021.
+\newblock Assessing the reliability of word embedding gender bias measures.
+\newblock In \emph{Proceedings of the 2021 Conference on Empirical Methods in
+  Natural Language Processing}, pages 10012--10034, Association for
+  Computational Linguistics, Online and Punta Cana, Dominican Republic.
+
 \bibitem[{Ethayarajh(2020)}]{Ethayarajh2020Bernstein}
 Ethayarajh, Kawin. 2020.
 \newblock Is your classifier actually biased? measuring fairness under
   uncertainty with bernstein bounds.
 \newblock \emph{CoRR}, abs/2004.12332.
+
+\bibitem[{Ethayarajh, Duvenaud, and Hirst(2019)}]{Ethayarajh2019understanding}
+Ethayarajh, Kawin, David Duvenaud, and Graeme Hirst. 2019.
+\newblock Understanding undesirable word embedding associations.
+\newblock In \emph{Proceedings of the 57th Annual Meeting of the Association
+  for Computational Linguistics}, pages 1696--1705.
 
 \bibitem[{Garg et~al.(2017)Garg, Schiebinger, Jurafsky, and
   Zou}]{Garg2017hundredYears}
@@ -33,6 +46,16 @@ Garg, Nikhil, Londa Schiebinger, Dan Jurafsky, and James Zou. 2018.
 \newblock Word embeddings quantify 100 years of gender and ethnic stereotypes.
 \newblock \emph{Proceedings of the National Academy of Sciences},
   115(16):E3635--E3644.
+
+\bibitem[{Goldfarb-Tarrant et~al.(2021)Goldfarb-Tarrant, Marchant,
+  Mu{\~n}oz~S{\'a}nchez, Pandya, and Lopez}]{Goldfarb2021BiasNotCorrelate}
+Goldfarb-Tarrant, Seraphina, Rebecca Marchant, Ricardo Mu{\~n}oz~S{\'a}nchez,
+  Mugdha Pandya, and Adam Lopez. 2021.
+\newblock Intrinsic bias metrics do not correlate with application bias.
+\newblock In \emph{Proceedings of the 59th Annual Meeting of the Association
+  for Computational Linguistics and the 11th International Joint Conference on
+  Natural Language Processing (Volume 1: Long Papers)}, pages 1926--1940,
+  Association for Computational Linguistics, Online.
 
 \bibitem[{Gonen and Goldberg(2019)}]{Gonen2019lipstick}
 Gonen, Hila and Yoav Goldberg. 2019.
@@ -78,6 +101,13 @@ Lauscher, Anne and Goran Glavas. 2019.
 \newblock Are we consistently biased? multidimensional analysis of biases in
   distributional word vectors.
 \newblock \emph{CoRR}, abs/1904.11783.
+
+\bibitem[{Lum, Zhang, and Bower(2022)}]{Lum2022Debiasing}
+Lum, Kristian, Yunfeng Zhang, and Amanda Bower. 2022.
+\newblock De-biasing “bias” measurement.
+\newblock In \emph{Proceedings of the 2022 ACM Conference on Fairness,
+  Accountability, and Transparency}, FAccT '22, page 379–389, Association for
+  Computing Machinery, New York, NY, USA.
 
 \bibitem[{Manzini et~al.(2019)Manzini, Lim, Tsvetkov, and
   Black}]{Manzini2019blackToCriminal}
@@ -125,15 +155,42 @@ Nosek, Brian~A., Mahzarin~R. Banaji, and Anthony~G. Greenwald. 2002.
   web site.
 \newblock \emph{Group Dynamics: Theory, Research, and Practice}, 6(1):101--115.
 
+\bibitem[{Pennington, Socher, and Manning(2014)}]{Pennington2014Glove}
+Pennington, Jeffrey, Richard Socher, and Christopher Manning. 2014.
+\newblock {G}lo{V}e: Global vectors for word representation.
+\newblock In \emph{Proceedings of the 2014 Conference on Empirical Methods in
+  Natural Language Processing ({EMNLP})}, pages 1532--1543, Association for
+  Computational Linguistics, Doha, Qatar.
+
+\bibitem[{Rabinovich, Tsvetkov, and Wintner(2018)}]{Rabinovich2018Reddit}
+Rabinovich, Ella, Yulia Tsvetkov, and Shuly Wintner. 2018.
+\newblock Native language cognate effects on second language lexical choice.
+\newblock \emph{Transactions of the Association for Computational Linguistics},
+  6:329--342.
+
 \bibitem[{Schröder et~al.(2021)Schröder, Schulz, Kenneweg, Feldhans, Hinder,
   and Hammer}]{schroder2021evaluating}
 Schröder, Sarah, Alexander Schulz, Philip Kenneweg, Robert Feldhans, Fabian
   Hinder, and Barbara Hammer. 2021.
 \newblock Evaluating metrics for bias in word embeddings.
 
+\bibitem[{Spliethöver and Wachsmuth(2021)}]{Spliethover2021BiasSilhouette}
+Spliethöver, Maximilian and Henning Wachsmuth. 2021.
+\newblock Bias silhouette analysis: Towards assessing the quality of bias
+  metrics for word embedding models.
+\newblock In \emph{Proceedings of the Thirtieth International Joint Conference
+  on Artificial Intelligence, {IJCAI-21}}, pages 552--559, International Joint
+  Conferences on Artificial Intelligence Organization.
+\newblock Main Track.
+
 \bibitem[{Xiao and Wang(2018)}]{DBLP:journals/corr/abs-1811-07253}
 Xiao, Yijun and William~Yang Wang. 2018.
 \newblock Quantifying uncertainties in natural language processing tasks.
 \newblock \emph{CoRR}, abs/1811.07253.
+
+\bibitem[{Zhang, Sneyd, and Stevenson(2020)}]{zhang2020robustness}
+Zhang, Haiyang, Alison Sneyd, and Mark Stevenson. 2020.
+\newblock Robustness and reliability of gender bias assessment in word
+  embeddings: The role of base pairs.
 
 \end{thebibliography}

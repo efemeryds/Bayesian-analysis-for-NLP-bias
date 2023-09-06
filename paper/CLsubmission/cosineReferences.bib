@@ -19851,3 +19851,101 @@ doi = {10.1145/2509558.2509563}
 }
 
 @Comment{jabref-meta: databaseType:biblatex;}
+
+@inproceedings{Lum2022Debiasing,
+author = {Lum, Kristian and Zhang, Yunfeng and Bower, Amanda},
+title = {De-Biasing “bias” Measurement},
+year = {2022},
+isbn = {9781450393522},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3531146.3533105},
+doi = {10.1145/3531146.3533105},
+abstract = {When a model’s performance differs across socially or culturally relevant groups–like race, gender, or the intersections of many such groups–it is often called ”biased.” While much of the work in algorithmic fairness over the last several years has focused on developing various definitions of model fairness (the absence of group-wise model performance disparities) and eliminating such “bias,” much less work has gone into rigorously measuring it. In practice, it important to have high quality, human digestible measures of model performance disparities and associated uncertainty quantification about them that can serve as inputs into multi-faceted decision-making processes. In this paper, we show both mathematically and through simulation that many of the metrics used to measure group-wise model performance disparities are themselves statistically biased estimators of the underlying quantities they purport to represent. We argue that this can cause misleading conclusions about the relative group-wise model performance disparities along different dimensions, especially in cases where some sensitive variables consist of categories with few members. We propose the “double-corrected” variance estimator, which provides unbiased estimates and uncertainty quantification of the variance of model performance across groups. It is conceptually simple and easily implementable without statistical software package or numerical optimization. We demonstrate the utility of this approach through simulation and show on a real dataset that while statistically biased estimators of model group-wise model performance disparities indicate statistically significant between-group model performance disparities, when accounting for statistical bias in the estimator, the estimated group-wise disparities in model performance are no longer statistically significant.},
+booktitle = {Proceedings of the 2022 ACM Conference on Fairness, Accountability, and Transparency},
+pages = {379–389},
+numpages = {11},
+location = {Seoul, Republic of Korea},
+series = {FAccT '22}
+}
+
+@inproceedings{Du2021Assessing,
+    title = "Assessing the Reliability of Word Embedding Gender Bias Measures",
+    author = "Du, Yupei  and
+      Fang, Qixiang  and
+      Nguyen, Dong",
+    booktitle = "Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing",
+    month = nov,
+    year = "2021",
+    address = "Online and Punta Cana, Dominican Republic",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.emnlp-main.785",
+    doi = "10.18653/v1/2021.emnlp-main.785",
+    pages = "10012--10034",
+    abstract = "Various measures have been proposed to quantify human-like social biases in word embeddings. However, bias scores based on these measures can suffer from measurement error. One indication of measurement quality is reliability, concerning the extent to which a measure produces consistent results. In this paper, we assess three types of reliability of word embedding gender bias measures, namely test-retest reliability, inter-rater consistency and internal consistency. Specifically, we investigate the consistency of bias scores across different choices of random seeds, scoring rules and words. Furthermore, we analyse the effects of various factors on these measures{'} reliability scores. Our findings inform better design of word embedding gender bias measures. Moreover, we urge researchers to be more critical about the application of such measures",
+}
+
+@inproceedings{Goldfarb2021BiasNotCorrelate,
+    title = "Intrinsic Bias Metrics Do Not Correlate with Application Bias",
+    author = "Goldfarb-Tarrant, Seraphina  and
+      Marchant, Rebecca  and
+      Mu{\~n}oz S{\'a}nchez, Ricardo  and
+      Pandya, Mugdha  and
+      Lopez, Adam",
+    booktitle = "Proceedings of the 59th Annual Meeting of the Association for Computational Linguistics and the 11th International Joint Conference on Natural Language Processing (Volume 1: Long Papers)",
+    month = aug,
+    year = "2021",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2021.acl-long.150",
+    doi = "10.18653/v1/2021.acl-long.150",
+    pages = "1926--1940",
+    abstract = "Natural Language Processing (NLP) systems learn harmful societal biases that cause them to amplify inequality as they are deployed in more and more situations. To guide efforts at debiasing these systems, the NLP community relies on a variety of metrics that quantify bias in models. Some of these metrics are intrinsic, measuring bias in word embedding spaces, and some are extrinsic, measuring bias in downstream tasks that the word embeddings enable. Do these intrinsic and extrinsic metrics correlate with each other? We compare intrinsic and extrinsic metrics across hundreds of trained models covering different tasks and experimental conditions. Our results show no reliable correlation between these metrics that holds in all scenarios across tasks and languages. We urge researchers working on debiasing to focus on extrinsic measures of bias, and to make using these measures more feasible via creation of new challenge sets and annotated test data. To aid this effort, we release code, a new intrinsic metric, and an annotated test set focused on gender bias in hate speech.",
+}
+
+@inproceedings{Spliethover2021BiasSilhouette,
+  title     = {Bias Silhouette Analysis: Towards Assessing the Quality of Bias Metrics for Word Embedding Models},
+  author    = {Spliethöver, Maximilian and Wachsmuth, Henning},
+  booktitle = {Proceedings of the Thirtieth International Joint Conference on
+               Artificial Intelligence, {IJCAI-21}},
+  publisher = {International Joint Conferences on Artificial Intelligence Organization},
+  editor    = {Zhi-Hua Zhou},
+  pages     = {552--559},
+  year      = {2021},
+  month     = {8},
+  note      = {Main Track},
+  doi       = {10.24963/ijcai.2021/77},
+  url       = {https://doi.org/10.24963/ijcai.2021/77},
+}
+
+
+@inproceedings{Pennington2014Glove,
+    title = "{G}lo{V}e: Global Vectors for Word Representation",
+    author = "Pennington, Jeffrey  and
+      Socher, Richard  and
+      Manning, Christopher",
+    booktitle = "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing ({EMNLP})",
+    month = oct,
+    year = "2014",
+    address = "Doha, Qatar",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/D14-1162",
+    doi = "10.3115/v1/D14-1162",
+    pages = "1532--1543",
+}
+
+@article{Rabinovich2018Reddit,
+    title = "Native Language Cognate Effects on Second Language Lexical Choice",
+    author = "Rabinovich, Ella  and
+      Tsvetkov, Yulia  and
+      Wintner, Shuly",
+    journal = "Transactions of the Association for Computational Linguistics",
+    volume = "6",
+    year = "2018",
+    address = "Cambridge, MA",
+    publisher = "MIT Press",
+    url = "https://aclanthology.org/Q18-1024",
+    doi = "10.1162/tacl_a_00024",
+    pages = "329--342",
+    abstract = "We present a computational analysis of cognate effects on the spontaneous linguistic productions of advanced non-native speakers. Introducing a large corpus of highly competent non-native English speakers, and using a set of carefully selected lexical items, we show that the lexical choices of non-natives are affected by cognates in their native language. This effect is so powerful that we are able to reconstruct the phylogenetic language tree of the Indo-European language family solely from the frequencies of specific lexical items in the English of authors with various native languages. We quantitatively analyze non-native lexical choice, highlighting cognate facilitation as one of the important phenomena shaping the language of non-native speakers.",
+}

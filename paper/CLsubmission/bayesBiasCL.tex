@@ -116,9 +116,9 @@ mathematical proxy for semantic similarity \citep{Mikolov2013efficient}.
 In what follows, we focus on two popular measures of bias applicable to
 many existing word embeddings, such as
 \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.}
-\emph{Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
+\emph{Glove}\citet{Pennington2014Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
 and
-\emph{Reddit Corpus}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
+\emph{Reddit Corpus}\citet{Rabinovich2018Reddit}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
 \emph{Word Embedding Association Test} (\textsf{WEAT}) \citep{Caliskan2017semanticsBiases}, and
 \emph{Mean Average Cosine Distance} (\textsf{MAC}) \citep{Manzini2019blackToCriminal}. We first
 explain how these measures are supposed to work. Then we argue that they
@@ -281,7 +281,7 @@ word \(t\) (belonging to either \(X\) or \(Y\)) is:
 \label{eq:stAB}
 \mathsf{s}(t,A,B) & = \frac{\sum_{a\in A}\mathsf{cos}(t,a)}{\vert A\vert} - \frac{\sum_{b\in B}\mathsf{cos}(t,b)}{\vert B\vert}
 \end{align} \normalsize \noindent then, the association difference
-between \(A\) a \(B\) is:
+between \(A\) and \(B\) is:
 
 \begin{align}
 \label{eq:sXYAB}
@@ -558,7 +558,7 @@ Another issue to consider is the selection of attributes for bias
 measurement. The word lists used in the literature are often fairly
 small (5-50). The papers in the field do employ statistical tests to
 measure the uncertainty involved and do make claims of statistical
-significance. Yet, we will later on argue that these method are not
+significance. Yet, we will later on argue that these methods are not
 proper for the goal at hand. By using Bayesian methods we will show that
 a more appropriate use of statistical methods leads to estimates of
 uncertainty which suggest that larger word lists would be advisable.
@@ -1151,7 +1151,7 @@ uncertainty involved in some cases.
 
 Bayesian analyses and visualizations thereof can be also handy when it
 comes to the investigation of the effect that debiasing has on the
-embedding space. In Figures \ref{fig:empiricalPriorToDebiasing} and
+embedding space. We used the embeddings that were debiased using \textit{hard} mode debiasing from \citet{Manzini2019blackToCriminal}. In Figures \ref{fig:empiricalPriorToDebiasing} and
 \ref{fig:empiricalDebiased} we see an example of two visualizations
 depicting the difference in means with 89\% highest posterior density
 intervals before and after applying debiasing (the remaining
@@ -1307,7 +1307,24 @@ of this paper:
   weighted mean of the effect sizes thus understood. The method,
   admittedly, deserves further evaluation which goes beyond the scope of
   this paper.
+  
+\item \citet{Lum2022Debiasing} employ .. 
+
+\item \citet{Ethayarajh2019understanding} points out known limitations to the use of WEAT, namely its sensitivity to the word frequency of the given data and the effect of the choice of word lists. As a result, WEAT systematically overestimates the bias present in the data. The authors propose Relational Inner Product Association (RIPA) to measure association in word embeddings. This method uses the scalar projection of a word vector onto a one-dimensional bias subspace (which is found by employing approach from \citet{Bolukbasi2016man}). RIPA method can be used for those embedding models that do implicitly matrix factorization and contain a co-occurrence statistic. Unlike RIPA, our Bayesian approach can be used for contextual models.
+
+\item \citet{zhang2020robustness} shows the limitations of methods that use gender word pairs to detect bias in the embeddings. They claim that using analogies to detect bias may not necessarily reflect societal bias, but rather the similarity between the words. They conduct experiments where they evaluate four popular bias mesures: Direct Bias (DB), Word Association (WA), Neighbourhood Bias Metric (NBM), and Relational Inner Product Association (RIPA). They show that these measures are not robust to changing either the base pair or the form of a word used. It is also difficult to compare measures because, although they are often presented as better alternatives, they all have similar limitations.
+
+
+\item \citet{Du2021Assessing} investigates the reliability of bias measures. They find that the bias measure can depend on the way the embedding was obtained. The words that are not frequent in the training data may not have a reliable vector representation that can be used for bias estimation.
+
+\item \citet{Goldfarb2021BiasNotCorrelate} conducts research to understand the relationship between intrinsic bias, which concerns the representation of embeddings, and extrinsic bias, which concerns downstream tasks. The authors seek to answer the question of whether intrinsic bias correlates with extrinsic bias. They examine the intrinsic bias metric WEAT against the extrinsic bias metrics Equality of Opportunity and Predictive Parity and conclude that the correlation is limited. This may further confirm that WEAT is not the most appropriate approach to account for bias in a model. 
+
+
+\item \citet{Spliethover2021BiasSilhouette} propose Bias Silhouette Analysis (BSA), a method for assessing the quality of metrics that measure bias in word embedding models based on word lists. BSA quantifies how robust the word lists used are and how accurate the metrics are with respect to an unbiased and a biased reference model. They examine the Embedding Coherence Test (ECT), the Relative Negative Sentiment Bias (RNSB), and the Word Embedding Association Test (WEAT). Their conclusion is that none of these metrics can reliably discriminate between biased and non-biased models in all cases.
+
 \end{itemize}
+
+
 
 \vspace{2mm}
 
@@ -1483,7 +1500,7 @@ checks}\label{posterior-predictive-checks}}
 \subsubsection{Lists used in previous
 research}\label{lists-used-in-previous-research}}
 
-\label{appendix:manzini_word_lists} The lists from {[}13{]} are
+\label{appendix:manzini_word_lists} The lists from \citet{Manzini2019blackToCriminal} are
 available here:
 
 \begin{itemize}
