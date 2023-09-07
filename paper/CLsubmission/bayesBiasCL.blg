@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2022/dev/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: bayesBiasCL.aux
+The style file: compling.bst
+Database file #1: cosineReferences.bib
+Warning--empty booktitle in gordon2012reporting
+You've used 29 entries,
+            2855 wiz_defined-function locations,
+            767 strings with 11180 characters,
+and the built_in function-call counts, 18669 in all, are:
+= -- 1499
+> -- 999
+< -- 19
++ -- 325
+- -- 294
+* -- 1342
+:= -- 2915
+add.period$ -- 113
+call.type$ -- 29
+change.case$ -- 252
+chr.to.int$ -- 29
+cite$ -- 30
+duplicate$ -- 1391
+empty$ -- 1245
+format.name$ -- 394
+if$ -- 3737
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 268
+newline$ -- 146
+num.names$ -- 125
+pop$ -- 573
+preamble$ -- 1
+purify$ -- 205
+quote$ -- 0
+skip$ -- 518
+stack$ -- 0
+substring$ -- 764
+swap$ -- 686
+text.length$ -- 9
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 255
+warning$ -- 1
+while$ -- 129
+width$ -- 0
+write$ -- 374
+(There was 1 warning)

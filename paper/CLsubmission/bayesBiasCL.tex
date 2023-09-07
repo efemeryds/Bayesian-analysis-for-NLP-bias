@@ -1269,22 +1269,6 @@ of this paper:
   but they apply their Bayesian Neural Networks-based method to
   sentiment analysis or named entity recognition, not to bias.
 
-\item \citet{Ethayarajh2020Bernstein} correctly argues that a bias estimate should not be expressed
-  as a single number without taking into account that the estimate is
-  made using a sample of data and therefore has intrinsic uncertainty.
-  The authors suggest using Bernstein bounds to gauge the uncertainty in
-  terms of confidence intervals. We do not discuss this approach
-  extensively, as we think that confidence intervals are quite
-  problematic for several reasons, among others the confusing
-  interpretability. We do not think that Bernstein bounds provide the
-  best solution to the problem. Applying this method to a popular
-  WinoBias dataset leads to the conclusion that more than 11903 samples
-  are needed to claim a 95\% confidence interval for a bias estimate.
-  This amount vastly exceeds the existing word lists for bias
-  estimation. We propose a more realistic Bayesian method. Our
-  conclusion is still that the word lists are sometimes too small, but
-  at least they allow for gauging uncertainty as we go on to improve our
-  methodology and extend the lists gradually.
 
 \item    \citet{schroder2021evaluating} criticize some existing bias metrics such as \textsf{MAC} or
   \textsf{WEAT} on the grounds of them not satisfying some general
@@ -1308,19 +1292,39 @@ of this paper:
   admittedly, deserves further evaluation which goes beyond the scope of
   this paper.
   
-\item \citet{Lum2022Debiasing} employ .. 
+\item \citet{Lum2022Debiasing} observe that many group-wise performance meta-metrics used in algorithmic fairness consideration are biased estimators of disparities and propose a double-corrected variance estimator, which provides unbiased estimates and uncertainty quantification of the variance of model performance. This is certaintly valuable. Our approach differs in the following dimensions: it is not clear how bias variance estimator for model performance should be used in the context of group-wise cosine similarity evaluation, where we are not dealing with performance, but with cosine similarities, and where we are not dealing with a binomial distribution. Moreover, while having an unbiased estimate is valuable, if we have one this only means that \emph{in the long run} our estimates would tend to the true value. In the current situation we were looking at, the datasets are relatively small and we want to focus on what can be said before the long run has passed. Moreover, our Bayesian approach allows for regularization, inspection at values levels of granularity, and more straightforward interpretability, as it results in posterior distributions.
 
-\item \citet{Ethayarajh2019understanding} points out known limitations to the use of WEAT, namely its sensitivity to the word frequency of the given data and the effect of the choice of word lists. As a result, WEAT systematically overestimates the bias present in the data. The authors propose Relational Inner Product Association (RIPA) to measure association in word embeddings. This method uses the scalar projection of a word vector onto a one-dimensional bias subspace (which is found by employing approach from \citet{Bolukbasi2016man}). RIPA method can be used for those embedding models that do implicitly matrix factorization and contain a co-occurrence statistic. Unlike RIPA, our Bayesian approach can be used for contextual models.
+\item \citet{Ethayarajh2019understanding} point out that WEAT will be overblown in degenerate cases: if the word groups are singletons, the effect size is always maximal in one direction. They also bring up  sensitivity to the word frequency in a given corpus and to the word list choice. The authors propose a measure they call Relational Inner Product Association (RIPA) to measure the association between a word vector and a relation vector in  a  word embedding. Roughly, this is  the scalar projection of a word vector onto a one-dimensional bias subspace (which is found by employing approach from \citet{Bolukbasi2016man}). They do not attempt any statistical analysis or generalization to a bias measure that would apply to an embedding space as a whole (as opposed to assigning RIPA to one word vector with respect to a relation vector), or a particular protected word list. In contrast, our analysis allows for a more general evaluation, with uncertainty estimates. Moreover, RIPA can be used only for those embedding models that implicitly employ matrix factorization and contain co-occurrence statistic. In contrast, such technicalities do not prevent the Bayesian approach from being deployed for contextual models.
 
-\item \citet{zhang2020robustness} shows the limitations of methods that use gender word pairs to detect bias in the embeddings. They claim that using analogies to detect bias may not necessarily reflect societal bias, but rather the similarity between the words. They conduct experiments where they evaluate four popular bias mesures: Direct Bias (DB), Word Association (WA), Neighbourhood Bias Metric (NBM), and Relational Inner Product Association (RIPA). They show that these measures are not robust to changing either the base pair or the form of a word used. It is also difficult to compare measures because, although they are often presented as better alternatives, they all have similar limitations.
+\item \citet{Ethayarajh2020Bernstein} argues that a bias estimate should not be expressed as a single number without taking into account that the estimate is
+made using a sample of data and therefore has intrinsic uncertainty.
+The author suggest using Bernstein bounds to gauge the uncertainty in
+terms of confidence intervals. We do not discuss this approach
+extensively, as we think that confidence intervals are quite
+problematic for several reasons, among others the confusing
+interpretability. We do not think that Bernstein bounds provide the
+best solution to the problem. Applying this method to a popular
+WinoBias dataset leads to the conclusion that more than 11903 data points of protected words 
+are needed to claim a 95\% confidence interval for a bias estimate.
+This amount vastly exceeds the existing word lists for bias
+estimation. We propose a more realistic Bayesian method. Our
+conclusion is still that the word lists are sometimes too small, but
+at least they allow for gauging uncertainty as we go on to improve our
+methodology and extend the lists gradually.
 
 
-\item \citet{Du2021Assessing} investigates the reliability of bias measures. They find that the bias measure can depend on the way the embedding was obtained. The words that are not frequent in the training data may not have a reliable vector representation that can be used for bias estimation.
 
-\item \citet{Goldfarb2021BiasNotCorrelate} conducts research to understand the relationship between intrinsic bias, which concerns the representation of embeddings, and extrinsic bias, which concerns downstream tasks. The authors seek to answer the question of whether intrinsic bias correlates with extrinsic bias. They examine the intrinsic bias metric WEAT against the extrinsic bias metrics Equality of Opportunity and Predictive Parity and conclude that the correlation is limited. This may further confirm that WEAT is not the most appropriate approach to account for bias in a model. 
+\item \citet{zhang2020robustness} shows the limitations of methods that use gender word pairs to detect bias in an embedding space. They claim that using analogies to detect bias may not necessarily reflect societal bias, but rather simply co-occurrence frequency between words. They conduct experiments where they evaluate four popular bias mesures: Direct Bias (DB), Word Association (WA), Neighbourhood Bias Metric (NBM), and Relational Inner Product Association (RIPA). They show that these measures are not robust to changing either the base pair or the form of a word used. This is  a valid point, to some extent related to the limitations on non-contextual models, and to some extent suggesting the inclusion of various word forms in the word list, and not constructing base direction using small word lists. As one of our observations is that the uncertainty resulting from the use of currently existing protected word lists is too large to justify sweeping statements, this is in line with our criticism. 
 
 
-\item \citet{Spliethover2021BiasSilhouette} propose Bias Silhouette Analysis (BSA), a method for assessing the quality of metrics that measure bias in word embedding models based on word lists. BSA quantifies how robust the word lists used are and how accurate the metrics are with respect to an unbiased and a biased reference model. They examine the Embedding Coherence Test (ECT), the Relative Negative Sentiment Bias (RNSB), and the Word Embedding Association Test (WEAT). Their conclusion is that none of these metrics can reliably discriminate between biased and non-biased models in all cases.
+\item \citet{Du2021Assessing} investigate the reliability of bias measures. They find that key existing candidates for bias measure often fail to agree with one another on particular pairs and protected words, and are sensitive to the word embedding algorithm and the corpus used. While some of these sensitivities are not necessarily signs of failure, we agree that the more abstract a measure is the more degrees of freedom for particular ways it is constructed, and the more ways such measures can disagree without a clear and principled reason. This is partially why we propose a less abstract approach that estimates expected cosine distances directly using raw data points. 
+
+
+\item \citet{Goldfarb2021BiasNotCorrelate} further our  understanding of  the relationship between intrinsic bias measured as a property of an embedding space, and extrinsic bias, measured in terms of  downstream task performance. They compare  WEAT as an intrinsic measure with Equality of Opportunity and Predictive Parity as external metrics.  The conclusion is such a  correlation is very limited. We consider this to be a point that matches our criticism of WEAT. Running a similar analysis for the Bayesian approach we discussed in this paper would be a useful task, which remains beyond the scope of this paper. One interesting general difference is that our method often claims that there are no sufficient  reasons to claim that an embedding is biased, so one would be on the lookout for such cases in which extrinsic bias measures nevertheless suggest the presence of bias. Such a presence, however, would not necessarily have to mean that the Bayesian approach to estimating potential systematic differences in cosine similarity is wrong, but rather suggest that external bias in downstream performance is not a function thereof.
+
+
+\item \citet{Spliethover2021BiasSilhouette} propose Bias Silhouette Analysis (BSA), a method for assessing the quality of metrics that measure bias in word embedding models based on word lists. The core idea here is to quantify how much the bias values of a metric vary depending on what words from the lists are actually observed, where the computations result in  values for each model obtained  using word list subsets of increasing length. This allows for an inspection of bias metric convergence and sensitivity to word list choice, with a biased (GloVe) and an explicitly debiased model whose lower bias has been confirmed empirically (NBatch).  They examine the Embedding Coherence Test (ECT), the Relative Negative Sentiment Bias (RNSB), and the Word Embedding Association Test (WEAT), concluding  that none of these metrics can reliably discriminate between biased and non-biased models in all cases. This is not unexpected. An interesting question is what would happen if a similar test was applied to our method. However, our point is that the existing word lists are too short to provide reliable estimate of bias.
+
 
 \end{itemize}
 
