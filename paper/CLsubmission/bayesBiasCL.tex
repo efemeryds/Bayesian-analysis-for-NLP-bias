@@ -116,9 +116,9 @@ mathematical proxy for semantic similarity \citep{Mikolov2013efficient}.
 In what follows, we focus on two popular measures of bias applicable to
 many existing word embeddings, such as
 \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.}
-\emph{Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
+\emph{Glove} \citep{Pennington2014Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
 and
-\emph{Reddit Corpus}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
+\emph{Reddit Corpus} \citep{Rabinovich2018Reddit}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
 \emph{Word Embedding Association Test} (\textsf{WEAT}) \citep{Caliskan2017semanticsBiases}, and
 \emph{Mean Average Cosine Distance} (\textsf{MAC}) \citep{Manzini2019blackToCriminal}. We first
 explain how these measures are supposed to work. Then we argue that they
@@ -229,21 +229,21 @@ corresponding to ten different gendered pairs (such as
 their principal component.\footnote{Roughly, the principal component is
   the vector obtained by projecting the data points on their linear
   combination in a way that maximizes the variance of the projections.}
-The gender bias of a word \(w\) is then understood as \(w\)'s projection
-on the gender direction: \(\vec{w} \cdot gd\) (which, after normalizing
-by dividing by \(\lVert w \rVert \,\lVert \mathsf{gd} \rVert\), is the
-same as cosine similarity). Given a list \(N\) of supposedly gender
+The gender bias of a word \(W\) is then understood as \(W\)'s projection
+on the gender direction: \(\vec{W} \cdot GD\) (which, after normalizing
+by dividing by \(\lVert W \rVert \,\lVert \mathsf{GD} \rVert\), is the
+same as cosine similarity). Given a list \(\mathbf{N}\) of supposedly gender
 neutral words,\footnote{We follow the methodology used in the debate in
   assuming that there is a class of words identified as more or less
   neutral, such as \emph{ballpark, eat, walk, sleep, table}, whose
   average similarity to the gender direction (or other protected words)
   is around 0. See our list in Appendix \ref{app:custom} and a brief
   discussion in Subsection \ref{subsec:interpretability}.} and the
-gender direction \(\mathsf{gd}\), the direct gender bias is defined as
-the average cosine similarity of the words in \(N\) from \(\mathsf{gd}\)
+gender direction \(\mathsf{GD}\), the direct gender bias is defined as
+the average cosine similarity of the words in \(\mathbf{N}\) from \(\mathsf{GD}\)
 (\(c\) is a parameter determining how strict we want to be):
 \begin{align*}
-\mathsf{directBias_c(N,gd)} & = \frac{\sum_{w\in N}\vert \mathsf{cos}(\vec{w},\mathsf{gd})\vert^c}{\vert N \vert }
+\mathsf{directBias_c(\mathbf{N},GD)} & = \frac{\sum_{W\in \mathbb{N}}\vert \mathsf{cos}(\vec{W},\mathsf{GD})\vert^c}{\vert \mathbf{N} \vert }
 \end{align*} \normalsize 
 
 The use of projections in bias estimation has been criticized for
@@ -281,7 +281,7 @@ word \(t\) (belonging to either \(X\) or \(Y\)) is:
 \label{eq:stAB}
 \mathsf{s}(t,A,B) & = \frac{\sum_{a\in A}\mathsf{cos}(t,a)}{\vert A\vert} - \frac{\sum_{b\in B}\mathsf{cos}(t,b)}{\vert B\vert}
 \end{align} \normalsize \noindent then, the association difference
-between \(A\) a \(B\) is:
+between \(A\) and \(B\) is:
 
 \begin{align}
 \label{eq:sXYAB}
@@ -558,7 +558,7 @@ Another issue to consider is the selection of attributes for bias
 measurement. The word lists used in the literature are often fairly
 small (5-50). The papers in the field do employ statistical tests to
 measure the uncertainty involved and do make claims of statistical
-significance. Yet, we will later on argue that these method are not
+significance. Yet, we will later on argue that these methods are not
 proper for the goal at hand. By using Bayesian methods we will show that
 a more appropriate use of statistical methods leads to estimates of
 uncertainty which suggest that larger word lists would be advisable.
@@ -903,7 +903,7 @@ little to do with the posterior probability distribution.\footnote{Here
 In fact, Bayesian highest posterior density intervals (HPDIs, the
 narrowest intervals containing a certain ratio of the area under the
 curve) and CIs end up being numerically the same only if the prior
-probabilities are uniform. This illustrates that (1) classical analysis
+distributions are completely uninformative. This illustrates that (1) classical analysis
 is unable to incorporate non-trivial priors, and (2) is therefore more
 susceptible to over-fitting, unless regularization (equivalent to a more
 straightforward Bayesian approach) is used. In contrast with CIs, the
@@ -1008,9 +1008,18 @@ weak. \begin{align*}
 \end{align*}
 
 
+The governing principles guiding our prior selection are:
 
+\begin{enumerate}
+	\item  We come with the same level of agnosticism about how biased a given embedding is with respect to a particular word list, and so we want to use 
+	the same priors across all word lists. Prior to the analysis there seem to be no particular reasons to have strong beliefs about the outcomes being different for different word lists. 
+	\item We want the priors to provide some level of regularization to avoid over-fitting. Taking coefficient priors centered around zeros is a fairly standard technique equivalent to other machine-learning regularization techniques (see Chapter 6 of \citep{james2013introduction}, especially the section on Bayesian interpretation of ridge regression and the lasso). Hence centering around the no-effect value (in our case, cosine distance equal to 1, or in other words, cosine similarity equal to 0) and non-uniformity. 
+	
+	\item We also want to build in conceptual information that we already have, such as there are mathematical restrictions on the range of cosine similarities, and therefore on the expected values. If we choose sd = .3 that means that prior to seeing the data we expect the mean distances in groups to be with 99.7\% prior confidence to be within $1 \pm 3sd$, that is, $(-.2, 2.2)$ which is more than plenty and does not really exclude any mathematically possible value. 
 
+\end{enumerate}
 
+One useful thing about a Bayesian analysis is that the reader is welcome to re-run it with their own priors, if they find another choice more compelling, which we invite the reader to do.
 
 
 \hypertarget{posterior-predictive-check}{%
@@ -1151,7 +1160,7 @@ uncertainty involved in some cases.
 
 Bayesian analyses and visualizations thereof can be also handy when it
 comes to the investigation of the effect that debiasing has on the
-embedding space. In Figures \ref{fig:empiricalPriorToDebiasing} and
+embedding space. We used the embeddings that were debiased using \textit{hard} mode debiasing from \citet{Manzini2019blackToCriminal}. In Figures \ref{fig:empiricalPriorToDebiasing} and
 \ref{fig:empiricalDebiased} we see an example of two visualizations
 depicting the difference in means with 89\% highest posterior density
 intervals before and after applying debiasing (the remaining
@@ -1255,6 +1264,19 @@ happened for human and different word lists, where the percentage of
 \label{fig:empiricalDebiased3}
 \end{figure}
 
+\hypertarget{potential-objections}{%
+	\subsection{Potential objections}\label{potential-objections}}
+
+
+A worry that one might have is that the original challenge was to develop a single-number bias metric, and that our approach does not reach this goal. Essentially, this is correct: we argue that chasing a single metric is the wrong game to play to start with. In line with general Bayesian methodology, we grant epistemic priority to the inspection of posterior distributions, of which particular single-number summaries are just that. Imperfect summaries that can be easily misinterpreted if no attention is paid to the uncertainties surronding it. Having said this, if one really needs a single-number summary, then mean posterior contrasts between associated and human attributes are closer to adequacy than the single number metrics proposed so  (but they still should come accompanied with some description of the uncertainty involved).
+
+One of our recommendations is that the wordlists should be larger. A possible concern here is that one might ask: \emph{But wouldn't larger wordlists solve the problem with the existing measures of bias?} This is in some sense true: the overconfidence resulting from using aggregated data will be less damaging if more data is used. However, as \citet{Ethayarajh2020Bernstein} prove, the list sizes needed for useful uncertainty estimation from this perspective obtained using theoretical bounds tend to be prohibitive. Bayesian uncertainty estimates, however, scale with size and can be improved and evaluated as the list sizes increase, even if the size improvement is far from the one required by classical theoretical considerations.  
+
+
+
+
+
+
 \hypertarget{related-works-and-conclusions}{%
 \section{Related works and
 conclusions}\label{related-works-and-conclusions}}
@@ -1269,22 +1291,6 @@ of this paper:
   but they apply their Bayesian Neural Networks-based method to
   sentiment analysis or named entity recognition, not to bias.
 
-\item \citet{Ethayarajh2020Bernstein} correctly argues that a bias estimate should not be expressed
-  as a single number without taking into account that the estimate is
-  made using a sample of data and therefore has intrinsic uncertainty.
-  The authors suggest using Bernstein bounds to gauge the uncertainty in
-  terms of confidence intervals. We do not discuss this approach
-  extensively, as we think that confidence intervals are quite
-  problematic for several reasons, among others the confusing
-  interpretability. We do not think that Bernstein bounds provide the
-  best solution to the problem. Applying this method to a popular
-  WinoBias dataset leads to the conclusion that more than 11903 samples
-  are needed to claim a 95\% confidence interval for a bias estimate.
-  This amount vastly exceeds the existing word lists for bias
-  estimation. We propose a more realistic Bayesian method. Our
-  conclusion is still that the word lists are sometimes too small, but
-  at least they allow for gauging uncertainty as we go on to improve our
-  methodology and extend the lists gradually.
 
 \item    \citet{schroder2021evaluating} criticize some existing bias metrics such as \textsf{MAC} or
   \textsf{WEAT} on the grounds of them not satisfying some general
@@ -1307,7 +1313,44 @@ of this paper:
   weighted mean of the effect sizes thus understood. The method,
   admittedly, deserves further evaluation which goes beyond the scope of
   this paper.
+  
+\item \citet{Lum2022Debiasing} observe that many group-wise performance meta-metrics used in algorithmic fairness consideration are biased estimators of disparities and propose a double-corrected variance estimator, which provides unbiased estimates and uncertainty quantification of the variance of model performance. This is certaintly valuable. Our approach differs in the following dimensions: it is not clear how bias variance estimator for model performance should be used in the context of group-wise cosine similarity evaluation, where we are not dealing with performance, but with cosine similarities, and where we are not dealing with a binomial distribution. Moreover, while having an unbiased estimate is valuable, if we have one this only means that \emph{in the long run} our estimates would tend to the true value. In the current situation we were looking at, the datasets are relatively small and we want to focus on what can be said before the long run has passed. Moreover, our Bayesian approach allows for regularization, inspection at values levels of granularity, and more straightforward interpretability, as it results in posterior distributions.
+
+\item \citet{Ethayarajh2019understanding} point out that WEAT will be overblown in degenerate cases: if the word groups are singletons, the effect size is always maximal in one direction. They also bring up  sensitivity to the word frequency in a given corpus and to the word list choice. The authors propose a measure they call Relational Inner Product Association (RIPA) to measure the association between a word vector and a relation vector in  a  word embedding. Roughly, this is  the scalar projection of a word vector onto a one-dimensional bias subspace (which is found by employing approach from \citet{Bolukbasi2016man}). They do not attempt any statistical analysis or generalization to a bias measure that would apply to an embedding space as a whole (as opposed to assigning RIPA to one word vector with respect to a relation vector), or a particular protected word list. In contrast, our analysis allows for a more general evaluation, with uncertainty estimates. Moreover, RIPA can be used only for those embedding models that implicitly employ matrix factorization and contain co-occurrence statistic. In contrast, such technicalities do not prevent the Bayesian approach from being deployed for contextual models.
+
+\item \citet{Ethayarajh2020Bernstein} argues that a bias estimate should not be expressed as a single number without taking into account that the estimate is
+made using a sample of data and therefore has intrinsic uncertainty.
+The author suggest using Bernstein bounds to gauge the uncertainty in
+terms of confidence intervals. We do not discuss this approach
+extensively, as we think that confidence intervals are quite
+problematic for several reasons, among others the confusing
+interpretability. We do not think that Bernstein bounds provide the
+best solution to the problem. Applying this method to a popular
+WinoBias dataset leads to the conclusion that more than 11903 data points of protected words 
+are needed to claim a 95\% confidence interval for a bias estimate.
+This amount vastly exceeds the existing word lists for bias
+estimation. We propose a more realistic Bayesian method. Our
+conclusion is still that the word lists are sometimes too small, but
+at least they allow for gauging uncertainty as we go on to improve our
+methodology and extend the lists gradually.
+
+
+
+\item \citet{zhang2020robustness} shows the limitations of methods that use gender word pairs to detect bias in an embedding space. They claim that using analogies to detect bias may not necessarily reflect societal bias, but rather simply co-occurrence frequency between words. They conduct experiments where they evaluate four popular bias mesures: Direct Bias (DB), Word Association (WA), Neighbourhood Bias Metric (NBM), and Relational Inner Product Association (RIPA). They show that these measures are not robust to changing either the base pair or the form of a word used. This is  a valid point, to some extent related to the limitations on non-contextual models, and to some extent suggesting the inclusion of various word forms in the word list, and not constructing base direction using small word lists. As one of our observations is that the uncertainty resulting from the use of currently existing protected word lists is too large to justify sweeping statements, this is in line with our criticism. 
+
+
+\item \citet{Du2021Assessing} investigate the reliability of bias measures. They find that key existing candidates for bias measure often fail to agree with one another on particular pairs and protected words, and are sensitive to the word embedding algorithm and the corpus used. While some of these sensitivities are not necessarily signs of failure, we agree that the more abstract a measure is the more degrees of freedom for particular ways it is constructed, and the more ways such measures can disagree without a clear and principled reason. This is partially why we propose a less abstract approach that estimates expected cosine distances directly using raw data points. 
+
+
+\item \citet{Goldfarb2021BiasNotCorrelate} further our  understanding of  the relationship between intrinsic bias measured as a property of an embedding space, and extrinsic bias, measured in terms of  downstream task performance. They compare  WEAT as an intrinsic measure with Equality of Opportunity and Predictive Parity as external metrics.  The conclusion is such a  correlation is very limited. We consider this to be a point that matches our criticism of WEAT. Running a similar analysis for the Bayesian approach we discussed in this paper would be a useful task, which remains beyond the scope of this paper. One interesting general difference is that our method often claims that there are no sufficient  reasons to claim that an embedding is biased, so one would be on the lookout for such cases in which extrinsic bias measures nevertheless suggest the presence of bias. Such a presence, however, would not necessarily have to mean that the Bayesian approach to estimating potential systematic differences in cosine similarity is wrong, but rather suggest that external bias in downstream performance is not a function thereof.
+
+
+\item \citet{Spliethover2021BiasSilhouette} propose Bias Silhouette Analysis (BSA), a method for assessing the quality of metrics that measure bias in word embedding models based on word lists. The core idea here is to quantify how much the bias values of a metric vary depending on what words from the lists are actually observed, where the computations result in  values for each model obtained  using word list subsets of increasing length. This allows for an inspection of bias metric convergence and sensitivity to word list choice, with a biased (GloVe) and an explicitly debiased model whose lower bias has been confirmed empirically (NBatch).  They examine the Embedding Coherence Test (ECT), the Relative Negative Sentiment Bias (RNSB), and the Word Embedding Association Test (WEAT), concluding  that none of these metrics can reliably discriminate between biased and non-biased models in all cases. This is not unexpected. An interesting question is what would happen if a similar test was applied to our method. However, our point is that the existing word lists are too short to provide reliable estimate of bias.
+
+
 \end{itemize}
+
+
 
 \vspace{2mm}
 
@@ -1483,7 +1526,7 @@ checks}\label{posterior-predictive-checks}}
 \subsubsection{Lists used in previous
 research}\label{lists-used-in-previous-research}}
 
-\label{appendix:manzini_word_lists} The lists from {[}13{]} are
+\label{appendix:manzini_word_lists} The lists from \citet{Manzini2019blackToCriminal} are
 available here:
 
 \begin{itemize}

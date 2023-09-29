@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  22 AUG 2023 14:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  29 SEP 2023 14:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -762,14 +762,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [3]
-<figures/WEATexample5.pdf, id=207, 411.5375pt x 309.155pt>
+<figures/WEATexample5.pdf, id=219, 411.5375pt x 309.155pt>
 File: figures/WEATexample5.pdf Graphic file (type pdf)
 <use figures/WEATexample5.pdf>
 Package pdftex.def Info: figures/WEATexample5.pdf  used on input line 326.
 (pdftex.def)             Requested size: 211.20117pt x 158.6576pt.
-
-Underfull \vbox (badness 1490) has occurred while \output is active []
-
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -830,7 +827,7 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [5 <./figures/WEATexample5.pdf>]
-<figures/MACexample.pdf, id=245, 416.55624pt x 312.16624pt>
+<figures/MACexample.pdf, id=257, 416.55624pt x 312.16624pt>
 File: figures/MACexample.pdf Graphic file (type pdf)
 <use figures/MACexample.pdf>
 Package pdftex.def Info: figures/MACexample.pdf  used on input line 400.
@@ -892,19 +889,19 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [7 <./figures/MACexample.pdf>]
-<figures/figcosineDistributions8d.pdf, id=281, 440.64626pt x 313.17pt>
+<figures/figcosineDistributions8d.pdf, id=294, 440.64626pt x 313.17pt>
 File: figures/figcosineDistributions8d.pdf Graphic file (type pdf)
 <use figures/figcosineDistributions8d.pdf>
 Package pdftex.def Info: figures/figcosineDistributions8d.pdf  used on input li
 ne 532.
 (pdftex.def)             Requested size: 268.79883pt x 191.04297pt.
-<figures/figcosineDistributions8df.pdf, id=282, 454.69875pt x 313.17pt>
+<figures/figcosineDistributions8df.pdf, id=295, 454.69875pt x 313.17pt>
 File: figures/figcosineDistributions8df.pdf Graphic file (type pdf)
 <use figures/figcosineDistributions8df.pdf>
 Package pdftex.def Info: figures/figcosineDistributions8df.pdf  used on input l
 ine 541.
 (pdftex.def)             Requested size: 268.79883pt x 185.13664pt.
-<figures/figcosineDistributions8dg.pdf, id=283, 458.71375pt x 313.17pt>
+<figures/figcosineDistributions8dg.pdf, id=296, 458.71375pt x 313.17pt>
 File: figures/figcosineDistributions8dg.pdf Graphic file (type pdf)
 <use figures/figcosineDistributions8dg.pdf>
 Package pdftex.def Info: figures/figcosineDistributions8dg.pdf  used on input l
@@ -968,12 +965,12 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 [9 <./figures/figcosineDistributions8d.pdf> <./figures/figcosineDistributions8d
 f.pdf>]
-<figures/visMuslimd.pdf, id=327, 339.2675pt x 284.06125pt>
+<figures/visMuslimd.pdf, id=339, 339.2675pt x 284.06125pt>
 File: figures/visMuslimd.pdf Graphic file (type pdf)
 <use figures/visMuslimd.pdf>
 Package pdftex.def Info: figures/visMuslimd.pdf  used on input line 607.
 (pdftex.def)             Requested size: 345.59766pt x 289.37453pt.
-<figures/visPriestd.pdf, id=328, 339.2675pt x 287.0725pt>
+<figures/visPriestd.pdf, id=340, 339.2675pt x 287.0725pt>
 File: figures/visPriestd.pdf Graphic file (type pdf)
 <use figures/visPriestd.pdf>
 Package pdftex.def Info: figures/visPriestd.pdf  used on input line 614.
@@ -1041,13 +1038,13 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [11 <./figures/visMuslimd.pdf>]
-<figures/figcaliskanCalcB2D.pdf, id=380, 442.65375pt x 314.17375pt>
+<figures/figcaliskanCalcB2D.pdf, id=392, 442.65375pt x 314.17375pt>
 File: figures/figcaliskanCalcB2D.pdf Graphic file (type pdf)
 <use figures/figcaliskanCalcB2D.pdf>
 Package pdftex.def Info: figures/figcaliskanCalcB2D.pdf  used on input line 701
 .
 (pdftex.def)             Requested size: 307.20117pt x 218.0457pt.
-<figures/figcaliskanDistC2K.pdf, id=382, 446.66875pt x 314.17375pt>
+<figures/figcaliskanDistC2K.pdf, id=394, 446.66875pt x 314.17375pt>
 File: figures/figcaliskanDistC2K.pdf Graphic file (type pdf)
 <use figures/figcaliskanDistC2K.pdf>
 Package pdftex.def Info: figures/figcaliskanDistC2K.pdf  used on input line 714
@@ -1110,7 +1107,7 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [13 <./figures/figcaliskanCalcB2D.pdf> <./figures/figcaliskanDistC2K.pdf>]
-<figures/figourDistancesPlot2f.pdf, id=431, 459.7175pt x 310.15875pt>
+<figures/figourDistancesPlot2f.pdf, id=443, 459.7175pt x 310.15875pt>
 File: figures/figourDistancesPlot2f.pdf Graphic file (type pdf)
 <use figures/figourDistancesPlot2f.pdf>
 Package pdftex.def Info: figures/figourDistancesPlot2f.pdf  used on input line 
@@ -1176,7 +1173,7 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [15 <./figures/figourDistancesPlot2f.pdf>]
-<figures/dagVis.pdf, id=473, 429.605pt x 291.0875pt>
+<figures/dagVis.pdf, id=485, 429.605pt x 291.0875pt>
 File: figures/dagVis.pdf Graphic file (type pdf)
 <use figures/dagVis.pdf>
 Package pdftex.def Info: figures/dagVis.pdf  used on input line 953.
@@ -1238,12 +1235,15 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [17 <./figures/dagVis.pdf>]
-<figures/figposteriorPrCheckA6b.pdf, id=502, 447.6725pt x 416.55624pt>
+<figures/figposteriorPrCheckA6b.pdf, id=516, 447.6725pt x 416.55624pt>
 File: figures/figposteriorPrCheckA6b.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckA6b.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckA6b.pdf  used on input line
- 1034.
+ 1043.
 (pdftex.def)             Requested size: 307.20117pt x 285.85414pt.
+
+Underfull \vbox (badness 2717) has occurred while \output is active []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1273,7 +1273,7 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [18]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1057) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1304,9 +1304,6 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [19 <./figures/figposteriorPrCheckA6b.pdf>]
-Underfull \vbox (badness 2726) has occurred while \output is active []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1335,43 +1332,25 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [20]
-<figures/figdebiasedCosinePair2e.pdf, id=539, 338.26375pt x 580.1675pt>
+<figures/figdebiasedCosinePair2e.pdf, id=557, 338.26375pt x 580.1675pt>
 File: figures/figdebiasedCosinePair2e.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosinePair2e.pdf>
 Package pdftex.def Info: figures/figdebiasedCosinePair2e.pdf  used on input lin
-e 1204.
+e 1213.
 (pdftex.def)             Requested size: 338.26291pt x 580.16606pt.
 
 
-LaTeX Warning: Float too large for page by 21.84605pt on input line 1207.
+LaTeX Warning: Float too large for page by 21.84605pt on input line 1216.
 
-<figures/figdebiasedCosinePair2_e.pdf, id=540, 331.2375pt x 580.1675pt>
+<figures/figdebiasedCosinePair2_e.pdf, id=558, 331.2375pt x 580.1675pt>
 File: figures/figdebiasedCosinePair2_e.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosinePair2_e.pdf>
 Package pdftex.def Info: figures/figdebiasedCosinePair2_e.pdf  used on input li
-ne 1211.
+ne 1220.
 (pdftex.def)             Requested size: 331.23668pt x 580.16606pt.
 
-LaTeX Warning: Float too large for page by 9.84605pt on input line 1214.
+LaTeX Warning: Float too large for page by 9.84605pt on input line 1223.
 
-<figures/figdebiasedCosine21c.pdf, id=543, 465.74pt x 423.5825pt>
-File: figures/figdebiasedCosine21c.pdf Graphic file (type pdf)
-<use figures/figdebiasedCosine21c.pdf>
-Package pdftex.def Info: figures/figdebiasedCosine21c.pdf  used on input line 1
-239.
-(pdftex.def)             Requested size: 364.79883pt x 331.78911pt.
-<figures/figdebiasedCosine22c.pdf, id=544, 467.7475pt x 423.5825pt>
-File: figures/figdebiasedCosine22c.pdf Graphic file (type pdf)
-<use figures/figdebiasedCosine22c.pdf>
-Package pdftex.def Info: figures/figdebiasedCosine22c.pdf  used on input line 1
-246.
-(pdftex.def)             Requested size: 364.79883pt x 330.37363pt.
-<figures/figdebiasedCosine23c.pdf, id=545, 457.71pt x 423.5825pt>
-File: figures/figdebiasedCosine23c.pdf Graphic file (type pdf)
-<use figures/figdebiasedCosine23c.pdf>
-Package pdftex.def Info: figures/figdebiasedCosine23c.pdf  used on input line 1
-253.
-(pdftex.def)             Requested size: 364.79883pt x 337.61256pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1457,7 +1436,26 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [23 <./figures/figdebiasedCosinePair2_e.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+<figures/figdebiasedCosine21c.pdf, id=597, 465.74pt x 423.5825pt>
+File: figures/figdebiasedCosine21c.pdf Graphic file (type pdf)
+<use figures/figdebiasedCosine21c.pdf>
+Package pdftex.def Info: figures/figdebiasedCosine21c.pdf  used on input line 1
+248.
+(pdftex.def)             Requested size: 364.79883pt x 331.78911pt.
+<figures/figdebiasedCosine22c.pdf, id=598, 467.7475pt x 423.5825pt>
+File: figures/figdebiasedCosine22c.pdf Graphic file (type pdf)
+<use figures/figdebiasedCosine22c.pdf>
+Package pdftex.def Info: figures/figdebiasedCosine22c.pdf  used on input line 1
+255.
+(pdftex.def)             Requested size: 364.79883pt x 330.37363pt.
+<figures/figdebiasedCosine23c.pdf, id=599, 457.71pt x 423.5825pt>
+File: figures/figdebiasedCosine23c.pdf Graphic file (type pdf)
+<use figures/figdebiasedCosine23c.pdf>
+Package pdftex.def Info: figures/figdebiasedCosine23c.pdf  used on input line 1
+262.
+(pdftex.def)             Requested size: 364.79883pt x 337.61256pt.
+
+Underfull \vbox (badness 1253) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1497,6 +1495,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \vbox (42.0pt too high) has occurred while \output is active []
 
 
@@ -1525,9 +1526,6 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Overfull \vbox (42.0pt too high) has occurred while \output is active []
 
 
@@ -1547,12 +1545,6 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [26 <./figures/figdebiasedCosine23c.pdf>]
-<figures/weatjoint2z.pdf, id=659, 376.40625pt x 580.1675pt>
-File: figures/weatjoint2z.pdf Graphic file (type pdf)
-<use figures/weatjoint2z.pdf>
-Package pdftex.def Info: figures/weatjoint2z.pdf  used on input line 1423.
-(pdftex.def)             Requested size: 376.40532pt x 580.16606pt.
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1615,6 +1607,102 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [28]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
+[29]
+<figures/weatjoint2z.pdf, id=716, 376.40625pt x 580.1675pt>
+File: figures/weatjoint2z.pdf Graphic file (type pdf)
+<use figures/weatjoint2z.pdf>
+Package pdftex.def Info: figures/weatjoint2z.pdf  used on input line 1466.
+(pdftex.def)             Requested size: 376.40532pt x 580.16606pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
+[30]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
+[31]
 Overfull \vbox (5.18594pt too high) has occurred while \output is active []
 
 
@@ -1645,17 +1733,17 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[29 <./figures/weatjoint2z.pdf>]
-<figures/weat7glovh.pdf, id=688, 375.4025pt x 580.1675pt>
+[32 <./figures/weatjoint2z.pdf>]
+<figures/weat7glovh.pdf, id=744, 375.4025pt x 580.1675pt>
 File: figures/weat7glovh.pdf Graphic file (type pdf)
 <use figures/weat7glovh.pdf>
-Package pdftex.def Info: figures/weat7glovh.pdf  used on input line 1427.
+Package pdftex.def Info: figures/weat7glovh.pdf  used on input line 1470.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
-<figures/resultsWeat7Reddita.pdf, id=689, 341.275pt x 580.1675pt>
+<figures/resultsWeat7Reddita.pdf, id=745, 341.275pt x 580.1675pt>
 File: figures/resultsWeat7Reddita.pdf Graphic file (type pdf)
 <use figures/resultsWeat7Reddita.pdf>
 Package pdftex.def Info: figures/resultsWeat7Reddita.pdf  used on input line 14
-29.
+72.
 (pdftex.def)             Requested size: 384.0pt x 652.84616pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1688,7 +1776,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[30 <./figures/weat7glovh.pdf>]
+[33 <./figures/weat7glovh.pdf>]
 Overfull \vbox (57.52615pt too high) has occurred while \output is active []
 
 
@@ -1719,18 +1807,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[31 <./figures/resultsWeat7Reddita.pdf>]
-<figures/resultsWeat1Googlea.pdf, id=719, 376.40625pt x 580.1675pt>
+[34 <./figures/resultsWeat7Reddita.pdf>]
+<figures/resultsWeat1Googlea.pdf, id=774, 376.40625pt x 580.1675pt>
 File: figures/resultsWeat1Googlea.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Googlea.pdf>
 Package pdftex.def Info: figures/resultsWeat1Googlea.pdf  used on input line 14
-31.
+74.
 (pdftex.def)             Requested size: 384.0pt x 591.9135pt.
-<figures/resultsWeat1Glovea.pdf, id=720, 374.39874pt x 580.1675pt>
+<figures/resultsWeat1Glovea.pdf, id=775, 374.39874pt x 580.1675pt>
 File: figures/resultsWeat1Glovea.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Glovea.pdf>
-Package pdftex.def Info: figures/resultsWeat1Glovea.pdf  used on input line 143
-3.
+Package pdftex.def Info: figures/resultsWeat1Glovea.pdf  used on input line 147
+6.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1763,12 +1851,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[32 <./figures/resultsWeat1Googlea.pdf>]
-<figures/resultsWeat1Reddita.pdf, id=735, 336.25626pt x 580.1675pt>
+[35 <./figures/resultsWeat1Googlea.pdf>]
+<figures/resultsWeat1Reddita.pdf, id=791, 336.25626pt x 580.1675pt>
 File: figures/resultsWeat1Reddita.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Reddita.pdf>
 Package pdftex.def Info: figures/resultsWeat1Reddita.pdf  used on input line 14
-35.
+78.
 (pdftex.def)             Requested size: 384.0pt x 662.54865pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1801,7 +1889,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[33 <./figures/resultsWeat1Glovea.pdf>]
+[36 <./figures/resultsWeat1Glovea.pdf>]
 Overfull \vbox (67.22864pt too high) has occurred while \output is active []
 
 
@@ -1832,12 +1920,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[34 <./figures/resultsWeat1Reddita.pdf>]
-<figures/resultsReligionGooglea.pdf, id=764, 337.26pt x 580.1675pt>
+[37 <./figures/resultsWeat1Reddita.pdf>]
+<figures/resultsReligionGooglea.pdf, id=821, 337.26pt x 580.1675pt>
 File: figures/resultsReligionGooglea.pdf Graphic file (type pdf)
 <use figures/resultsReligionGooglea.pdf>
 Package pdftex.def Info: figures/resultsReligionGooglea.pdf  used on input line
- 1437.
+ 1480.
 (pdftex.def)             Requested size: 384.0pt x 660.58336pt.
 
 Overfull \vbox (65.26335pt too high) has occurred while \output is active []
@@ -1870,18 +1958,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[35 <./figures/resultsReligionGooglea.pdf>]
-<figures/resultsReligionGlovea.pdf, id=779, 374.39874pt x 580.1675pt>
+[38 <./figures/resultsReligionGooglea.pdf>]
+<figures/resultsReligionGlovea.pdf, id=836, 374.39874pt x 580.1675pt>
 File: figures/resultsReligionGlovea.pdf Graphic file (type pdf)
 <use figures/resultsReligionGlovea.pdf>
 Package pdftex.def Info: figures/resultsReligionGlovea.pdf  used on input line 
-1439.
+1482.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
-<figures/resultsReligionReddita.pdf, id=780, 375.4025pt x 580.1675pt>
+<figures/resultsReligionReddita.pdf, id=837, 375.4025pt x 580.1675pt>
 File: figures/resultsReligionReddita.pdf Graphic file (type pdf)
 <use figures/resultsReligionReddita.pdf>
 Package pdftex.def Info: figures/resultsReligionReddita.pdf  used on input line
- 1441.
+ 1484.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1914,12 +2002,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[36 <./figures/resultsReligionGlovea.pdf>]
-<figures/resultsRaceGooglea.pdf, id=796, 374.39874pt x 580.1675pt>
+[39 <./figures/resultsReligionGlovea.pdf>]
+<figures/resultsRaceGooglea.pdf, id=852, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceGooglea.pdf Graphic file (type pdf)
 <use figures/resultsRaceGooglea.pdf>
-Package pdftex.def Info: figures/resultsRaceGooglea.pdf  used on input line 144
-3.
+Package pdftex.def Info: figures/resultsRaceGooglea.pdf  used on input line 148
+6.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1952,11 +2040,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[37 <./figures/resultsReligionReddita.pdf>]
-<figures/resultsRaceGlovea.pdf, id=812, 374.39874pt x 580.1675pt>
+[40 <./figures/resultsReligionReddita.pdf>]
+<figures/resultsRaceGlovea.pdf, id=867, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceGlovea.pdf Graphic file (type pdf)
 <use figures/resultsRaceGlovea.pdf>
-Package pdftex.def Info: figures/resultsRaceGlovea.pdf  used on input line 1445
+Package pdftex.def Info: figures/resultsRaceGlovea.pdf  used on input line 1488
 .
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
@@ -1990,12 +2078,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[38 <./figures/resultsRaceGooglea.pdf>]
-<figures/resultsRaceReddita.pdf, id=827, 374.39874pt x 580.1675pt>
+[41 <./figures/resultsRaceGooglea.pdf>]
+<figures/resultsRaceReddita.pdf, id=882, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceReddita.pdf Graphic file (type pdf)
 <use figures/resultsRaceReddita.pdf>
-Package pdftex.def Info: figures/resultsRaceReddita.pdf  used on input line 144
-7.
+Package pdftex.def Info: figures/resultsRaceReddita.pdf  used on input line 149
+0.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2028,12 +2116,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[39 <./figures/resultsRaceGlovea.pdf>]
-<figures/resultsGenderGooglea.pdf, id=842, 341.275pt x 580.1675pt>
+[42 <./figures/resultsRaceGlovea.pdf>]
+<figures/resultsGenderGooglea.pdf, id=897, 341.275pt x 580.1675pt>
 File: figures/resultsGenderGooglea.pdf Graphic file (type pdf)
 <use figures/resultsGenderGooglea.pdf>
 Package pdftex.def Info: figures/resultsGenderGooglea.pdf  used on input line 1
-449.
+492.
 (pdftex.def)             Requested size: 384.0pt x 652.84616pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2066,7 +2154,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[40 <./figures/resultsRaceReddita.pdf>]
+[43 <./figures/resultsRaceReddita.pdf>]
 Overfull \vbox (57.52615pt too high) has occurred while \output is active []
 
 
@@ -2097,12 +2185,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[41 <./figures/resultsGenderGooglea.pdf>]
-<figures/resultsGenderGlovea.pdf, id=871, 329.23pt x 580.1675pt>
+[44 <./figures/resultsGenderGooglea.pdf>]
+<figures/resultsGenderGlovea.pdf, id=928, 329.23pt x 580.1675pt>
 File: figures/resultsGenderGlovea.pdf Graphic file (type pdf)
 <use figures/resultsGenderGlovea.pdf>
 Package pdftex.def Info: figures/resultsGenderGlovea.pdf  used on input line 14
-51.
+94.
 (pdftex.def)             Requested size: 384.0pt x 676.704pt.
 
 Overfull \vbox (81.38399pt too high) has occurred while \output is active []
@@ -2135,12 +2223,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[42 <./figures/resultsGenderGlovea.pdf>]
-<figures/resultsGenderReddita.pdf, id=886, 338.26375pt x 580.1675pt>
+[45 <./figures/resultsGenderGlovea.pdf>]
+<figures/resultsGenderReddita.pdf, id=943, 338.26375pt x 580.1675pt>
 File: figures/resultsGenderReddita.pdf Graphic file (type pdf)
 <use figures/resultsGenderReddita.pdf>
 Package pdftex.def Info: figures/resultsGenderReddita.pdf  used on input line 1
-453.
+496.
 (pdftex.def)             Requested size: 384.0pt x 658.63577pt.
 
 Overfull \vbox (63.31577pt too high) has occurred while \output is active []
@@ -2173,18 +2261,18 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[43 <./figures/resultsGenderReddita.pdf>]
-<figures/resultsDebiasedReligionReddita.pdf, id=902, 375.4025pt x 580.1675pt>
+[46 <./figures/resultsGenderReddita.pdf>]
+<figures/resultsDebiasedReligionReddita.pdf, id=958, 375.4025pt x 580.1675pt>
 File: figures/resultsDebiasedReligionReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedReligionReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedReligionReddita.pdf  used on in
-put line 1455.
+put line 1498.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
-<figures/resultsDebiasedRaceReddita.pdf, id=903, 374.39874pt x 580.1675pt>
+<figures/resultsDebiasedRaceReddita.pdf, id=959, 374.39874pt x 580.1675pt>
 File: figures/resultsDebiasedRaceReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedRaceReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedRaceReddita.pdf  used on input 
-line 1457.
+line 1500.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2217,12 +2305,12 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[44 <./figures/resultsDebiasedReligionReddita.pdf>]
-<figures/resultsDebiasedGenderReddita.pdf, id=918, 331.2375pt x 580.1675pt>
+[47 <./figures/resultsDebiasedReligionReddita.pdf>]
+<figures/resultsDebiasedGenderReddita.pdf, id=974, 331.2375pt x 580.1675pt>
 File: figures/resultsDebiasedGenderReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedGenderReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedGenderReddita.pdf  used on inpu
-t line 1459.
+t line 1502.
 (pdftex.def)             Requested size: 384.0pt x 672.61409pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2255,7 +2343,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[45 <./figures/resultsDebiasedRaceReddita.pdf>]
+[48 <./figures/resultsDebiasedRaceReddita.pdf>]
 Overfull \vbox (77.29408pt too high) has occurred while \output is active []
 
 
@@ -2286,24 +2374,24 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[46 <./figures/resultsDebiasedGenderReddita.pdf>]
-<figures/figposteriorPrCheckAppendixa.pdf, id=948, 453.695pt x 319.1925pt>
+[49 <./figures/resultsDebiasedGenderReddita.pdf>]
+<figures/figposteriorPrCheckAppendixa.pdf, id=1004, 453.695pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixa.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixa.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixa.pdf  used on inpu
-t line 1467.
+t line 1510.
 (pdftex.def)             Requested size: 384.0pt x 270.1606pt.
-<figures/figposteriorPrCheckAppendixb.pdf, id=949, 462.72874pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixb.pdf, id=1005, 462.72874pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixb.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixb.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixb.pdf  used on inpu
-t line 1469.
+t line 1512.
 (pdftex.def)             Requested size: 384.0pt x 264.88586pt.
-<figures/figposteriorPrCheckAppendixc.pdf, id=950, 465.74pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixc.pdf, id=1006, 465.74pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixc.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixc.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixc.pdf  used on inpu
-t line 1471.
+t line 1514.
 (pdftex.def)             Requested size: 384.0pt x 263.1812pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2336,13 +2424,13 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[47 <./figures/figposteriorPrCheckAppendixa.pdf> <./figures/figposteriorPrCheck
+[50 <./figures/figposteriorPrCheckAppendixa.pdf> <./figures/figposteriorPrCheck
 Appendixb.pdf>]
-<figures/figposteriorPrCheckAppendixd.pdf, id=980, 453.695pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixd.pdf, id=1036, 453.695pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixd.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixd.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixd.pdf  used on inpu
-t line 1473.
+t line 1516.
 (pdftex.def)             Requested size: 384.0pt x 270.1606pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2375,9 +2463,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[48 <./figures/figposteriorPrCheckAppendixc.pdf> <./figures/figposteriorPrCheck
+[51 <./figures/figposteriorPrCheckAppendixc.pdf> <./figures/figposteriorPrCheck
 Appendixd.pdf>]
-Underfull \hbox (badness 1152) in paragraph at lines 1565--1604
+Underfull \hbox (badness 1152) in paragraph at lines 1608--1647
 \T1/ppl/m/n/10 `eleventh', `cpu', `ranked', `ir-re-versibly', `ponce', `ve-loci
 -rap-tor', `de-fects', `puz-zle',
  []
@@ -2410,14 +2498,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[49]
-Underfull \hbox (badness 1163) in paragraph at lines 1611--1627
+[52]
+Underfull \hbox (badness 1163) in paragraph at lines 1654--1670
 \T1/ppl/m/n/10 ger', `char-ac-ter', `can-di-date', `break-fast', `sup-per', `di
 n-ner', `eat', `drink', ``carry'',
  []
 
 
-Underfull \hbox (badness 1824) in paragraph at lines 1611--1627
+Underfull \hbox (badness 1824) in paragraph at lines 1654--1670
 \T1/ppl/m/n/10 ``leg'', ``ar-rival'', ``trans-lated'', ``eyes'', ``step'', ``wh
 ilst'', ``trans-la-tion'', ``prac-tices'',
  []
@@ -2450,7 +2538,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[50])
+[53]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2478,40 +2569,70 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[51] (./bayesBiasCL.aux)
+[54])
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
+[55] (./bayesBiasCL.aux)
 Package rerunfilecheck Info: File `bayesBiasCL.out' has not changed.
-(rerunfilecheck)             Checksum: 9998A2B69D6C86282D5176F3739D02F8;2951.
+(rerunfilecheck)             Checksum: E93C8E7EFD25B15C3C6F96E250D2CE64;3116.
  ) 
 Here is how much of TeX's memory you used:
- 13876 strings out of 478287
- 223415 string characters out of 5849288
- 513147 words of memory out of 5000000
- 31657 multiletter control sequences out of 15000+600000
- 510768 words of font info for 101 fonts, out of 8000000 for 9000
+ 13933 strings out of 478287
+ 224671 string characters out of 5849288
+ 513710 words of memory out of 5000000
+ 31691 multiletter control sequences out of 15000+600000
+ 512316 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,14n,90p,758b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,14n,90p,1276b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/
-uplb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on bayesBiasCL.pdf (51 pages, 6921090 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/symbols/msbm7.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
+tic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
+Output written on bayesBiasCL.pdf (55 pages, 6946683 bytes).
 PDF statistics:
- 1154 PDF objects out of 1200 (max. 8388607)
- 936 compressed objects within 10 object streams
- 162 named destinations out of 1000 (max. 500000)
- 332 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1228 PDF objects out of 1440 (max. 8388607)
+ 1001 compressed objects within 11 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 340 words of extra memory for PDF output out of 10000 (max. 10000000)
 
