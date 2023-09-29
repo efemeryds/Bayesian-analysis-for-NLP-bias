@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{30}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Bolukbasi et~al.(2016)Bolukbasi, Chang, Zou, Saligrama, and
@@ -84,6 +84,12 @@ Hoekstra, Rink, Richard~D. Morey, Jeffrey~N. Rouder, and Eric-Jan Wagenmakers.
   2014.
 \newblock Robust misinterpretation of confidence intervals.
 \newblock \emph{Psychonomic Bulletin \& Review}, 21(5):1157--1164.
+
+\bibitem[{James et~al.(2013)James, Witten, Hastie, Tibshirani
+  et~al.}]{james2013introduction}
+James, Gareth, Daniela Witten, Trevor Hastie, Robert Tibshirani, et~al. 2013.
+\newblock \emph{An introduction to statistical learning}, volume 112.
+\newblock Springer.
 
 \bibitem[{Johnson(forthcoming)}]{JohnsonValueFree}
 Johnson, Gabbrielle. forthcoming.

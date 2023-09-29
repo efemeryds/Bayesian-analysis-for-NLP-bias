@@ -116,9 +116,9 @@ mathematical proxy for semantic similarity \citep{Mikolov2013efficient}.
 In what follows, we focus on two popular measures of bias applicable to
 many existing word embeddings, such as
 \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.}
-\emph{Glove}\citet{Pennington2014Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
+\emph{Glove} \citep{Pennington2014Glove}\footnote{Available at \url{https://nlp.stanford.edu/projects/glove/}.}
 and
-\emph{Reddit Corpus}\citet{Rabinovich2018Reddit}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
+\emph{Reddit Corpus} \citep{Rabinovich2018Reddit}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
 \emph{Word Embedding Association Test} (\textsf{WEAT}) \citep{Caliskan2017semanticsBiases}, and
 \emph{Mean Average Cosine Distance} (\textsf{MAC}) \citep{Manzini2019blackToCriminal}. We first
 explain how these measures are supposed to work. Then we argue that they
@@ -229,21 +229,21 @@ corresponding to ten different gendered pairs (such as
 their principal component.\footnote{Roughly, the principal component is
   the vector obtained by projecting the data points on their linear
   combination in a way that maximizes the variance of the projections.}
-The gender bias of a word \(w\) is then understood as \(w\)'s projection
-on the gender direction: \(\vec{w} \cdot gd\) (which, after normalizing
-by dividing by \(\lVert w \rVert \,\lVert \mathsf{gd} \rVert\), is the
-same as cosine similarity). Given a list \(N\) of supposedly gender
+The gender bias of a word \(W\) is then understood as \(W\)'s projection
+on the gender direction: \(\vec{W} \cdot GD\) (which, after normalizing
+by dividing by \(\lVert W \rVert \,\lVert \mathsf{GD} \rVert\), is the
+same as cosine similarity). Given a list \(\mathbf{N}\) of supposedly gender
 neutral words,\footnote{We follow the methodology used in the debate in
   assuming that there is a class of words identified as more or less
   neutral, such as \emph{ballpark, eat, walk, sleep, table}, whose
   average similarity to the gender direction (or other protected words)
   is around 0. See our list in Appendix \ref{app:custom} and a brief
   discussion in Subsection \ref{subsec:interpretability}.} and the
-gender direction \(\mathsf{gd}\), the direct gender bias is defined as
-the average cosine similarity of the words in \(N\) from \(\mathsf{gd}\)
+gender direction \(\mathsf{GD}\), the direct gender bias is defined as
+the average cosine similarity of the words in \(\mathbf{N}\) from \(\mathsf{GD}\)
 (\(c\) is a parameter determining how strict we want to be):
 \begin{align*}
-\mathsf{directBias_c(N,gd)} & = \frac{\sum_{w\in N}\vert \mathsf{cos}(\vec{w},\mathsf{gd})\vert^c}{\vert N \vert }
+\mathsf{directBias_c(\mathbf{N},GD)} & = \frac{\sum_{W\in \mathbb{N}}\vert \mathsf{cos}(\vec{W},\mathsf{GD})\vert^c}{\vert \mathbf{N} \vert }
 \end{align*} \normalsize 
 
 The use of projections in bias estimation has been criticized for
@@ -903,7 +903,7 @@ little to do with the posterior probability distribution.\footnote{Here
 In fact, Bayesian highest posterior density intervals (HPDIs, the
 narrowest intervals containing a certain ratio of the area under the
 curve) and CIs end up being numerically the same only if the prior
-probabilities are uniform. This illustrates that (1) classical analysis
+distributions are completely uninformative. This illustrates that (1) classical analysis
 is unable to incorporate non-trivial priors, and (2) is therefore more
 susceptible to over-fitting, unless regularization (equivalent to a more
 straightforward Bayesian approach) is used. In contrast with CIs, the
@@ -1008,9 +1008,18 @@ weak. \begin{align*}
 \end{align*}
 
 
+The governing principles guiding our prior selection are:
 
+\begin{enumerate}
+	\item  We come with the same level of agnosticism about how biased a given embedding is with respect to a particular word list, and so we want to use 
+	the same priors across all word lists. Prior to the analysis there seem to be no particular reasons to have strong beliefs about the outcomes being different for different word lists. 
+	\item We want the priors to provide some level of regularization to avoid over-fitting. Taking coefficient priors centered around zeros is a fairly standard technique equivalent to other machine-learning regularization techniques (see Chapter 6 of \citep{james2013introduction}, especially the section on Bayesian interpretation of ridge regression and the lasso). Hence centering around the no-effect value (in our case, cosine distance equal to 1, or in other words, cosine similarity equal to 0) and non-uniformity. 
+	
+	\item We also want to build in conceptual information that we already have, such as there are mathematical restrictions on the range of cosine similarities, and therefore on the expected values. If we choose sd = .3 that means that prior to seeing the data we expect the mean distances in groups to be with 99.7\% prior confidence to be within $1 \pm 3sd$, that is, $(-.2, 2.2)$ which is more than plenty and does not really exclude any mathematically possible value. 
 
+\end{enumerate}
 
+One useful thing about a Bayesian analysis is that the reader is welcome to re-run it with their own priors, if they find another choice more compelling, which we invite the reader to do.
 
 
 \hypertarget{posterior-predictive-check}{%
@@ -1254,6 +1263,19 @@ happened for human and different word lists, where the percentage of
 \caption{Empirical distributions of cosine similarities before and after  debiasing for the Race word list used in  the original paper.}
 \label{fig:empiricalDebiased3}
 \end{figure}
+
+\hypertarget{potential-objections}{%
+	\subsection{Potential objections}\label{potential-objections}}
+
+
+A worry that one might have is that the original challenge was to develop a single-number bias metric, and that our approach does not reach this goal. Essentially, this is correct: we argue that chasing a single metric is the wrong game to play to start with. In line with general Bayesian methodology, we grant epistemic priority to the inspection of posterior distributions, of which particular single-number summaries are just that. Imperfect summaries that can be easily misinterpreted if no attention is paid to the uncertainties surronding it. Having said this, if one really needs a single-number summary, then mean posterior contrasts between associated and human attributes are closer to adequacy than the single number metrics proposed so  (but they still should come accompanied with some description of the uncertainty involved).
+
+One of our recommendations is that the wordlists should be larger. A possible concern here is that one might ask: \emph{But wouldn't larger wordlists solve the problem with the existing measures of bias?} This is in some sense true: the overconfidence resulting from using aggregated data will be less damaging if more data is used. However, as \citet{Ethayarajh2020Bernstein} prove, the list sizes needed for useful uncertainty estimation from this perspective obtained using theoretical bounds tend to be prohibitive. Bayesian uncertainty estimates, however, scale with size and can be improved and evaluated as the list sizes increase, even if the size improvement is far from the one required by classical theoretical considerations.  
+
+
+
+
+
 
 \hypertarget{related-works-and-conclusions}{%
 \section{Related works and
