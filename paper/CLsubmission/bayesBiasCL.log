@@ -1,33 +1,33 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.6)  19 OCT 2023 12:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.6)  19 OCT 2023 14:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **bayesBiasCL.tex
 (./bayesBiasCL.tex
-LaTeX2e <2022-11-01> patch level 1
-L3 programming layer <2023-01-16> (./clv3.cls
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-01-21> (./clv3.cls
 Document Class: clv3 2016/06/15 v2 LaTeX document class for MIT - Computational
  Linguistics Journals
-\draftrule=\dimen140
-\trimrule=\dimen141
-\trimwidth=\skip48
-\trimheight=\skip49
-\typewidth=\skip50
-\typeheight=\skip51
-\normaltextheight=\skip52
-\blindfoliodrop=\skip53
-\figheight=\skip54
-\figwidth=\skip55
-\tabledim=\skip56
-\tempdimen=\dimen142
-\enumdim=\dimen143
-\mathindent=\dimen144
-\emathindent=\dimen145
-\bibindent=\dimen146
-\normalbaselineskip=\skip57
-\tableleftskip=\skip58
-\tablerightskip=\skip59
-\tempbox=\box51
+\draftrule=\dimen138
+\trimrule=\dimen139
+\trimwidth=\skip47
+\trimheight=\skip48
+\typewidth=\skip49
+\typeheight=\skip50
+\normaltextheight=\skip51
+\blindfoliodrop=\skip52
+\figheight=\skip53
+\figwidth=\skip54
+\tabledim=\skip55
+\tempdimen=\dimen140
+\enumdim=\dimen141
+\mathindent=\dimen142
+\emathindent=\dimen143
+\bibindent=\dimen144
+\normalbaselineskip=\skip56
+\tableleftskip=\skip57
+\tablerightskip=\skip58
+\tempbox=\box50
 LaTeX Info: Redefining \itshape on input line 457.
 LaTeX Info: Redefining \scshape on input line 462.
 (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
@@ -43,7 +43,7 @@ Package: palatino 2020/03/25 PSNFSS-v9.3 (SPQR)
 Package: helvet 2020/03/25 PSNFSS-v9.3 (WaS) 
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
-Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
 \KV@toks@=\toks16
 ))
 \minute=\count185
@@ -57,31 +57,31 @@ Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
 \c@subsubsection=\count193
 \c@paragraph=\count194
 \c@subparagraph=\count195
-\topsepi=\skip60
-\topsepii=\skip61
-\topsepiii=\skip62
-\itemsepi=\skip63
-\itemsepii=\skip64
-\itemsepiii=\skip65
-\LabelSep=\dimen147
-\listtopsepi=\skip66
-\listtopsepii=\skip67
-\listtopsepiii=\skip68
-\listitemsepi=\skip69
-\listitemsepii=\skip70
-\listitemsepiii=\skip71
-\listleftmargini=\skip72
-\listleftmarginii=\skip73
-\listleftmarginiii=\skip74
-\listlabelwidthi=\skip75
-\listlabelwidthii=\skip76
-\listlabelwidthiii=\skip77
-\listlabelsepi=\skip78
-\listlabelsepii=\skip79
-\listlabelsepiii=\skip80
-\listrightmargin=\skip81
+\topsepi=\skip59
+\topsepii=\skip60
+\topsepiii=\skip61
+\itemsepi=\skip62
+\itemsepii=\skip63
+\itemsepiii=\skip64
+\LabelSep=\dimen145
+\listtopsepi=\skip65
+\listtopsepii=\skip66
+\listtopsepiii=\skip67
+\listitemsepi=\skip68
+\listitemsepii=\skip69
+\listitemsepiii=\skip70
+\listleftmargini=\skip71
+\listleftmarginii=\skip72
+\listleftmarginiii=\skip73
+\listlabelwidthi=\skip74
+\listlabelwidthii=\skip75
+\listlabelwidthiii=\skip76
+\listlabelsepi=\skip77
+\listlabelsepii=\skip78
+\listlabelsepiii=\skip79
+\listrightmargin=\skip80
 \listdepth=\count196
-\lpalignmaxwd=\skip82
+\lpalignmaxwd=\skip81
 \c@eqnnosave=\count197
 
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty
@@ -91,9 +91,9 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@headfont=\toks19
 \thm@notefont=\toks20
 \thm@headpunct=\toks21
-\thm@preskip=\skip83
-\thm@postskip=\skip84
-\thm@headsep=\skip85
+\thm@preskip=\skip82
+\thm@postskip=\skip83
+\thm@headsep=\skip84
 \dth@everypar=\toks22
 )
 \c@example=\count198
@@ -107,8 +107,8 @@ Package: amsthm 2020/05/29 v2.20.6
 \c@numdef=\count272
 \c@numtheorem=\count273
 \c@case=\count274
-\abovecaptionskip=\skip86
-\belowcaptionskip=\skip87
+\abovecaptionskip=\skip85
+\belowcaptionskip=\skip86
 \c@figure=\count275
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
@@ -118,7 +118,7 @@ Package: epsfig 2017/06/25 v1.7b (e)psfig emulation (SPQR)
 Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
@@ -129,48 +129,48 @@ File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 Package graphics Info: Driver file: pdftex.def on input line 107.
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-def/pdftex.def
-File: pdftex.def 2022/09/22 v1.2b Graphics/color driver for pdftex
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen148
-\Gin@req@width=\dimen149
+\Gin@req@height=\dimen146
+\Gin@req@width=\dimen147
 )
-\epsfxsize=\dimen150
-\epsfysize=\dimen151
+\epsfxsize=\dimen148
+\epsfysize=\dimen149
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/rotating.sty
 Package: rotating 2016/08/11 v2.16d rotated objects in LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
-Package: ifthen 2022/04/13 v1.1d Standard LaTeX ifthen package (DPC)
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
 )
 \c@r@tfl@t=\count276
-\rotFPtop=\skip88
-\rotFPbot=\skip89
-\rot@float@box=\box52
+\rotFPtop=\skip87
+\rotFPbot=\skip88
+\rot@float@box=\box51
 \rot@mess@toks=\toks23
 )
-\figtempbox=\box53
+\figtempbox=\box52
 \c@table=\count277
-\@footmax=\dimen152
-\bibleftmargin=\skip90
-\biblabelsep=\skip91
-\bibitemsep=\skip92
-\bibparsep=\skip93
+\@footmax=\dimen150
+\bibleftmargin=\skip89
+\biblabelsep=\skip90
+\bibitemsep=\skip91
+\bibparsep=\skip92
 
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip94
-\bibsep=\skip95
+\bibhang=\skip93
+\bibsep=\skip94
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count278
 )
 \c@rules=\count279
 \c@qcount=\count280
-\qcountdim=\dimen153
-\@twocolsep=\dimen154
-\partialpage=\box54
+\qcountdim=\dimen151
+\@twocolsep=\dimen152
+\partialpage=\box53
 \tblcolcount=\count281
-\tcsepbefore=\skip96
+\tcsepbefore=\skip95
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
@@ -185,28 +185,29 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
+Package: multicol 2021/10/28 v1.9b multicolumn formatting (FMi)
 \c@tracingmulticols=\count282
-\mult@box=\box55
-\multicol@leftmargin=\dimen155
+\mult@box=\box54
+\multicol@leftmargin=\dimen153
 \c@unbalance=\count283
 \c@collectmore=\count284
 \doublecol@number=\count285
 \multicoltolerance=\count286
 \multicolpretolerance=\count287
-\full@width=\dimen156
-\page@free=\dimen157
-\premulticols=\dimen158
-\postmulticols=\dimen159
-\multicolsep=\skip97
-\multicolbaselineskip=\skip98
-\partial@page=\box56
-\last@line=\box57
-\maxbalancingoverflow=\dimen160
-\mult@rightbox=\box58
-\mult@grightbox=\box59
-\mult@firstbox=\box60
-\mult@gfirstbox=\box61
+\full@width=\dimen154
+\page@free=\dimen155
+\premulticols=\dimen156
+\postmulticols=\dimen157
+\multicolsep=\skip96
+\multicolbaselineskip=\skip97
+\partial@page=\box55
+\last@line=\box56
+\maxbalancingoverflow=\dimen158
+\mult@rightbox=\box57
+\mult@grightbox=\box58
+\mult@firstbox=\box59
+\mult@gfirstbox=\box60
+\@tempa=\box61
 \@tempa=\box62
 \@tempa=\box63
 \@tempa=\box64
@@ -242,36 +243,35 @@ Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
 \@tempa=\box94
 \@tempa=\box95
 \@tempa=\box96
-\@tempa=\box97
 \c@minrows=\count288
 \c@columnbadness=\count289
 \c@finalcolumnbadness=\count290
-\last@try=\dimen161
-\multicolovershoot=\dimen162
-\multicolundershoot=\dimen163
-\mult@nat@firstbox=\box98
-\colbreak@box=\box99
+\last@try=\dimen159
+\multicolovershoot=\dimen160
+\multicolundershoot=\dimen161
+\mult@nat@firstbox=\box97
+\colbreak@box=\box98
 \mc@col@check@num=\count291
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/dcolumn.sty
 Package: dcolumn 2014/10/28 v1.06 decimal alignment package (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
-Package: array 2022/09/04 v2.5g Tabular extension package (FMi)
-\col@sep=\dimen164
-\ar@mcellbox=\box100
-\extrarowheight=\dimen165
+Package: array 2021/10/04 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen162
+\ar@mcellbox=\box99
+\extrarowheight=\dimen163
 \NC@list=\toks25
-\extratabsurround=\skip99
-\backup@length=\skip100
-\ar@cellbox=\box101
+\extratabsurround=\skip98
+\backup@length=\skip99
+\ar@cellbox=\box100
 ))
 
 Package array Warning: Column D is already defined on input line 1915.
 
 ) (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
-Package: amsmath 2022/04/08 v2.17n AMS math features
-\@mathmargin=\skip101
+Package: amsmath 2021/10/15 v2.17l AMS math features
+\@mathmargin=\skip100
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -280,43 +280,33 @@ Package: amstext 2021/08/26 v2.01 AMS text
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
 \@emptytoks=\toks26
-\ex@=\dimen166
+\ex@=\dimen164
 )
 LaTeX Info: Redefining \text on input line 28.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen167
+\pmbraise@=\dimen165
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
-Package: amsopn 2022/04/08 v2.04 operator names
+Package: amsopn 2021/08/26 v2.02 operator names
 )
 \inf@bad=\count292
 LaTeX Info: Redefining \frac on input line 234.
 \uproot@=\count293
 \leftroot@=\count294
 LaTeX Info: Redefining \overline on input line 399.
-LaTeX Info: Redefining \colon on input line 410.
 \classnum@=\count295
 \DOTSCASE@=\count296
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box102
-\strutbox@=\box103
-LaTeX Info: Redefining \big on input line 722.
-LaTeX Info: Redefining \Big on input line 723.
-LaTeX Info: Redefining \bigg on input line 724.
-LaTeX Info: Redefining \Bigg on input line 725.
-\big@size=\dimen168
+\Mathstrutbox@=\box101
+\strutbox@=\box102
+\big@size=\dimen166
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
 \macc@depth=\count297
-LaTeX Info: Redefining \bmod on input line 905.
-LaTeX Info: Redefining \pmod on input line 910.
-LaTeX Info: Redefining \smash on input line 940.
-LaTeX Info: Redefining \relbar on input line 970.
-LaTeX Info: Redefining \Relbar on input line 971.
 \c@MaxMatrixCols=\count298
 \dotsspace@=\muskip16
 \c@parentequation=\count299
@@ -326,106 +316,114 @@ LaTeX Info: Redefining \Relbar on input line 971.
 \column@=\count302
 \maxfields@=\count303
 \andhelp@=\toks28
-\eqnshift@=\dimen169
-\alignsep@=\dimen170
-\tagshift@=\dimen171
-\tagwidth@=\dimen172
-\totwidth@=\dimen173
-\lineht@=\dimen174
+\eqnshift@=\dimen167
+\alignsep@=\dimen168
+\tagshift@=\dimen169
+\tagwidth@=\dimen170
+\totwidth@=\dimen171
+\lineht@=\dimen172
 \@envbody=\toks29
-\multlinegap=\skip102
-\multlinetaggap=\skip103
+\multlinegap=\skip101
+\multlinetaggap=\skip102
 \mathdisplay@stack=\toks30
-LaTeX Info: Redefining \[ on input line 2953.
-LaTeX Info: Redefining \] on input line 2954.
+LaTeX Info: Redefining \[ on input line 2938.
+LaTeX Info: Redefining \] on input line 2939.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count304
 \float@exts=\toks31
-\float@box=\box104
+\float@box=\box103
 \@float@everytoks=\toks32
-\@floatcapt=\box105
+\@floatcapt=\box104
 )
 (/usr/share/texlive/texmf-dist/tex/latex/units/nicefrac.sty
 Package: nicefrac 1998/08/04 v0.9b Nice fractions
-\L@UnitsRaiseDisplaystyle=\skip104
-\L@UnitsRaiseTextstyle=\skip105
-\L@UnitsRaiseScriptstyle=\skip106
+\L@UnitsRaiseDisplaystyle=\skip103
+\L@UnitsRaiseTextstyle=\skip104
+\L@UnitsRaiseScriptstyle=\skip105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip106
+\enit@outerparindent=\dimen173
+\enit@toks=\toks33
+\enit@inbox=\box105
+\enit@count@id=\count305
+\enitdp@description=\count306
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen175
-\lightrulewidth=\dimen176
-\cmidrulewidth=\dimen177
-\belowrulesep=\dimen178
-\belowbottomsep=\dimen179
-\aboverulesep=\dimen180
-\abovetopsep=\dimen181
-\cmidrulesep=\dimen182
-\cmidrulekern=\dimen183
-\defaultaddspace=\dimen184
-\@cmidla=\count305
-\@cmidlb=\count306
-\@aboverulesep=\dimen185
-\@belowrulesep=\dimen186
-\@thisruleclass=\count307
-\@lastruleclass=\count308
-\@thisrulewidth=\dimen187
+\heavyrulewidth=\dimen174
+\lightrulewidth=\dimen175
+\cmidrulewidth=\dimen176
+\belowrulesep=\dimen177
+\belowbottomsep=\dimen178
+\aboverulesep=\dimen179
+\abovetopsep=\dimen180
+\cmidrulesep=\dimen181
+\cmidrulekern=\dimen182
+\defaultaddspace=\dimen183
+\@cmidla=\count307
+\@cmidlb=\count308
+\@aboverulesep=\dimen184
+\@belowrulesep=\dimen185
+\@thisruleclass=\count309
+\@lastruleclass=\count310
+\@thisrulewidth=\dimen186
 )
 (/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
 \multirow@colwidth=\skip107
-\multirow@cntb=\count309
+\multirow@cntb=\count311
 \multirow@dima=\skip108
-\bigstrutjot=\dimen188
+\bigstrutjot=\dimen187
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-Package: subcaption 2022/01/07 v1.5 Sub-captions (AR)
+Package: subcaption 2020/10/07 v1.3j Sub-captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen189
-\captionmargin=\dimen190
-\caption@leftmargin=\dimen191
-\caption@rightmargin=\dimen192
-\caption@width=\dimen193
-\caption@indent=\dimen194
-\caption@parindent=\dimen195
-\caption@hangindent=\dimen196
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen188
+\captionmargin@=\dimen189
+\captionwidth=\dimen190
+\caption@tempdima=\dimen191
+\caption@indent=\dimen192
+\caption@parindent=\dimen193
+\caption@hangindent=\dimen194
 Package caption Info: Unknown document class (or package),
 (caption)             standard defaults will be used.
 Package caption Info: \@makecaption = \long macro:#1#2->\ifx \FigName \@captype
  \vskip \abovecaptionskip \@makefigurecaption {#1}{#2}\else \@maketablecaption 
-{#1}{#2}\vskip \belowcaptionskip \fi  on input line 1176.
+{#1}{#2}\vskip \belowcaptionskip \fi  on input line 1139.
 )
 
 Package caption Warning: Unknown document class (or package),
 (caption)                standard defaults will be used.
 See the caption package documentation for explanation.
 
-\c@caption@flags=\count310
-\c@continuedfloat=\count311
+\c@caption@flags=\count312
+\c@continuedfloat=\count313
 Package caption Info: float package is loaded.
 Package caption Info: rotating package is loaded.
 )
-\c@subfigure=\count312
-\c@subtable=\count313
+\c@subfigure=\count314
+\c@subtable=\count315
 ) (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip17
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2022-11-13 v7.00u Hypertext links for LaTeX
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
 
 (/usr/share/texlive/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
-Package: iftex 2022/02/03 v1.0f TeX engine tests
+Package: iftex 2020/03/06 v1.0d TeX engine tests
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
 Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
@@ -438,8 +436,8 @@ Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
 )
-(/usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
-Package: kvsetkeys 2022-10-05 v1.19 Key value parser (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
 )
 (/usr/share/texlive/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
@@ -456,28 +454,21 @@ Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
 )
-(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
-Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
-
-(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-
 (/usr/share/texlive/texmf-dist/tex/latex/kvoptions/kvoptions.sty
-Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
-))
-\c@section@level=\count314
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
 )
-\@linkdim=\dimen197
-\Hy@linkcounter=\count315
-\Hy@pagecounter=\count316
+\@linkdim=\dimen195
+\Hy@linkcounter=\count316
+\Hy@pagecounter=\count317
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2022-11-13 v7.00u Hyperref: PDFDocEncoding definition (HO)
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref-langpatches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
+nguages
 )
 (/usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
@@ -485,23 +476,23 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count317
+\Hy@SavedSpaceFactor=\count318
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-File: puenc.def 2022-11-13 v7.00u Hyperref: PDF Unicode definition (HO)
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Hyper figures OFF on input line 4162.
-Package hyperref Info: Link nesting OFF on input line 4167.
-Package hyperref Info: Hyper index ON on input line 4170.
-Package hyperref Info: Plain pages OFF on input line 4177.
-Package hyperref Info: Backreferencing OFF on input line 4182.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count318
-LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen198
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count319
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen196
 
 (/usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
@@ -510,51 +501,53 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count319
-\Field@Width=\dimen199
-\Fld@charsize=\dimen256
-Package hyperref Info: Hyper figures OFF on input line 6027.
-Package hyperref Info: Link nesting OFF on input line 6032.
-Package hyperref Info: Hyper index ON on input line 6035.
-Package hyperref Info: backreferencing OFF on input line 6042.
-Package hyperref Info: Link coloring OFF on input line 6047.
-Package hyperref Info: Link coloring with OCG OFF on input line 6052.
-Package hyperref Info: PDF/A mode OFF on input line 6057.
+\Fld@menulength=\count320
+\Field@Width=\dimen197
+\Fld@charsize=\dimen198
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/atbegshi-ltx.sty
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count320
-\c@Item=\count321
-\c@Hfootnote=\count322
+\Hy@abspage=\count321
+\c@Item=\count322
+\c@Hfootnote=\count323
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2022-11-13 v7.00u Hyperref driver for pdfTeX
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
-\Fld@listcount=\count323
-\c@bookmark@seq@number=\count324
+\Fld@listcount=\count324
+\c@bookmark@seq@number=\count325
 
 (/usr/share/texlive/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
 
 (/usr/share/texlive/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-85.
+86.
 )
 \Hy@SectionHShift=\skip109
 )
 (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+Package: xcolor 2021/10/31 v2.13 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
@@ -562,21 +555,20 @@ File: color.cfg 2016/01/02 v1.6 sample color configuration
 Package xcolor Info: Driver file: pdftex.def on input line 227.
 
 (/usr/share/texlive/texmf-dist/tex/latex/colortbl/colortbl.sty
-Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
-\everycr=\toks33
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+\everycr=\toks34
 \minrowclearance=\skip110
-\rownum=\count325
 )
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/mathcolor.ltx)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
-Package xcolor Info: Model `RGB' extended on input line 1369.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+\rownum=\count326
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1352.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1356.
+Package xcolor Info: Model `RGB' extended on input line 1368.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1370.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1371.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1374.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1375.
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 20.
 LaTeX Font Info:    Trying to load font information for T1+ppl on input line 27
@@ -586,8 +578,8 @@ LaTeX Font Info:    Trying to load font information for T1+ppl on input line 27
 File: t1ppl.fd 2001/06/04 font definitions for T1/ppl.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
-File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count326
+File: l3backend-pdftex.def 2022-01-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count327
 \l__pdf_internal_box=\box106
 )
 (./bayesBiasCL.aux)
@@ -614,17 +606,17 @@ LaTeX Font Info:    ... okay on input line 27.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count327
-\scratchdimen=\dimen257
+\scratchcounter=\count328
+\scratchdimen=\dimen199
 \scratchbox=\box107
-\nofMPsegments=\count328
-\nofMParguments=\count329
-\everyMPshowfont=\toks34
-\MPscratchCnt=\count330
-\MPscratchDim=\dimen258
-\MPnumerator=\count331
-\makeMPintoPDFobject=\count332
-\everyMPtoPDFconversion=\toks35
+\nofMPsegments=\count329
+\nofMParguments=\count330
+\everyMPshowfont=\toks35
+\MPscratchCnt=\count331
+\MPscratchDim=\dimen256
+\MPnumerator=\count332
+\makeMPintoPDFobject=\count333
+\everyMPtoPDFconversion=\toks36
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
@@ -646,6 +638,21 @@ Package hyperref Warning: Height of page (\paperheight) is invalid (0.0pt),
 (hyperref)                using 11in.
 
 Package hyperref Info: Link coloring ON on input line 27.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count334
+)
+LaTeX Info: Redefining \ref on input line 27.
+LaTeX Info: Redefining \pageref on input line 27.
+LaTeX Info: Redefining \nameref on input line 27.
+
 (./bayesBiasCL.out) (./bayesBiasCL.out)
 \@outlinefile=\write3
 \openout3 = `bayesBiasCL.out'.
@@ -717,6 +724,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \vbox (42.0pt too high) has occurred while \output is active []
 
 
@@ -764,10 +774,38 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [3]
-<figures/WEATexample5.pdf, id=219, 411.5375pt x 309.155pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
+[4]
+<figures/WEATexample5.pdf, id=229, 411.5375pt x 309.155pt>
 File: figures/WEATexample5.pdf Graphic file (type pdf)
 <use figures/WEATexample5.pdf>
-Package pdftex.def Info: figures/WEATexample5.pdf  used on input line 326.
+Package pdftex.def Info: figures/WEATexample5.pdf  used on input line 324.
 (pdftex.def)             Requested size: 211.20117pt x 158.6576pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -797,42 +835,11 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[4]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (42.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (42.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (722.7pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (37.5pt too high) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (659.52pt too high) has occurred while \output is active []
-
-
 [5 <./figures/WEATexample5.pdf>]
-<figures/MACexample.pdf, id=257, 416.55624pt x 312.16624pt>
+<figures/MACexample.pdf, id=253, 416.55624pt x 312.16624pt>
 File: figures/MACexample.pdf Graphic file (type pdf)
 <use figures/MACexample.pdf>
-Package pdftex.def Info: figures/MACexample.pdf  used on input line 400.
+Package pdftex.def Info: figures/MACexample.pdf  used on input line 398.
 (pdftex.def)             Requested size: 192.0pt x 143.884pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -891,23 +898,23 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [7 <./figures/MACexample.pdf>]
-<figures/figcosineDistributions8d.pdf, id=294, 440.64626pt x 313.17pt>
+<figures/figcosineDistributions8d.pdf, id=295, 440.64626pt x 313.17pt>
 File: figures/figcosineDistributions8d.pdf Graphic file (type pdf)
 <use figures/figcosineDistributions8d.pdf>
 Package pdftex.def Info: figures/figcosineDistributions8d.pdf  used on input li
-ne 532.
+ne 525.
 (pdftex.def)             Requested size: 268.79883pt x 191.04297pt.
-<figures/figcosineDistributions8df.pdf, id=295, 454.69875pt x 313.17pt>
+<figures/figcosineDistributions8df.pdf, id=296, 454.69875pt x 313.17pt>
 File: figures/figcosineDistributions8df.pdf Graphic file (type pdf)
 <use figures/figcosineDistributions8df.pdf>
 Package pdftex.def Info: figures/figcosineDistributions8df.pdf  used on input l
-ine 541.
+ine 535.
 (pdftex.def)             Requested size: 268.79883pt x 185.13664pt.
-<figures/figcosineDistributions8dg.pdf, id=296, 458.71375pt x 313.17pt>
+<figures/figcosineDistributions8dg.pdf, id=297, 458.71375pt x 313.17pt>
 File: figures/figcosineDistributions8dg.pdf Graphic file (type pdf)
 <use figures/figcosineDistributions8dg.pdf>
 Package pdftex.def Info: figures/figcosineDistributions8dg.pdf  used on input l
-ine 550.
+ine 545.
 (pdftex.def)             Requested size: 268.79883pt x 183.52147pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -938,44 +945,15 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [8]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (42.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (42.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (722.7pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (37.5pt too high) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (659.52pt too high) has occurred while \output is active []
-
-
-[9 <./figures/figcosineDistributions8d.pdf> <./figures/figcosineDistributions8d
-f.pdf>]
-<figures/visMuslimd.pdf, id=339, 339.2675pt x 284.06125pt>
+<figures/visMuslimd.pdf, id=308, 339.2675pt x 284.06125pt>
 File: figures/visMuslimd.pdf Graphic file (type pdf)
 <use figures/visMuslimd.pdf>
-Package pdftex.def Info: figures/visMuslimd.pdf  used on input line 607.
+Package pdftex.def Info: figures/visMuslimd.pdf  used on input line 603.
 (pdftex.def)             Requested size: 345.59766pt x 289.37453pt.
-<figures/visPriestd.pdf, id=340, 339.2675pt x 287.0725pt>
+<figures/visPriestd.pdf, id=309, 339.2675pt x 287.0725pt>
 File: figures/visPriestd.pdf Graphic file (type pdf)
 <use figures/visPriestd.pdf>
-Package pdftex.def Info: figures/visPriestd.pdf  used on input line 614.
+Package pdftex.def Info: figures/visPriestd.pdf  used on input line 610.
 (pdftex.def)             Requested size: 345.59766pt x 292.44212pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1008,8 +986,8 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[10 <./figures/figcosineDistributions8dg.pdf>]
-Underfull \vbox (badness 1540) has occurred while \output is active []
+[9 <./figures/figcosineDistributions8d.pdf>]
+Underfull \vbox (badness 2990) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1039,19 +1017,38 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
+[10 <./figures/figcosineDistributions8df.pdf> <./figures/figcosineDistributions
+8dg.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
 [11 <./figures/visMuslimd.pdf>]
-<figures/figcaliskanCalcB2D.pdf, id=392, 442.65375pt x 314.17375pt>
-File: figures/figcaliskanCalcB2D.pdf Graphic file (type pdf)
-<use figures/figcaliskanCalcB2D.pdf>
-Package pdftex.def Info: figures/figcaliskanCalcB2D.pdf  used on input line 701
-.
-(pdftex.def)             Requested size: 307.20117pt x 218.0457pt.
-<figures/figcaliskanDistC2K.pdf, id=394, 446.66875pt x 314.17375pt>
-File: figures/figcaliskanDistC2K.pdf Graphic file (type pdf)
-<use figures/figcaliskanDistC2K.pdf>
-Package pdftex.def Info: figures/figcaliskanDistC2K.pdf  used on input line 714
-.
-(pdftex.def)             Requested size: 307.20117pt x 216.0802pt.
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1081,6 +1078,22 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [12 <./figures/visPriestd.pdf>]
+<figures/figcaliskanCalcB2D.pdf, id=410, 442.65375pt x 314.17375pt>
+File: figures/figcaliskanCalcB2D.pdf Graphic file (type pdf)
+<use figures/figcaliskanCalcB2D.pdf>
+Package pdftex.def Info: figures/figcaliskanCalcB2D.pdf  used on input line 689
+.
+(pdftex.def)             Requested size: 307.20117pt x 218.0457pt.
+<figures/figcaliskanDistC2K.pdf, id=412, 446.66875pt x 314.17375pt>
+File: figures/figcaliskanDistC2K.pdf Graphic file (type pdf)
+<use figures/figcaliskanDistC2K.pdf>
+Package pdftex.def Info: figures/figcaliskanDistC2K.pdf  used on input line 704
+.
+(pdftex.def)             Requested size: 307.20117pt x 216.0802pt.
+
+Underfull \vbox (badness 1152) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1108,15 +1121,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[13 <./figures/figcaliskanCalcB2D.pdf> <./figures/figcaliskanDistC2K.pdf>]
-<figures/figourDistancesPlot2f.pdf, id=443, 459.7175pt x 310.15875pt>
+[13 <./figures/figcaliskanCalcB2D.pdf>]
+<figures/figourDistancesPlot2f.pdf, id=436, 459.7175pt x 310.15875pt>
 File: figures/figourDistancesPlot2f.pdf Graphic file (type pdf)
 <use figures/figourDistancesPlot2f.pdf>
 Package pdftex.def Info: figures/figourDistancesPlot2f.pdf  used on input line 
-771.
+752.
 (pdftex.def)             Requested size: 307.20117pt x 207.2705pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 2080) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1146,7 +1159,10 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[14]
+[14 <./figures/figcaliskanDistC2K.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1175,10 +1191,38 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [15 <./figures/figourDistancesPlot2f.pdf>]
-<figures/dagVis.pdf, id=485, 429.605pt x 291.0875pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (42.0pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (722.7pt too high) has occurred while \output is active []
+
+
+Overfull \vbox (37.5pt too high) has occurred while \output is active []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \vbox (659.52pt too high) has occurred while \output is active []
+
+
+[16]
+<figures/dagVis.pdf, id=489, 429.605pt x 291.0875pt>
 File: figures/dagVis.pdf Graphic file (type pdf)
 <use figures/dagVis.pdf>
-Package pdftex.def Info: figures/dagVis.pdf  used on input line 953.
+Package pdftex.def Info: figures/dagVis.pdf  used on input line 940.
 (pdftex.def)             Requested size: 307.20117pt x 208.15262pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1208,45 +1252,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
-[16]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (42.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (42.0pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (722.7pt too high) has occurred while \output is active []
-
-
-Overfull \vbox (37.5pt too high) has occurred while \output is active []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \vbox (659.52pt too high) has occurred while \output is active []
-
-
 [17 <./figures/dagVis.pdf>]
-<figures/figposteriorPrCheckA6b.pdf, id=516, 447.6725pt x 416.55624pt>
-File: figures/figposteriorPrCheckA6b.pdf Graphic file (type pdf)
-<use figures/figposteriorPrCheckA6b.pdf>
-Package pdftex.def Info: figures/figposteriorPrCheckA6b.pdf  used on input line
- 1043.
-(pdftex.def)             Requested size: 307.20117pt x 285.85414pt.
-
-Underfull \vbox (badness 2717) has occurred while \output is active []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1275,7 +1281,14 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [18]
-Underfull \vbox (badness 1057) has occurred while \output is active []
+<figures/figposteriorPrCheckA6b.pdf, id=522, 447.6725pt x 416.55624pt>
+File: figures/figposteriorPrCheckA6b.pdf Graphic file (type pdf)
+<use figures/figposteriorPrCheckA6b.pdf>
+Package pdftex.def Info: figures/figposteriorPrCheckA6b.pdf  used on input line
+ 1030.
+(pdftex.def)             Requested size: 307.20117pt x 285.85414pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1334,24 +1347,24 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [20]
-<figures/figdebiasedCosinePair2e.pdf, id=557, 338.26375pt x 580.1675pt>
+<figures/figdebiasedCosinePair2e.pdf, id=554, 338.26375pt x 580.1675pt>
 File: figures/figdebiasedCosinePair2e.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosinePair2e.pdf>
 Package pdftex.def Info: figures/figdebiasedCosinePair2e.pdf  used on input lin
-e 1213.
+e 1200.
 (pdftex.def)             Requested size: 338.26291pt x 580.16606pt.
 
 
-LaTeX Warning: Float too large for page by 21.84605pt on input line 1216.
+LaTeX Warning: Float too large for page by 21.84605pt on input line 1203.
 
-<figures/figdebiasedCosinePair2_e.pdf, id=558, 331.2375pt x 580.1675pt>
+<figures/figdebiasedCosinePair2_e.pdf, id=555, 331.2375pt x 580.1675pt>
 File: figures/figdebiasedCosinePair2_e.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosinePair2_e.pdf>
 Package pdftex.def Info: figures/figdebiasedCosinePair2_e.pdf  used on input li
-ne 1220.
+ne 1207.
 (pdftex.def)             Requested size: 331.23668pt x 580.16606pt.
 
-LaTeX Warning: Float too large for page by 9.84605pt on input line 1223.
+LaTeX Warning: Float too large for page by 9.84605pt on input line 1210.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1438,26 +1451,26 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [23 <./figures/figdebiasedCosinePair2_e.pdf>]
-<figures/figdebiasedCosine21c.pdf, id=597, 465.74pt x 423.5825pt>
+<figures/figdebiasedCosine21c.pdf, id=595, 465.74pt x 423.5825pt>
 File: figures/figdebiasedCosine21c.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosine21c.pdf>
 Package pdftex.def Info: figures/figdebiasedCosine21c.pdf  used on input line 1
-248.
+235.
 (pdftex.def)             Requested size: 364.79883pt x 331.78911pt.
-<figures/figdebiasedCosine22c.pdf, id=598, 467.7475pt x 423.5825pt>
+<figures/figdebiasedCosine22c.pdf, id=596, 467.7475pt x 423.5825pt>
 File: figures/figdebiasedCosine22c.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosine22c.pdf>
 Package pdftex.def Info: figures/figdebiasedCosine22c.pdf  used on input line 1
-255.
+242.
 (pdftex.def)             Requested size: 364.79883pt x 330.37363pt.
-<figures/figdebiasedCosine23c.pdf, id=599, 457.71pt x 423.5825pt>
+<figures/figdebiasedCosine23c.pdf, id=597, 457.71pt x 423.5825pt>
 File: figures/figdebiasedCosine23c.pdf Graphic file (type pdf)
 <use figures/figdebiasedCosine23c.pdf>
 Package pdftex.def Info: figures/figdebiasedCosine23c.pdf  used on input line 1
-262.
+249.
 (pdftex.def)             Requested size: 364.79883pt x 337.61256pt.
 
-Underfull \vbox (badness 1253) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1519,9 +1532,6 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [25 <./figures/figdebiasedCosine22c.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1609,7 +1619,7 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [28]
-Underfull \vbox (badness 3260) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1640,10 +1650,10 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [29]
-<figures/weatjoint2z.pdf, id=718, 376.40625pt x 580.1675pt>
+<figures/weatjoint2z.pdf, id=717, 376.40625pt x 580.1675pt>
 File: figures/weatjoint2z.pdf Graphic file (type pdf)
 <use figures/weatjoint2z.pdf>
-Package pdftex.def Info: figures/weatjoint2z.pdf  used on input line 1472.
+Package pdftex.def Info: figures/weatjoint2z.pdf  used on input line 1459.
 (pdftex.def)             Requested size: 376.40532pt x 580.16606pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1739,16 +1749,16 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [32 <./figures/weatjoint2z.pdf>]
-<figures/weat7glovh.pdf, id=749, 375.4025pt x 580.1675pt>
+<figures/weat7glovh.pdf, id=747, 375.4025pt x 580.1675pt>
 File: figures/weat7glovh.pdf Graphic file (type pdf)
 <use figures/weat7glovh.pdf>
-Package pdftex.def Info: figures/weat7glovh.pdf  used on input line 1476.
+Package pdftex.def Info: figures/weat7glovh.pdf  used on input line 1463.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
-<figures/resultsWeat7Reddita.pdf, id=750, 341.275pt x 580.1675pt>
+<figures/resultsWeat7Reddita.pdf, id=748, 341.275pt x 580.1675pt>
 File: figures/resultsWeat7Reddita.pdf Graphic file (type pdf)
 <use figures/resultsWeat7Reddita.pdf>
 Package pdftex.def Info: figures/resultsWeat7Reddita.pdf  used on input line 14
-78.
+65.
 (pdftex.def)             Requested size: 384.0pt x 652.84616pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1813,17 +1823,17 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [34 <./figures/resultsWeat7Reddita.pdf>]
-<figures/resultsWeat1Googlea.pdf, id=779, 376.40625pt x 580.1675pt>
+<figures/resultsWeat1Googlea.pdf, id=777, 376.40625pt x 580.1675pt>
 File: figures/resultsWeat1Googlea.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Googlea.pdf>
 Package pdftex.def Info: figures/resultsWeat1Googlea.pdf  used on input line 14
-80.
+67.
 (pdftex.def)             Requested size: 384.0pt x 591.9135pt.
-<figures/resultsWeat1Glovea.pdf, id=780, 374.39874pt x 580.1675pt>
+<figures/resultsWeat1Glovea.pdf, id=778, 374.39874pt x 580.1675pt>
 File: figures/resultsWeat1Glovea.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Glovea.pdf>
-Package pdftex.def Info: figures/resultsWeat1Glovea.pdf  used on input line 148
-2.
+Package pdftex.def Info: figures/resultsWeat1Glovea.pdf  used on input line 146
+9.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1857,11 +1867,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [35 <./figures/resultsWeat1Googlea.pdf>]
-<figures/resultsWeat1Reddita.pdf, id=796, 336.25626pt x 580.1675pt>
+<figures/resultsWeat1Reddita.pdf, id=794, 336.25626pt x 580.1675pt>
 File: figures/resultsWeat1Reddita.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Reddita.pdf>
 Package pdftex.def Info: figures/resultsWeat1Reddita.pdf  used on input line 14
-84.
+71.
 (pdftex.def)             Requested size: 384.0pt x 662.54865pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1926,11 +1936,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [37 <./figures/resultsWeat1Reddita.pdf>]
-<figures/resultsReligionGooglea.pdf, id=826, 337.26pt x 580.1675pt>
+<figures/resultsReligionGooglea.pdf, id=824, 337.26pt x 580.1675pt>
 File: figures/resultsReligionGooglea.pdf Graphic file (type pdf)
 <use figures/resultsReligionGooglea.pdf>
 Package pdftex.def Info: figures/resultsReligionGooglea.pdf  used on input line
- 1486.
+ 1473.
 (pdftex.def)             Requested size: 384.0pt x 660.58336pt.
 
 Overfull \vbox (65.26335pt too high) has occurred while \output is active []
@@ -1964,17 +1974,17 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [38 <./figures/resultsReligionGooglea.pdf>]
-<figures/resultsReligionGlovea.pdf, id=841, 374.39874pt x 580.1675pt>
+<figures/resultsReligionGlovea.pdf, id=839, 374.39874pt x 580.1675pt>
 File: figures/resultsReligionGlovea.pdf Graphic file (type pdf)
 <use figures/resultsReligionGlovea.pdf>
 Package pdftex.def Info: figures/resultsReligionGlovea.pdf  used on input line 
-1488.
+1475.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
-<figures/resultsReligionReddita.pdf, id=842, 375.4025pt x 580.1675pt>
+<figures/resultsReligionReddita.pdf, id=840, 375.4025pt x 580.1675pt>
 File: figures/resultsReligionReddita.pdf Graphic file (type pdf)
 <use figures/resultsReligionReddita.pdf>
 Package pdftex.def Info: figures/resultsReligionReddita.pdf  used on input line
- 1490.
+ 1477.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2008,11 +2018,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [39 <./figures/resultsReligionGlovea.pdf>]
-<figures/resultsRaceGooglea.pdf, id=857, 374.39874pt x 580.1675pt>
+<figures/resultsRaceGooglea.pdf, id=855, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceGooglea.pdf Graphic file (type pdf)
 <use figures/resultsRaceGooglea.pdf>
-Package pdftex.def Info: figures/resultsRaceGooglea.pdf  used on input line 149
-2.
+Package pdftex.def Info: figures/resultsRaceGooglea.pdf  used on input line 147
+9.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2046,10 +2056,10 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [40 <./figures/resultsReligionReddita.pdf>]
-<figures/resultsRaceGlovea.pdf, id=872, 374.39874pt x 580.1675pt>
+<figures/resultsRaceGlovea.pdf, id=870, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceGlovea.pdf Graphic file (type pdf)
 <use figures/resultsRaceGlovea.pdf>
-Package pdftex.def Info: figures/resultsRaceGlovea.pdf  used on input line 1494
+Package pdftex.def Info: figures/resultsRaceGlovea.pdf  used on input line 1481
 .
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
@@ -2084,11 +2094,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [41 <./figures/resultsRaceGooglea.pdf>]
-<figures/resultsRaceReddita.pdf, id=887, 374.39874pt x 580.1675pt>
+<figures/resultsRaceReddita.pdf, id=885, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceReddita.pdf Graphic file (type pdf)
 <use figures/resultsRaceReddita.pdf>
-Package pdftex.def Info: figures/resultsRaceReddita.pdf  used on input line 149
-6.
+Package pdftex.def Info: figures/resultsRaceReddita.pdf  used on input line 148
+3.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2122,11 +2132,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [42 <./figures/resultsRaceGlovea.pdf>]
-<figures/resultsGenderGooglea.pdf, id=902, 341.275pt x 580.1675pt>
+<figures/resultsGenderGooglea.pdf, id=900, 341.275pt x 580.1675pt>
 File: figures/resultsGenderGooglea.pdf Graphic file (type pdf)
 <use figures/resultsGenderGooglea.pdf>
 Package pdftex.def Info: figures/resultsGenderGooglea.pdf  used on input line 1
-498.
+485.
 (pdftex.def)             Requested size: 384.0pt x 652.84616pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2191,11 +2201,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [44 <./figures/resultsGenderGooglea.pdf>]
-<figures/resultsGenderGlovea.pdf, id=933, 329.23pt x 580.1675pt>
+<figures/resultsGenderGlovea.pdf, id=931, 329.23pt x 580.1675pt>
 File: figures/resultsGenderGlovea.pdf Graphic file (type pdf)
 <use figures/resultsGenderGlovea.pdf>
-Package pdftex.def Info: figures/resultsGenderGlovea.pdf  used on input line 15
-00.
+Package pdftex.def Info: figures/resultsGenderGlovea.pdf  used on input line 14
+87.
 (pdftex.def)             Requested size: 384.0pt x 676.704pt.
 
 Overfull \vbox (81.38399pt too high) has occurred while \output is active []
@@ -2229,11 +2239,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [45 <./figures/resultsGenderGlovea.pdf>]
-<figures/resultsGenderReddita.pdf, id=948, 338.26375pt x 580.1675pt>
+<figures/resultsGenderReddita.pdf, id=946, 338.26375pt x 580.1675pt>
 File: figures/resultsGenderReddita.pdf Graphic file (type pdf)
 <use figures/resultsGenderReddita.pdf>
 Package pdftex.def Info: figures/resultsGenderReddita.pdf  used on input line 1
-502.
+489.
 (pdftex.def)             Requested size: 384.0pt x 658.63577pt.
 
 Overfull \vbox (63.31577pt too high) has occurred while \output is active []
@@ -2267,17 +2277,17 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [46 <./figures/resultsGenderReddita.pdf>]
-<figures/resultsDebiasedReligionReddita.pdf, id=963, 375.4025pt x 580.1675pt>
+<figures/resultsDebiasedReligionReddita.pdf, id=961, 375.4025pt x 580.1675pt>
 File: figures/resultsDebiasedReligionReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedReligionReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedReligionReddita.pdf  used on in
-put line 1504.
+put line 1491.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
-<figures/resultsDebiasedRaceReddita.pdf, id=964, 374.39874pt x 580.1675pt>
+<figures/resultsDebiasedRaceReddita.pdf, id=962, 374.39874pt x 580.1675pt>
 File: figures/resultsDebiasedRaceReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedRaceReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedRaceReddita.pdf  used on input 
-line 1506.
+line 1493.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2311,11 +2321,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [47 <./figures/resultsDebiasedReligionReddita.pdf>]
-<figures/resultsDebiasedGenderReddita.pdf, id=979, 331.2375pt x 580.1675pt>
+<figures/resultsDebiasedGenderReddita.pdf, id=977, 331.2375pt x 580.1675pt>
 File: figures/resultsDebiasedGenderReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedGenderReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedGenderReddita.pdf  used on inpu
-t line 1508.
+t line 1495.
 (pdftex.def)             Requested size: 384.0pt x 672.61409pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2380,23 +2390,23 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [49 <./figures/resultsDebiasedGenderReddita.pdf>]
-<figures/figposteriorPrCheckAppendixa.pdf, id=1009, 453.695pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixa.pdf, id=1007, 453.695pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixa.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixa.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixa.pdf  used on inpu
-t line 1516.
+t line 1503.
 (pdftex.def)             Requested size: 384.0pt x 270.1606pt.
-<figures/figposteriorPrCheckAppendixb.pdf, id=1010, 462.72874pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixb.pdf, id=1008, 462.72874pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixb.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixb.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixb.pdf  used on inpu
-t line 1518.
+t line 1505.
 (pdftex.def)             Requested size: 384.0pt x 264.88586pt.
-<figures/figposteriorPrCheckAppendixc.pdf, id=1011, 465.74pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixc.pdf, id=1009, 465.74pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixc.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixc.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixc.pdf  used on inpu
-t line 1520.
+t line 1507.
 (pdftex.def)             Requested size: 384.0pt x 263.1812pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2431,11 +2441,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 [50 <./figures/figposteriorPrCheckAppendixa.pdf> <./figures/figposteriorPrCheck
 Appendixb.pdf>]
-<figures/figposteriorPrCheckAppendixd.pdf, id=1041, 453.695pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixd.pdf, id=1039, 453.695pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixd.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixd.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixd.pdf  used on inpu
-t line 1522.
+t line 1509.
 (pdftex.def)             Requested size: 384.0pt x 270.1606pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2470,7 +2480,37 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 [51 <./figures/figposteriorPrCheckAppendixc.pdf> <./figures/figposteriorPrCheck
 Appendixd.pdf>]
-Underfull \hbox (badness 1152) in paragraph at lines 1614--1653
+Overfull \hbox (27.83554pt too wide) in paragraph at lines 1527--1530
+[]\T1/ppl/b/n/10 Gender: [][]$\T1/pcr/m/n/10 https : / / github . com / TManzin
+i / DebiasMulticlassWordEmbedding /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1527--1530
+\T1/pcr/m/n/10 blob / master / Debiasing / data / vocab / gender _ attributes _
+ optm .
+ []
+
+
+Overfull \hbox (15.05563pt too wide) in paragraph at lines 1530--1533
+[]\T1/ppl/b/n/10 Race: [][]$\T1/pcr/m/n/10 https : / / github . com / TManzini 
+/ DebiasMulticlassWordEmbedding /
+ []
+
+
+Overfull \hbox (32.83542pt too wide) in paragraph at lines 1533--1535
+[]\T1/ppl/b/n/10 Religion: [][]$\T1/pcr/m/n/10 https : / / github . com / TManz
+ini / DebiasMulticlassWordEmbedding /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1533--1535
+\T1/pcr/m/n/10 blob / master / Debiasing / data / vocab / religion _ attributes
+ _ optm .
+ []
+
+
+Underfull \hbox (badness 1152) in paragraph at lines 1601--1640
 \T1/ppl/m/n/10 `eleventh', `cpu', `ranked', `ir-re-versibly', `ponce', `ve-loci
 -rap-tor', `de-fects', `puz-zle',
  []
@@ -2504,18 +2544,21 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [52]
-Underfull \hbox (badness 1163) in paragraph at lines 1660--1676
+Underfull \hbox (badness 1163) in paragraph at lines 1647--1663
 \T1/ppl/m/n/10 ger', `char-ac-ter', `can-di-date', `break-fast', `sup-per', `di
 n-ner', `eat', `drink', ``carry'',
  []
 
 
-Underfull \hbox (badness 1824) in paragraph at lines 1660--1676
+Underfull \hbox (badness 1824) in paragraph at lines 1647--1663
 \T1/ppl/m/n/10 ``leg'', ``ar-rival'', ``trans-lated'', ``eyes'', ``step'', ``wh
 ilst'', ``trans-la-tion'', ``prac-tices'',
  []
 
 (./bayesBiasCL.bbl
+Underfull \vbox (badness 2735) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2607,13 +2650,13 @@ Package rerunfilecheck Info: File `bayesBiasCL.out' has not changed.
 (rerunfilecheck)             Checksum: E93C8E7EFD25B15C3C6F96E250D2CE64;3116.
  ) 
 Here is how much of TeX's memory you used:
- 13937 strings out of 478287
- 224784 string characters out of 5849289
- 513747 words of memory out of 5000000
- 31694 multiletter control sequences out of 15000+600000
+ 14272 strings out of 478287
+ 230641 string characters out of 5849289
+ 521724 words of memory out of 5000000
+ 32024 multiletter control sequences out of 15000+600000
  512316 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,14n,90p,1276b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 85i,14n,90p,1276b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
@@ -2634,10 +2677,10 @@ pe1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
 tic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on bayesBiasCL.pdf (55 pages, 6948107 bytes).
+Output written on bayesBiasCL.pdf (55 pages, 6951276 bytes).
 PDF statistics:
- 1235 PDF objects out of 1440 (max. 8388607)
- 1008 compressed objects within 11 object streams
- 181 named destinations out of 1000 (max. 500000)
+ 1232 PDF objects out of 1440 (max. 8388607)
+ 1005 compressed objects within 11 object streams
+ 182 named destinations out of 1000 (max. 500000)
  340 words of extra memory for PDF output out of 10000 (max. 10000000)
 

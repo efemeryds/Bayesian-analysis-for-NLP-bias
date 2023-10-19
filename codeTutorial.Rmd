@@ -57,7 +57,7 @@ debiasedReligionReddit <- read.csv("datasets/macWeatDatasets/debiased_religion_r
 ```
 
 
-Define a function to clean the data.
+Clean the data.
 
 ```{r}
 cleanDataset <- function (dataset) {
@@ -93,7 +93,7 @@ return(dataset)
 
 
 
-Define a function to build models.
+Define a function to build a model.
 
 ```{r}
 buildModel <- function(dataset){
@@ -205,7 +205,7 @@ religionGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_gro
 religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1])
 ```
 
-Build exemplary model and save it.
+Build exemplary model and save it to an otherwise empty `models` folder. 
 
 
 ```{r}

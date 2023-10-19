@@ -4,7 +4,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{float}
 \usepackage{nicefrac}
-
+\usepackage{enumitem}
 \usepackage{graphicx}
 
 \usepackage{booktabs}
@@ -89,9 +89,9 @@ available at \url{https://github.com/efemeryds/Bayesian-analysis-for-NLP-bias}.}
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
 
-It has been suggested\footnote{See for instance \citep{Bolukbasi2016man, Caliskan2017semanticsBiases, Gonen2019lipstick, Lauscher2019multidimensional, Garg2018years, Manzini2019blackToCriminal}.}
-that language models can learn implicit biases that reflect harmful
-stereotypical thinking---for example, the (vector corresponding to the)
+It has been suggested  that language models can learn implicit biases that reflect harmful
+stereotypical thinking (see for instance \citealt{Bolukbasi2016man, Caliskan2017semanticsBiases, Gonen2019lipstick, Lauscher2019multidimensional, Garg2018years, Manzini2019blackToCriminal}).
+For example, the (vector corresponding to the)
 word \textit{she} might be much closer in the vector space to the word
 \textit{cooking} than the word \textit{he}. Such phenomena are
 undesirable at least in some downstream tasks, such as web search,
@@ -144,16 +144,15 @@ significance. We show similar results can easily be obtained when
 sampling from null models with no bias. (2) The word list sizes and
 sample sizes used in the studies are usually small,\footnote{Depending
   on a list for \citep{Caliskan2017semanticsBiases} the range for protected words is between 13 and
-  100, and for attributes between 16 and 25; for \citep{Manzini2019blackToCriminal} the range for
+%  100, and for attributes between 16 and 25; for \citep{Manzini2019blackToCriminal} the range for
   protected words is between 14 and 18, and for attributes between 11
   and 25.} (3) Many studies do not use any control predicates, such as
 random neutral words or neutral human predicates for comparison.
 
 On the constructive side, we develop and deploy our method, and the
 results are, roughly, as follows. (A) Posterior density intervals are
-fairly wide and the average differences between associated, different
-and neutral human predicates, are not very large. (B) A preliminary
-inspection suggests that the desirability of changes obtained by the
+fairly wide and the average differences in cosine distances between stereotypically associated, stereotypically different,  
+random neutral, and regular human-related predicates are not very large. (B) A preliminary inspection suggests that the desirability of changes obtained by the
 usual debiasing methods is debatable.
 
 In Section \ref{sec:two} we describe the two key measures discussed in
@@ -167,8 +166,7 @@ problems that arise when one uses pre-averaged data in such contexts, as
 these measures do. In Section \ref{sec:bayesian} we explain the
 alternative Bayesian approach that we propose. In Section
 \ref{sec:results} we elaborate on the results that it leads to,
-including a somewhat skeptical view of the efficiency of debiasing
-methods, discussed in Subsection \ref{subsec:rethinking}. Finally, in
+including low  efficiency of debiasing methods, discussed in Subsection \ref{subsec:rethinking}. Finally, in
 Section \ref{sec:related} we spend some time placing our results in the
 ongoing discussions.\footnote{\textbf{Disclaimer:} throughout the paper
   we will be mentioning and using word lists and stereotypes we did not
@@ -222,7 +220,7 @@ general idea is that a certain topic is associated with a vector of real
 numbers (the topic ``direction''), and the bias of a word is
 investigated by considering the projection of its corresponding vector
 on this direction. For instance, in \citep{Bolukbasi2016man}, the gender direction
-\(\mathsf{gd}\) is obtained by taking the differences of the vectors
+\(\mathsf{GD}\) is obtained by taking the differences of the vectors
 corresponding to ten different gendered pairs (such as
 \(\overrightarrow{she} - \overrightarrow{he}\) or
 \(\overrightarrow{girl} - \overrightarrow{boy}\)), and then identifying
@@ -251,7 +249,7 @@ instance in \citep{Gonen2019lipstick}, where it is pointed out that while a high
 similarity to the gender direction might be an indicator of bias with
 respect to a given class of words, it is only one possible manifestation
 of it, and reducing the cosine similarity to such a projection may not
-be sufficient to eliminate bias. For instance, ``math'' and ``delicate''
+be sufficient to eliminate bias. For instance, \emph{math} and \emph{delicate} 
 might be equally similar to a pair of opposed explicitly gendered words
 (\emph{she}, \emph{he}), while being closer to quite different
 stereotypical attribute words (such as \emph{scientific} or
@@ -345,7 +343,7 @@ generalization can be found in \citep{Manzini2019blackToCriminal}. The authors i
 Average Cosine distance (\textsf{MAC}) as a measure of bias. Let
 \(T = \{t_1, \dots, t_k\}\) be a set of protected words, and let each
 \(A_j\in \mathcal{A}\) be a set of attributes stereotypically associated
-with a protected word where \(\mathcal{A}\). For instance, when biases
+with a protected word. For instance, when biases
 related to religion are to be investigated, they use a dataset of the
 format illustrated in Table \ref{tab:religionOriginal}. The measure is
 defined as follows:
@@ -387,7 +385,7 @@ muslim & conservative & christianStereotype & 0.45\\
 \mathsf{MAC}(T,\mathcal{A}) & = \frac{1}{\vert T \vert \,\vert \mathcal{A}\vert}\sum_{t \in T }\sum_{A_j \in \mathcal{A}}    \mathsf{s}(t,A_j)
 \end{align*}
 
-\noindent That is, for each protected word \(t\in T\), and each
+\noindent For each protected word \(t\in T\), and each
 attribute set \(A_j\), they first take the mean of distances for this
 protected word and all attributes in a given attribute class, and then
 take the mean of thus obtained means for all the protected words and all
@@ -442,9 +440,7 @@ Table \ref{tab:religionOriginal2} contains an example of \textsf{MAC}
 scores (and \(p\) values, we explain how these are obtained in
 Subsection \ref{subsec:problems}) before and after deploying two
 debiasing methods to the Reddit embedding, where the score is calculated
-using the Religion word lists from \citep{Manzini2019blackToCriminal}. For our purpose the details
-of the debiasing method are not important: what matters is that
-\textsf{MAC} is used in the evaluation of these methods.
+using the Religion word lists from \citep{Manzini2019blackToCriminal}. The main element of the strategy is projection  onto (hard debiasing) or shifting vectors towards (soft debiasing) the bias subspace so that the biased information is no longer linearly accessible, and normalization of the vectors.\footnote{See the authors' GitHub code at \url{{https://github.com/TManzini/DebiasMulticlassWordEmbedding/blob/master/Debiasing/biasOps.py}}  for details.}  For our purpose, details of the debiasing methods are not important. What matters is that the authors use \textsf{MAC} in the evaluation of these methods.
 
 \begin{table}
 \footnotesize
@@ -471,8 +467,8 @@ The first question we should ask is whether the initial \textsf{MAC}
 values lower than 1 indeed are indicative of the presence of bias?
 Thinking abstractly, 1 is the ideal distance for unrelated words. But in
 fact, there is some variation in distances, which might lead to
-non-biased lists also having \textsf{MAC} scores smaller than 1. How
-much smaller? What may attract attention is the fact that the value of
+non-biased lists also having \textsf{MAC} scores smaller than 1.
+ What may attract attention is the fact that the value of
 cosine distance in ``Biased'' category is already quite high (i.e.~close
 to 1) even before debiasing. High cosine distance indicates low cosine
 similarity between values. One could think that the average cosine
@@ -516,10 +512,7 @@ protected words and attributes are paired with stereotypes.
 
 In Figures (\ref{fig:empirical0}-\ref{fig:empirical3}) we look at the
 empirical distributions, while paying attention to such divisions. The
-horizontal lines represent the values of \(1 - \mathsf{MAC}\) (that is,
-we now talk in terms of cosine similarity rather than cosine distance)
-that the authors considered indicative of bias for stereotypes
-corresponding to given word lists. For instance, in religion,
+horizontal lines represent the values of \(1 - \mathsf{MAC}\) (cosine similarity) that the authors considered indicative of bias for stereotypes corresponding to given word lists. For instance, in religion,
 \textsf{MAC} was .859, which was considered a sign of bias, so we plot
 \(0\pm (1-.859)\approx .14\) lines around similarity = 0 (that is,
 distance = 1). Notice that most distributions are quite wide, and the
@@ -531,7 +524,8 @@ according to the authors are quite high.
 
 \begin{center}\includegraphics[width=0.7\linewidth]{figures/figcosineDistributions8d} \end{center}
 
-\caption{Empirical distributions of cosine similarities  for the Religion word list  used in  the original paper. }
+\caption{Empirical distributions of cosine similarities  for the Religion word list  used in  the original paper.  The
+	horizontal lines represent the values of \(1 - \mathsf{MAC}\) (cosine similarity) that the authors considered indicative of bias for stereotypes corresponding to given word lists. }
 
 \label{fig:empirical0}
 \end{figure}
@@ -540,7 +534,8 @@ according to the authors are quite high.
 
 \begin{center}\includegraphics[width=0.7\linewidth]{figures/figcosineDistributions8df} \end{center}
 
-\caption{Empirical distributions of cosine similarities for the Gender word list used in  the original paper.  }
+\caption{Empirical distributions of cosine similarities for the Gender word list used in  the original paper.  The
+	horizontal lines represent the values of \(1 - \mathsf{MAC}\) (cosine similarity) that the authors considered indicative of bias for stereotypes corresponding to given word lists.}
 
 \label{fig:empirical2}
 \end{figure}
@@ -549,7 +544,8 @@ according to the authors are quite high.
 
 \begin{center}\includegraphics[width=0.7\linewidth]{figures/figcosineDistributions8dg} \end{center}
 
-\caption{Empirical distributions of cosine similarities  for the Race word list used in  the original paper.  }
+\caption{Empirical distributions of cosine similarities  for the Race word list used in  the original paper.  The
+	horizontal lines represent the values of \(1 - \mathsf{MAC}\) (cosine similarity) that the authors considered indicative of bias for stereotypes corresponding to given word lists. }
 
 \label{fig:empirical3}
 \end{figure}
@@ -622,8 +618,8 @@ protected word \textsf{muslim}, the most similar attributes tend to be
 the ones associated with it stereotypically, but then words associated
 with other stereotypes come closer than neutral or human predicates. For
 the protected word \textsf{priest}, the situation is even less as
-expected: the nearest attributes are human attributes, and all there
-seems to be no clear pattern to the distances to other attributes.
+expected: the nearest attributes are human attributes, and there
+seems to be no clear pattern when it comes to the distances between attributes.
 
 The general phenomenon that makes us skeptical about running statistical
 tests on pre-averaged data is that raw datasets of different variance
@@ -673,41 +669,35 @@ procedure. We draw one such sample of size \(16^2\). Then we actually
 list all possible ways to split the 16 words in two equal sets (each
 such a split is one bootstrapped sample) and for each of them we
 calculate the \textsf{s} values and \textsf{WEAT}. What are the
-resulting distributions of \(\textsf{s}\) scores and what \(p\)-values
-do they lead to? What are the resulting effect sizes for each
-bootstrapped sample, and how often can we get an effect size as large as
-the ones reported in the original paper?
+resulting distributions of \(\textsf{s}\) scores,  what \(p\)-values and effect sizes
+do they lead to? 
+
 
 In the bootstrapped samples we would rather expect low \textsf{s} values
 and low \textsf{WEAT}: after all, these are just random permutations of
-random distances all of which are drawn from the same null distribution.
-Let's take a look at one such a bootstrapped sample.
+random distances all of which are drawn from the same null distribution. Let's take a look at one such a bootstrapped sample. For the sake of illustration,
+ we picked a rather unusual one: the observed test statistic in this sample is 0.39 and 1.27.
 
-On purpose, we picked a rather unusual one: the observed test statistic
-is 0.39 and 1.27. The bootstrapped distributions of the test statistics
-and effect sizes are illustrated in Figure \ref{fig:caliskanCalc},
-together with this particular example. Quite notably both (two-sided)
-\(p\) values for our example are rather low (Figure
-\ref{fig:caliskanCalc}). These facts might suggest that we ended up
-with a situation where ``bias'' is present (albeit, due to random
-noise). The reason why we picked it is that it is an example of a word
-list that ends up with relatively low \(p\)-value and a relatively
-unusual effect size, but nevertheless, its closer inspection shows that
-even for a word list with such properties there is no clear reason to
-think that the bias is present.
+ The bootstrapped distributions of the test statistics
+and effect sizes across multiple samples are illustrated in Figure \ref{fig:caliskanCalc} (we marked the location of our particular example). 
+Notably, both (two-sided) \(p\) values for our example are rather low.
+This  might suggest that we ended up with a situation where ``bias'' is present (albeit, due to random
+noise). After all the observed statistic is unusual enough for the \(p\) values to pass the traditional significance threshold. 
 
 \begin{figure}
-
-\begin{center}\includegraphics[width=0.8\linewidth]{figures/figcaliskanCalcB2D} \end{center}
-
-\caption{Bootstrapped distributions of test statistics and effect sizes in a random sample given the null hypothesis. We used a sample from the null  model with N(0,.08) and 16 protected words, and then bootstrapped from it, following the original methodology. One particular bootstrapped sample is highlighted, and discussed further in the text. }
-\label{fig:caliskanCalc}
+	
+	\begin{center}\includegraphics[width=0.8\linewidth]{figures/figcaliskanCalcB2D} \end{center}
+	
+	\caption{Bootstrapped distributions of test statistics and effect sizes in a random sample given the null hypothesis. We used a sample from the null  model with N(0,.08) and 16 protected words, and then bootstrapped from it, following the original methodology. One particular bootstrapped sample is highlighted, and discussed further in the text. }
+	\label{fig:caliskanCalc}
 \end{figure}
 
-At this point, we might think that we just stumbled into a bootstrapped
-sample that randomly happened to display strong bias. We decide to
-double-check this by visual inspection expecting exactly this: a strong,
-clearly visible bias (Figure \ref{fig:caliskanDistances}).
+
+
+
+The reason why we picked the example that we did is that  while it leads to a relatively low \(p\)-value, and a relatively unusual effect size. Yet, a visualization of the sample reveals no interesting patterns (see Figure \ref{fig:caliskanDistances}), which strongly suggests that the way we calculated effect sizes and \(p\) values overestimates the impact of random noise, in line with our more theoretical comment, which will follow. 
+
+
 
 \begin{figure}
 
@@ -719,11 +709,7 @@ clearly visible bias (Figure \ref{fig:caliskanDistances}).
 
 \noindent In fact, while there might be some outliers here and there,
 saying that a clear bias on which one group is systematically closer to
-\(A\)s than another is definitely a stretch. What happened?
-
-In the calculations of \textsf{WEAT} means are taken twice. The
-\textsf{s}-values themselves are means and then means of
-\textsf{s}-values are compared between groups. Statistical troubles
+one word group  than another lacks support.  Crucially, in the calculations of \textsf{WEAT} means are taken twice. The \textsf{s}-values themselves are means and then means of \textsf{s}-values are compared between groups. Statistical troubles
 start when we run statistical tests on sets of means, for at least two
 reasons.
 
@@ -735,24 +721,19 @@ reasons.
 \end{enumerate}
 
 Let us think again about the question that we are ultimately interested
-in. Are the \(X\) terms systematically closer to (further from) the
-\(A\) attributes (\(B\) attributes) than the \(Y\) words? But now let's
-use the raw data points to try to answer these questions.
-
-To start with, let us run two quick \(t\)-tests to gauge what the raw
+in.  Are the \(X\) terms systematically closer to or further from the
+\(A\)  or \(B\) attributes than the \(Y\) words?  But this time, instead of pre-averaging, let's use the raw data points to answer the question. To start with, let us run two quick \(t\)-tests to gauge what the raw
 data illustrated in Figure \ref{fig:caliskanDistances} tell us. First,
-distances to \(A\) attributes for \(X\) words and \(Y\) words. Well, the
-result is---strictly speaking---statistically significant. The
+distances to \(A\) attributes for \(X\) words and \(Y\) words. The
+result is statistically significant. The
 \(p\)-value is \(0.02\) (more than ten times higher than the
-\(p\)-valued obtained by the bootstrapping procedure. So the sample is
+\(p\)-valued obtained by the bootstrapping procedure). So the sample is
 in some sense unusual. But the 95\% confidence interval for the
-difference in means is \([.0052, .061]\), clearly nothing that a reader
-would expect given that the calculated effect size seemed quite large.
-How about the distances to the \(B\) attributes? Here the \(p\)-value is
+difference in means is \([.0052, .061]\), which suggests values that are much smaller  than what a reader  would expect having read that the calculated effect size is quite large. Let us inspect the distances to the \(B\) attributes. Here the \(p\)-value is
 \(.22\) and the 95\% confidence interval is \([-0.03, .009]\), even less
 of a reason to think a bias is present.
 
-The difficulties are exacerbated by the fact that statistical tests are
+Another difficulty is that these statistical tests are
 based on bootstrapping from a relatively small data sets, which is quite
 likely to underestimate the population variance. To make our point
 clear, let us avoid bootstrapping and work with the null generative
@@ -764,7 +745,7 @@ Calculate the test statistic and effect size the way \citep{Caliskan2017semantic
 this 10000 times, each time calculating \textsf{WEAT} and \textsf{s}
 values, and look at what the distributions of these values are on the
 assumption of the null model with realistic empirically motivated raw
-data point standard deviation.
+data point standard deviation (Figure \ref{fig:ourDistances}).
 
 \begin{figure}
 
@@ -794,12 +775,12 @@ since the \citep{Manzini2019blackToCriminal} one is a generalization thereof, in
 of running statistical tests on pre-averaged data, our remarks,
 \emph{mutatis nutandis}, apply.
 
-What is the alternative? As we already emphasized: focusing on what the
+As an alternative, we will propose focusing on what the
 real underlying question is and trying to answer it using a statistical
 analysis of the raw data using meaningful control groups, to ensure
 interpretability. Moreover, since the data sets are not too large and
 since multiple evaluations are to be made, we will pursue this method
-from the Bayesian perspective. Now we have to describe it.
+from the Bayesian perspective.
 
 
 
@@ -879,8 +860,7 @@ probability distributions over the parameters of interest, thus
 capturing our uncertainty about their actual values. One important
 difference between such a result and the result of classical
 statistical analysis is that classical confidence intervals (CIs) have a
-rather complicated and somewhat confusing interpretation, which has
-little to do with the posterior probability distribution.\footnote{Here
+rather complicated and somewhat confusing interpretation not directly related to the posterior probability distribution.\footnote{Here
   are a few usual problems. CIs are often mistakenly interpreted as
   providing the probability that a resulting confidence interval
   contains the true value of a parameter. CIs bring confusion also with
@@ -900,9 +880,9 @@ little to do with the posterior probability distribution.\footnote{Here
   interpretations of a CI. Both researchers and students endorsed, on
   average, more than three of these statements.}
 
-In fact, Bayesian highest posterior density intervals (HPDIs, the
+In fact, Bayesian highest posterior density intervals\footnote{HPDIs are  the
 narrowest intervals containing a certain ratio of the area under the
-curve) and CIs end up being numerically the same only if the prior
+curve.} and CIs end up being numerically the same only if the prior
 distributions are completely uninformative. This illustrates that (1) classical analysis
 is unable to incorporate non-trivial priors, and (2) is therefore more
 susceptible to over-fitting, unless regularization (equivalent to a more
@@ -921,16 +901,24 @@ must then be chosen for the parameters used in the model. Next, Bayesian
 inference must be applied to find posterior distributions over the
 possible parameter values. Finally, we need to check how well the
 posterior predictions reflect the data with a posterior predictive
-check.
+check. This will be our evaluation of the methods performance, discussed in Subsection \ref{posterior-predictive-check}, and a more complete collection of such results is available in the appendix.
 
 In our analysis, the outcome variable is the cosine distances between the
-protected words and attribute words. The predictor is a factor
-determining whether a given attribute word is a neutral word, a human
-predicate is stereotypically associated with the protected word, or
-comes from a different stereotype connected with another protected word.
-The idea is really straightforward: if bias is present in the embedding,
+protected words and attribute words. The predictor is a factor related to an attribute word, and has  four levels:
+\begin{itemize}[noitemsep]
+	\item a given attribute word is stereotypically associated with the protected word,
+	\item it comes from a different stereotype connected with another protected word,
+	
+	\item it is a neutral word,
+	
+	\item it is a human-related predicate.
+	
+\end{itemize} 
+\noindent The idea is that if bias is present in the embedding,
 distances to associated attribute words should be systematically lower
 than to other attribute words.
+
+
 
 Furthermore, conceptually there are two levels of analysis in our
 approach (see Figure \ref{fig:visDag}). On the one hand, we are
@@ -945,8 +933,7 @@ models in which we simultaneously estimate parameters at the protected
 word level and at the global level, assuming that all lower-level
 parameters are drawn from global distributions. Such models can be
 thought of as incorporating adaptive regularization, which avoids
-overfitting and leads to improved estimates for unbalanced datasets (and
-the datasets we need to use are unbalanced).
+overfitting and leads to improved estimates for unbalanced datasets.
 
 \begin{figure}
 
