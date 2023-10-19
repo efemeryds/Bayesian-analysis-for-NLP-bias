@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{31}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{Bolukbasi et~al.(2016)Bolukbasi, Chang, Zou, Saligrama, and
@@ -84,6 +84,14 @@ Hoekstra, Rink, Richard~D. Morey, Jeffrey~N. Rouder, and Eric-Jan Wagenmakers.
   2014.
 \newblock Robust misinterpretation of confidence intervals.
 \newblock \emph{Psychonomic Bulletin \& Review}, 21(5):1157--1164.
+
+\bibitem[{Husse and Spitz(2022)}]{husse-spitz-2022-mind}
+Husse, Silke and Andreas Spitz. 2022.
+\newblock Mind your bias: A critical review of bias detection methods for
+  contextual language models.
+\newblock In \emph{Findings of the Association for Computational Linguistics:
+  EMNLP 2022}, pages 4212--4234, Association for Computational Linguistics, Abu
+  Dhabi, United Arab Emirates.
 
 \bibitem[{James et~al.(2013)James, Witten, Hastie, Tibshirani
   et~al.}]{james2013introduction}

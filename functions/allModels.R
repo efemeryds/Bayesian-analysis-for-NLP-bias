@@ -10,6 +10,13 @@ source("functions/newModelBuilding.R")
 genderGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1])
 genderReddit <-  cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_reddit_dataset.csv")[,-1])
 
+raceGlove <-  cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_glove_dataset.csv")[,-1])
+raceGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_google_dataset.csv")[,-1])
+raceReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_reddit_dataset.csv")[,-1])
+
+religionGlove <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_glove_dataset.csv")[,-1])
+religionGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_google_dataset.csv")[,-1])
+religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1])
 
 
 modelGenderGoogle <- buildModel(genderGoogle)
@@ -22,20 +29,19 @@ saveRDS(modelGenderReddit, file = "models/modelGenderReddit.RDS")
 precisGenderReddit  <- extractPrecis(modelGenderReddit, name = "GenderReddit")
 
 
+modelRaceGlove <- buildModel(raceGlove)
+saveRDS(modelRaceGlove, file = "models/modelRaceGlove.RDS")
+precisRaceGlove  <- extractPrecis(modelRaceGlove, name = "RaceGlove")
+
 genderGlove <- read.csv("./datasets/macWeatDatasets/gender_group_glove_dataset.csv")[,-1]
 genderGlove <- cleanDataset(genderGlove)
 modelGenderGlove <- buildModel(genderGlove)
 save(modelGenderGlove, file = "models/modelGenderGlove.rda")
 
 # RACE
-raceGlove <-  cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_glove_dataset.csv")[,-1])
-raceGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_google_dataset.csv")[,-1])
-raceReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_reddit_dataset.csv")[,-1])
 
 
-modelRaceGlove <- buildModel(raceGlove)
-saveRDS(modelRaceGlove, file = "models/modelRaceGlove.RDS")
-precisRaceGlove  <- extractPrecis(modelRaceGlove, name = "RaceGlove")
+
 
 
 
@@ -51,12 +57,7 @@ precisRaceReddit  <- extractPrecis(modelRaceReddit, name = "RaceReddit")
 
 
 ##RELIGION
-religionGlove <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_glove_dataset.csv")[,-1])
-#"WARNING:  15 out of 4830 (0.31055900621118%) missing comparisons have been removed!"
 
-religionGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_google_dataset.csv")[,-1])
-
-religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1])
 
 
 modelReligionGlove <- buildModel(religionGlove)
