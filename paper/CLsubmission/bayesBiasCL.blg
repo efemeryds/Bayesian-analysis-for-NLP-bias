@@ -4,45 +4,45 @@ The top-level auxiliary file: bayesBiasCL.aux
 The style file: compling.bst
 Database file #1: cosineReferences.bib
 Warning--empty booktitle in gordon2012reporting
-You've used 30 entries,
+You've used 31 entries,
             2855 wiz_defined-function locations,
-            772 strings with 11337 characters,
-and the built_in function-call counts, 19325 in all, are:
-= -- 1543
-> -- 1047
-< -- 20
-+ -- 343
-- -- 309
-* -- 1391
-:= -- 3023
-add.period$ -- 117
-call.type$ -- 30
-change.case$ -- 260
-chr.to.int$ -- 30
-cite$ -- 31
-duplicate$ -- 1439
-empty$ -- 1286
-format.name$ -- 412
-if$ -- 3865
+            778 strings with 11589 characters,
+and the built_in function-call counts, 20085 in all, are:
+= -- 1612
+> -- 1069
+< -- 22
++ -- 350
+- -- 315
+* -- 1441
+:= -- 3123
+add.period$ -- 121
+call.type$ -- 31
+change.case$ -- 269
+chr.to.int$ -- 31
+cite$ -- 32
+duplicate$ -- 1498
+empty$ -- 1347
+format.name$ -- 423
+if$ -- 4031
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 280
-newline$ -- 151
-num.names$ -- 129
-pop$ -- 595
+missing$ -- 290
+newline$ -- 156
+num.names$ -- 133
+pop$ -- 617
 preamble$ -- 1
-purify$ -- 213
+purify$ -- 219
 quote$ -- 0
-skip$ -- 533
+skip$ -- 562
 stack$ -- 0
-substring$ -- 777
-swap$ -- 707
-text.length$ -- 10
+substring$ -- 828
+swap$ -- 741
+text.length$ -- 11
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 261
+type$ -- 270
 warning$ -- 1
-while$ -- 132
+while$ -- 138
 width$ -- 0
-write$ -- 387
+write$ -- 401
 (There was 1 warning)

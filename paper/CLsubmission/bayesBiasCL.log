@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.11.15)  29 SEP 2023 14:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2023.10.6)  19 OCT 2023 12:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1526,6 +1526,9 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \vbox (42.0pt too high) has occurred while \output is active []
 
 
@@ -1545,9 +1548,6 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [26 <./figures/figdebiasedCosine23c.pdf>]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1607,6 +1607,9 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [28]
+Underfull \vbox (badness 3260) has occurred while \output is active []
+
+
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -1635,10 +1638,10 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [29]
-<figures/weatjoint2z.pdf, id=716, 376.40625pt x 580.1675pt>
+<figures/weatjoint2z.pdf, id=718, 376.40625pt x 580.1675pt>
 File: figures/weatjoint2z.pdf Graphic file (type pdf)
 <use figures/weatjoint2z.pdf>
-Package pdftex.def Info: figures/weatjoint2z.pdf  used on input line 1466.
+Package pdftex.def Info: figures/weatjoint2z.pdf  used on input line 1472.
 (pdftex.def)             Requested size: 376.40532pt x 580.16606pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1734,16 +1737,16 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [32 <./figures/weatjoint2z.pdf>]
-<figures/weat7glovh.pdf, id=744, 375.4025pt x 580.1675pt>
+<figures/weat7glovh.pdf, id=749, 375.4025pt x 580.1675pt>
 File: figures/weat7glovh.pdf Graphic file (type pdf)
 <use figures/weat7glovh.pdf>
-Package pdftex.def Info: figures/weat7glovh.pdf  used on input line 1470.
+Package pdftex.def Info: figures/weat7glovh.pdf  used on input line 1476.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
-<figures/resultsWeat7Reddita.pdf, id=745, 341.275pt x 580.1675pt>
+<figures/resultsWeat7Reddita.pdf, id=750, 341.275pt x 580.1675pt>
 File: figures/resultsWeat7Reddita.pdf Graphic file (type pdf)
 <use figures/resultsWeat7Reddita.pdf>
 Package pdftex.def Info: figures/resultsWeat7Reddita.pdf  used on input line 14
-72.
+78.
 (pdftex.def)             Requested size: 384.0pt x 652.84616pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1808,17 +1811,17 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [34 <./figures/resultsWeat7Reddita.pdf>]
-<figures/resultsWeat1Googlea.pdf, id=774, 376.40625pt x 580.1675pt>
+<figures/resultsWeat1Googlea.pdf, id=779, 376.40625pt x 580.1675pt>
 File: figures/resultsWeat1Googlea.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Googlea.pdf>
 Package pdftex.def Info: figures/resultsWeat1Googlea.pdf  used on input line 14
-74.
+80.
 (pdftex.def)             Requested size: 384.0pt x 591.9135pt.
-<figures/resultsWeat1Glovea.pdf, id=775, 374.39874pt x 580.1675pt>
+<figures/resultsWeat1Glovea.pdf, id=780, 374.39874pt x 580.1675pt>
 File: figures/resultsWeat1Glovea.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Glovea.pdf>
-Package pdftex.def Info: figures/resultsWeat1Glovea.pdf  used on input line 147
-6.
+Package pdftex.def Info: figures/resultsWeat1Glovea.pdf  used on input line 148
+2.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1852,11 +1855,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [35 <./figures/resultsWeat1Googlea.pdf>]
-<figures/resultsWeat1Reddita.pdf, id=791, 336.25626pt x 580.1675pt>
+<figures/resultsWeat1Reddita.pdf, id=796, 336.25626pt x 580.1675pt>
 File: figures/resultsWeat1Reddita.pdf Graphic file (type pdf)
 <use figures/resultsWeat1Reddita.pdf>
 Package pdftex.def Info: figures/resultsWeat1Reddita.pdf  used on input line 14
-78.
+84.
 (pdftex.def)             Requested size: 384.0pt x 662.54865pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -1921,11 +1924,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [37 <./figures/resultsWeat1Reddita.pdf>]
-<figures/resultsReligionGooglea.pdf, id=821, 337.26pt x 580.1675pt>
+<figures/resultsReligionGooglea.pdf, id=826, 337.26pt x 580.1675pt>
 File: figures/resultsReligionGooglea.pdf Graphic file (type pdf)
 <use figures/resultsReligionGooglea.pdf>
 Package pdftex.def Info: figures/resultsReligionGooglea.pdf  used on input line
- 1480.
+ 1486.
 (pdftex.def)             Requested size: 384.0pt x 660.58336pt.
 
 Overfull \vbox (65.26335pt too high) has occurred while \output is active []
@@ -1959,17 +1962,17 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [38 <./figures/resultsReligionGooglea.pdf>]
-<figures/resultsReligionGlovea.pdf, id=836, 374.39874pt x 580.1675pt>
+<figures/resultsReligionGlovea.pdf, id=841, 374.39874pt x 580.1675pt>
 File: figures/resultsReligionGlovea.pdf Graphic file (type pdf)
 <use figures/resultsReligionGlovea.pdf>
 Package pdftex.def Info: figures/resultsReligionGlovea.pdf  used on input line 
-1482.
+1488.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
-<figures/resultsReligionReddita.pdf, id=837, 375.4025pt x 580.1675pt>
+<figures/resultsReligionReddita.pdf, id=842, 375.4025pt x 580.1675pt>
 File: figures/resultsReligionReddita.pdf Graphic file (type pdf)
 <use figures/resultsReligionReddita.pdf>
 Package pdftex.def Info: figures/resultsReligionReddita.pdf  used on input line
- 1484.
+ 1490.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2003,11 +2006,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [39 <./figures/resultsReligionGlovea.pdf>]
-<figures/resultsRaceGooglea.pdf, id=852, 374.39874pt x 580.1675pt>
+<figures/resultsRaceGooglea.pdf, id=857, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceGooglea.pdf Graphic file (type pdf)
 <use figures/resultsRaceGooglea.pdf>
-Package pdftex.def Info: figures/resultsRaceGooglea.pdf  used on input line 148
-6.
+Package pdftex.def Info: figures/resultsRaceGooglea.pdf  used on input line 149
+2.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2041,10 +2044,10 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [40 <./figures/resultsReligionReddita.pdf>]
-<figures/resultsRaceGlovea.pdf, id=867, 374.39874pt x 580.1675pt>
+<figures/resultsRaceGlovea.pdf, id=872, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceGlovea.pdf Graphic file (type pdf)
 <use figures/resultsRaceGlovea.pdf>
-Package pdftex.def Info: figures/resultsRaceGlovea.pdf  used on input line 1488
+Package pdftex.def Info: figures/resultsRaceGlovea.pdf  used on input line 1494
 .
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
@@ -2079,11 +2082,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [41 <./figures/resultsRaceGooglea.pdf>]
-<figures/resultsRaceReddita.pdf, id=882, 374.39874pt x 580.1675pt>
+<figures/resultsRaceReddita.pdf, id=887, 374.39874pt x 580.1675pt>
 File: figures/resultsRaceReddita.pdf Graphic file (type pdf)
 <use figures/resultsRaceReddita.pdf>
 Package pdftex.def Info: figures/resultsRaceReddita.pdf  used on input line 149
-0.
+6.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2117,11 +2120,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [42 <./figures/resultsRaceGlovea.pdf>]
-<figures/resultsGenderGooglea.pdf, id=897, 341.275pt x 580.1675pt>
+<figures/resultsGenderGooglea.pdf, id=902, 341.275pt x 580.1675pt>
 File: figures/resultsGenderGooglea.pdf Graphic file (type pdf)
 <use figures/resultsGenderGooglea.pdf>
 Package pdftex.def Info: figures/resultsGenderGooglea.pdf  used on input line 1
-492.
+498.
 (pdftex.def)             Requested size: 384.0pt x 652.84616pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2186,11 +2189,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [44 <./figures/resultsGenderGooglea.pdf>]
-<figures/resultsGenderGlovea.pdf, id=928, 329.23pt x 580.1675pt>
+<figures/resultsGenderGlovea.pdf, id=933, 329.23pt x 580.1675pt>
 File: figures/resultsGenderGlovea.pdf Graphic file (type pdf)
 <use figures/resultsGenderGlovea.pdf>
-Package pdftex.def Info: figures/resultsGenderGlovea.pdf  used on input line 14
-94.
+Package pdftex.def Info: figures/resultsGenderGlovea.pdf  used on input line 15
+00.
 (pdftex.def)             Requested size: 384.0pt x 676.704pt.
 
 Overfull \vbox (81.38399pt too high) has occurred while \output is active []
@@ -2224,11 +2227,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [45 <./figures/resultsGenderGlovea.pdf>]
-<figures/resultsGenderReddita.pdf, id=943, 338.26375pt x 580.1675pt>
+<figures/resultsGenderReddita.pdf, id=948, 338.26375pt x 580.1675pt>
 File: figures/resultsGenderReddita.pdf Graphic file (type pdf)
 <use figures/resultsGenderReddita.pdf>
 Package pdftex.def Info: figures/resultsGenderReddita.pdf  used on input line 1
-496.
+502.
 (pdftex.def)             Requested size: 384.0pt x 658.63577pt.
 
 Overfull \vbox (63.31577pt too high) has occurred while \output is active []
@@ -2262,17 +2265,17 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [46 <./figures/resultsGenderReddita.pdf>]
-<figures/resultsDebiasedReligionReddita.pdf, id=958, 375.4025pt x 580.1675pt>
+<figures/resultsDebiasedReligionReddita.pdf, id=963, 375.4025pt x 580.1675pt>
 File: figures/resultsDebiasedReligionReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedReligionReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedReligionReddita.pdf  used on in
-put line 1498.
+put line 1504.
 (pdftex.def)             Requested size: 384.0pt x 593.48926pt.
-<figures/resultsDebiasedRaceReddita.pdf, id=959, 374.39874pt x 580.1675pt>
+<figures/resultsDebiasedRaceReddita.pdf, id=964, 374.39874pt x 580.1675pt>
 File: figures/resultsDebiasedRaceReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedRaceReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedRaceReddita.pdf  used on input 
-line 1500.
+line 1506.
 (pdftex.def)             Requested size: 384.0pt x 595.07388pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2306,11 +2309,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [47 <./figures/resultsDebiasedReligionReddita.pdf>]
-<figures/resultsDebiasedGenderReddita.pdf, id=974, 331.2375pt x 580.1675pt>
+<figures/resultsDebiasedGenderReddita.pdf, id=979, 331.2375pt x 580.1675pt>
 File: figures/resultsDebiasedGenderReddita.pdf Graphic file (type pdf)
 <use figures/resultsDebiasedGenderReddita.pdf>
 Package pdftex.def Info: figures/resultsDebiasedGenderReddita.pdf  used on inpu
-t line 1502.
+t line 1508.
 (pdftex.def)             Requested size: 384.0pt x 672.61409pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2375,23 +2378,23 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [49 <./figures/resultsDebiasedGenderReddita.pdf>]
-<figures/figposteriorPrCheckAppendixa.pdf, id=1004, 453.695pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixa.pdf, id=1009, 453.695pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixa.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixa.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixa.pdf  used on inpu
-t line 1510.
+t line 1516.
 (pdftex.def)             Requested size: 384.0pt x 270.1606pt.
-<figures/figposteriorPrCheckAppendixb.pdf, id=1005, 462.72874pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixb.pdf, id=1010, 462.72874pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixb.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixb.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixb.pdf  used on inpu
-t line 1512.
+t line 1518.
 (pdftex.def)             Requested size: 384.0pt x 264.88586pt.
-<figures/figposteriorPrCheckAppendixc.pdf, id=1006, 465.74pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixc.pdf, id=1011, 465.74pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixc.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixc.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixc.pdf  used on inpu
-t line 1514.
+t line 1520.
 (pdftex.def)             Requested size: 384.0pt x 263.1812pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2426,11 +2429,11 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 [50 <./figures/figposteriorPrCheckAppendixa.pdf> <./figures/figposteriorPrCheck
 Appendixb.pdf>]
-<figures/figposteriorPrCheckAppendixd.pdf, id=1036, 453.695pt x 319.1925pt>
+<figures/figposteriorPrCheckAppendixd.pdf, id=1041, 453.695pt x 319.1925pt>
 File: figures/figposteriorPrCheckAppendixd.pdf Graphic file (type pdf)
 <use figures/figposteriorPrCheckAppendixd.pdf>
 Package pdftex.def Info: figures/figposteriorPrCheckAppendixd.pdf  used on inpu
-t line 1516.
+t line 1522.
 (pdftex.def)             Requested size: 384.0pt x 270.1606pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2465,7 +2468,7 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 [51 <./figures/figposteriorPrCheckAppendixc.pdf> <./figures/figposteriorPrCheck
 Appendixd.pdf>]
-Underfull \hbox (badness 1152) in paragraph at lines 1608--1647
+Underfull \hbox (badness 1152) in paragraph at lines 1614--1653
 \T1/ppl/m/n/10 `eleventh', `cpu', `ranked', `ir-re-versibly', `ponce', `ve-loci
 -rap-tor', `de-fects', `puz-zle',
  []
@@ -2499,13 +2502,13 @@ Overfull \vbox (659.52pt too high) has occurred while \output is active []
 
 
 [52]
-Underfull \hbox (badness 1163) in paragraph at lines 1654--1670
+Underfull \hbox (badness 1163) in paragraph at lines 1660--1676
 \T1/ppl/m/n/10 ger', `char-ac-ter', `can-di-date', `break-fast', `sup-per', `di
 n-ner', `eat', `drink', ``carry'',
  []
 
 
-Underfull \hbox (badness 1824) in paragraph at lines 1654--1670
+Underfull \hbox (badness 1824) in paragraph at lines 1660--1676
 \T1/ppl/m/n/10 ``leg'', ``ar-rival'', ``trans-lated'', ``eyes'', ``step'', ``wh
 ilst'', ``trans-la-tion'', ``prac-tices'',
  []
@@ -2602,10 +2605,10 @@ Package rerunfilecheck Info: File `bayesBiasCL.out' has not changed.
 (rerunfilecheck)             Checksum: E93C8E7EFD25B15C3C6F96E250D2CE64;3116.
  ) 
 Here is how much of TeX's memory you used:
- 13933 strings out of 478287
- 224671 string characters out of 5849288
- 513710 words of memory out of 5000000
- 31691 multiletter control sequences out of 15000+600000
+ 13937 strings out of 478287
+ 224784 string characters out of 5849289
+ 513747 words of memory out of 5000000
+ 31694 multiletter control sequences out of 15000+600000
  512316 words of font info for 106 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,14n,90p,1276b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2629,10 +2632,10 @@ pe1/urw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helve
 tic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplb8a.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/sha
 re/texlive/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb>
-Output written on bayesBiasCL.pdf (55 pages, 6946683 bytes).
+Output written on bayesBiasCL.pdf (55 pages, 6948107 bytes).
 PDF statistics:
- 1228 PDF objects out of 1440 (max. 8388607)
- 1001 compressed objects within 11 object streams
- 180 named destinations out of 1000 (max. 500000)
+ 1235 PDF objects out of 1440 (max. 8388607)
+ 1008 compressed objects within 11 object streams
+ 181 named destinations out of 1000 (max. 500000)
  340 words of extra memory for PDF output out of 10000 (max. 10000000)
 

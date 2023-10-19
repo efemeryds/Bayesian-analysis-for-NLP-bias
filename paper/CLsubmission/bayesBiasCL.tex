@@ -1273,6 +1273,12 @@ A worry that one might have is that the original challenge was to develop a sing
 One of our recommendations is that the wordlists should be larger. A possible concern here is that one might ask: \emph{But wouldn't larger wordlists solve the problem with the existing measures of bias?} This is in some sense true: the overconfidence resulting from using aggregated data will be less damaging if more data is used. However, as \citet{Ethayarajh2020Bernstein} prove, the list sizes needed for useful uncertainty estimation from this perspective obtained using theoretical bounds tend to be prohibitive. Bayesian uncertainty estimates, however, scale with size and can be improved and evaluated as the list sizes increase, even if the size improvement is far from the one required by classical theoretical considerations.  
 
 
+Another concern may be that this research focuses primarily on traditional uncontextualized embeddings, which may be considered outdated given recent advances in the field. Our focus on WEAT and similar methods is motivated by the fact that WEAT is the main bias measure that is claimed to be supported by data and findings from the Implicit Association Test in psychology, and by the fact that its analogues have seen the most research contributions.
+
+Having said that, here is a generalization of the WEAT for contextual models,  The Sentence Encoder Association Test (SEAT) \citep{may-etal-2019-measuring}.  It works by injecting words into the context of template sentences, which are then embedded: the bias is computed from the sentence embeddings. A number of similar generalizations have been reviewed and studied by \citet{husse-spitz-2022-mind}. The authors' main observation is that the reported results are heterogeneous, inconsistent, and ultimately inconclusive, as minor design and implementation choices or errors have a substantial and often significant impact on the derived bias scores. This is consistent with our critique of the use of such scores. 
+
+However, just as WEAT can be generalized to contextual models, so can our method. The fact that it has not been applied in this way is due to a practical rather than a conceptual or technical limitation. The results of such generalization remain to be produced and studied.
+
 
 
 

@@ -19957,4 +19957,32 @@ series = {FAccT '22}
   publisher = {Springer},
 }
 
+@InProceedings{may-etal-2019-measuring,
+  author    = {May, Chandler and Wang, Alex and Bordia, Shikha and Bowman, Samuel R. and Rudinger, Rachel},
+  title     = {On Measuring Social Biases in Sentence Encoders},
+  booktitle = {Proceedings of the 2019 Conference of the North {A}merican Chapter of the Association for Computational Linguistics: Human Language Technologies, Volume 1 (Long and Short Papers)},
+  year      = {2019},
+  publisher = {Association for Computational Linguistics},
+  month     = jun,
+  pages     = {622--628},
+  doi       = {10.18653/v1/N19-1063},
+  url       = {https://aclanthology.org/N19-1063},
+  abstract  = {The Word Embedding Association Test shows that GloVe and word2vec word embeddings exhibit human-like implicit biases based on gender, race, and other social constructs (Caliskan et al., 2017). Meanwhile, research on learning reusable text representations has begun to explore sentence-level texts, with some sentence encoders seeing enthusiastic adoption. Accordingly, we extend the Word Embedding Association Test to measure bias in sentence encoders. We then test several sentence encoders, including state-of-the-art methods such as ELMo and BERT, for the social biases studied in prior work and two important biases that are difficult or impossible to test at the word level. We observe mixed results including suspicious patterns of sensitivity that suggest the test{'}s assumptions may not hold in general. We conclude by proposing directions for future work on measuring bias in sentence encoders.},
+  address   = {Minneapolis, Minnesota},
+}
+
+@InProceedings{husse-spitz-2022-mind,
+  author    = {Husse, Silke and Spitz, Andreas},
+  title     = {Mind Your Bias: A Critical Review of Bias Detection Methods for Contextual Language Models},
+  booktitle = {Findings of the Association for Computational Linguistics: EMNLP 2022},
+  year      = {2022},
+  publisher = {Association for Computational Linguistics},
+  month     = dec,
+  pages     = {4212--4234},
+  doi       = {10.18653/v1/2022.findings-emnlp.311},
+  url       = {https://aclanthology.org/2022.findings-emnlp.311},
+  abstract  = {The awareness and mitigation of biases are of fundamental importance for the fair and transparent use of contextual language models, yet they crucially depend on the accurate detection of biases as a precursor. Consequently, numerous bias detection methods have been proposed, which vary in their approach, the considered type of bias, and the data used for evaluation. However, while most detection methods are derived from the word embedding association test for static word embeddings, the reported results are heterogeneous, inconsistent, and ultimately inconclusive. To address this issue, we conduct a rigorous analysis and comparison of bias detection methods for contextual language models. Our results show that minor design and implementation decisions (or errors) have a substantial and often significant impact on the derived bias scores. Overall, we find the state of the field to be both worse than previously acknowledged due to systematic and propagated errors in implementations, yet better than anticipated since divergent results in the literature homogenize after accounting for implementation errors. Based on our findings, we conclude with a discussion of paths towards more robust and consistent bias detection methods.},
+  address   = {Abu Dhabi, United Arab Emirates},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
