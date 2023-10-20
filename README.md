@@ -85,7 +85,8 @@ dataset$connection <- as.factor(dataset$connection)
 ifelse(sum( dataset$similarity < -1 | dataset$distance < -1) != 0, 
        print(
          paste("WARNING:  ",  sum( dataset$similarity < -1 | dataset$distance < -1), 
-               " out of ", nrow(dataset), " (", sum( dataset$similarity < -1 | dataset$distance < -1)/nrow(dataset) * 100, 
+               " out of ", nrow(dataset), " (", sum( dataset$similarity < -1 | 
+               dataset$distance < -1)/nrow(dataset) * 100, 
                "%) missing comparisons have been removed!", sep = "")
        ),
        print("No word removal needed.")
@@ -160,35 +161,41 @@ plotFromPrecis <- function (precis, dataset){
   
   DFindividual$pw <- as.factor(levels(dataset$pw)[rep((1:(nrow(DFindividual)/4)),4)])
   DFindividual$type <- as.factor(c(rep("different", nrow(DFindividual)/4),rep("associated", 
-                                                                              nrow(DFindividual)/4),rep("human", nrow(DFindividual)/4), 
-                                   rep("none", nrow(DFindividual)/4)))
+                                                    nrow(DFindividual)/4),
+                                                    rep("human", nrow(DFindividual)/4), 
+                                                    rep("none", nrow(DFindividual)/4)))
   
-  pwPlot <- ggplot() + geom_point(data = DFindividual, aes( x = reorder(pw, desc(pw)), y = mean, color = type),
-                                  position = position_nudge((as.integer(DFindividual$type)-1)*0.15), size = 1)+
-    coord_flip()+theme_tufte()+expand_limits(x= c(-1, nrow(DFindividual)/4 +1))+
-    scale_color_manual(values = c("associated" ="orangered4", 
+  pwPlot <- ggplot() + geom_point(data = DFindividual, aes( x = reorder(pw, desc(pw)), 
+                      y = mean, color = type),
+                      position = position_nudge((as.integer(DFindividual$type)-1)*0.15), size = 1)+
+                      coord_flip()+theme_tufte()+expand_limits(x= c(-1, nrow(DFindividual)/4 +1))+
+                      scale_color_manual(values = c("associated" ="orangered4", 
                                   "different" = "chartreuse4",
                                   "human" = "skyblue",
                                   "none" = "grey")) +xlab("protected word")+
-    ylab("distance from overall baseline")+
-    geom_segment(data = DFindividual,aes(x=reorder(pw, desc(pw)),xend=reorder(pw, desc(pw)), y  = `5.5%`, yend= `94.5%`,
-                                         color = type),
-                 position = position_nudge((as.integer(DFindividual$type)-1)*0.15), size = .4, alpha = .4)+
-    geom_hline(yintercept = 0, lty = 2, size = .2, alpha = .3)+ylim(-.5,.5) +ggtitle("Protected-word-relative coefficients")+ 
-    theme(legend.position='none')
+                      ylab("distance from overall baseline")+
+      geom_segment(data = DFindividual,aes(x=reorder(pw, desc(pw)),xend=reorder(pw, desc(pw)),
+                       y  = `5.5%`, yend= `94.5%`, color = type),
+                       position = position_nudge((as.integer(DFindividual$type)-1)*0.15), 
+                       size = .4, alpha = .4)+
+      geom_hline(yintercept = 0, lty = 2, size = .2, alpha = .3)+ylim(-.5,.5) +
+      ggtitle("Protected-word-relative coefficients")+ 
+      theme(legend.position='none')
   
   
   
-  overallPlot <- ggplot() + geom_point(data = DFoverall, aes( x = type, y = mean, color = type), size = 1, position = position_dodge2(width = -1))+
-    coord_flip()+theme_tufte() +  
-    geom_segment(data = DFoverall,aes(x=type,xend = type, y  = low, yend= high,
-                                      color = type))+ylim(-.5,.5)+
-    scale_color_manual(values = c("associated" ="orangered4", 
+  overallPlot <- ggplot() + geom_point(data = DFoverall, aes( x = type, y = mean, color = type),
+                      size = 1, position = position_dodge2(width = -1))+
+                      coord_flip()+theme_tufte() +  
+                      geom_segment(data = DFoverall,aes(x=type,xend = type, y  = low, yend= high,
+                      color = type))+ylim(-.5,.5)+
+                      scale_color_manual(values = c("associated" ="orangered4", 
                                   "different" = "chartreuse4",
                                   "human" = "skyblue",
-                                  "none" = "grey"))+ theme(legend.position = c(0.2, 0.6))+ggtitle("Overall coefficients")+
-    ylab("distance from overall baseline")+
-    geom_hline(yintercept = 0, lty = 2, size = .2, alpha = .3)
+                                "none" = "grey"))+ theme(legend.position = c(0.2, 0.6))+
+                      ggtitle("Overall coefficients")+
+                      ylab("distance from overall baseline")+
+                      geom_hline(yintercept = 0, lty = 2, size = .2, alpha = .3)
   
   
   plotModel <- grid.arrange(overallPlot,pwPlot, ncol = 1)
@@ -201,51 +208,14 @@ plotFromPrecis <- function (precis, dataset){
 
 ``` r
 genderGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1])
-```
-
-    ## [1] "No word removal needed."
-
-``` r
 genderReddit <-  cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_reddit_dataset.csv")[,-1])
-```
-
-    ## [1] "No word removal needed."
-
-``` r
 raceGlove <-  cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_glove_dataset.csv")[,-1])
-```
-
-    ## [1] "WARNING:  18 out of 5868 (0.306748466257669%) missing comparisons have been removed!"
-
-``` r
 raceGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_google_dataset.csv")[,-1])
-```
-
-    ## [1] "No word removal needed."
-
-``` r
 raceReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/race_group_reddit_dataset.csv")[,-1])
-```
-
-    ## [1] "No word removal needed."
-
-``` r
 religionGlove <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_glove_dataset.csv")[,-1])
-```
-
-    ## [1] "WARNING:  15 out of 4830 (0.31055900621118%) missing comparisons have been removed!"
-
-``` r
 religionGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_google_dataset.csv")[,-1])
-```
-
-    ## [1] "No word removal needed."
-
-``` r
 religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1])
 ```
-
-    ## [1] "No word removal needed."
 
 ## Build a model and save it to an otherwise empty `models` folder
 
