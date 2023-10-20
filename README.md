@@ -4,7 +4,15 @@
 ## Setup
 
 - R version 4.2.2
+- All required packages are listed in `installed_packages.csv`. 
+- To install them follow the method described [here](https://pythonandr.com/2017/07/27/quick-way-of-installing-all-your-old-r-libraries-on-a-new-device/).
 
+```{r}
+installedPreviously <- read.csv('installed_packages.csv')
+baseR <- as.data.frame(installed.packages())
+toInstall <- setdiff(installed_packages.csv, baseR)
+install.packages(toInstall)
+```
 
 ### Quick way
 
