@@ -1,34 +1,10 @@
-# Bayesian-analysis-for-NLP-bias
+# Goal
 
+Preparing a Bayesian model for custom data.
 
-## Setup
+# Steps
 
-- R version 4.2.2
-
-
-### Quick way
-
-You use our generated predictions, download them from
-
-https://drive.google.com/drive/folders/1UgZxJDXRfULkEKusbrXYHYaebwA8mvzA?usp=sharing
-
-and place in ResultsDFs.
-
-
-
-### Long way
-
-You want to train the models and generate all the predictions yourself:
-
-- First, build models using functions/allModels.R
-- Then, generate predictions using functions/generatePredictions.R
-
-
-
-# A short pipeline walkthrough
-
-
-## Load libraries
+Load libraries.
 
 ``` r
 library("viridis") 
@@ -50,7 +26,7 @@ library(Hmisc)
 library(grid)
 ```
 
-## Load datasets
+Load datasets.
 
 ``` r
 genderGoogle <- read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1]
@@ -70,7 +46,7 @@ debiasedRaceReddit <- read.csv("datasets/macWeatDatasets/debiased_race_reddit.cs
 debiasedReligionReddit <- read.csv("datasets/macWeatDatasets/debiased_religion_reddit.csv")[-1]
 ```
 
-## Clean the data
+Clean the data.
 
 ``` r
 cleanDataset <- function (dataset) {
@@ -104,7 +80,7 @@ return(dataset)
 }
 ```
 
-## Define the  model-building function
+Define a function to build a model.
 
 ``` r
 buildModel <- function(dataset){
@@ -133,7 +109,7 @@ return(modelResult)
 }
 ```
 
-## Define helper functions
+Define helper functions.
 
 ``` r
 savePrecis <- function(modelResult,name){
@@ -197,7 +173,7 @@ plotFromPrecis <- function (precis, dataset){
 }
 ```
 
-## Clean datasets
+Clean datasets.
 
 ``` r
 genderGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1])
@@ -247,18 +223,9 @@ religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_gro
 
     ## [1] "No word removal needed."
 
-## Build a model and save it to an otherwise empty `models` folder
+Build exemplary model and save it to an otherwise empty `models` folder.
 
 ``` r
 modelGenderGoogle <- buildModel(genderGoogle)
 saveRDS(modelGenderGoogle, file = "models/modelGenderGoogle.RDS")
 ```
-
-
-
-
-
-
-
-
-

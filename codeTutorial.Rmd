@@ -1,6 +1,8 @@
 ---
 title: "R Notebook"
-output: html_notebook
+output:
+  md_document:
+    variant: markdown_github
 ---
 
 # Goal
@@ -12,8 +14,7 @@ Preparing a Bayesian model for custom data.
 
 Load libraries.
 
-```{r, setup, include=FALSE}
-knitr::opts_knit$set(root.dir = '../')
+```{r, setup, echo = TRUE, eval = FALSE}
 library("viridis") 
 library(ggplot2)
 library(ggthemes)
@@ -37,7 +38,7 @@ library(grid)
 
 Load datasets.
 
-```{r cosineDistributions6d,echo=FALSE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "75%", warning = FALSE, message = FALSE}
+```{r cosineDistributions6d,echo=TRUE,eval=TRUE,fig.align = "center",cache=TRUE, fig.show = "hold", out.width = "75%", warning = FALSE, message = FALSE, results= 'hide'}
 
 genderGoogle <- read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1]
 genderReddit <-  read.csv("./datasets/macWeatDatasets/gender_group_reddit_dataset.csv")[,-1]
@@ -208,7 +209,7 @@ religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_gro
 Build exemplary model and save it to an otherwise empty `models` folder. 
 
 
-```{r}
+```{r, eval = FALSE, echo = TRUE}
 modelGenderGoogle <- buildModel(genderGoogle)
 saveRDS(modelGenderGoogle, file = "models/modelGenderGoogle.RDS")
 ```
