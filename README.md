@@ -25,10 +25,10 @@ You want to train the models and generate all the predictions yourself:
 
 
 
-# A short pipeline walkthrough
+## A short pipeline walkthrough
 
 
-## Load libraries
+### Load libraries
 
 ``` r
 library("viridis") 
@@ -50,7 +50,7 @@ library(Hmisc)
 library(grid)
 ```
 
-## Load datasets
+### Load datasets
 
 ``` r
 genderGoogle <- read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1]
@@ -70,7 +70,7 @@ debiasedRaceReddit <- read.csv("datasets/macWeatDatasets/debiased_race_reddit.cs
 debiasedReligionReddit <- read.csv("datasets/macWeatDatasets/debiased_religion_reddit.csv")[-1]
 ```
 
-## Clean the data
+### Clean the data
 
 ``` r
 cleanDataset <- function (dataset) {
@@ -105,7 +105,7 @@ return(dataset)
 }
 ```
 
-## Define the  model-building function
+### Define the  model-building function
 
 ``` r
 buildModel <- function(dataset){
@@ -134,7 +134,7 @@ return(modelResult)
 }
 ```
 
-## Define helper functions
+### Define helper functions
 
 ``` r
 savePrecis <- function(modelResult,name){
@@ -204,7 +204,7 @@ plotFromPrecis <- function (precis, dataset){
 }
 ```
 
-## Clean datasets
+### Clean datasets
 
 ``` r
 genderGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/gender_group_google_dataset.csv")[,-1])
@@ -217,7 +217,7 @@ religionGoogle <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_gro
 religionReddit <- cleanDataset(read.csv("./datasets/macWeatDatasets/religion_group_reddit_dataset.csv")[,-1])
 ```
 
-## Build a model and save it to an otherwise empty `models` folder
+### Build a model and save it to an otherwise empty `models` folder
 
 ``` r
 modelGenderGoogle <- buildModel(genderGoogle)
