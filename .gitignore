@@ -20,3 +20,5 @@ codeTutorial_cache
 *.synctex.gz
 *.toc
 *.bcf
+*.bak
+*.sav
