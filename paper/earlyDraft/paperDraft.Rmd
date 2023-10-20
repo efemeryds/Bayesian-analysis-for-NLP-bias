@@ -23,7 +23,7 @@ csl: ../references/transactions-on-computational-logic.csl
 
 
 ```{r, setup, include=FALSE}
-knitr::opts_knit$set(root.dir = '../')
+knitr::opts_knit$set(root.dir = '../../')
 library("viridis") 
 library(ggplot2)
 library(ggthemes)

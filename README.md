@@ -36,6 +36,8 @@ You want to train the models and generate all the predictions yourself:
 ## A short pipeline walkthrough
 
 
+Full paper code is available in `/paper/earlyDraft/paperDraft.Rmd` (the textual content has been superceded by `/paper/CLsubmission/bayesBiasCL.tex`, though). Running the `.Rmd` file requires the presence of the files shared on the Google Drive.
+
 ### Load libraries
 
 ``` r
