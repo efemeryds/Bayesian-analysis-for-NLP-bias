@@ -7,6 +7,7 @@ output:
 
 # Goal
 
+This repeats the walkthrough code available in `Readme.md`.
 Preparing a Bayesian model for custom data.
 
 
