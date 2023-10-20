@@ -168,7 +168,7 @@ alternative Bayesian approach that we propose. In Section
 \ref{sec:results} we elaborate on the results that it leads to,
 including low  efficiency of debiasing methods, discussed in Subsection \ref{subsec:rethinking}. Finally, in
 Section \ref{sec:related} we spend some time placing our results in the
-ongoing discussions.\footnote{\textbf{Disclaimer:} throughout the paper
+ongoing discussions. \footnote{\textbf{Disclaimer:} throughout the paper
   we will be mentioning and using word lists and stereotypes we did not
   formulate, which does not mean we condone any judgment made therein or
   underlying a given word selection. For instance, the Gender dataset
@@ -185,7 +185,7 @@ MAC}\label{two-measures-of-bias-weat-and-mac}}
 \label{sec:two}
 
 The underlying intuition is that if a particular harmful stereotype is
-learned in a particular embedding, then certain groups of words will be
+learned in a given embedding, then certain groups of words will be
 systematically closer to (or further from) each other. This gives rise
 to the idea of protected groups---for example, in guiding online search
 completion or recommendation, female words might require protection in
@@ -305,7 +305,7 @@ these values and standardizing: \begin{align} \label{eq:weat}
 same word sets, allowing for a \emph{prima facie} sensible comparison
 with bias in humans. In \citep{Caliskan2017semanticsBiases} the authors argue that significant
 biases---thus measured--- similar to the ones discovered by IAT can be
-discovered in word embeddings. In \citep{Lauscher2019multidimensional} the methodology is extended
+found in word embeddings. In \citep{Lauscher2019multidimensional} the methodology is extended
 to a multilingual and cross-lingual setting, arguing that using
 Euclidean distance instead of cosine similarity does not make much
 difference, while the bias effects vary greatly across embedding
@@ -390,7 +390,7 @@ attribute set \(A_j\), they first take the mean of distances for this
 protected word and all attributes in a given attribute class, and then
 take the mean of thus obtained means for all the protected words and all
 the protected classes.\footnote{The authors' code is available through
-  their github repository at
+  their GitHub repository at
   \url{https://github.com/TManzini/DebiasMulticlassWordEmbedding}.}
 
 \begin{figure}
@@ -564,11 +564,7 @@ groups and in line with Bayesian methodology, use posterior
 distributions and highest posterior density intervals instead of chasing
 single-point metrics based on pre-averaged data. Before we do so, we
 first explain why pre-averaging and chasing single-number metrics is a
-sub-optimal strategy.
-
-
-
-
+suboptimal strategy.
 
 
 
@@ -629,7 +625,7 @@ not very sensitive to the real sample variance.
 
 Let us illustrate how this problem arises in the context of
 \textsf{WEAT}. Once a particular \(s(X,Y,A,B)\) is calculated, the
-question arises as to whether a value that high could have arisen by
+question arises whether a value that high could have arisen by
 chance. To address the question, each \(s(X,Y,A,B)\) is used in the
 original paper to generate a \(p\)-value by bootstrapping. The
 \(p\)-value is the frequency of how often it is the case that
@@ -676,7 +672,7 @@ do they lead to?
 In the bootstrapped samples we would rather expect low \textsf{s} values
 and low \textsf{WEAT}: after all, these are just random permutations of
 random distances all of which are drawn from the same null distribution. Let's take a look at one such a bootstrapped sample. For the sake of illustration,
- we picked a rather unusual one: the observed test statistic in this sample is 0.39 and 1.27.
+ we picked a rather unusual one: the observed test statistic in this sample is $0.39$ and $1.27$.
 
  The bootstrapped distributions of the test statistics
 and effect sizes across multiple samples are illustrated in Figure \ref{fig:caliskanCalc} (we marked the location of our particular example). 
@@ -688,7 +684,7 @@ noise). After all the observed statistic is unusual enough for the \(p\) values 
 	
 	\begin{center}\includegraphics[width=0.8\linewidth]{figures/figcaliskanCalcB2D} \end{center}
 	
-	\caption{Bootstrapped distributions of test statistics and effect sizes in a random sample given the null hypothesis. We used a sample from the null  model with N(0,.08) and 16 protected words, and then bootstrapped from it, following the original methodology. One particular bootstrapped sample is highlighted, and discussed further in the text. }
+	\caption{Bootstrapped distributions of test statistics and effect sizes in a random sample given the null hypothesis. We used a sample from the null  model with N($0$, $0.08$) and 16 protected words, and then bootstrapped from it, following the original methodology. One particular bootstrapped sample is highlighted, and discussed further in the text. }
 	\label{fig:caliskanCalc}
 \end{figure}
 
@@ -901,7 +897,7 @@ must then be chosen for the parameters used in the model. Next, Bayesian
 inference must be applied to find posterior distributions over the
 possible parameter values. Finally, we need to check how well the
 posterior predictions reflect the data with a posterior predictive
-check. This will be our evaluation of the methods performance, discussed in Subsection \ref{posterior-predictive-check}, and a more complete collection of such results is available in the appendix.
+check. This will be our evaluation of the method's performance, discussed in Subsection \ref{posterior-predictive-check}, and a more complete collection of such results is available in the appendix.
 
 In our analysis, the outcome variable is the cosine distances between the
 protected words and attribute words. The predictor is a factor related to an attribute word, and has  four levels:
@@ -933,7 +929,7 @@ models in which we simultaneously estimate parameters at the protected
 word level and at the global level, assuming that all lower-level
 parameters are drawn from global distributions. Such models can be
 thought of as incorporating adaptive regularization, which avoids
-overfitting and leads to improved estimates for unbalanced datasets.
+over-fitting and leads to improved estimates for unbalanced datasets.
 
 \begin{figure}
 
@@ -959,7 +955,7 @@ neutral attributes, \(n[pw]\): \begin{align*}
 description of the simple underlying process that we would like to
 investigate.
 
-Now the priors and the hierarchy. We assume all the \(a\) parameters
+Now let's turn to the the priors and the hierarchy. We assume all the \(a\) parameters
 come from one distribution, that is normal around a higher-level
 parameter \(\bar{a}\) and so on for the other three groups of
 parameters. That is, \(a_{\mathsf{pw[i]}}\) is the average distance of a
@@ -1000,13 +996,13 @@ The governing principles guiding our prior selection are:
 \begin{enumerate}
 	\item  We come with the same level of agnosticism about how biased a given embedding is with respect to a particular word list, and so we want to use 
 	the same priors across all word lists. Prior to the analysis there seem to be no particular reasons to have strong beliefs about the outcomes being different for different word lists. 
-	\item We want the priors to provide some level of regularization to avoid over-fitting. Taking coefficient priors centered around zeros is a fairly standard technique equivalent to other machine-learning regularization techniques (see Chapter 6 of \citep{james2013introduction}, especially the section on Bayesian interpretation of ridge regression and the lasso). Hence centering around the no-effect value (in our case, cosine distance equal to 1, or in other words, cosine similarity equal to 0) and non-uniformity. 
+	\item We want the priors to provide some level of regularization to avoid over-fitting. Taking coefficient priors centered around zeros is a fairly standard technique equivalent to other machine-learning regularization techniques (see Chapter 6 of \citep{james2013introduction}, especially the section on Bayesian interpretation of ridge regression and the lasso). Hence, centering around the no-effect value (in our case, cosine distance equal to 1, or in other words, cosine similarity equal to 0) and non-uniformity. 
 	
 	\item We also want to build in conceptual information that we already have, such as there are mathematical restrictions on the range of cosine similarities, and therefore on the expected values. If we choose sd = .3 that means that prior to seeing the data we expect the mean distances in groups to be with 99.7\% prior confidence to be within $1 \pm 3sd$, that is, $(-.2, 2.2)$ which is more than plenty and does not really exclude any mathematically possible value. 
 
 \end{enumerate}
 
-One useful thing about a Bayesian analysis is that the reader is welcome to re-run it with their own priors, if they find another choice more compelling, which we invite the reader to do.
+If the reader is concerned about the choice of priors, the publicly available code can be used  to re-run it with their own priors.
 
 
 \hypertarget{posterior-predictive-check}{%
@@ -1023,7 +1019,7 @@ data. If the model is a good fit to the data, the simulated data should
 resemble the observed data. In Figure \ref{fig:posteriorCheck1} we
 illustrate a posterior predictive check for one corpus (Reddit) and one
 word list. The remaining posterior predictive checks are in Appendix 
-\ref{appendix:posterior}.
+\ref{appendix:posterior}. The general phenomenon is that the frequency of observed values falling within the 89\% and 55\% highest posterior density predictive intervals are close to these percentages -- which illustrates that our model is not systematically incorrect. Another observation is that the posterior density intervals are relatively wide, which is not unexpected --- this illustrates that information about what treatment/control group a word belongs to is not very useful in predicting its distance to other words, in line with our general methodological comments.
 
 \begin{figure}
 
@@ -1048,19 +1044,18 @@ word list. The remaining posterior predictive checks are in Appendix
 
 \label{subsec:observations}
 
-In brief, despite one-number metrics suggesting otherwise, our Bayesian
+Despite one-number metrics suggesting otherwise, our Bayesian
 analysis reveals that insofar as the short word lists usually used in
 related research projects are involved, there usually are no strong
 reasons to claim the presence of systematic bias. Moreover, comparison
 between the groups (including control word lists) leads to the
 conclusion that the effect sizes (that is, the absolute differences
 between cosine distances between groups) tend to be rather small, with
-few exceptions. Moreover, the choice of protected words is crucial ---
+few exceptions. The choice of protected words is crucial ---
 as there is a lot of variance when it comes to the protected word-level
 analysis.
 
-In a bit more detail, the visualizations in Appendix
-\ref{appendix:visualizations} show that the situation is more
+One example of a visualization of the results can be found in Figure \ref{fig:empiricalPriorToDebiasing}. First, it illustrates posterior marginal distributions at the top of the model hierarchy, relating  estimated mean cosine distances by groups to each other. Then, it turns to particular protected words and estimates mean cosine distances of attributes to it, also by groups.  Visualizations for other embeddings and word lists can be found in Appendix \ref{appendix:visualizations}. Overall, these show that the situation is more
 complicated than merely looking at one-number summaries might suggest.
 Note that the axes are sometimes in different scales to increase
 visibility.
@@ -1187,7 +1182,7 @@ In general, debiasing might end up leading to lower differences between
 general level coefficients for associated and different attributes. But
 that usually happens without any major change to the structure of the
 coefficients for protected words, sporadic extreme and undesirable
-changes for some protected words, usually with the side-effect of
+changes for some protected words, usually with the side effect of
 changing what happens with neutral and human predicates.
 
 We wouldn't be even able to notice these phenomena had we restricted our
@@ -1255,9 +1250,9 @@ happened for human and different word lists, where the percentage of
 	\subsection{Potential objections}\label{potential-objections}}
 
 
-A worry that one might have is that the original challenge was to develop a single-number bias metric, and that our approach does not reach this goal. Essentially, this is correct: we argue that chasing a single metric is the wrong game to play to start with. In line with general Bayesian methodology, we grant epistemic priority to the inspection of posterior distributions, of which particular single-number summaries are just that. Imperfect summaries that can be easily misinterpreted if no attention is paid to the uncertainties surronding it. Having said this, if one really needs a single-number summary, then mean posterior contrasts between associated and human attributes are closer to adequacy than the single number metrics proposed so  (but they still should come accompanied with some description of the uncertainty involved).
+A worry that one might have is that the original challenge was to develop a single-number bias metric, and that our approach does not reach this goal. Essentially, this is correct: we argue that chasing a single metric is the wrong game to play to start with. In line with general Bayesian methodology, we grant epistemic priority to the inspection of posterior distributions, of which particular single-number summaries are just that. Imperfect summaries that can be easily misinterpreted if no attention is paid to the uncertainties surronding it. Having said this, if one really needs a single-number summary, then mean posterior contrasts between associated and human attributes are closer to adequacy than the single number metrics proposed so  (but they still should come accompanied by some description of the uncertainty involved).
 
-One of our recommendations is that the wordlists should be larger. A possible concern here is that one might ask: \emph{But wouldn't larger wordlists solve the problem with the existing measures of bias?} This is in some sense true: the overconfidence resulting from using aggregated data will be less damaging if more data is used. However, as \citet{Ethayarajh2020Bernstein} prove, the list sizes needed for useful uncertainty estimation from this perspective obtained using theoretical bounds tend to be prohibitive. Bayesian uncertainty estimates, however, scale with size and can be improved and evaluated as the list sizes increase, even if the size improvement is far from the one required by classical theoretical considerations.  
+One of our recommendations is that the word lists should be larger. A possible concern here is that one might ask: \emph{But wouldn't larger word lists solve the problem with the existing measures of bias?} This is in some sense true: the overconfidence resulting from using aggregated data will be less damaging if more data is used. However, as \citet{Ethayarajh2020Bernstein} prove, the list sizes needed for useful uncertainty estimation from this perspective obtained using theoretical bounds tend to be prohibitive. Bayesian uncertainty estimates, however, scale with size and can be improved and evaluated as the list sizes increase, even if the size improvement is far from the one required by classical theoretical considerations.  
 
 
 Another concern may be that this research focuses primarily on traditional uncontextualized embeddings, which may be considered outdated given recent advances in the field. Our focus on WEAT and similar methods is motivated by the fact that WEAT is the main bias measure that is claimed to be supported by data and findings from the Implicit Association Test in psychology, and by the fact that its analogues have seen the most research contributions.
@@ -1307,7 +1302,7 @@ of this paper:
   admittedly, deserves further evaluation which goes beyond the scope of
   this paper.
   
-\item \citet{Lum2022Debiasing} observe that many group-wise performance meta-metrics used in algorithmic fairness consideration are biased estimators of disparities and propose a double-corrected variance estimator, which provides unbiased estimates and uncertainty quantification of the variance of model performance. This is certaintly valuable. Our approach differs in the following dimensions: it is not clear how bias variance estimator for model performance should be used in the context of group-wise cosine similarity evaluation, where we are not dealing with performance, but with cosine similarities, and where we are not dealing with a binomial distribution. Moreover, while having an unbiased estimate is valuable, if we have one this only means that \emph{in the long run} our estimates would tend to the true value. In the current situation we were looking at, the datasets are relatively small and we want to focus on what can be said before the long run has passed. Moreover, our Bayesian approach allows for regularization, inspection at values levels of granularity, and more straightforward interpretability, as it results in posterior distributions.
+\item \citet{Lum2022Debiasing} observe that many group-wise performance meta-metrics used in algorithmic fairness consideration are biased estimators of disparities and propose a double-corrected variance estimator, which provides unbiased estimates and uncertainty quantification of the variance of model performance. This is certaintly valuable. Our approach differs in the following dimensions: it is not clear how bias variance estimator for model performance should be used in the context of group-wise cosine similarity evaluation, where we are not dealing with performance, but with cosine similarities, and where we are not dealing with a binomial distribution. Moreover, while having an unbiased estimate is valuable, if we have one this only means that \emph{in the long run} our estimates would tend to the true value. In the current situation we were looking at, the datasets are relatively small, and we want to focus on what can be said before the long run has passed. Moreover, our Bayesian approach allows for regularization, inspection at values levels of granularity, and more straightforward interpretability, as it results in posterior distributions.
 
 \item \citet{Ethayarajh2019understanding} point out that WEAT will be overblown in degenerate cases: if the word groups are singletons, the effect size is always maximal in one direction. They also bring up  sensitivity to the word frequency in a given corpus and to the word list choice. The authors propose a measure they call Relational Inner Product Association (RIPA) to measure the association between a word vector and a relation vector in  a  word embedding. Roughly, this is  the scalar projection of a word vector onto a one-dimensional bias subspace (which is found by employing approach from \citet{Bolukbasi2016man}). They do not attempt any statistical analysis or generalization to a bias measure that would apply to an embedding space as a whole (as opposed to assigning RIPA to one word vector with respect to a relation vector), or a particular protected word list. In contrast, our analysis allows for a more general evaluation, with uncertainty estimates. Moreover, RIPA can be used only for those embedding models that implicitly employ matrix factorization and contain co-occurrence statistic. In contrast, such technicalities do not prevent the Bayesian approach from being deployed for contextual models.
 
@@ -1329,7 +1324,7 @@ methodology and extend the lists gradually.
 
 
 
-\item \citet{zhang2020robustness} shows the limitations of methods that use gender word pairs to detect bias in an embedding space. They claim that using analogies to detect bias may not necessarily reflect societal bias, but rather simply co-occurrence frequency between words. They conduct experiments where they evaluate four popular bias mesures: Direct Bias (DB), Word Association (WA), Neighbourhood Bias Metric (NBM), and Relational Inner Product Association (RIPA). They show that these measures are not robust to changing either the base pair or the form of a word used. This is  a valid point, to some extent related to the limitations on non-contextual models, and to some extent suggesting the inclusion of various word forms in the word list, and not constructing base direction using small word lists. As one of our observations is that the uncertainty resulting from the use of currently existing protected word lists is too large to justify sweeping statements, this is in line with our criticism. 
+\item \citet{zhang2020robustness} show the limitations of methods that use gender word pairs to detect bias in an embedding space. They claim that using analogies to detect bias may not necessarily reflect societal bias, but rather simply co-occurrence frequency between words. They conduct experiments where they evaluate four popular bias mesures: Direct Bias (DB), Word Association (WA), Neighbourhood Bias Metric (NBM), and Relational Inner Product Association (RIPA). They show that these measures are not robust to changing either the base pair or the form of a word used. This is  a valid point, to some extent related to the limitations on non-contextual models, and to some extent suggesting the inclusion of various word forms in the word list, and not constructing base direction using small word lists. As one of our observations is that the uncertainty resulting from the use of currently existing protected word lists is too large to justify sweeping statements, this is in line with our criticism. 
 
 
 \item \citet{Du2021Assessing} investigate the reliability of bias measures. They find that key existing candidates for bias measure often fail to agree with one another on particular pairs and protected words, and are sensitive to the word embedding algorithm and the corpus used. While some of these sensitivities are not necessarily signs of failure, we agree that the more abstract a measure is the more degrees of freedom for particular ways it is constructed, and the more ways such measures can disagree without a clear and principled reason. This is partially why we propose a less abstract approach that estimates expected cosine distances directly using raw data points. 
@@ -1397,7 +1392,7 @@ rather devote attention to more nuanced analysis.
 
 
 
-%\newpage
+\newpage
 
 
 \appendix
@@ -1422,7 +1417,7 @@ One response to the raising of the issue of bias in natural language
 	design-, data-, or risk-related decisions that have to be guided by
 	extra-algorithmic considerations. Such choices necessarily involve value
 	judgments and have to do, for instance, with what simplifications or
-	risks one finds acceptable. Admittedly, algorithmic decision making
+	risks one finds acceptable. Admittedly, algorithmic decision-making
 	cannot fulfill the value-free ideal, but this only means that even more
 	attention needs to be paid to the values underlying different techniques
 	and decisions, and to the values being pursued in a particular use of an
@@ -1458,7 +1453,7 @@ One response to the raising of the issue of bias in natural language
 
 \begin{center}\includegraphics{figures/weatjoint2z} \end{center}
 
-\pagebreak
+%\pagebreak
 
 \begin{center}\includegraphics[width=1\linewidth]{figures/weat7glovh} \end{center}
 
@@ -1508,7 +1503,7 @@ checks}\label{posterior-predictive-checks}}
 
 \begin{center}\includegraphics[width=1\linewidth]{figures/figposteriorPrCheckAppendixd} \end{center}
 
-\pagebreak 
+\pagebreak
 
 \hypertarget{word-lists}{%
 \subsection{Word lists}\label{word-lists}}
