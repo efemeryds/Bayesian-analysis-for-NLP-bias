@@ -5,7 +5,7 @@
 
 - R version 4.2.2
 - All required packages are listed in `installed_packages.csv`. 
-- To install them follow the method described [here](https://pythonandr.com/2017/07/27/quick-way-of-installing-all-your-old-r-libraries-on-a-new-device/).
+- To install them follow the method described [here](https://pythonandr.com/2017/07/27/quick-way-of-installing-all-your-old-r-libraries-on-a-new-device/), that is:
 
 ```{r}
 installedPreviously <- read.csv('installed_packages.csv')
