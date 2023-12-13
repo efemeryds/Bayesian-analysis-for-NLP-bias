@@ -113,6 +113,14 @@ cosine similarity---and the results of such comparisons can be used in
 downstream tasks. Roughly speaking, cosine similarity is an imperfect
 mathematical proxy for semantic similarity \citep{Mikolov2013efficient}.
 
+
+Recent research, however, has criticized the existing methods for assessing bias in word embedding models. \citet{zhang2020robustness} highlight the limitations of word pairs in detecting bias, arguing that analogies may not necessarily capture societal bias, but instead reflect co-occurrence frequency. \citet{Ethayarajh2019understanding} draw attention to potential problems with the Word Embedding Association Test (WEAT) in degenerate cases, emphasizing its sensitivity to word frequency and list selection. Similarly, \citet{schroder2021evaluating} critique existing bias metrics such as \textsf{MAC} and \textsf{WEAT} in light of their failure to satisfy plausible general formal principles.  \citet{Goldfarb2021BiasNotCorrelate} find only limited correlation between intrinsic bias as measured by WEAT and extrinsic metrics such as equality of opportunity and predictive parity. \citet{Du2021Assessing} discover inconsistencies among existing bias measures, indicating sensitivity to embedding algorithms and corpora. Finally, \citet{Spliethover2021BiasSilhouette} introduces Bias Silhouette Analysis (BSA) as a method for assessing the quality of metrics that measure bias in word embedding models based on word lists, and concludes that none of the metrics they evaluated can reliably discriminate between biased and non-biased models in all cases.  \citet{Ethayarajh2020Bernstein} argue against expressing bias as a single number without considering the inherent uncertainty in sample-based estimates. \citet{Lum2022Debiasing} proposes a double-corrected variance estimator for unbiased estimates and uncertainty quantification of group-wise performance metrics. Both proposals enrich the existing measures with classical statistical uncertainty quantification. Our proposal is to get rid of the single-number measures and use Bayesian methods.
+
+
+
+
+
+
 In what follows, we focus on two popular measures of bias applicable to
 many existing word embeddings, such as
 \emph{GoogleNews},\footnote{GoogleNews-vectors-negative300, available at  \url{https://github.com/mmihaltz/word2vec-GoogleNews-vectors}.}
@@ -120,7 +128,7 @@ many existing word embeddings, such as
 and
 \emph{Reddit Corpus} \citep{Rabinovich2018Reddit}\footnote{Reddit-L2 corpus, available at  \url{http://cl.haifa.ac.il/projects/L2/}.}:
 \emph{Word Embedding Association Test} (\textsf{WEAT}) \citep{Caliskan2017semanticsBiases}, and
-\emph{Mean Average Cosine Distance} (\textsf{MAC}) \citep{Manzini2019blackToCriminal}. We first
+\emph{Mean Average Cosine Distance} (\textsf{MAC}) \citep{Manzini2019blackToCriminal}.  We first
 explain how these measures are supposed to work. Then we argue that they
 are problematic for various reasons---the key one being that by
 pre-averaging data they manufacture false confidence, which we
@@ -1288,7 +1296,7 @@ of this paper:
 \item \citet{may-etal-2019-measuring} develop a generalization of \textsf{WEAT} meant to apply to
   sets of sentences, \textsf{SEAT}, which basically applies
   \textsf{WEAT} to vector representations of sentences. The authors,
-  however, still pre-average and play the game of finding a
+  however, still pre-average and focus on a
   single-number metric, so our remarks apply.
 
 \item \citet{Guo2021CEAT} introduce the Contextualized Embedding Association Test
@@ -1308,7 +1316,7 @@ of this paper:
 
 \item \citet{Ethayarajh2020Bernstein} argues that a bias estimate should not be expressed as a single number without taking into account that the estimate is
 made using a sample of data and therefore has intrinsic uncertainty.
-The author suggest using Bernstein bounds to gauge the uncertainty in
+The author suggests using Bernstein bounds to gauge the uncertainty in
 terms of confidence intervals. We do not discuss this approach
 extensively, as we think that confidence intervals are quite
 problematic for several reasons, among others the confusing
@@ -1333,7 +1341,7 @@ methodology and extend the lists gradually.
 \item \citet{Goldfarb2021BiasNotCorrelate} further our  understanding of  the relationship between intrinsic bias measured as a property of an embedding space, and extrinsic bias, measured in terms of  downstream task performance. They compare  WEAT as an intrinsic measure with Equality of Opportunity and Predictive Parity as external metrics.  The conclusion is such a  correlation is very limited. We consider this to be a point that matches our criticism of WEAT. Running a similar analysis for the Bayesian approach we discussed in this paper would be a useful task, which remains beyond the scope of this paper. One interesting general difference is that our method often claims that there are no sufficient  reasons to claim that an embedding is biased, so one would be on the lookout for such cases in which extrinsic bias measures nevertheless suggest the presence of bias. Such a presence, however, would not necessarily have to mean that the Bayesian approach to estimating potential systematic differences in cosine similarity is wrong, but rather suggest that external bias in downstream performance is not a function thereof.
 
 
-\item \citet{Spliethover2021BiasSilhouette} propose Bias Silhouette Analysis (BSA), a method for assessing the quality of metrics that measure bias in word embedding models based on word lists. The core idea here is to quantify how much the bias values of a metric vary depending on what words from the lists are actually observed, where the computations result in  values for each model obtained  using word list subsets of increasing length. This allows for an inspection of bias metric convergence and sensitivity to word list choice, with a biased (GloVe) and an explicitly debiased model whose lower bias has been confirmed empirically (NBatch).  They examine the Embedding Coherence Test (ECT), the Relative Negative Sentiment Bias (RNSB), and the Word Embedding Association Test (WEAT), concluding  that none of these metrics can reliably discriminate between biased and non-biased models in all cases. This is not unexpected. An interesting question is what would happen if a similar test was applied to our method. However, our point is that the existing word lists are too short to provide reliable estimate of bias.
+\item \citet{Spliethover2021BiasSilhouette} propose Bias Silhouette Analysis (BSA), a method for assessing the quality of metrics that measure bias in word embedding models based on word lists. The core idea here is to quantify how much the bias values of a metric vary depending on what words from the lists are actually observed, where the computations result in  values for each model obtained  using word list subsets of increasing length. This allows for an inspection of bias metric convergence and sensitivity to word list choice, with a biased (GloVe) and an explicitly debiased model whose lower bias has been confirmed empirically (NBatch).  They examine the Embedding Coherence Test (ECT), the Relative Negative Sentiment Bias (RNSB), and the Word Embedding Association Test (WEAT), concluding  that none of these metrics can reliably discriminate between biased and non-biased models in all cases. This is in line with our results. An interesting question is what would happen if a similar test was applied to our method. However, our point is that the existing word lists are too short to provide reliable estimate of bias.
 
 
 \end{itemize}
